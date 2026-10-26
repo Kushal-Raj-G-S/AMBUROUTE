@@ -206,7 +206,7 @@ The main limitations are these. Bed occupancy, ICU capacity and call locations a
 \section{Conclusion}
 We formalised hospital selection when bed data are stale and blind to ambulances already on the road, calibrated a simulator to 3,861 real traffic samples, and compared simple rules, an equilibrium assignment and PPO under the same tuning and held-out testing. Counting ambulances in flight shortened time to bed by 12\% at the evening peak and 17\% in a surge and removed most turn-aways. The equilibrium assignment matched the heuristic's speed with 10--20\% fewer rejections and an even load, and PPO reached the same level without exceeding it. The next steps are a live, authenticated hospital bed feed, incident-aware traffic, triage-weighted and specialty-aware objectives, and a field study with dispatchers.
 
-\textbf{Availability.} The simulator, fitted traffic parameters, trained policies, experiment scripts and console are available at \url{https://github.com/Kushal-Raj-G-S/AMBUROUTE} under the MIT license. The raw Mapbox responses are not redistributed; the collection script regenerates them with the reader's own token. A single script regenerates every table and figure from the per-seed results.
+\textbf{Availability.} The simulator, fitted traffic parameters, trained policies, experiment scripts and console are available at \href{https://github.com/Kushal-Raj-G-S/AMBUROUTE}{github.com/Kushal-Raj-G-S/AMBUROUTE} under the MIT license. The raw Mapbox responses are not redistributed; the collection script regenerates them with the reader's own token. A single script regenerates every table and figure from the per-seed results.
 
 \begin{thebibliography}{99}
 \bibitem{selvan2025ambulance}
