@@ -11,6 +11,7 @@ Traffic-aware ambulance dispatch that counts the ambulances **already on the roa
 ![Mapbox](https://img.shields.io/badge/maps-Mapbox-000000?logo=mapbox&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/RL-PPO%20%2F%20PyTorch-EE4C2C?logo=pytorch&logoColor=white)
 ![Tests](https://img.shields.io/badge/tests-7%20passing-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue)
 ![Status](https://img.shields.io/badge/status-research%20prototype-orange)
 
 <img src="docs/images/console_multi.jpg" alt="AmbuRoute dispatcher console: four ambulances assigned at a Nash equilibrium" width="880">
@@ -167,6 +168,10 @@ docs/images/          images used in this README
 ## ⚠️ Limitations
 
 Bed counts, ICU capacity and calls are simulated; travel times follow typical (not live) traffic; time-to-bed is a stand-in for clinical outcome; triage and specialty capability are not modelled; one city only. Automated recommendations should support, not replace, a dispatcher, and need a field study before any real use.
+
+## 📄 License
+
+Released under the [MIT License](LICENSE).
 
 ## 📝 Notes
 
