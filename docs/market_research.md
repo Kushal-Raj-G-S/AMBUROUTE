@@ -1,26 +1,31 @@
 # AmbuRoute: problem evidence, landscape and regulatory notes
 
-*Secondary research from public sources, compiled 26 October 2026. No primary interviews were conducted. Several sources are dated (2014-2020); each is marked. Reddit could not be reached by our search tool, so forum voice is represented by news and journal reporting. Figures from vendors and market-research firms are self-reported and should be treated as rough.*
+*Secondary research from public sources, compiled 26 October 2026. No primary interviews were conducted. Several sources are dated (2013-2020); each is marked. Reddit is blocked to our tools, so forum voice is represented by news and journal reporting. Figures from vendors and market-research firms are self-reported and should be treated as rough.*
+
+*Verification key: **✔** = the page was opened and the figure checked against the text; **○** = taken from a search summary and not opened (treat with more caution). Unmarked rows are ○.*
 
 ## 1. Is the problem real in Bengaluru? Evidence
 
 | Finding | Source | Date / caveat |
 |---|---|---|
-| A government audit of Karnataka's 108 service found the 20-minute urban response target was met in only **72 %** of cases | [CAG audit report, Chapter II](https://cag.gov.in/webroot/uploads/download_audit_report/2020/5.Chapter%20II-05fd1cdd9ce5711.66448512.pdf); coverage: [The News Minute](https://www.thenewsminute.com/article/108-ambulances-failed-reach-50-patients-within-time-karnataka-cag-139331) | Audit period 2014-15 to 2018-19 |
-| Bengaluru's 108 call centre took roughly **250-300 calls a day**; average urban arrival about **14.5 min** | [Citizen Matters](https://citizenmatters.in/plenty-ambulances-in-city-but-not-enough-for-needy/) | Article date not shown; treat as dated |
-| Bengaluru Traffic Police data show accident victims who died **on the way to hospital** rising from 175 (2021) to **292** (2023) | [Deccan Herald opinion, "No green for the ambulance"](https://www.deccanherald.com/opinion/no-green-for-the-ambulance-3403011) | Opinion piece citing police data |
+| ✔ Karnataka's 108 service reached patients within the stipulated **30 minutes** in only **72 %** of cases, and in about **half of trauma cases** did not reach within the "golden hour" (CAG audit, 2014-15 to 2018-19) | Coverage: [The News Minute / IANS, 10 Dec 2020](https://www.thenewsminute.com/article/108-ambulances-failed-reach-50-patients-within-time-karnataka-cag-139331); report: [CAG, Chapter II](https://cag.gov.in/webroot/uploads/download_audit_report/2020/5.Chapter%20II-05fd1cdd9ce5711.66448512.pdf) (PDF not opened) | Statewide, not Bengaluru-only; the project aimed for 20 min urban and 30 min rural |
+| ✔ **Old figures, do not use as current:** Bengaluru's 108 centre then took 250-300 calls a day; average urban arrival about 14.5 min | [Citizen Matters, 29 July 2013](https://citizenmatters.in/plenty-ambulances-in-city-but-not-enough-for-needy/) | **13 years old**; Bangalore then had 52 108-ambulances |
+| ✔ Bengaluru records around **3,000 ambulance trips a day** (108 and private), including transfers | [Deccan Herald opinion, 13 Feb 2025](https://www.deccanherald.com/opinion/no-green-for-the-ambulance-3403011) | Includes non-emergency and inter-hospital trips; about 2.1 trips a minute averaged over a day |
+| ✔ Accident victims who died **while being transported to hospital** rose from 175 (2021) to **292** (2023), citing Bengaluru Traffic Police data; at least 300 died within the first hour after accidents in 2024 | [Deccan Herald opinion, "No green for the ambulance"](https://www.deccanherald.com/opinion/no-green-for-the-ambulance-3403011) | Opinion piece by Sneha Priya Yanappa |
 | A patient was **denied admission by 9 hospitals** and died in the ambulance; another died after being turned away from several hospitals while searching for an ICU bed | [The News Minute, 31-year-old patient](https://www.thenewsminute.com/article/31-year-old-bengaluru-covid-19-patient-dies-after-struggling-find-icu-bed-146937); [The News Minute, harrowing stories](https://thenewsminute.com/article/harrowing-stories-bengaluru-covid-19-patients-who-struggled-get-medical-help-128066) | **COVID surge, 2020**: extreme conditions, but exactly the failure mode AmbuRoute targets |
 | Ambulance drivers in Hyderabad and Ahmedabad name **congested streets** as a major obstacle | [Journal of Emergency Medicine survey](https://wmpllc.org/ojs/index.php/jem/article/view/1316) | Two cities, not Bengaluru |
 | A review notes **over 40 %** of transported patients are *not* taken to the nearest hospital, and capacity of the destination is one reason | [Review of EMS destination choice](https://revistas.javeriana.edu.co/index.php/gerepolsal/article/download/24409/21467) | International; no India-specific study of how crews choose was found |
 
 **What this means for AmbuRoute:** the two delays we model (time on the road and being turned away at the door) are both documented in Bengaluru. No India-specific study of *how a crew picks a hospital* turned up, which is itself a research gap.
 
+**Load check for the simulator:** about 3,000 trips a day is roughly 2.1 trips a minute averaged over 24 hours. Our scenarios use 0.5, 1.2 and 2.5 emergency calls a minute, so they bracket that figure. The 3,000 includes non-emergency and inter-hospital transfers, so the share needing an emergency bed is lower; treat the match as plausible, not proven.
+
 ## 2. Bed information in India: what exists and how fresh it is
 
 | Finding | Source | Caveat |
 |---|---|---|
-| Bengaluru ran a public **BBMP bed dashboard** covering 102 hospitals (ICU, ventilators) | [The News Minute](https://thenewsminute.com/article/bengaluru-hospital-bed-availability-can-now-be-tracked-through-bbmp-dashboard-128587) | 2020, COVID-era |
-| A state order required hospitals to refresh bed data **every six hours** | [Udayavani](https://english.udayavani.com/article/all-pvt-hospitals-ordered-to-update-bed-availability-data/895519) | 2020 |
+| ✔ Bengaluru's civic body launched a public **bed dashboard** it described as real-time for 102 hospitals | [The News Minute, 14 Jul 2020](https://thenewsminute.com/article/bengaluru-hospital-bed-availability-can-now-be-tracked-through-bbmp-dashboard-128587) | COVID-era |
+| ○ A state order reportedly required hospitals to refresh bed data **every six hours** | [Udayavani](https://english.udayavani.com/article/all-pvt-hospitals-ordered-to-update-bed-availability-data/895519) | 2020. **Not verified at the source** (the site could not be opened); taken from a search summary |
 | Private-hospital bed data sat in a separate portal that **did not allocate beds** | [The News Minute](https://www.thenewsminute.com/article/dashboard-bed-status-private-bengaluru-hospitals-launch-may-3-148141) | 2020 |
 | Portal figures **lagged reality**; some listed beds were not offering service | [Deccan Herald](https://www.deccanherald.com/india/karnataka/bengaluru/bengaluru-faces-icu-bed-shortage-after-slight-spike-in-covid-19-cases-887159.html) | 2020 |
 | Delhi launched an **ICU bed dashboard** for 17 government hospitals in July 2024 | [PIB document](https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/jul/doc202676912801.pdf) (via search summary; verify) | Government hospitals only |

@@ -4,7 +4,7 @@
 
 ## E1. What if the bed counts are very old?
 
-Our paper tested bed data refreshed every 1-30 minutes. In Bengaluru's 2020 bed portals, hospitals were only *required* to update every **six hours** ([Udayavani](https://english.udayavani.com/article/all-pvt-hospitals-ordered-to-update-bed-availability-data/895519)), and reporters found the numbers lagging. We therefore extended the refresh interval.
+Our paper tested bed data refreshed every 1-30 minutes. In Bengaluru's 2020 bed portals, hospitals were reportedly *required* to update only every **six hours** ([Udayavani](https://english.udayavani.com/article/all-pvt-hospitals-ordered-to-update-bed-availability-data/895519); not verified at the source), and reporters found the numbers lagging. We therefore extended the refresh interval.
 
 > **Note on "frozen":** episodes last at most about three hours, so refresh intervals of 180 and 360 minutes behave identically: the published bed counts never refresh during an episode. We call this **frozen** rather than claiming six-hour-old data. At the start of each episode the published counts are fresh, so this is a mild version of reality.
 
