@@ -1,0 +1,11 @@
+numpy==2.5.4
+pandas==3.1.0
+scipy==1.18.1
+matplotlib==3.11.2
+gymnasium==1.4.0
+stable-baselines3==2.9.0
+torch==2.14.1
+fastapi==0.162.0
+uvicorn==0.54.0
+httpx==0.28.1
+pytest==9.1.1

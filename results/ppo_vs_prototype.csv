@@ -1,0 +1,4 @@
+scenario,mean_diff,seeds_ppo_better,n,p_raw,p_bonferroni3
+offpeak,-0.1198,25,50,0.3841,1.0
+peak,-0.6976,36,50,0.0004,0.0011
+surge,-1.7271,42,50,0.0,0.0

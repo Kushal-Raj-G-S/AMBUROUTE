@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AmbuRoute Dispatcher</title>
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
+<style>
+  :root{--bg:#0f1720;--panel:#16212d;--line:#243344;--text:#e6edf3;--mute:#8aa0b5;--acc:#2f9e6b;--warn:#e0a030;--bad:#d9534f;--blue:#3b82f6}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;font:14px/1.45 system-ui,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text)}
+  #app{display:flex;height:100%}
+  #side{width:380px;max-width:100%;background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column}
+  #map{flex:1;min-width:0}
+  header{padding:14px 16px;border-bottom:1px solid var(--line)}
+  header h1{margin:0;font-size:17px}
+  header p{margin:2px 0 0;color:var(--mute);font-size:12px}
+  .tabs{display:flex;border-bottom:1px solid var(--line)}
+  .tabs button{flex:1;padding:10px;background:none;border:0;color:var(--mute);cursor:pointer;font:inherit;border-bottom:2px solid transparent}
+  .tabs button.on{color:var(--text);border-bottom-color:var(--acc)}
+  .pane{display:none;padding:14px 16px;overflow:auto;flex:1}
+  .pane.on{display:block}
+  label{display:block;margin:10px 0 4px;color:var(--mute);font-size:12px}
+  select,input[type=number]{width:100%;padding:8px;background:#0f1720;color:var(--text);border:1px solid var(--line);border-radius:6px;font:inherit}
+  .row{display:flex;gap:8px;align-items:center}
+  button.btn{padding:9px 12px;border:0;border-radius:6px;background:var(--acc);color:#fff;font:inherit;font-weight:600;cursor:pointer;margin-top:12px;width:100%}
+  button.btn.alt{background:#2a3b4d}
+  button.btn:disabled{opacity:.5;cursor:default}
+  .card{background:#0f1720;border:1px solid var(--line);border-radius:8px;padding:12px;margin-top:12px}
+  .card h3{margin:0 0 6px;font-size:15px}
+  .kv{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13px}
+  .kv span:nth-child(odd){color:var(--mute)}
+  .badge{display:inline-block;padding:1px 7px;border-radius:10px;font-size:11px;background:#2a3b4d;color:var(--text)}
+  .badge.ok{background:#1f5a40}.badge.warn{background:#6b4e12}
+  .hint{color:var(--mute);font-size:12px;margin-top:6px}
+  .err{color:#ff9d99;margin-top:10px;font-size:13px}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:10px}
+  th,td{text-align:right;padding:5px 4px;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  th{color:var(--mute);font-weight:500}
+  .hosp{display:grid;grid-template-columns:1fr 62px 62px;gap:6px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);font-size:12.5px}
+  .hosp input{padding:4px;font-size:12px}
+  .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}
+  @media(max-width:760px){#app{flex-direction:column}#side{width:100%;height:55%}#map{height:45%}}
+</style>
+</head>
+<body>
+<div id="app">
+  <aside id="side">
+    <header>
+      <h1>AmbuRoute <span class="badge" id="tm">…</span></h1>
+      <p>Traffic-aware hospital selection &amp; multi-ambulance coordination</p>
+    </header>
+    <nav class="tabs">
+      <button data-t="dispatch" class="on">Dispatch</button>
+      <button data-t="hospitals">Hospitals</button>
+      <button data-t="compare">Compare</button>
+    </nav>
+
+    <section class="pane on" id="p-dispatch">
+      <div class="row">
+        <div style="flex:1"><label>Mode</label>
+          <select id="mode"><option value="single">Single ambulance</option><option value="multi">Several ambulances (Nash)</option></select></div>
+        <div style="flex:1"><label>Selection method</label>
+          <select id="method"><option value="heuristic">Capacity heuristic</option><option value="drl">PPO policy</option></select></div>
+      </div>
+      <label><input type="checkbox" id="icu"> Patient needs ICU bed</label>
+      <div class="hint" id="modehint">Click the map to place the incident.</div>
+      <button class="btn" id="go">Recommend hospital</button>
+      <button class="btn alt" id="clear">Clear</button>
+      <div id="result"></div>
+      <div class="err" id="err"></div>
+    </section>
+
+    <section class="pane" id="p-hospitals">
+      <div class="row"><button class="btn alt" id="simbeds" style="margin-top:0">Simulate bed changes</button></div>
+      <div class="hint">Hospitals report beds through <code>POST /hospitals/{id}/beds</code>. Edit free general / ICU beds here.</div>
+      <div id="hlist"></div>
+    </section>
+
+    <section class="pane" id="p-compare">
+      <label>Scenario</label>
+      <select id="scn"><option value="surge">Surge (2.5 calls/min)</option><option value="peak">Evening peak (1.2/min)</option><option value="offpeak">Off-peak (0.5/min)</option></select>
+      <button class="btn" id="runcmp">Run simulated comparison</button>
+      <div class="hint">Replays identical simulated days for each policy. Beds and traffic here are simulated, not real hospital data.</div>
+      <div id="cmp"></div>
+    </section>
+  </aside>
+  <div id="map"></div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const COLORS = ['#3b82f6','#e0a030','#a855f7','#ef4444','#14b8a6','#f97316','#84cc16','#ec4899'];
+let map, hospitals = [], incidents = [], incMarkers = [], lastRoutes = [];
+
+async function api(path, opts){
+  const r = await fetch(path, opts);
+  if(!r.ok){ let d=''; try{ d=(await r.json()).detail||'' }catch(e){} throw new Error(path+' → '+r.status+' '+d); }
+  return r.json();
+}
+const post = (p,b) => api(p,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});
+
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.pane').forEach(p=>p.classList.toggle('on',p.id==='p-'+b.dataset.t));
+  if(b.dataset.t==='hospitals') renderHospitalList();
+});
+
+function ratioColor(h){
+  const r = h.available_beds / Math.max(h.total_beds,1);
+  return r < 0.03 ? '#d9534f' : r < 0.07 ? '#e0a030' : '#2f9e6b';
+}
+function hospitalGeoJSON(){
+  return {type:'FeatureCollection', features: hospitals.map(h=>({type:'Feature',
+    geometry:{type:'Point',coordinates:[h.lon,h.lat]},
+    properties:{id:h.id,name:h.name,beds:h.available_beds,tb:h.total_beds,icu:h.available_icu_beds,ticu:h.total_icu_beds,color:ratioColor(h)}}))};
+}
+async function loadHospitals(){
+  hospitals = await api('/hospitals');
+  if(map && map.getSource('hosp')) map.getSource('hosp').setData(hospitalGeoJSON());
+  renderHospitalList();
+}
+
+async function init(){
+  const cfg = await api('/config');
+  $('#tm').textContent = cfg.traffic_model + ' traffic model';
+  if(!cfg.ppo_available){ const o=$('#method option[value=drl]'); o.textContent='PPO (model missing → Nash fallback)'; }
+  if(!cfg.mapbox_token){ $('#err').textContent='MAPBOX_TOKEN missing in .env — map cannot load.'; return; }
+  mapboxgl.accessToken = cfg.mapbox_token;
+  map = new mapboxgl.Map({container:'map', style:'mapbox://styles/mapbox/navigation-day-v1', center:[77.595,12.97], zoom:11});
+  map.addControl(new mapboxgl.NavigationControl());
+  await loadHospitals();
+  map.on('load', ()=>{
+    map.addSource('hosp',{type:'geojson',data:hospitalGeoJSON()});
+    map.addLayer({id:'hosp',type:'circle',source:'hosp',paint:{'circle-radius':9,'circle-color':['get','color'],'circle-stroke-width':2,'circle-stroke-color':'#fff'}});
+    map.on('click','hosp',e=>{
+      const p=e.features[0].properties;
+      new mapboxgl.Popup().setLngLat(e.lngLat).setHTML(`<b>${p.name}</b><br>Free beds: ${p.beds}/${p.tb}<br>Free ICU: ${p.icu}/${p.ticu}`).addTo(map);
+      e.originalEvent.stopPropagation();
+    });
+    map.on('mouseenter','hosp',()=>map.getCanvas().style.cursor='pointer');
+    map.on('mouseleave','hosp',()=>map.getCanvas().style.cursor='');
+  });
+  map.on('click', e=>{
+    if(map.queryRenderedFeatures(e.point,{layers:['hosp']}).length) return;
+    const multi = $('#mode').value==='multi';
+    if(!multi){ clearMap(); }
+    incidents.push({lat:e.lngLat.lat, lon:e.lngLat.lng});
+    const el=document.createElement('div');
+    el.style.cssText='width:16px;height:16px;border-radius:50%;background:#ef4444;border:2px solid #fff;box-shadow:0 0 0 4px rgba(239,68,68,.3)';
+    incMarkers.push(new mapboxgl.Marker(el).setLngLat(e.lngLat).addTo(map));
+    $('#modehint').textContent = multi ? `${incidents.length} ambulance(s) placed. Click more, then press Assign.` : 'Incident placed. Press Recommend hospital.';
+  });
+}
+
+function clearRoutes(){
+  lastRoutes.forEach(id=>{ if(map.getLayer(id)) map.removeLayer(id); if(map.getSource(id)) map.removeSource(id); });
+  lastRoutes=[];
+}
+function clearMap(){
+  clearRoutes(); incMarkers.forEach(m=>m.remove()); incMarkers=[]; incidents=[];
+  $('#result').innerHTML=''; $('#err').textContent='';
+}
+function drawRoute(geometry,color,id){
+  map.addSource(id,{type:'geojson',data:{type:'Feature',geometry}});
+  map.addLayer({id,type:'line',source:id,layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':color,'line-width':5,'line-opacity':.9}});
+  lastRoutes.push(id);
+}
+function fitTo(coords){
+  const b=new mapboxgl.LngLatBounds(); coords.forEach(c=>b.extend(c)); map.fitBounds(b,{padding:80,duration:600});
+}
+const minutes = s => (s/60).toFixed(1)+' min';
+
+$('#mode').onchange=()=>{ clearMap(); const m=$('#mode').value==='multi';
+  $('#go').textContent = m ? 'Assign hospitals (Nash equilibrium)' : 'Recommend hospital';
+  $('#method').disabled = m;
+  $('#modehint').textContent = m ? 'Click the map several times to place ambulances.' : 'Click the map to place the incident.'; };
+$('#clear').onclick=clearMap;
+
+$('#go').onclick=async()=>{
+  $('#err').textContent=''; if(!incidents.length){ $('#err').textContent='Place at least one incident on the map first.'; return; }
+  const btn=$('#go'); btn.disabled=true;
+  try{
+    clearRoutes();
+    const icu=$('#icu').checked;
+    if($('#mode').value==='single'){
+      const url = $('#method').value==='drl' ? '/route/drl' : '/route';
+      const r = await post(url,{ambulance:incidents[0],needs_icu:icu,minute_of_day:new Date().getHours()*60+new Date().getMinutes()});
+      drawRoute(r.route.geometry,'#3b82f6','route-0');
+      fitTo(r.route.geometry.coordinates);
+      const live = r.route.source==='mapbox';
+      $('#result').innerHTML = `<div class="card"><h3>${r.hospital.name}</h3><div class="kv">
+        <span>Route ETA</span><span><b>${minutes(r.route.duration_s)}</b> <span class="badge ${live?'ok':'warn'}">${r.route.source}</span></span>
+        <span>Distance</span><span>${(r.route.distance_m/1000).toFixed(1)} km</span>
+        <span>Free beds</span><span>${r.hospital.available_beds} / ${r.hospital.total_beds}</span>
+        <span>Free ICU</span><span>${r.hospital.available_icu_beds} / ${r.hospital.total_icu_beds}</span>
+        <span>Method</span><span>${r.meta.selection_method}</span>
+        <span>Decision</span><span>${r.meta.infer_ms.toFixed(1)} ms, routing ${r.meta.route_ms.toFixed(0)} ms</span></div></div>`;
+    } else {
+      const a = await post('/assign',{ambulances:incidents,needs_icu:incidents.map(()=>icu),minute_of_day:new Date().getHours()*60+new Date().getMinutes(),beta:20});
+      const all=[]; let rows='';
+      for(const [i,x] of a.assignments.entries()){
+        const rt = await post('/route/path',{ambulance:incidents[i],hospital_id:x.hospital.id});
+        drawRoute(rt.geometry,COLORS[i%COLORS.length],'route-'+i); all.push(...rt.geometry.coordinates);
+        rows += `<tr><td><span class="dot" style="background:${COLORS[i%COLORS.length]}"></span>A${i+1} → ${x.hospital.name}</td><td>${minutes(rt.duration_s)}</td></tr>`;
+      }
+      fitTo(all);
+      const loads = Object.entries(a.hospital_load).map(([h,n])=>`${hospitals[h].name}: ${n}`).join('<br>');
+      $('#result').innerHTML = `<div class="card"><h3>Equilibrium assignment</h3>
+        <div class="hint">${a.converged?'Converged':'Did NOT converge'} in ${a.iterations} round(s), ${a.solve_ms.toFixed(1)} ms. No ambulance can improve by switching alone.</div>
+        <table><tr><th>Ambulance → hospital</th><th>Route ETA</th></tr>${rows}</table>
+        <div class="hint" style="margin-top:8px"><b>Load per hospital</b><br>${loads}</div></div>`;
+    }
+  }catch(e){ $('#err').textContent=e.message; }
+  btn.disabled=false;
+};
+
+function renderHospitalList(){
+  const box=$('#hlist'); if(!box) return;
+  box.innerHTML = '<div class="hosp" style="color:var(--mute)"><span>Hospital</span><span>Beds</span><span>ICU</span></div>' +
+    hospitals.map(h=>`<div class="hosp"><span><span class="dot" style="background:${ratioColor(h)}"></span>${h.name}</span>
+      <input type="number" min="0" max="${h.total_beds}" value="${h.available_beds}" data-id="${h.id}" data-k="free_beds">
+      <input type="number" min="0" max="${h.total_icu_beds}" value="${h.available_icu_beds}" data-id="${h.id}" data-k="free_icu_beds"></div>`).join('');
+  box.querySelectorAll('input').forEach(i=>i.onchange=async()=>{
+    try{ await post(`/hospitals/${i.dataset.id}/beds`,{[i.dataset.k]:parseInt(i.value||'0')}); await loadHospitals(); }
+    catch(e){ $('#err').textContent=e.message; }
+  });
+}
+$('#simbeds').onclick=async()=>{ await post('/hospitals/simulate-updates?steps=3',{}); await loadHospitals(); };
+
+$('#runcmp').onclick=async()=>{
+  const b=$('#runcmp'); b.disabled=true; b.textContent='Running…';
+  try{
+    const r=await api('/compare?scenario='+$('#scn').value+'&seeds=8');
+    const names={nearest:'Nearest hospital',nearest_beds:'Nearest + beds',capacity_heuristic:'Capacity heuristic',nash:'Nash equilibrium'};
+    $('#cmp').innerHTML=`<table><tr><th>Policy</th><th>Mean min</th><th>p95 min</th><th>Rejected</th></tr>`+
+      r.results.map(x=>`<tr><td>${names[x.policy]||x.policy}</td><td>${x.mean_time_to_bed_min.toFixed(1)}</td><td>${x.p95_time_to_bed_min.toFixed(1)}</td><td>${x.rejected_arrivals.toFixed(1)}</td></tr>`).join('')+
+      `</table><div class="hint">Time from call to admitted to a bed, averaged over ${r.seeds} simulated days. "Rejected" = ambulances turned away at the door per day.</div>`;
+  }catch(e){ $('#cmp').innerHTML='<div class="err">'+e.message+'</div>'; }
+  b.disabled=false; b.textContent='Run simulated comparison';
+};
+init().catch(e=>{$('#err').textContent=e.message});
+</script>
+</body>
+</html>

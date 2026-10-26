@@ -1,0 +1,7 @@
+model,split,n,MAPE_pct,median_APE_pct,bias_pct,R2
+synthetic (before),train,2706,26.285,23.516,-15.979,0.507
+synthetic (before),held-out,1155,25.792,24.23,-17.368,0.523
+calibrated linear,train,2706,16.473,11.451,6.492,0.872
+calibrated linear,held-out,1155,15.737,10.829,5.074,0.874
+calibrated power,train,2706,12.013,9.719,1.142,0.897
+calibrated power,held-out,1155,11.284,9.088,0.661,0.896

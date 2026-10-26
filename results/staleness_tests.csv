@@ -1,0 +1,13 @@
+scenario,refresh_min,test,mean_diff,p_raw,p_holm
+peak,1,nash - heuristic,0.0031,0.7304,1.0
+peak,5,nash - heuristic,-0.0894,0.4097,1.0
+peak,15,nash - heuristic,-0.0694,0.5273,1.0
+peak,30,nash - heuristic,-0.442,0.002,0.0237
+peak,30,capacity_heuristic: 30min - 1min,0.7229,0.0,0.0
+peak,30,nash: 30min - 1min,0.2778,0.0219,0.2623
+surge,1,nash - heuristic,0.0076,0.9618,1.0
+surge,5,nash - heuristic,-0.0578,0.4319,1.0
+surge,15,nash - heuristic,-0.2301,0.1719,1.0
+surge,30,nash - heuristic,-0.2997,0.1781,1.0
+surge,30,capacity_heuristic: 30min - 1min,1.2916,0.0,0.0
+surge,30,nash: 30min - 1min,0.9843,0.0,0.0
