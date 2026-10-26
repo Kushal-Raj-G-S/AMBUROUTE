@@ -21,16 +21,27 @@ import numpy as np
 from .sim import View
 
 PENALTY = 1e3  # cost added to resources with no published free bed
+NOT_ALLOWED = 1e5  # cost added to hospitals that cannot treat the patient (clinical mode)
 
 
-def _cost_row(eta_i, load_r, free_r, beta, power=1.0):
-    cost = eta_i + beta * ((load_r + 1) / np.maximum(free_r, 1)) ** power
-    return cost + np.where(free_r <= 0, PENALTY, 0.0)
+def _cost_row(eta_i, load_r, free_r, beta, power=1.0, w=1.0, allowed=None):
+    """Cost of each hospital for one ambulance. `w` weights travel time by severity and
+    `allowed` restricts the strategy set. Both are player-specific *additive* terms, so the
+    potential-game argument (see `potential`) still holds."""
+    cost = w * eta_i + beta * ((load_r + 1) / np.maximum(free_r, 1)) ** power
+    cost = cost + np.where(free_r <= 0, PENALTY, 0.0)
+    if allowed is not None:
+        cost = cost + np.where(allowed, 0.0, NOT_ALLOWED)
+    return cost
 
 
-def potential(eta, needs_icu, free, inflight, assignment, beta, power=1.0) -> float:
+def potential(eta, needs_icu, free, inflight, assignment, beta, power=1.0,
+              weights=None, allowed=None) -> float:
     pool = needs_icu.astype(int)
-    phi = float(sum(eta[i, h] for i, h in enumerate(assignment)))
+    w = np.ones(len(assignment)) if weights is None else np.asarray(weights, dtype=float)
+    phi = float(sum(w[i] * eta[i, h] for i, h in enumerate(assignment)))
+    if allowed is not None:
+        phi += NOT_ALLOWED * sum(1 for i, h in enumerate(assignment) if not allowed[i, h])
     load = inflight.astype(float).copy()
     for p in (0, 1):
         for h in range(eta.shape[1]):
@@ -44,17 +55,19 @@ def potential(eta, needs_icu, free, inflight, assignment, beta, power=1.0) -> fl
 
 def nash_assign(
     view: View, beta: float, rng: np.random.Generator, max_iter: int = 100,
-    power: float = 1.0,
+    power: float = 1.0, weights=None, allowed=None,
 ) -> tuple[list[int], int, bool]:
     n, H = view.eta.shape
     pool = view.needs_icu.astype(int)
     load = view.inflight.astype(float).copy()  # (2, H)
     asg = np.zeros(n, dtype=int)
+    wts = np.ones(n) if weights is None else np.asarray(weights, dtype=float)
+    al = (lambda i: None) if allowed is None else (lambda i: allowed[i])
 
-    # Greedy initialisation (sequential best response in arrival order).
-    for i in range(n):
+    # Greedy initialisation: most severe first (arrival order when unweighted).
+    for i in np.argsort(-wts, kind="stable"):
         p = pool[i]
-        h = int(np.argmin(_cost_row(view.eta[i], load[p], view.free[p], beta, power)))
+        h = int(np.argmin(_cost_row(view.eta[i], load[p], view.free[p], beta, power, wts[i], al(i))))
         asg[i] = h
         load[p, h] += 1
 
@@ -65,7 +78,7 @@ def nash_assign(
             p = pool[i]
             cur = asg[i]
             load[p, cur] -= 1
-            cost = _cost_row(view.eta[i], load[p], view.free[p], beta, power)
+            cost = _cost_row(view.eta[i], load[p], view.free[p], beta, power, wts[i], al(i))
             best = int(np.argmin(cost))
             if cost[best] < cost[cur] - 1e-9:
                 asg[i] = best
@@ -82,6 +95,7 @@ class NashPolicy:
     def __init__(self, beta: float = 30.0, power: float = 1.0):
         self.beta = beta
         self.power = power
+        self.clinical = False  # ClinicalNash (amburoute/clinical.py) sets this
         self.last_iters = 0
         self.last_converged = True
         self.iters_log: list[int] = []

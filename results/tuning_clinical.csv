@@ -1,0 +1,16 @@
+policy,w,crit_ttdc_mean,beta,power
+clinical_heuristic,5.0,28.72394430943703,,
+clinical_heuristic,10.0,28.84079119864868,,
+clinical_heuristic,20.0,29.471482251220287,,
+clinical_heuristic,40.0,28.836639522027987,,
+clinical_heuristic,80.0,28.645976359637984,,
+clinical_nash,,30.22429916288005,5.0,1.0
+clinical_nash,,29.773025734401948,5.0,2.0
+clinical_nash,,29.187134768667992,10.0,1.0
+clinical_nash,,29.03086741284009,10.0,2.0
+clinical_nash,,29.060854297328763,20.0,1.0
+clinical_nash,,29.014009073971973,20.0,2.0
+clinical_nash,,28.836711731940436,40.0,1.0
+clinical_nash,,28.94444599092707,40.0,2.0
+clinical_nash,,29.20754674842318,80.0,1.0
+clinical_nash,,29.47012728008519,80.0,2.0

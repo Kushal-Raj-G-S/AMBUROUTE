@@ -1,0 +1,17 @@
+scenario,policy,ttb_mean,crit_ttdc_mean,crit_ttdc_p95,spec_ttdc_mean,transfer_rate,rejections
+peak,capacity_heuristic,26.271,41.355,76.545,44.62,0.646,2.167
+peak,clinical_heuristic,23.274,27.474,47.693,28.385,0.0,0.633
+peak,clinical_heuristic_unweighted,23.52,28.658,47.042,29.031,0.0,0.3
+peak,clinical_nash,23.555,28.41,49.001,28.958,0.0,1.233
+peak,clinical_nash_unweighted,23.615,28.712,47.352,29.1,0.0,0.367
+peak,nash,26.343,41.679,76.177,45.126,0.646,1.667
+peak,nearest,28.957,46.381,90.303,48.107,0.51,24.167
+peak,nearest_capable,25.41,33.851,70.653,33.387,0.0,20.5
+surge,capacity_heuristic,27.297,41.516,78.458,45.736,0.644,3.8
+surge,clinical_heuristic,23.718,27.882,47.89,28.699,0.0,1.667
+surge,clinical_heuristic_unweighted,23.89,29.011,49.418,29.276,0.0,0.467
+surge,clinical_nash,23.968,28.194,51.487,28.953,0.0,1.9
+surge,clinical_nash_unweighted,24.267,29.309,48.494,29.504,0.0,0.8
+surge,nash,27.194,41.855,79.805,46.394,0.668,3.533
+surge,nearest,30.947,48.943,98.412,50.896,0.466,37.433
+surge,nearest_capable,26.361,34.811,83.964,34.293,0.0,27.333

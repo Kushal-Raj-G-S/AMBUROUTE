@@ -51,7 +51,7 @@ Mean over **50 held-out random days per scenario**. Every method was tuned on se
 
 ## 🔭 Beyond the paper
 
-Two extension studies and a pilot plan, all in [`docs/`](docs/):
+Three extension studies and a pilot plan, all in [`docs/`](docs/):
 
 <table>
 <tr>
@@ -60,10 +60,16 @@ Two extension studies and a pilot plan, all in [`docs/`](docs/):
 </tr>
 </table>
 
+<div align="center">
+<img src="docs/images/clinical.png" alt="Severity and specialty study" width="860"><br>
+<sub><b>Severity and specialty</b> (assumed inputs): time to definitive care for critical and specialty patients.</sub>
+</div>
+
 | Document | What it covers |
 |---|---|
 | [`docs/market_research.md`](docs/market_research.md) | Sourced evidence that the problem is real in Bengaluru, how bed data is reported today, competitors, regulatory notes |
 | [`docs/extension_results.md`](docs/extension_results.md) | Stale bed data up to "frozen", and a 110-hospital city-scale stress test |
+| [`docs/clinical_extension.md`](docs/clinical_extension.md) | **Severity and specialty** (cardiac, stroke, trauma): critical patients reach definitive care **32-34 % faster** than with specialty-blind policies and **16-19 % faster** than "nearest capable hospital" (all clinical inputs assumed) |
 | [`docs/pilot_design.md`](docs/pilot_design.md) | Shadow-mode pilot, metrics, sample-size estimate (3-15 matched days to beat "nearest hospital"), safety and privacy |
 
 > Takeaway for a product: ship the simple, explainable capacity heuristic first; its value concentrates where hospital capacity is tight and where bed reports are fresh.

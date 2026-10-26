@@ -34,6 +34,13 @@ class SimConfig:
     los_min: tuple = (4320.0, 4320.0)  # mean length of stay (general, ICU)
     occ_range: tuple = (0.88, 0.99)  # initial occupancy range per hospital
     traffic_aware_planner: bool = True  # False = routing API down: free-flow ETAs
+    # --- clinical extension (off by default; see amburoute/clinical.py). All values are ASSUMPTIONS.
+    clinical: bool = False
+    sev_probs: tuple = (0.55, 0.30, 0.15)  # stable, urgent, critical
+    spec_prob: tuple = (0.0, 0.25, 0.85)  # P(needs a specialty centre | severity)
+    spec_mix: tuple = (0.4, 0.3, 0.3)  # cardiac, stroke, trauma
+    icu_by_severity: tuple = (0.05, 0.30, 0.80)  # P(needs ICU | severity), about 24 % overall
+    transfer_delay_min: float = 15.0  # overhead of an inter-hospital transfer
 
 
 @dataclass(frozen=True)
@@ -64,6 +71,9 @@ class Request:
     t_done: float = float("nan")
     boarded: bool = False
     tried: set = field(default_factory=set)
+    severity: int = 0  # 0 stable, 1 urgent, 2 critical (clinical mode)
+    spec: int = 0  # 0 none, 1 cardiac, 2 stroke, 3 trauma (clinical mode)
+    transferred: bool = False
 
     @property
     def pool(self) -> int:
@@ -80,6 +90,8 @@ class View:
     free: np.ndarray  # (2, H) *published* free beds
     inflight: np.ndarray  # (2, H) ambulances dispatched, not yet arrived
     total: np.ndarray  # (2, H) bed capacity
+    capable: np.ndarray | None = None  # (n, H) hospital can give definitive care (clinical mode)
+    severity: np.ndarray | None = None  # (n,) 0 stable, 1 urgent, 2 critical (clinical mode)
 
 
 class Sim:
@@ -117,6 +129,17 @@ class Sim:
         self.arrivals = np.zeros(self.H, dtype=int)  # first-choice dispatches
         self.max_inflight_ratio = np.zeros(self.H)
         self._los = np.array(cfg.los_min)[:, None]
+        self.cap = np.ones((self.H, 4), dtype=bool)  # column 0 = no specialty needed
+        if cfg.clinical:
+            cols = [hospitals[c].to_numpy(bool) for c in ("cap_cardiac", "cap_stroke", "cap_trauma")]
+            self.cap = np.stack([np.ones(self.H, dtype=bool)] + cols, axis=1)
+
+    def _assign_clinical(self, r: Request):
+        c = self.cfg
+        r.severity = int(self.rng.choice(3, p=c.sev_probs))
+        r.needs_icu = bool(self.rng.random() < c.icu_by_severity[r.severity])
+        if self.rng.random() < c.spec_prob[r.severity]:
+            r.spec = 1 + int(self.rng.choice(3, p=c.spec_mix))
 
     # ------------------------------------------------------------ time stepping
     def _minute_of_day(self) -> float:
@@ -139,6 +162,15 @@ class Sim:
         if self.occ[p, h] < self.total[p, h]:
             self.occ[p, h] += 1
             req.t_done = t_arr
+            if self.cfg.clinical and req.spec and not self.cap[h, req.spec]:
+                # Stabilised here, then transferred to the nearest capable hospital (bed there assumed).
+                capable = np.flatnonzero(self.cap[:, req.spec])
+                if len(capable):
+                    j = int(capable[np.argmin(self.hh_km[h, capable])])
+                    travel = float(self.traffic.actual_min(
+                        self.hh_km[h, j], self.sc.start_min + t_arr, self.rng))
+                    req.t_done = t_arr + self.cfg.transfer_delay_min + travel
+                    req.transferred = True
             return
         self.rejections[h] += 1
         req.diversions += 1
@@ -148,6 +180,8 @@ class Sim:
             return
         # Crew calls around: nearest untried hospital with a published bed.
         cand = [j for j in range(self.H) if j not in req.tried]
+        if self.cfg.clinical and req.spec:  # prefer hospitals that can treat the patient
+            cand = [j for j in cand if self.cap[j, req.spec]] or cand
         with_beds = [j for j in cand if self.published[p, j] > 0]
         cand = with_beds or cand
         h2 = min(cand, key=lambda j: self.hh_km[h, j])
@@ -178,6 +212,8 @@ class Sim:
                     self.rng.uniform(BBOX["min_lon"], BBOX["max_lon"]),
                     bool(self.rng.random() < self.cfg.icu_prob),
                 )
+                if self.cfg.clinical:
+                    self._assign_clinical(r)
                 self.reqs[r.rid] = r
                 self.pending.append(r)
             if self.t % self.cfg.window_min == 0 and self.pending:
@@ -198,6 +234,10 @@ class Sim:
         mod = self._minute_of_day()
         # Planner without live traffic assumes night-time free-flow speed.
         plan_mod = mod if self.cfg.traffic_aware_planner else 3 * 60
+        capable = severity = None
+        if self.cfg.clinical:
+            capable = np.stack([self.cap[:, r.spec] for r in reqs])
+            severity = np.array([r.severity for r in reqs])
         return View(
             minute_of_day=mod,
             eta=self.traffic.eta_min(self._dist(reqs), plan_mod),
@@ -205,6 +245,8 @@ class Sim:
             free=self.published.copy(),
             inflight=self.inflight.copy(),
             total=self.total.copy(),
+            capable=capable,
+            severity=severity,
         )
 
     def dispatch(self, req: Request, h: int):
@@ -228,7 +270,21 @@ class Sim:
         free0 = np.maximum(self.published.sum(axis=0), 1)
         share = self.arrivals / np.maximum(self.total[0], 1)
         jain = (share.sum() ** 2) / (self.H * (share**2).sum()) if share.sum() else 1.0
+        extra = {}
+        if self.cfg.clinical and len(done):
+            sev = np.array([r.severity for r in done])
+            spec = np.array([r.spec for r in done]) > 0
+            moved = np.array([r.transferred for r in done])
+            crit = sev == 2
+            extra = dict(
+                crit_ttdc_mean=float(ttb[crit].mean()) if crit.any() else float("nan"),
+                crit_ttdc_p95=float(np.percentile(ttb[crit], 95)) if crit.any() else float("nan"),
+                spec_ttdc_mean=float(ttb[spec].mean()) if spec.any() else float("nan"),
+                transfer_rate=float(moved[spec].mean()) if spec.any() else 0.0,
+                n_spec=int(spec.sum()),
+            )
         return dict(
+            **extra,
             n=len(done),
             ttb_mean=float(ttb.mean()) if len(ttb) else float("nan"),
             ttb_median=float(np.median(ttb)) if len(ttb) else float("nan"),

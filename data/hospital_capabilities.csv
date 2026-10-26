@@ -1,0 +1,19 @@
+id,name,beds,icu_beds,lat,lon,beds_imputed,cap_cardiac,cap_stroke,cap_trauma
+0,Victoria Hospital,1000,80,12.961,77.573,False,True,False,True
+1,Bowring and Lady Curzon Hospital,686,55,12.986,77.605,False,False,False,True
+2,Jayadeva Institute of Cardiovascular Sciences and Research,1150,92,12.8975,77.5946,False,False,True,False
+3,NIMHANS,1000,80,12.943,77.5913,False,True,True,True
+4,St. Martha’s Hospital,500,40,12.971,77.585,False,True,False,True
+5,Rajiv Gandhi Institute of Chest Diseases,470,38,12.943,77.5913,False,False,True,False
+6,Indira Gandhi Institute of Child Health,400,32,12.943,77.5913,False,True,True,False
+7,BMCRI,1500,120,12.961,77.573,False,False,True,False
+8,Bangalore Baptist Hospital,450,36,13.0455,77.5912,False,False,False,False
+9,HOSMAT Hospital,350,28,12.971,77.585,False,False,False,False
+10,Aster RV Hospital,250,20,12.90795,77.565063,False,False,False,True
+11,Narayana Multispeciality Hospital,607,49,12.8,77.7,False,True,True,True
+12,Fortis Hospital,276,22,12.8975,77.5946,False,False,False,False
+13,Manipal Hospital,280,22,12.9698,77.7498,False,False,False,False
+14,Columbia Asia Hospital,90,7,13.0455,77.5912,False,False,True,False
+15,Sagar Hospital,470,38,12.90795,77.565063,True,False,True,False
+16,The Bangalore Hospital,470,38,13.006752,77.561737,True,False,False,True
+17,K C General Hospital,470,38,12.99563,77.56945,True,False,False,False
