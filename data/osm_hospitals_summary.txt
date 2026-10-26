@@ -1,0 +1,4 @@
+elements: 1137
+with a name: 1121
+with a beds tag: 1
+tagged emergency=yes: 111

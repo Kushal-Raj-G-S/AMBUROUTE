@@ -49,6 +49,25 @@ Mean over **50 held-out random days per scenario**. Every method was tuned on se
 <img src="docs/images/time_to_bed.png" alt="Mean time to bed by policy and scenario" width="900">
 </div>
 
+## 🔭 Beyond the paper
+
+Two extension studies and a pilot plan, all in [`docs/`](docs/):
+
+<table>
+<tr>
+<td width="50%"><img src="docs/images/staleness.png" alt="Effect of old bed data"><br><sub><b>Old bed data</b> erodes the gain but does not remove it; the Nash edge grows as data ages.</sub></td>
+<td width="50%"><img src="docs/images/scale.png" alt="City-scale study"><br><sub><b>City scale</b> (110 real OpenStreetMap hospitals, assumed beds): time to bed improves 21-24 % when load per bed is tight.</sub></td>
+</tr>
+</table>
+
+| Document | What it covers |
+|---|---|
+| [`docs/market_research.md`](docs/market_research.md) | Sourced evidence that the problem is real in Bengaluru, how bed data is reported today, competitors, regulatory notes |
+| [`docs/extension_results.md`](docs/extension_results.md) | Stale bed data up to "frozen", and a 110-hospital city-scale stress test |
+| [`docs/pilot_design.md`](docs/pilot_design.md) | Shadow-mode pilot, metrics, sample-size estimate (3-15 matched days to beat "nearest hospital"), safety and privacy |
+
+> Takeaway for a product: ship the simple, explainable capacity heuristic first; its value concentrates where hospital capacity is tight and where bed reports are fresh.
+
 ## 🧭 How it works
 
 <div align="center">
@@ -162,7 +181,9 @@ tests/                unit and API tests
 data/                 hospital table
 results/              result tables, figures, fitted traffic parameters, trained PPO weights
 paper/                LaTeX source and figures
-docs/images/          images used in this README
+docs/                 market research, extension results, pilot design; images/ holds README images
+Dockerfile            run the API in a container (pass MAPBOX_TOKEN at run time)
+.github/workflows/    continuous integration: runs the tests on every push
 ```
 
 ## ⚠️ Limitations
@@ -176,5 +197,6 @@ Released under the [MIT License](LICENSE).
 ## 📝 Notes
 
 - The raw Mapbox responses are **not** included. `collect_mapbox_traffic.py` regenerates them with your own token, and `results/traffic_calibration.json` holds the fitted parameters. Please respect Mapbox's terms of service.
+- Hospital locations in `data/osm_*` come from OpenStreetMap, © OpenStreetMap contributors, available under the [ODbL](https://www.openstreetmap.org/copyright). Bed counts for those hospitals are **assumed**.
 - Never commit `.env`. It is listed in `.gitignore`.
 - The hospital table comes from the project's first prototype; its original source still needs to be cited.

@@ -1,0 +1,22 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install CPU PyTorch first (avoids the multi-GB CUDA build)
+        run: pip install torch==2.14.1 --index-url https://download.pytorch.org/whl/cpu
+      - name: Install the rest
+        run: pip install -r requirements.txt
+      - name: Run tests
+        run: python -m pytest tests -q

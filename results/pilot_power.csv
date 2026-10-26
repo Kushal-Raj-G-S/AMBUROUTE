@@ -1,0 +1,7 @@
+scenario,comparison,mean_diff_min,sd_daily_diff,days_needed
+offpeak,nash vs nearest,-1.12,1.54,15
+offpeak,nash vs capacity_heuristic,0.01,0.38,5675
+peak,nash vs nearest,-3.14,1.88,3
+peak,nash vs capacity_heuristic,-0.09,0.68,458
+surge,nash vs nearest,-4.83,3.21,4
+surge,nash vs capacity_heuristic,-0.06,0.91,1940

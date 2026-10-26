@@ -1,0 +1,17 @@
+study,variant,scenario,hospitals,policy,ttb_mean,ttb_p95,rejections
+scale,same calls,peak,110,nearest,10.864,22.14,5.1
+scale,same calls,peak,110,nearest_beds,10.605,20.965,1.433
+scale,same calls,peak,110,capacity_heuristic,10.714,20.73,0.1
+scale,same calls,peak,110,nash,10.656,20.803,0.267
+scale,same calls,surge,110,nearest,10.948,21.736,4.633
+scale,same calls,surge,110,nearest_beds,10.725,20.773,2.633
+scale,same calls,surge,110,capacity_heuristic,10.796,20.484,0.167
+scale,same calls,surge,110,nash,10.733,20.504,0.167
+scale,same load per bed,peak,110,nearest,15.016,40.876,261.0
+scale,same load per bed,peak,110,nearest_beds,13.551,33.765,143.667
+scale,same load per bed,peak,110,capacity_heuristic,12.01,24.503,24.067
+scale,same load per bed,peak,110,nash,11.902,24.447,18.8
+scale,same load per bed,surge,110,nearest,16.366,46.577,329.167
+scale,same load per bed,surge,110,nearest_beds,15.339,42.413,248.167
+scale,same load per bed,surge,110,capacity_heuristic,12.707,25.347,52.767
+scale,same load per bed,surge,110,nash,12.47,25.141,41.067

@@ -1,0 +1,111 @@
+id,name,lat,lon,beds,icu_beds,beds_imputed
+0,Ramakrishna Hospital,12.8500655,77.6624706,252,20,True
+1,RMV Hospital,13.0322788,77.576876,378,30,True
+2,Yashomathi Hospitals,12.9559302,77.7112689,1118,89,True
+3,Metro Hospital,12.8915893,77.560715,546,44,True
+4,Brookefield Hospital(A Unit Of Sanjeevani Hospital),12.9668213,77.7168891,879,70,True
+5,Udhbhava Hospital,12.9256842,77.5489346,702,56,True
+6,DG Hospital,12.9206648,77.5598673,317,25,True
+7,Kangila Clinic,12.9336501,77.5660602,686,55,True
+8,"Vasan Eye Care Hospital, Koramangala",12.9402371,77.6253403,391,31,True
+9,Pristine Health care,12.9382768,77.6186753,390,31,True
+10,Punya Hospital,13.0011459,77.5359798,513,41,True
+11,Karanth Speciality Hospital,12.9160081,77.6193573,177,14,True
+12,Gangothri Hospital,12.9162878,77.6138218,1050,84,True
+13,Dr. Ambedkar Medical College Hospital,13.0248621,77.6139585,310,25,True
+14,Sunny Medicals Hospital Clinic,12.9267954,77.6699091,926,74,True
+15,Gurushree Hitech Multispeciality Hospital,12.9593144,77.5265054,526,42,True
+16,"Gayathri Hospital, Bengaluru Urban",12.9744053,77.5426819,1312,105,True
+17,MEDSOL Hospital,12.9309944,77.4929837,312,25,True
+18,Yogananda Medical and Research Centre,12.9202791,77.5598033,392,31,True
+19,Shirdi Sai Hospital,13.0372438,77.5648754,600,48,True
+20,Rainbow Clinic and Diagnostic Laboratory,12.891484,77.5816961,113,9,True
+21,"Nayak Hospital, Gayathri Nagar",12.9993857,77.5606403,828,66,True
+22,"Maharaja Agrasen Hospital, Bengaluru Urban",12.915903,77.5550223,1320,106,True
+23,Greenview Medical Center,12.9191813,77.6381379,1006,80,True
+24,Blossoms Hospital,12.9064393,77.6308237,789,63,True
+25,Live100,12.8791713,77.6454925,437,35,True
+26,Srujana Hospital,12.8413465,77.6475451,1114,89,True
+27,Stanford Speciality Hospital,12.911533,77.6764094,972,78,True
+28,Dr Mohan Nursing Home,12.9124371,77.6813917,622,50,True
+29,Procare Hospital,13.0203944,77.6512682,483,39,True
+30,Parimala Health Care,12.9003193,77.6008061,380,30,True
+31,"Sriram Hospital, Bangalore",13.0087504,77.6939806,215,17,True
+32,K R Puram Super Speciality Hospital,13.0110115,77.6935975,1074,86,True
+33,Wellness Ever,12.9593576,77.7461682,116,9,True
+34,Hair Loss Treatment in Bangalore - Hairline International,12.9566858,77.7419283,378,30,True
+35,Surya Diagnostics and Health Services,12.9242825,77.6170883,536,43,True
+36,New Life Hospital bangalore,12.9967611,77.7591252,845,68,True
+37,Prashanth Hospital,12.9067129,77.6265085,1500,120,True
+38,Parimala Health Care,12.9009278,77.5986641,922,74,True
+39,Springleaf Hospital,12.853228,77.6653506,398,32,True
+40,Sri Ram Hospital,13.0096231,77.6924713,775,62,True
+41,Vijay Diagnostic Centre,12.9458746,77.5877756,211,17,True
+42,Dr Lal PathLabs,12.924274,77.5680927,1227,98,True
+43,Welnext,12.9242869,77.6532853,434,35,True
+44,Dr. Roshni's Tooth Planet Dental Clinic,12.9876335,77.6851595,310,25,True
+45,"Emergency Block , NIMHANS",12.9403849,77.5945391,317,25,True
+46,Kannamangala Primary Health Center,13.0308849,77.7599564,462,37,True
+47,Patil Hospital,13.011214,77.6979598,372,30,True
+48,Popular Hospital,12.9514854,77.5703564,1500,120,True
+49,Ramakrishna Hospital,12.8541208,77.6624811,301,24,True
+50,Cloudnine Hospital,12.8832909,77.5500857,492,39,True
+51,The Local Dentist,12.9094156,77.663997,490,39,True
+52,Chinmaya Mission Hospital,12.9779337,77.6461885,490,39,True
+53,St Marthas Hospital,12.9708175,77.5857431,499,40,True
+54,Sri Jayadeva Institute Of Cardiology,12.918526,77.599265,351,28,True
+55,"Fortis Hospitals, Bannerghatta Road",12.8947511,77.5985816,328,26,True
+56,Apollo Hospital,12.896305,77.5983495,274,22,True
+57,Bhagwan Mahaveer Jain Hospital,12.9914884,77.5952993,182,15,True
+58,Baptist Hospital,13.0347249,77.5901708,555,44,True
+59,Rajshekhar Hospital,12.9110143,77.5797725,917,73,True
+60,"Manipal Hospital, Bengaluru Urban",12.9587074,77.6490296,337,27,True
+61,Radhakrishna Multispeciality Hospital,12.9409612,77.5455617,334,27,True
+62,Employees' State Insurance Corporation Model Hospital,12.9909672,77.5535011,391,31,True
+63,"Vittala International Institute Of Ophthalmology, Hosakerehalli",12.9308127,77.5412224,356,28,True
+64,Ramaiah Memorial Hospital,13.0282176,77.569775,188,15,True
+65,Hosmat Hospital,12.9691029,77.6133228,1176,94,True
+66,Victoria Hospital,12.9634957,77.5736948,642,51,True
+67,Manipal Hospital,13.050953,77.5938654,302,24,True
+68,Dasappa Maternity Hospital,12.9643477,77.5845256,585,47,True
+69,Sarvodaya Hospital,12.9803669,77.5390159,361,29,True
+70,Kidwai Memorial Institute of Oncology,12.936526,77.5981388,419,34,True
+71,P.D. Hinduja Sindhi Hospital,12.9644407,77.5926745,611,49,True
+72,Nmpc Hospital,13.0224158,77.6580401,898,72,True
+73,HAL Hospital,12.9623685,77.6664034,1302,104,True
+74,"Sevakshetra Hospital, Bengaluru Urban",12.9216723,77.5721649,1469,118,True
+75,Netradhama Hospital,12.9253024,77.5774064,409,33,True
+76,Subbaiah Hospital,13.0302068,77.560704,347,28,True
+77,"Fortis Hospitals Limited, Bengaluru Urban",12.9884932,77.5945504,514,41,True
+78,Sanjay Gandhi Accident and Trauma Hospital,12.9356389,77.5935945,523,42,True
+79,Ravi Kirloskar Memorial Hospital,13.0384676,77.527802,298,24,True
+80,Kinder Women's Hospital & Fertility Center,12.9920515,77.7064747,321,26,True
+81,GM Hospital,12.9929463,77.5386927,820,66,True
+82,Manipal Hospitals,12.9583372,77.7454453,1410,113,True
+83,Jeevika Hospital,12.9659074,77.7025531,415,33,True
+84,Sagar Hospitals,12.9278986,77.599855,315,25,True
+85,Shirdi Sai Hospital,13.0668492,77.6394164,400,32,True
+86,Manipal Hospitals Whitefield,12.9880712,77.7286414,251,20,True
+87,Manipal Hospitals,12.9199685,77.6652549,403,32,True
+88,Suvarnamukhi,12.9135595,77.6795552,635,51,True
+89,Sakra World,12.9322182,77.6853258,456,36,True
+90,Rainbow Children's Hospital,12.9753078,77.697834,1080,86,True
+91,Svastha Hospital,12.9659169,77.749386,531,42,True
+92,Manipal Hospital Yeshwantpur,13.0142942,77.5560784,659,53,True
+93,Fortis Hospital,13.0022012,77.5491011,437,35,True
+94,Phoenix Hospital,12.9166101,77.6450517,1139,91,True
+95,Rainbow Children's Hospital,12.9033828,77.6007409,216,17,True
+96,Suguna Hospital,12.9882302,77.5600393,395,32,True
+97,Cloud Nine,12.9156928,77.6752029,223,18,True
+98,PESU HOSPITAL,12.8627925,77.6662881,827,66,True
+99,Rainbow Childrens Hospital,12.9202359,77.6674739,840,67,True
+100,Rangadore Memorial Hospital,12.9538911,77.5711462,343,27,True
+101,Sri Vishveshathirtha Memorial Hospital,12.9566836,77.712382,1425,114,True
+102,Klinik Guhen - Dental Clinic,12.9090409,77.66389,396,32,True
+103,Life Care Hospital,12.9239736,77.6133232,195,16,True
+104,Vanivilas Women and Children Hospital,12.9614692,77.5736889,400,32,True
+105,Minto Eye Hospital,12.9610731,77.572289,609,49,True
+106,M S Ramaiah Hospital,13.0297293,77.5685912,413,33,True
+107,Faculty Of Dental Sciences,13.0292222,77.5693751,1500,120,True
+108,Vydehi Institute Of Medical Sciences And Research Centre,12.9754934,77.7293535,843,67,True
+109,St.John's Medical College Hospital,12.929648,77.6185932,1495,120,True
