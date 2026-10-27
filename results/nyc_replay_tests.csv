@@ -1,0 +1,4 @@
+a,b,rel_pct,p_raw,p_bonf
+heuristic,nearest,-14.2455,0.0,0.0
+nash,nearest,-14.0756,0.0,0.0
+nash,heuristic,0.1981,0.8708,1.0

@@ -1,0 +1,4 @@
+policy,n_calls,real_ttb,poisson_ttb,real_rej,poisson_rej
+heuristic,143.78,22.779,23.023,2.82,4.4
+nash,143.78,22.824,23.332,2.74,4.2
+nearest,143.78,26.563,28.037,32.9,43.4

@@ -1,0 +1,11 @@
+weekdays 10 calls per evening (2 h): [522 449 450 467 454 450 409 432 491 468]
+dispersion index of 2-min counts per evening (Poisson = 1): mean 0.92
+           n_calls  real_ttb  poisson_ttb  real_rej  poisson_rej
+policy                                                          
+heuristic   143.78    22.779       23.023      2.82          4.4
+nash        143.78    22.824       23.332      2.74          4.2
+nearest     143.78    26.563       28.037     32.90         43.4
+        a         b  rel_pct  p_raw  p_bonf
+heuristic   nearest -14.2455 0.0000     0.0
+     nash   nearest -14.0756 0.0000     0.0
+     nash heuristic   0.1981 0.8708     1.0

@@ -114,6 +114,7 @@ class Sim:
         cfg: SimConfig = SimConfig(),
         traffic: TrafficModel | None = None,
         planner_traffic: TrafficModel | None = None,
+        arrivals: np.ndarray | None = None,
     ):
         self.h = hospitals
         self.H = len(hospitals)
@@ -152,6 +153,8 @@ class Sim:
             from pathlib import Path
             d = pd.read_csv(Path(__file__).resolve().parent.parent / "data" / "bengaluru_building_density.csv")
             self._cells = (d[["lat0", "lat1", "lon0", "lon1"]].to_numpy(), (d.buildings / d.buildings.sum()).to_numpy())
+        # Optional explicit call times (minutes from the start of the episode) replacing the Poisson process.
+        self._arrivals = None if arrivals is None else np.sort(np.asarray(arrivals, dtype=float))
         self.obs: list = []  # (hospital, realised / planned travel time) of finished trips, drained by the policy
         self._obs_heap: list = []  # (time revealed, hospital, ratio)
         self.cap = np.ones((self.H, 4), dtype=bool)  # column 0 = no specialty needed
@@ -236,7 +239,14 @@ class Sim:
             if self.t % self.cfg.report_interval == 0:
                 self.published = self.total - self.occ
             self._process_arrivals()
-            for _ in range(self.rng.poisson(self.sc.lam)):
+            if self._arrivals is None:
+                call_times = [None] * int(self.rng.poisson(self.sc.lam))
+            else:
+                lo, hi = np.searchsorted(self._arrivals, [self.t - 1, self.t], side="right")
+                call_times = list(self._arrivals[lo:hi])
+            for t_call in call_times:
+                if t_call is None:  # drawn here, between requests, to keep the random stream of earlier results
+                    t_call = self.t - self.rng.random()
                 self.rid += 1
                 if self._cells is None:
                     lat0, lat1, lon0, lon1 = BBOX["min_lat"], BBOX["max_lat"], BBOX["min_lon"], BBOX["max_lon"]
@@ -244,7 +254,7 @@ class Sim:
                     lat0, lat1, lon0, lon1 = self._cells[0][self.rng.choice(len(self._cells[1]), p=self._cells[1])]
                 r = Request(
                     self.rid,
-                    self.t - self.rng.random(),
+                    t_call,
                     self.rng.uniform(lat0, lat1),
                     self.rng.uniform(lon0, lon1),
                     bool(self.rng.random() < self.cfg.icu_prob),
@@ -344,9 +354,9 @@ class Sim:
 
 
 def run_episode(hospitals, scenario: Scenario, seed: int, policy, cfg=SimConfig(), traffic=None,
-                planner_traffic=None) -> dict:
+                planner_traffic=None, arrivals=None) -> dict:
     """Run one full episode with a batch policy exposing `assign(view, rng)`."""
-    sim = Sim(hospitals, scenario, seed, cfg, traffic, planner_traffic)
+    sim = Sim(hospitals, scenario, seed, cfg, traffic, planner_traffic, arrivals)
     prng = np.random.default_rng(seed + 10_000)
     lat_ms: list[float] = []
     while (batch := sim.next_batch()) is not None:

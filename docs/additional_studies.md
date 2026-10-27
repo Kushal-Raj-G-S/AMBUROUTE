@@ -120,3 +120,13 @@ The paper's simulator draws call locations uniformly over the map, which is unre
 - All times fall because calls now concentrate near the centre, where the hospitals are.
 - Capacity awareness still helps significantly, **but less than with uniform calls: -10 % at peak (was -12 %) and -13 % in the surge (was -17 %)**. The uniform assumption overstated the benefit by roughly 2-4 percentage points.
 - Nash and the heuristic remain indistinguishable (differences under 1 %, not significant). PPO matches the heuristic at peak (+0.3 %) and is 1.6 % slower in the surge (corrected p = 0.09), so it carries over to a different demand pattern without retraining.
+
+## 9. Real arrival times (`experiments/run_nyc_replay.py`)
+
+The simulator draws calls from a Poisson process. To test that, the 17:00-19:00 call times of ten NYC weekday evenings (2023-03-06 to 03-17, public NYC EMS dispatch log, times only in `data/real_nyc_ems_evening_calls.csv`) were replayed, thinned at random to the paper's peak rate (1.2 calls per minute; five random thinnings per evening), on the Bengaluru simulator with the tuned, un-retuned policies.
+
+- **Poisson is a fair description of arrivals at this scale.** The variance-to-mean ratio of 2-minute call counts is **0.92** (Poisson = 1), i.e. no extra burstiness. (Thinning would hide some burstiness; this is measured on the unthinned counts.)
+- **The conclusions hold on real arrival times:** minutes to bed 26.56 (nearest), 22.78 (heuristic), 22.82 (Nash); heuristic **-14.2 %** and Nash **-14.1 %** against nearest (p < 0.001), Nash vs heuristic +0.2 % (not significant). Rejections: 32.9, 2.8, 2.7.
+- Real arrivals are slightly *more regular* than Poisson, so the replay shows somewhat fewer rejections than the Poisson runs on the same seeds (2.8 vs 4.4 for the heuristic).
+
+Limits: NYC call times in a Bengaluru simulator; the mapping is only for the timing pattern.

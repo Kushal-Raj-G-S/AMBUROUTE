@@ -54,3 +54,16 @@ def test_clinical_run_reports_survival_and_door_wait():
 
     r = run_episode(with_capabilities(H), SCENARIOS["peak"], 2, ClinicalHeuristic(80), SimConfig(clinical=True), T)
     assert 0 < r["surv_mean"] < 1 and r["door_wait_mean"] >= 0
+
+
+def test_explicit_arrivals_replace_poisson_calls():
+    arr = np.array([1.2, 1.9, 5.5, 5.6, 30.0])
+    from amburoute.sim import Sim
+
+    sim = Sim(H, SCENARIOS["peak"], 1, SimConfig(), T, arrivals=arr)
+    n = 0
+    while (batch := sim.next_batch()) is not None:
+        n += len(batch)
+        for r in batch:
+            sim.dispatch(r, 0)
+    assert n == len(arr)
