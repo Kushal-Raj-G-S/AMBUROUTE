@@ -67,3 +67,28 @@ def test_explicit_arrivals_replace_poisson_calls():
         for r in batch:
             sim.dispatch(r, 0)
     assert n == len(arr)
+
+
+def test_api_clinical_routing_and_online_feedback():
+    from fastapi.testclient import TestClient
+
+    from amburoute.api import app
+
+    c = TestClient(app)
+    c.post("/hospitals/simulate-updates", params={"steps": 1})
+    body = {"ambulance": {"lat": 12.97, "lon": 77.59}, "severity": 2, "specialty": "cardiac"}
+    r = c.post("/route", json=body)
+    assert r.status_code == 200 and r.json()["meta"]["selection_method"] == "clinical_heuristic"
+    assert r.json()["hospital"]["capabilities"]["cardiac"] is True
+    assert c.post("/route", json={**body, "specialty": "dentist"}).status_code == 422
+    r = c.post("/assign", json={"ambulances": [{"lat": 12.97, "lon": 77.59}] * 4, "severity": [2, 2, 1, 0],
+                                "specialty": ["stroke", "cardiac", "none", "none"]})
+    assert r.status_code == 200 and r.json()["converged"]
+    a = r.json()["assignments"]
+    assert a[0]["hospital"]["capabilities"]["stroke"] and a[1]["hospital"]["capabilities"]["cardiac"]
+    assert c.post("/assign", json={"ambulances": [{"lat": 12.97, "lon": 77.59}] * 2, "severity": [1]}).status_code == 422
+    before = c.post("/feedback", json={"hospital_id": 3, "planned_min": 10, "observed_min": 10}).json()["correction_factors"]
+    for _ in range(6):
+        out = c.post("/feedback", json={"hospital_id": 3, "planned_min": 10, "observed_min": 20}).json()["correction_factors"]
+    assert out[3] > 1.1 and out[3] > before[3] and c.post("/feedback", json={"hospital_id": 99, "planned_min": 1, "observed_min": 1}).status_code == 404
+    assert c.post("/route", json={"ambulance": {"lat": 12.97, "lon": 77.59}, "use_online_correction": True}).status_code == 200

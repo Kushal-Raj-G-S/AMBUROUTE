@@ -107,6 +107,9 @@ Travel times are fitted to **3,861 Mapbox typical-traffic samples** and scored o
 
 - Click the map to place an incident, tick **ICU** if needed and press **Recommend hospital**.
 - The **Hospitals** tab lets a hospital update its own bed counts (`POST /hospitals/{id}/beds`).
+- Choose **Severity** and **Specialty needed** to route critical cardiac, stroke or trauma patients only to hospitals with that capability (capabilities are assumed, and the console says so). Tick **Learn from reported trip times** to apply the per-hospital corrections learned from `POST /feedback`.
+
+<div align="center"><img src="docs/images/console_clinical.jpg" alt="Console: critical cardiac patient routed to a cardiac-capable hospital" width="560"><br><sub>A critical cardiac patient is sent to a hospital with a cardiac centre, with a live-traffic route.</sub></div>
 
 ## 🚀 Quick start
 
@@ -133,9 +136,10 @@ Open **http://127.0.0.1:8000** for the console, or **http://127.0.0.1:8000/docs*
 | GET | `/hospitals` | list hospitals with beds and ICU beds |
 | POST | `/hospitals/{id}/beds` | update free beds |
 | POST | `/hospitals/simulate-updates` | random-walk the bed counts (demo) |
-| POST | `/route` | recommend a hospital (capacity heuristic) and return the route |
+| POST | `/route` | recommend a hospital (capacity heuristic) and return the route; add `severity` (0-2) and `specialty` (`cardiac`, `stroke`, `trauma`) for the clinical heuristic (capabilities are **assumed**) |
 | POST | `/route/drl` | same with the PPO policy (falls back to the equilibrium solver) |
-| POST | `/assign` | assign several ambulances at a Nash equilibrium |
+| POST | `/assign` | assign several ambulances at a Nash equilibrium; optional per-ambulance `severity` and `specialty` lists use the clinical equilibrium |
+| POST | `/feedback` | report planned vs observed trip time; the service learns per-hospital corrections (`use_online_correction` on `/route` and `/assign` applies them) |
 | POST | `/route/path` | traffic-aware route to a chosen hospital |
 | GET | `/compare` | simulated policy comparison |
 

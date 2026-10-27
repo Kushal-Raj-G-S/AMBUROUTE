@@ -12,8 +12,10 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
+from .clinical import ClinicalHeuristic, ClinicalNash, with_capabilities
 from .geo import haversine_km, load_hospitals
 from .nash import nash_assign
+from .online import OnlineETA
 from .policies import CapacityHeuristic
 from .routing import get_route
 from .sim import View
@@ -55,6 +57,15 @@ _total = np.stack([_hosp["beds"].to_numpy(), _hosp["icu_beds"].to_numpy()])
 _inflight = np.zeros_like(_free)
 _ppo = None
 
+# Specialty capabilities per hospital. ASSUMED (see docs/clinical_extension.md), not real data.
+SPECIALTIES = {"none": 0, "cardiac": 1, "stroke": 2, "trauma": 3}
+_cap = np.stack([np.ones(len(_hosp), dtype=bool)] + [with_capabilities(_hosp)[c].to_numpy(bool)
+                                                     for c in ("cap_cardiac", "cap_stroke", "cap_trauma")], axis=1)
+# Online correction learned from observed trip times (POST /feedback); relative per-hospital factors.
+_online = OnlineETA(CapacityHeuristic(), 0.3, len(_hosp))
+_online_session = object()
+_online.observe([], _online_session)
+
 
 def _get_ppo():
     global _ppo
@@ -75,6 +86,9 @@ class RouteRequest(BaseModel):
     needs_icu: bool = False
     min_beds: int = Field(1, ge=0)
     minute_of_day: float = Field(12 * 60, ge=0, le=1440)
+    severity: int = Field(0, ge=0, le=2, description="0 stable, 1 urgent, 2 critical")
+    specialty: str = Field("none", description="none, cardiac, stroke or trauma")
+    use_online_correction: bool = False
 
 
 class AssignRequest(BaseModel):
@@ -82,6 +96,15 @@ class AssignRequest(BaseModel):
     needs_icu: list[bool] | None = None
     beta: float = Field(30.0, ge=0)
     minute_of_day: float = Field(12 * 60, ge=0, le=1440)
+    severity: list[int] | None = Field(None, description="per ambulance: 0 stable, 1 urgent, 2 critical")
+    specialty: list[str] | None = Field(None, description="per ambulance: none, cardiac, stroke or trauma")
+    use_online_correction: bool = False
+
+
+class Feedback(BaseModel):
+    hospital_id: int
+    planned_min: float = Field(gt=0)
+    observed_min: float = Field(gt=0)
 
 
 class BedUpdate(BaseModel):
@@ -89,19 +112,35 @@ class BedUpdate(BaseModel):
     free_icu_beds: int | None = Field(None, ge=0)
 
 
-def _view(locs, needs_icu, mod) -> View:
+def _online_factors() -> np.ndarray:
+    rel = np.where(np.isnan(_online.logc), 0.0, _online.logc - _online.g)
+    return np.exp(rel)
+
+
+def _view(locs, needs_icu, mod, severity=None, specialty=None, online=False) -> View:
     lat = np.array([l.lat for l in locs])[:, None]
     lon = np.array([l.lon for l in locs])[:, None]
     d = haversine_km(lat, lon, _hosp["lat"].to_numpy()[None, :], _hosp["lon"].to_numpy()[None, :])
-    return View(mod, _traffic.eta_min(d, mod), np.array(needs_icu, dtype=bool),
-                _free.copy(), _inflight.copy(), _total.copy())
+    eta = _traffic.eta_min(d, mod)
+    if online:
+        eta = eta * _online_factors()[None, :]
+    v = View(mod, eta, np.array(needs_icu, dtype=bool), _free.copy(), _inflight.copy(), _total.copy())
+    if severity is not None:
+        for sp in specialty:
+            if sp not in SPECIALTIES:
+                raise HTTPException(422, f"specialty must be one of {list(SPECIALTIES)}")
+        v.severity = np.array(severity, dtype=int)
+        v.capable = np.stack([_cap[:, SPECIALTIES[sp]] for sp in specialty])
+    return v
 
 
 def _hospital_json(i: int) -> dict:
     h = _hosp.iloc[i]
     return dict(id=int(h["id"]), name=h["name"], lat=float(h["lat"]), lon=float(h["lon"]),
                 total_beds=int(_total[0, i]), available_beds=int(_free[0, i]),
-                total_icu_beds=int(_total[1, i]), available_icu_beds=int(_free[1, i]))
+                total_icu_beds=int(_total[1, i]), available_icu_beds=int(_free[1, i]),
+                capabilities=dict(cardiac=bool(_cap[i, 1]), stroke=bool(_cap[i, 2]), trauma=bool(_cap[i, 3]),
+                                  source="assumed"))
 
 
 def _respond(req: RouteRequest, h: int, method: str, t0: float) -> dict:
@@ -117,8 +156,13 @@ def _respond(req: RouteRequest, h: int, method: str, t0: float) -> dict:
                           timestamp=datetime.now(timezone.utc).isoformat()))
 
 
+def _clinical(req: RouteRequest) -> bool:
+    return req.severity > 0 or req.specialty != "none"
+
+
 def _candidates(req: RouteRequest) -> View:
-    v = _view([req.ambulance], [req.needs_icu], req.minute_of_day)
+    v = _view([req.ambulance], [req.needs_icu], req.minute_of_day,
+              [req.severity] if _clinical(req) else None, [req.specialty], req.use_online_correction)
     pool = int(req.needs_icu)
     ok = _free[pool] >= max(req.min_beds, 1)
     if not ok.any():
@@ -131,6 +175,16 @@ def _candidates(req: RouteRequest) -> View:
 @app.get("/health")
 def health():
     return dict(status="ok", hospitals=len(_hosp), ppo_model_loaded=_get_ppo() is not None)
+
+
+@app.post("/feedback")
+def feedback(f: Feedback):
+    """Report how long a finished (or in-progress) trip took against the planned time. The service learns a relative
+    per-hospital correction from these reports and applies it when a request sets use_online_correction."""
+    if not 0 <= f.hospital_id < len(_hosp):
+        raise HTTPException(404, "unknown hospital")
+    _online.observe([(f.hospital_id, f.observed_min / f.planned_min)], _online_session)
+    return dict(hospital_id=f.hospital_id, correction_factors=[round(float(x), 3) for x in _online_factors()])
 
 
 @app.get("/hospitals")
@@ -163,6 +217,9 @@ def route_heuristic(req: RouteRequest):
     """Hospital selection with the non-learned capacity heuristic."""
     t0 = time.perf_counter()
     v = _candidates(req)
+    if _clinical(req):
+        h = ClinicalHeuristic(80.0).assign(v, _rng)[0]
+        return _respond(req, int(h), "clinical_heuristic", t0)
     h = CapacityHeuristic().assign(v, _rng)[0]
     return _respond(req, int(h), "capacity_heuristic", t0)
 
@@ -186,9 +243,19 @@ def assign_many(req: AssignRequest):
     needs = req.needs_icu or [False] * n
     if len(needs) != n:
         raise HTTPException(422, "needs_icu must match ambulances")
-    v = _view(req.ambulances, needs, req.minute_of_day)
+    clinical = req.severity is not None or req.specialty is not None
+    sev = req.severity or [0] * n
+    spec = req.specialty or ["none"] * n
+    if len(sev) != n or len(spec) != n:
+        raise HTTPException(422, "severity and specialty must match ambulances")
+    v = _view(req.ambulances, needs, req.minute_of_day, sev if clinical else None, spec, req.use_online_correction)
     t0 = time.perf_counter()
-    asg, iters, converged = nash_assign(v, req.beta, _rng)
+    if clinical:
+        pol = ClinicalNash(req.beta, 1.0)
+        asg = pol.assign(v, _rng)
+        iters, converged = pol.last_iters, pol.last_converged
+    else:
+        asg, iters, converged = nash_assign(v, req.beta, _rng)
     ms = (time.perf_counter() - t0) * 1000
     load = {}
     for h in asg:

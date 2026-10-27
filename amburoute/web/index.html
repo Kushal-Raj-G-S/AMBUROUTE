@@ -66,6 +66,13 @@
           <select id="method"><option value="heuristic">Capacity heuristic</option><option value="drl">PPO policy</option></select></div>
       </div>
       <label><input type="checkbox" id="icu"> Patient needs ICU bed</label>
+      <div class="row">
+        <div style="flex:1"><label>Severity</label>
+          <select id="sev"><option value="0">Stable</option><option value="1">Urgent</option><option value="2">Critical</option></select></div>
+        <div style="flex:1"><label>Specialty needed</label>
+          <select id="spec"><option value="none">None</option><option value="cardiac">Cardiac</option><option value="stroke">Stroke</option><option value="trauma">Trauma</option></select></div>
+      </div>
+      <label><input type="checkbox" id="online"> Learn from reported trip times</label>
       <div class="hint" id="modehint">Click the map to place the incident.</div>
       <button class="btn" id="go">Recommend hospital</button>
       <button class="btn alt" id="clear">Clear</button>
@@ -187,7 +194,10 @@ $('#go').onclick=async()=>{
     const icu=$('#icu').checked;
     if($('#mode').value==='single'){
       const url = $('#method').value==='drl' ? '/route/drl' : '/route';
-      const r = await post(url,{ambulance:incidents[0],needs_icu:icu,minute_of_day:new Date().getHours()*60+new Date().getMinutes()});
+      const r = await post(url,{ambulance:incidents[0],needs_icu:icu,minute_of_day:new Date().getHours()*60+new Date().getMinutes(),
+        severity:+$('#sev').value,specialty:$('#spec').value,use_online_correction:$('#online').checked});
+      const cap = r.hospital.capabilities||{};
+      const capTxt = ['cardiac','stroke','trauma'].filter(k=>cap[k]).join(', ')||'none';
       drawRoute(r.route.geometry,'#3b82f6','route-0');
       fitTo(r.route.geometry.coordinates);
       const live = r.route.source==='mapbox';
@@ -196,10 +206,12 @@ $('#go').onclick=async()=>{
         <span>Distance</span><span>${(r.route.distance_m/1000).toFixed(1)} km</span>
         <span>Free beds</span><span>${r.hospital.available_beds} / ${r.hospital.total_beds}</span>
         <span>Free ICU</span><span>${r.hospital.available_icu_beds} / ${r.hospital.total_icu_beds}</span>
+        <span>Specialty centres</span><span>${capTxt} <span class="badge warn">assumed</span></span>
         <span>Method</span><span>${r.meta.selection_method}</span>
         <span>Decision</span><span>${r.meta.infer_ms.toFixed(1)} ms, routing ${r.meta.route_ms.toFixed(0)} ms</span></div></div>`;
     } else {
-      const a = await post('/assign',{ambulances:incidents,needs_icu:incidents.map(()=>icu),minute_of_day:new Date().getHours()*60+new Date().getMinutes(),beta:20});
+      const a = await post('/assign',{ambulances:incidents,needs_icu:incidents.map(()=>icu),minute_of_day:new Date().getHours()*60+new Date().getMinutes(),beta:20,
+        severity:incidents.map(()=>+$('#sev').value),specialty:incidents.map(()=>$('#spec').value),use_online_correction:$('#online').checked});
       const all=[]; let rows='';
       for(const [i,x] of a.assignments.entries()){
         const rt = await post('/route/path',{ambulance:incidents[i],hospital_id:x.hospital.id});
