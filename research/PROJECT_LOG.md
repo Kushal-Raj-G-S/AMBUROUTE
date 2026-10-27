@@ -125,3 +125,6 @@ Verified at source: Jayadeva (primary angioplasty), NIMHANS (thrombolysis + 24h 
 
 ## 16. Block C (API hardening) done 2026-10-27
 api.py: optional X-API-Key on write endpoints (constant-time compare), CORS allow-list, per-address rate limit, MAX_AMBULANCES, request ids + JSON access logs, STATE_PATH persistence (atomic write; bed state + learned corrections), stale bed flag (STALE_MINUTES) per hospital, explanation (top-3 by ETA, free beds, ambulances on the way, capable, stale, plain-language reason) + "recommendation only" notice in /route responses, /ready, POST /decision (dispatcher override logged to SHADOW_LOG, no patient data). tests/test_hardening.py: 7 tests; 26 tests pass. Not yet done in Block C: Docker rebuild + smoke test, load test, lint/CI, pinned deps.
+
+## 17. Block C continued (2026-10-27)
+Dockerfile hardened (non-root, healthcheck, /data volume), docker-compose.yml, requirements-dev.txt (pytest, ruff, pip-audit, mapbox-vector-tile, dotenv), ruff.toml (lint clean, 6 auto-fixes), CI now lint + tests + pip-audit (report-only) + gitleaks + docker build/start. **Docker image NOT built locally (Docker Desktop daemon not running); CI will test it on first push.** Load test: /assign 225 rps, p50 168 ms, p95 605 ms at 50 concurrent; /route bound by Mapbox (14 rps burst, p50 3 s at 50 concurrent) - docs/performance.md. 26 tests pass.

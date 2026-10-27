@@ -1,10 +1,8 @@
 """Paired comparison of the selected PPO policy against the prototype rule (test seeds, from final_raw.csv)."""
-import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-import numpy as np
 import pandas as pd
 from scipy.stats import wilcoxon
 

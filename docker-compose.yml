@@ -1,0 +1,17 @@
+services:
+  ambu-route:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      MAPBOX_TOKEN: ${MAPBOX_TOKEN:-}
+      API_KEY: ${API_KEY:-}
+      STATE_PATH: /data/state.json
+      SHADOW_LOG: /data/shadow.jsonl
+      RATE_LIMIT_PER_MIN: ${RATE_LIMIT_PER_MIN:-0}
+    volumes:
+      - ambu-data:/data
+    restart: unless-stopped
+
+volumes:
+  ambu-data:

@@ -191,8 +191,8 @@ def _online_factors() -> np.ndarray:
 
 
 def _view(locs, needs_icu, mod, severity=None, specialty=None, online=False) -> View:
-    lat = np.array([l.lat for l in locs])[:, None]
-    lon = np.array([l.lon for l in locs])[:, None]
+    lat = np.array([p.lat for p in locs])[:, None]
+    lon = np.array([p.lon for p in locs])[:, None]
     d = haversine_km(lat, lon, _hosp["lat"].to_numpy()[None, :], _hosp["lon"].to_numpy()[None, :])
     eta = _traffic.eta_min(d, mod)
     if online:

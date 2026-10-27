@@ -23,7 +23,6 @@ import pandas as pd
 
 from amburoute.clinical import ClinicalHeuristic, MultiObjectiveHeuristic, NearestCapable, with_capabilities
 from amburoute.geo import load_hospitals
-from amburoute.policies import CapacityHeuristic
 from amburoute.sim import SCENARIOS, SimConfig, run_episode
 from amburoute.traffic import load_calibrated
 

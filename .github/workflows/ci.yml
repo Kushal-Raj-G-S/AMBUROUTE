@@ -17,6 +17,43 @@ jobs:
       - name: Install CPU PyTorch first (avoids the multi-GB CUDA build)
         run: pip install torch==2.14.1 --index-url https://download.pytorch.org/whl/cpu
       - name: Install the rest
-        run: pip install -r requirements.txt
+        run: pip install -r requirements.txt -r requirements-dev.txt
+      - name: Lint
+        run: ruff check amburoute tests experiments
       - name: Run tests
         run: python -m pytest tests -q
+
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Audit dependencies for known vulnerabilities
+        run: |
+          pip install pip-audit==2.9.0
+          pip-audit -r requirements.txt --disable-pip
+        continue-on-error: true  # report only; do not block on advisories without a fix
+
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Scan history for committed secrets
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the image and check it starts
+        run: |
+          docker build -t ambu-route .
+          docker run -d --name ambu -p 8000:8000 ambu-route
+          for i in $(seq 1 30); do curl -fs http://127.0.0.1:8000/ready && break || sleep 2; done
+          curl -fs http://127.0.0.1:8000/health

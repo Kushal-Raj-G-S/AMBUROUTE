@@ -2,7 +2,6 @@
 Every number in the paper's tables comes from here, never typed by hand."""
 import re
 import shutil
-import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -12,7 +11,6 @@ if not PAPER.exists() and (ROOT.parent / "paper").exists():
     PAPER = ROOT.parent / "paper"  # layout used while the paper was drafted
 PAPER.mkdir(exist_ok=True)
 
-import numpy as np
 import pandas as pd
 
 NAME = {"nearest": "Nearest", "nearest_beds": "Nearest + beds", "prototype_heuristic": "Prototype rule",

@@ -314,7 +314,6 @@ class Sim:
         ttb = np.array([r.t_done - r.t_call for r in done])
         div = np.array([r.diversions for r in done])
         icu = np.array([r.needs_icu for r in done])
-        free0 = np.maximum(self.published.sum(axis=0), 1)
         share = self.arrivals / np.maximum(self.total[0], 1)
         jain = (share.sum() ** 2) / (self.H * (share**2).sum()) if share.sum() else 1.0
         extra = {}
