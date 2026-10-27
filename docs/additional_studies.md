@@ -130,3 +130,25 @@ The simulator draws calls from a Poisson process. To test that, the 17:00-19:00 
 - Real arrivals are slightly *more regular* than Poisson, so the replay shows somewhat fewer rejections than the Poisson runs on the same seeds (2.8 vs 4.4 for the heuristic).
 
 Limits: NYC call times in a Bengaluru simulator; the mapping is only for the timing pattern.
+
+## 10. Capabilities from public sources instead of assumptions (`data/hospital_capabilities_researched.csv`, `run_clinical_researched.py`)
+
+The clinical study had assigned cardiac, stroke and trauma capability to hospitals by size, and the assignment was visibly wrong for well-known hospitals (a cardiac institute was marked "no cardiac"). Public sources were searched for each of the 18 hospitals, and a service is counted **only if a public source states it** (evidence and URLs are in the CSV). Result: **cardiac 4, stroke 3, trauma 4 of 18 hospitals** (Jayadeva, Manipal Old Airport Road, Aster RV and KC General for cardiac; NIMHANS, St. Martha's and Aster RV for stroke; Victoria, HOSMAT, Aster RV and Fortis for trauma). Treat this as a **lower bound**: services without a findable public source are counted as absent.
+
+Evidence quality is mixed: Jayadeva, NIMHANS, Victoria and KC General rest on news, reference-work or peer-reviewed sources; Manipal, Aster RV, HOSMAT and Fortis on the hospitals' own pages or sponsored profiles (self-reported); St. Martha's on a stroke-programme directory. The facts were taken from search-result summaries and **should be checked at the source before being cited**; several hospitals could not be matched to a specific campus, and these are counted as absent.
+
+Rerun of the clinical comparison with these capabilities and the real NYC severity mix (30 test seeds, policies not re-tuned), critical patients, minutes to definitive care:
+
+| | Peak | Surge |
+|---|---:|---:|
+| Nearest | 58.8 | 61.7 |
+| Nearest capable | 52.3 | 56.8 |
+| Specialty-blind heuristic | 46.7 | 48.1 |
+| Specialty-blind Nash | 47.3 | 47.7 |
+| **Clinical heuristic** | **40.7** | 45.7 |
+| **Clinical Nash** | 40.9 | **44.9** |
+
+- With realistic scarcity everything is slower (critical patients wait 41-46 min against 28-32 min under the assumed capabilities), because only three or four hospitals can treat each specialty.
+- The clinical policies still beat the strongest simple baseline, nearest capable hospital, by **about 21-22 %** (corrected p between 0.0004 and 0.011), and about 78 % of specialty patients treated by the specialty-blind policies still need a transfer.
+- Against the specialty-blind equilibrium the clinical Nash is 14 % faster at peak (corrected p = 0.09) and 6 % in the surge (not significant), a weaker result than with assumed capabilities.
+- **Capable hospitals saturate**: rejections rise to 15-22 per episode for the clinical policies (3-4 per episode for specialty-blind ones), because patients concentrate on the few capable hospitals. This is the main practical finding: where specialty capacity is this scarce, the limit is capacity at those hospitals, not dispatch logic.

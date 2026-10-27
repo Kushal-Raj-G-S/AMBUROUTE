@@ -1,0 +1,9 @@
+scenario,a,b,rel_pct,p_raw,p_bonf
+peak,clinical_nash,nearest_capable,-21.8813,0.0013,0.0107
+peak,clinical_heuristic,nearest_capable,-22.1401,0.0007,0.0053
+peak,clinical_nash,nash,-13.6226,0.0113,0.0904
+peak,clinical_nash,clinical_heuristic,0.3324,0.2621,1.0
+surge,clinical_nash,nearest_capable,-20.9272,0.0001,0.0011
+surge,clinical_heuristic,nearest_capable,-19.542,0.0001,0.0004
+surge,clinical_nash,nash,-5.8259,0.146,1.0
+surge,clinical_nash,clinical_heuristic,-1.7217,0.4898,1.0

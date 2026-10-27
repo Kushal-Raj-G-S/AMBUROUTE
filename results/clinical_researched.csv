@@ -1,0 +1,13 @@
+scenario,policy,crit,spec,transfer,rejections
+peak,capacity_heuristic,46.68,50.573,0.797,4.167
+peak,clinical_heuristic,40.727,40.369,0.039,15.833
+peak,clinical_nash,40.863,40.634,0.032,15.033
+peak,nash,47.307,51.027,0.783,4.067
+peak,nearest,58.786,59.041,0.533,40.467
+peak,nearest_capable,52.308,50.604,0.07,41.567
+surge,capacity_heuristic,48.062,51.593,0.781,7.3
+surge,clinical_heuristic,45.696,46.291,0.045,22.333
+surge,clinical_nash,44.909,45.422,0.051,21.5
+surge,nash,47.688,51.955,0.782,8.4
+surge,nearest,61.693,63.023,0.547,51.867
+surge,nearest_capable,56.795,55.602,0.063,51.3
