@@ -1,0 +1,30 @@
+{
+ "readings": 113886,
+ "days": 398,
+ "first": "2025-09-25",
+ "last": "2026-10-28",
+ "routes": 13,
+ "slowdown_ratio_quantiles": {
+  "p5": 0.844,
+  "p25": 0.947,
+  "p50": 1.0,
+  "p75": 1.056,
+  "p90": 1.135,
+  "p95": 1.2,
+  "p99": 1.385,
+  "p99.9": 1.759
+ },
+ "slowdown_ratio_quantiles_weekday_peak_hours": {
+  "p50": 1.0,
+  "p90": 1.167,
+  "p95": 1.24,
+  "p99": 1.483
+ },
+ "log_sigma_of_ratio": 0.116,
+ "share_of_readings_at_least_1_5x_typical": 0.0045,
+ "share_of_readings_at_least_2x_typical": 0.0004,
+ "model_over_google_peak": 0.983,
+ "model_over_google_night": 1.244,
+ "model_mape_pct_mean": 20.2,
+ "hourly_corr_mean": 0.942
+}

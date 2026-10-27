@@ -75,5 +75,12 @@ if f.exists():
 f = R / "real_capacity_pressure.csv"
 if f.exists():
     parts += ["## Benefit by capacity pressure (heuristic vs nearest)", "", md(pd.read_csv(f)), ""]
+f = R / "online_realistic.csv"
+if f.exists():
+    parts += ["## Online adaptation under realistic jam sizes (mean minutes to bed)", "",
+              piv(pd.read_csv(f), ["case", "scenario"], "variant", "ttb", ["fixed model", "online (learned)", "oracle"]), ""]
+f = R / "gmaps_validation.csv"
+if f.exists():
+    parts += ["## Fitted travel-time model against independent Google Maps readings (13 routes)", "", md(pd.read_csv(f)), ""]
 (ROOT / "docs" / "results_tables.md").write_text("\n".join(parts), encoding="utf-8")
 print("wrote docs/results_tables.md", sum(1 for p in parts if p.startswith("## ")), "tables")

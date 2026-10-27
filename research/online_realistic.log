@@ -1,0 +1,23 @@
+done local jams 1.25x (4 hospitals)
+done local jams 1.5x (4 hospitals)
+done citywide slowdown 1.24x
+                          case scenario          variant    ttb  vs_fixed_pct  p_raw  p_bonf
+       citywide slowdown 1.24x     peak      fixed model 26.501         0.000    NaN     NaN
+       citywide slowdown 1.24x     peak online (learned) 26.836         1.265  0.000   0.002
+       citywide slowdown 1.24x     peak           oracle 26.679         0.671  0.019   0.232
+       citywide slowdown 1.24x    surge      fixed model 25.876         0.000    NaN     NaN
+       citywide slowdown 1.24x    surge online (learned) 25.970         0.364  0.024   0.283
+       citywide slowdown 1.24x    surge           oracle 25.934         0.225  0.110   1.000
+local jams 1.25x (4 hospitals)     peak      fixed model 23.610         0.000    NaN     NaN
+local jams 1.25x (4 hospitals)     peak online (learned) 23.444        -0.703  0.169   1.000
+local jams 1.25x (4 hospitals)     peak           oracle 23.096        -2.177  0.000   0.000
+local jams 1.25x (4 hospitals)    surge      fixed model 23.587         0.000    NaN     NaN
+local jams 1.25x (4 hospitals)    surge online (learned) 23.539        -0.204  0.901   1.000
+local jams 1.25x (4 hospitals)    surge           oracle 23.246        -1.443  0.000   0.000
+ local jams 1.5x (4 hospitals)     peak      fixed model 24.420         0.000    NaN     NaN
+ local jams 1.5x (4 hospitals)     peak online (learned) 23.840        -2.375  0.000   0.000
+ local jams 1.5x (4 hospitals)     peak           oracle 23.258        -4.761  0.000   0.000
+ local jams 1.5x (4 hospitals)    surge      fixed model 24.204         0.000    NaN     NaN
+ local jams 1.5x (4 hospitals)    surge online (learned) 23.960        -1.009  0.011   0.127
+ local jams 1.5x (4 hospitals)    surge           oracle 23.352        -3.519  0.000   0.000
+exit 0

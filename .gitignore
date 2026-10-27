@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 .pytest_cache/
 results/mapbox_calibration*.csv
+.cache_gmaps/

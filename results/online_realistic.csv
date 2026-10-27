@@ -1,0 +1,19 @@
+case,scenario,variant,ttb,vs_fixed_pct,p_raw,p_bonf
+citywide slowdown 1.24x,peak,fixed model,26.5009,0.0,,
+citywide slowdown 1.24x,peak,online (learned),26.8361,1.2647,0.0002,0.002
+citywide slowdown 1.24x,peak,oracle,26.6787,0.6709,0.0194,0.2322
+citywide slowdown 1.24x,surge,fixed model,25.8761,0.0,,
+citywide slowdown 1.24x,surge,online (learned),25.9702,0.3638,0.0236,0.283
+citywide slowdown 1.24x,surge,oracle,25.9343,0.2249,0.1095,1.0
+local jams 1.25x (4 hospitals),peak,fixed model,23.61,0.0,,
+local jams 1.25x (4 hospitals),peak,online (learned),23.4441,-0.7029,0.1689,1.0
+local jams 1.25x (4 hospitals),peak,oracle,23.0961,-2.1766,0.0,0.0
+local jams 1.25x (4 hospitals),surge,fixed model,23.5867,0.0,,
+local jams 1.25x (4 hospitals),surge,online (learned),23.5386,-0.2042,0.901,1.0
+local jams 1.25x (4 hospitals),surge,oracle,23.2465,-1.4427,0.0,0.0
+local jams 1.5x (4 hospitals),peak,fixed model,24.4204,0.0,,
+local jams 1.5x (4 hospitals),peak,online (learned),23.8404,-2.375,0.0,0.0002
+local jams 1.5x (4 hospitals),peak,oracle,23.2578,-4.7607,0.0,0.0
+local jams 1.5x (4 hospitals),surge,fixed model,24.2036,0.0,,
+local jams 1.5x (4 hospitals),surge,online (learned),23.9595,-1.0085,0.0106,0.1268
+local jams 1.5x (4 hospitals),surge,oracle,23.352,-3.5186,0.0,0.0

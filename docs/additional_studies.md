@@ -213,3 +213,42 @@ What this means for the paper: report the benefit as conditional on capacity pre
 
 - **Limits:** the data is two to three years old, from the US, and weekly averages. It supports realistic variation and size effects; it is not a measurement of 2026 conditions or of Indian hospitals.
 - **Reproduce:** `python experiments/fetch_hhs_capacity.py` then `python experiments/run_real_capacity.py`.
+
+## 12. Independent real traffic check for Bengaluru, and realistic jam sizes (`experiments/analyse_gmaps_traffic.py`, `run_online_realistic.py`)
+
+**Data.** "Bangalore Traffic dataset" by Mahesh Shantaram (2026), CC BY 4.0, https://github.com/thecont1/traffic-monitor-lizard: Google Maps travel-time estimates for 13 routes of about 10 km (one of 34 km to the airport), sampled about three times an hour, day and night. **113,886 readings over 398 days (25 September 2025 to 28 October 2026).** It was not used to fit anything. The travel-time model was fitted to Mapbox typical-traffic samples; this is a second, independent real source used to check it. Only aggregates are stored (`data/real_traffic_gmaps_profile.csv`); the raw file is downloaded on demand and cached outside the repository.
+
+**1. Does the fitted model agree with an independent real source?** Comparing the model's car time for each route's straight-line distance with Google's weekday median for each hour:
+
+| Check | Result |
+|---|---|
+| Hour-of-day shape (correlation, mean over 13 routes) | **0.94** (range 0.75-0.99) |
+| Level at rush hours (08-09 and 17-19), model / Google | **0.98** |
+| Level at night (01-04), model / Google | 1.24: **the model is too slow at night** |
+| Mean absolute error over route-hours | 20 % (best 8 % on the south and north outer rings, worst 40 % on the airport route) |
+
+The model reproduces the daily rhythm and rush-hour levels well. It overestimates night-time and very long expressway trips (airport route 27 km straight, outside most of the calibration pairs; flyover and Hosur Road routes), which matters little for the evening scenarios in the paper but would for night dispatch. Table: `results/gmaps_validation.csv`.
+
+**2. How big are real day-to-day slowdowns?** Each reading divided by the typical reading for the same route, weekday or weekend, and hour:
+
+| Percentile of the ratio | 50 | 90 | 95 | 99 | 99.9 |
+|---|---:|---:|---:|---:|---:|
+| All hours | 1.00 | 1.14 | 1.20 | 1.39 | 1.76 |
+| Weekday rush hours | 1.00 | 1.17 | 1.24 | 1.48 | |
+
+Only **0.45 %** of readings are 1.5 times the typical time or more, and **0.04 %** reach 2 times. The log standard deviation is 0.116, below the 0.14 used for ETA noise in the simulator (so that noise is, if anything, conservative). These are estimates for 10 km routes at half-hourly sampling, so they may understate short, sudden incidents.
+
+**3. The earlier jam study used 2x jams, far beyond what the data shows.** Rerun with sizes taken from this data (heuristic base, 50 test seeds, mean minutes to bed; `results/online_realistic.csv`):
+
+| Case (from minute 30) | Scenario | Fixed model | Online | Oracle |
+|---|---|---:|---:|---:|
+| 4 hospitals 1.25x slower | peak | 23.61 | 23.44 (-0.7 %, n.s.) | 23.10 (-2.2 %) |
+| | surge | 23.59 | 23.54 (-0.2 %, n.s.) | 23.25 (-1.4 %) |
+| 4 hospitals 1.5x slower | peak | 24.42 | 23.84 (**-2.4 %**) | 23.26 (-4.8 %) |
+| | surge | 24.20 | 23.96 (-1.0 %, n.s.) | 23.35 (-3.5 %) |
+| every trip 1.24x slower | peak | 26.50 | 26.84 (**+1.3 %, worse**) | 26.68 (+0.7 %, n.s.) |
+| | surge | 25.88 | 25.97 (+0.4 %, n.s.) | 25.93 (+0.2 %, n.s.) |
+
+**Conclusion: with realistic jam sizes the online learner brings no reliable benefit.** At 1.25x even a perfect oracle gains only 1-2 %, so there is little to learn. It helps (2.4 % at peak) only when four hospitals are 1.5 times slower to reach, a case that is about 0.45 % of readings, and it slightly hurts when the whole city slows evenly. The earlier "-6.2 % under 2x jams" is a stress-test result, not a typical one. The fixed, calibrated travel-time model is the right default; online correction is worth keeping for rare large jams only.
+
+**What the real traffic data does not give us:** actual ambulance trips (their speed-up over cars is still an assumption), day-specific hospital-approach congestion, or rain and event days labelled for replay. Older Uber Movement ward-to-ward travel times (2016-2020, Bengaluru wards, discontinued) are a possible further source; I did not confirm that the files can still be downloaded.
