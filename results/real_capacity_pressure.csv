@@ -1,0 +1,7 @@
+scenario,pressure,free_capacity,nearest,heuristic,gain_pct,rejections_nearest,rejections_heuristic
+peak,tight,0.168,22.649,21.944,3.116,12.412,0.529
+peak,medium,0.206,22.859,21.73,4.939,10.062,0.438
+peak,loose,0.252,22.512,21.697,3.618,8.235,0.176
+surge,tight,0.168,23.334,21.641,7.255,18.294,1.0
+surge,medium,0.206,22.988,21.564,6.196,10.812,0.5
+surge,loose,0.252,22.599,21.867,3.235,7.824,0.412

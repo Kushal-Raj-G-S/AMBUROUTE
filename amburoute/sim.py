@@ -50,6 +50,7 @@ class SimConfig:
     drift_factor: float = 1.0
     drift_start: int = 30
     spatial_demand: bool = False  # calls follow OSM building density (data/bengaluru_building_density.csv) instead of uniform
+    real_capacity: bool = False  # occupancy and ICU share drawn from measured hospitals of similar size (amburoute/capacity.py)
     obs_frac: float = 0.35  # online learners see a trip's realised/planned time this far into the trip (GPS tracking, assumed)
 
 
@@ -130,6 +131,13 @@ class Sim:
             [hospitals["beds"].to_numpy(), hospitals["icu_beds"].to_numpy()]
         ).astype(int)
         occ0 = self.rng.uniform(*cfg.occ_range, size=(2, self.H))
+        if cfg.real_capacity:  # measured occupancy and ICU share by hospital size (separate stream: base episode unchanged)
+            from .capacity import sample_capacity
+
+            g, share, i = sample_capacity(hospitals["beds"].to_numpy(), np.random.default_rng(seed + 555))
+            self.total[1] = np.maximum(2, np.round(hospitals["beds"].to_numpy() * share)).astype(int)
+            occ0 = np.stack([g, i])
+        self.free_frac0 = float(1.0 - occ0[0].mean())  # how much general capacity is free at the start
         self.target = occ0
         self.occ = np.floor(occ0 * self.total).astype(int)
         self.published = self.total - self.occ
@@ -348,6 +356,7 @@ class Sim:
             rejections=int(self.rejections.sum()),
             max_rejections_one_hospital=int(self.rejections.max()),
             jain_load_balance=float(jain),
+            free_frac0=float(self.free_frac0),
             decision_ms=float(np.mean(latencies_ms)) if latencies_ms else float("nan"),
         )
 

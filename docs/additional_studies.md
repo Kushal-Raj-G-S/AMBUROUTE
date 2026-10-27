@@ -169,3 +169,26 @@ Rerun of the clinical comparison with these capabilities and the real NYC severi
 - Clinical Nash against the specialty-blind Nash: 16 % at peak (corrected p = 0.075) and 7 % in the surge (not significant).
 - Re-tuning improved the heuristic by 4 % (peak) and 9 % (surge) and cut its rejections by about a third, but neither difference is significant after correction.
 - Nash and the heuristic are again statistically indistinguishable (Nash 2 % and 6 % slower, p > 0.1). With this few capable hospitals, **the simple heuristic is the safer choice**.
+
+## 11. Measured hospital capacity instead of assumed (`experiments/fetch_hhs_capacity.py`, `run_real_capacity.py`)
+
+The paper's simulator gives every hospital 88-99 % general-bed occupancy, which leaves about 6.5 % of beds free on average. Real hospitals look different. From 14,202 hospital-weeks of US federal facility-level data (HHS, six weeks across 2023-2024, hospitals with at least 25 beds and 4 ICU beds), the median general-bed occupancy is 79 % (middle half 64-90 %), and for large hospitals (500 beds and above, 1,562 hospital-weeks) it is 85 % (77-92 %); ICU occupancy for large hospitals has a median of 82 %. Only the anonymous profile is kept (`data/real_capacity_profile.csv`: size, occupancy, ICU share of beds, ICU occupancy).
+
+**The Bengaluru map and hospitals are unchanged**, with their real bed totals. For each simulated day, each hospital draws one real hospital-week of similar size from the profile (`amburoute/capacity.py`) and takes its occupancy, ICU share and ICU occupancy. Every seed draws different capacities, so no result rests on one arbitrary assignment. The profile is **US data applied to Bengaluru's hospitals**: it gives realistic variation and size effects, not Bengaluru measurements. The sampler needs only a `beds` column, so another city or state would need only its own hospital table and traffic data. On average 20 % of general beds are free under this draw, against 6.5 % in the paper's assumption.
+
+Policy parameters: the paper's (heuristic weight 20, equilibrium beta 10, power 2) and, re-tuned on validation seeds under the new capacities, **the same values**, so the earlier tuning is not an artefact of the old assumption. PPO is run without retraining. 50 test seeds per scenario.
+
+| Mean minutes to bed | Off-peak | Peak | Surge |
+|---|---:|---:|---:|
+| Nearest hospital | 19.51 | 22.67 | 22.97 |
+| Capacity heuristic | 18.98 | 21.79 | 21.69 |
+| Equilibrium | 18.96 | 21.72 | 21.73 |
+| PPO (not retrained) | 19.04 | 21.88 | 21.86 |
+| Turned away per day: nearest / heuristic | 2.0 / 0.14 | 10.2 / 0.38 | 12.3 / 0.64 |
+
+- **The time saving is smaller than in the paper.** Capacity-aware dispatch is 2.7 % (off-peak), 3.9 % (peak) and 5.6 % (surge) faster than nearest-hospital dispatch (all significant after correction), against 5.5 %, 11.8 % and 17.2 % under the assumed capacities. **The paper's headline gains describe a tight system; with measured capacity they are roughly a third of that.**
+- **The reduction in turn-aways survives:** about 93-96 % fewer ambulances turned away, because the heuristic still avoids the hospitals that are full at that moment.
+- Equilibrium and heuristic differ by under 0.4 % (equilibrium slightly ahead at peak, corrected p = 0.007; no difference in the surge). PPO is 0.3-0.8 % slower than the heuristic (significant at peak and surge), which is expected since it was trained on the tight regime.
+- **The benefit grows with pressure, but not in every scenario.** In the surge, the third of days with the least free capacity gains 7.3 % against 3.2 % for the third with the most. At peak the three groups gain 3.1 %, 4.9 % and 3.6 %, so there is no clean trend there.
+
+What this means for the paper: report the benefit as conditional on capacity pressure, give both the tight (assumed) and the measured-capacity results, and say the second uses US-derived profiles.

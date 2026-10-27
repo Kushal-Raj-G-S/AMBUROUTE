@@ -92,3 +92,30 @@ def test_api_clinical_routing_and_online_feedback():
         out = c.post("/feedback", json={"hospital_id": 3, "planned_min": 10, "observed_min": 20}).json()["correction_factors"]
     assert out[3] > 1.1 and out[3] > before[3] and c.post("/feedback", json={"hospital_id": 99, "planned_min": 1, "observed_min": 1}).status_code == 404
     assert c.post("/route", json={"ambulance": {"lat": 12.97, "lon": 77.59}, "use_online_correction": True}).status_code == 200
+
+
+def test_real_capacity_is_off_by_default_and_reproducible():
+    from amburoute.sim import Sim
+
+    a = Sim(H, SCENARIOS["peak"], 5, SimConfig(), T)
+    b = Sim(H, SCENARIOS["peak"], 5, SimConfig(real_capacity=False), T)
+    assert (a.total == b.total).all() and (a.target == b.target).all()
+    c = Sim(H, SCENARIOS["peak"], 5, SimConfig(real_capacity=True), T)
+    d = Sim(H, SCENARIOS["peak"], 5, SimConfig(real_capacity=True), T)
+    e = Sim(H, SCENARIOS["peak"], 6, SimConfig(real_capacity=True), T)
+    assert (c.total == d.total).all() and (c.target == d.target).all()  # same seed, same draw
+    assert not (c.target == e.target).all()  # another seed draws different hospitals
+    assert (c.target >= 0).all() and (c.target <= 1).all() and (c.total[1] >= 2).all()
+    assert (c.total[0] == a.total[0]).all()  # Bengaluru's real bed totals are kept
+
+
+def test_capacity_sampler_matches_size_and_works_for_any_city():
+    import numpy as np
+
+    from amburoute.capacity import sample_capacity
+
+    rng = np.random.default_rng(0)
+    occ, share, iocc = sample_capacity(np.array([60, 250, 900] * 40), rng)
+    assert len(occ) == 120 and ((0 <= occ) & (occ <= 1)).all() and ((0 < share) & (share <= 0.6)).all()
+    # larger hospitals are fuller on average in the measured data
+    assert occ[2::3].mean() > occ[0::3].mean()

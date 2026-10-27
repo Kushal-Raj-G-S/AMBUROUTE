@@ -67,5 +67,13 @@ if f.exists():
 f = R / "nyc_replay.csv"
 if f.exists():
     parts += ["## Replay of real NYC arrival times (peak)", "", md(pd.read_csv(f)), ""]
+f = R / "real_capacity_summary.csv"
+if f.exists():
+    d = pd.read_csv(f)
+    parts += ["## Measured capacity (Bengaluru map, capacities drawn from real hospitals; mean minutes to bed)", "",
+              piv(d, "scenario", "policy", "ttb", ["nearest", "capacity_heuristic", "nash", "ppo"]), ""]
+f = R / "real_capacity_pressure.csv"
+if f.exists():
+    parts += ["## Benefit by capacity pressure (heuristic vs nearest)", "", md(pd.read_csv(f)), ""]
 (ROOT / "docs" / "results_tables.md").write_text("\n".join(parts), encoding="utf-8")
 print("wrote docs/results_tables.md", sum(1 for p in parts if p.startswith("## ")), "tables")
