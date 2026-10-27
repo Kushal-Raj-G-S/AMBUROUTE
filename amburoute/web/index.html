@@ -1,246 +1,293 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AmbuRoute Dispatcher</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230ea5a4'/%3E%3Cpath d='M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z' fill='white'/%3E%3C/svg%3E">
+<title>AmbuRoute Dispatch Console</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='16' height='16' fill='%231f5bff'/%3E%3Crect x='16' y='16' width='16' height='16' fill='%231f5bff'/%3E%3Crect x='16' width='16' height='16' fill='%23d4ff2a'/%3E%3Crect y='16' width='16' height='16' fill='%23d4ff2a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
 <style>
-  /* Palette: deep ink + teal brand + indigo info; coral / amber / green for status. Light and dark share the same hues. */
+  /* Night-shift dispatch console. One bold element: hi-vis lime (the colour of response-crew vests) on ink.
+     Display: Big Shoulders Display (road-signage condensed). Body: IBM Plex Sans. Data: IBM Plex Mono.
+     Layout: top status strip, docked left rail, full-bleed map; results print as a dispatch ticket. */
   :root{
-    --bg:#eef3f8; --surface:rgba(255,255,255,.88); --surface-solid:#ffffff; --surface-2:#f2f6fa; --line:#e1e8f0;
-    --text:#0b1b2b; --mute:#5c7085; --faint:#93a4b6;
-    --brand:#0ea5a4; --brand-2:#2563eb; --brand-ink:#ffffff; --brand-soft:rgba(14,165,164,.12);
-    --good:#16a34a; --good-soft:rgba(22,163,74,.13); --warn:#d97706; --warn-soft:rgba(245,158,11,.16);
-    --bad:#e5484d; --bad-soft:rgba(229,72,77,.13); --info:#4f46e5; --info-soft:rgba(79,70,229,.12);
-    --shadow:0 18px 50px -18px rgba(11,27,43,.35),0 2px 6px rgba(11,27,43,.06);
-    --ring:0 0 0 3px rgba(14,165,164,.35);
+    --bg:#e9ede8; --panel:#f7f8f5; --panel-2:#eceee9; --line:#cfd6cf; --ink:#0d141a; --mute:#53626c; --faint:#8995a0;
+    --accent:#c9f000; --on-accent:#0d141a; --route:#1f5bff;
+    --good:#0f9d58; --warn:#d68500; --bad:#d63a3a;
+    --good-bg:rgba(15,157,88,.14); --warn-bg:rgba(214,133,0,.16); --bad-bg:rgba(214,58,58,.14); --route-bg:rgba(31,91,255,.12);
+    --shadow:0 14px 40px -18px rgba(13,20,26,.45);
+    --display:"Big Shoulders Display","Arial Narrow","Roboto Condensed",Impact,sans-serif;
+    --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
   }
   :root[data-theme=dark]{
-    --bg:#070d18; --surface:rgba(14,24,41,.86); --surface-solid:#0e1829; --surface-2:#132039; --line:#223250;
-    --text:#e8eef8; --mute:#8fa4bf; --faint:#5d7391;
-    --brand:#2dd4bf; --brand-2:#60a5fa; --brand-ink:#04211f; --brand-soft:rgba(45,212,191,.14);
-    --good:#4ade80; --good-soft:rgba(74,222,128,.14); --warn:#fbbf24; --warn-soft:rgba(251,191,36,.15);
-    --bad:#fb7185; --bad-soft:rgba(251,113,133,.15); --info:#a5b4fc; --info-soft:rgba(165,180,252,.14);
-    --shadow:0 20px 60px -20px rgba(0,0,0,.8),0 2px 8px rgba(0,0,0,.4);
-    --ring:0 0 0 3px rgba(45,212,191,.35);
+    --bg:#070b0f; --panel:#0e151c; --panel-2:#131d26; --line:#212f3a; --ink:#e8eef1; --mute:#8d9ea9; --faint:#566873;
+    --accent:#d4ff2a; --on-accent:#0b1015; --route:#4d8dff;
+    --good:#34d27b; --warn:#ffb224; --bad:#ff5a5a;
+    --good-bg:rgba(52,210,123,.14); --warn-bg:rgba(255,178,36,.15); --bad-bg:rgba(255,90,90,.16); --route-bg:rgba(77,141,255,.16);
+    --shadow:0 18px 50px -20px rgba(0,0,0,.9);
   }
   *{box-sizing:border-box}
-  html,body{margin:0;height:100%;font:14px/1.5 "Inter","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:14px/1.5 var(--body);-webkit-font-smoothing:antialiased}
   button,input,select{font:inherit;color:inherit}
-  :focus-visible{outline:none;box-shadow:var(--ring)}
-  #app{position:relative;height:100%;overflow:hidden}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  #app{display:grid;grid-template-rows:44px 1fr;height:100%}
+  .mono{font-family:var(--mono)}
+
+  /* ---------- status strip ---------- */
+  #strip{display:flex;align-items:center;gap:18px;padding:0 14px;background:var(--panel);border-bottom:1px solid var(--line);font:500 11.5px/1 var(--mono);color:var(--mute);letter-spacing:.02em;white-space:nowrap;overflow:hidden}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--ink)}
+  .batt{display:grid;grid-template-columns:11px 11px;grid-template-rows:11px 11px}
+  .batt i:nth-child(1),.batt i:nth-child(4){background:var(--route)}
+  .batt i:nth-child(2),.batt i:nth-child(3){background:var(--accent)}
+  .brand b{font:900 21px/1 var(--display);letter-spacing:.06em;text-transform:uppercase}
+  .led{display:inline-flex;align-items:center;gap:6px}
+  .led::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 0 3px var(--good-bg)}
+  .led.warn::before{background:var(--warn);box-shadow:0 0 0 3px var(--warn-bg)}
+  .led.bad::before{background:var(--bad);box-shadow:0 0 0 3px var(--bad-bg)}
+  .strip-gap{flex:1}
+  .kv2{display:flex;gap:6px}.kv2 b{color:var(--ink);font-weight:600}
+  .ibtn{width:30px;height:28px;display:grid;place-items:center;border:1px solid var(--line);background:var(--panel-2);cursor:pointer;border-radius:3px;color:var(--mute)}
+  .ibtn:hover{color:var(--ink);border-color:var(--faint)}
+  .ibtn svg{width:15px;height:15px}
+
+  /* ---------- body: rail + map ---------- */
+  #main{display:grid;grid-template-columns:432px 1fr;min-height:0}
+  #side{display:flex;flex-direction:column;min-height:0;background:var(--panel);border-right:1px solid var(--line)}
+  #mapwrap{position:relative;min-width:0}
   #map{position:absolute;inset:0}
-
-  /* ---------- floating panel ---------- */
-  #side{position:absolute;z-index:5;left:14px;top:14px;bottom:14px;width:408px;max-width:calc(100% - 28px);display:flex;flex-direction:column;
-    background:var(--surface);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);
-    border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
-  header{display:flex;align-items:center;gap:12px;padding:16px 18px 12px}
-  .logo{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:none;color:#fff;
-    background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 8px 20px -8px var(--brand-2)}
-  .logo svg{width:22px;height:22px}
-  header h1{margin:0;font-size:18px;letter-spacing:-.01em;font-weight:700}
-  header p{margin:1px 0 0;color:var(--mute);font-size:12px}
-  .grow{flex:1;min-width:0}
-  .icon-btn{width:36px;height:36px;border-radius:11px;border:1px solid var(--line);background:var(--surface-solid);cursor:pointer;display:grid;place-items:center;color:var(--mute);transition:.15s}
-  .icon-btn:hover{color:var(--text);transform:translateY(-1px)}
-  .icon-btn svg{width:18px;height:18px}
-  .pills{display:flex;gap:6px;flex-wrap:wrap;padding:0 18px 12px}
-  .pill{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:600;background:var(--surface-2);color:var(--mute);border:1px solid var(--line)}
-  .pill i{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 0 3px var(--good-soft)}
-  .pill.warn i{background:var(--warn);box-shadow:0 0 0 3px var(--warn-soft)}
-
-  .tabs{display:flex;gap:4px;margin:0 14px;padding:4px;background:var(--surface-2);border:1px solid var(--line);border-radius:14px}
-  .tabs button{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:8px 6px;border:0;border-radius:10px;background:none;color:var(--mute);cursor:pointer;font-weight:600;font-size:13px;transition:.15s}
-  .tabs button svg{width:16px;height:16px}
-  .tabs button.on{background:var(--surface-solid);color:var(--text);box-shadow:0 2px 8px rgba(11,27,43,.1)}
-  .tabs button.on svg{color:var(--brand)}
-  .pane{display:none;padding:6px 18px 20px;overflow:auto;flex:1}
+  .tabs{display:flex;border-bottom:1px solid var(--line)}
+  .tabs button{flex:1;padding:12px 0 11px;background:none;border:0;border-bottom:3px solid transparent;color:var(--faint);cursor:pointer;font:800 15px/1 var(--display);letter-spacing:.12em;text-transform:uppercase}
+  .tabs button:hover{color:var(--ink)}
+  .tabs button.on{color:var(--ink);border-bottom-color:var(--accent)}
+  .pane{display:none;padding:4px 18px 28px;overflow:auto;flex:1;min-height:0}
   .pane.on{display:block}
-  .pane::-webkit-scrollbar{width:8px}.pane::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+  .pane::-webkit-scrollbar{width:8px}.pane::-webkit-scrollbar-thumb{background:var(--line)}
 
-  /* ---------- form ---------- */
-  .field{margin-top:14px}
-  .lbl{display:flex;align-items:center;justify-content:space-between;margin:0 0 6px;color:var(--mute);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+  /* ---------- controls ---------- */
+  .lbl{margin:18px 0 7px;font:600 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
   .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);opacity:0}
-  .seg{display:flex;gap:4px;padding:3px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px}
-  .seg button{flex:1;padding:7px 8px;border:0;border-radius:9px;background:none;color:var(--mute);cursor:pointer;font-weight:600;font-size:12.5px;transition:.15s;white-space:nowrap}
-  .seg button:hover:not(:disabled){color:var(--text)}
-  .seg button.on{background:var(--surface-solid);color:var(--text);box-shadow:0 1px 6px rgba(11,27,43,.14)}
-  .seg button:disabled{opacity:.45;cursor:default}
-  .seg[data-for=sev] button[data-v="0"].on{background:var(--good-soft);color:var(--good)}
-  .seg[data-for=sev] button[data-v="1"].on{background:var(--warn-soft);color:var(--warn)}
-  .seg[data-for=sev] button[data-v="2"].on{background:var(--bad-soft);color:var(--bad)}
-  .seg.chips{flex-wrap:wrap}.seg.chips button{flex:1 1 40%}
-  .switch{display:flex;align-items:center;gap:10px;margin-top:12px;cursor:pointer;color:var(--text);font-size:13px;user-select:none}
-  .switch input{appearance:none;width:38px;height:22px;border-radius:99px;background:var(--line);position:relative;cursor:pointer;transition:.2s;flex:none;margin:0}
-  .switch input::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:.2s}
-  .switch input:checked{background:var(--brand)}
-  .switch input:checked::after{transform:translateX(16px)}
-  .switch small{display:block;color:var(--mute);font-size:11.5px}
-  select,input[type=number],input[type=password]{width:100%;padding:9px 11px;background:var(--surface-solid);color:var(--text);border:1px solid var(--line);border-radius:11px}
-  select:focus,input:focus{border-color:var(--brand)}
-  .hint{color:var(--mute);font-size:12px;margin-top:8px}
-  .btns{display:flex;gap:8px;margin-top:16px}
-  button.btn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 14px;border:0;border-radius:13px;color:var(--brand-ink);font-weight:700;cursor:pointer;
-    background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 10px 24px -12px var(--brand-2);transition:.15s}
-  button.btn:hover:not(:disabled){transform:translateY(-1px);filter:brightness(1.05)}
-  button.btn.alt{flex:0 0 auto;background:var(--surface-solid);color:var(--text);border:1px solid var(--line);box-shadow:none}
-  button.btn:disabled{opacity:.6;cursor:default}
-  .spin{width:15px;height:15px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;animation:spin .7s linear infinite}
+  .seg{display:flex;border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--panel-2)}
+  .seg button{flex:1;padding:9px 6px;border:0;border-right:1px solid var(--line);background:none;color:var(--mute);cursor:pointer;font-weight:600;font-size:12.5px;display:flex;align-items:center;justify-content:center;gap:7px}
+  .seg button:last-child{border-right:0}
+  .seg button:hover:not(:disabled){color:var(--ink)}
+  .seg button.on{background:var(--ink);color:var(--panel)}
+  .seg button:disabled{opacity:.4;cursor:default}
+  .seg.chips{flex-wrap:wrap}.seg.chips button{flex:1 1 50%;border-bottom:1px solid var(--line)}
+  .seg[data-for=sev] button::before{content:"";width:9px;height:9px;background:var(--c);border-radius:1px}
+  .seg[data-for=sev] button[data-v="0"]{--c:var(--good)}.seg[data-for=sev] button[data-v="1"]{--c:var(--warn)}.seg[data-for=sev] button[data-v="2"]{--c:var(--bad)}
+  .seg[data-for=sev] button.on{background:var(--c);color:#0b1015}
+  .seg[data-for=sev] button.on::before{background:#0b1015}
+  .sw{display:flex;align-items:center;gap:12px;margin-top:14px;cursor:pointer;user-select:none;font-weight:500}
+  .sw input{appearance:none;width:38px;height:20px;background:var(--panel-2);border:1px solid var(--line);border-radius:2px;position:relative;cursor:pointer;margin:0;flex:none;transition:.15s}
+  .sw input::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;background:var(--faint);transition:.15s}
+  .sw input:checked{background:var(--accent);border-color:var(--accent)}
+  .sw input:checked::after{transform:translateX(18px);background:var(--on-accent)}
+  .sw small{display:block;color:var(--mute);font-weight:400;font-size:11.5px}
+  select,input[type=number],input[type=password]{width:100%;padding:9px 10px;background:var(--panel-2);color:var(--ink);border:1px solid var(--line);border-radius:3px}
+  select:focus,input:focus{border-color:var(--accent)}
+  .hint{margin-top:12px;color:var(--mute);font:400 11.5px/1.5 var(--mono)}
+  .btns{display:flex;gap:8px;margin-top:18px}
+  .btn{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;padding:12px 14px 10px;border:2px solid var(--ink);border-radius:3px;background:var(--accent);color:var(--on-accent);cursor:pointer;
+    font:900 19px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;box-shadow:3px 3px 0 var(--ink);transition:transform .08s,box-shadow .08s}
+  .btn:hover:not(:disabled){transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+  .btn:active:not(:disabled){transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+  .btn.alt{flex:0 0 auto;background:var(--panel-2);color:var(--ink);border-color:var(--line);box-shadow:none;font-size:16px;padding:12px 16px 10px}
+  .btn:disabled{opacity:.6;cursor:default}
+  .spin{width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .7s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
-
-  /* ---------- results ---------- */
-  .empty{margin-top:18px;padding:16px;border:1px dashed var(--line);border-radius:16px;background:var(--surface-2)}
-  .empty b{display:block;margin-bottom:6px}
-  .steps{margin:0;padding:0;list-style:none;display:grid;gap:8px;color:var(--mute);font-size:12.5px}
-  .steps li{display:flex;gap:10px;align-items:flex-start}
-  .steps span{flex:none;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;background:var(--brand-soft);color:var(--brand)}
-  .card{margin-top:16px;border:1px solid var(--line);border-radius:18px;background:var(--surface-solid);overflow:hidden;animation:rise .3s ease}
-  @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-  .hero{padding:16px 16px 14px;background:linear-gradient(135deg,var(--brand-soft),var(--info-soft))}
-  .hero .tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
-  .hero h3{margin:2px 0 8px;font-size:17px;letter-spacing:-.01em}
-  .eta{display:flex;align-items:baseline;gap:6px}
-  .eta b{font-size:36px;line-height:1;letter-spacing:-.03em;font-weight:800;background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .eta span{color:var(--mute);font-weight:600}
-  .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-  .badge{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:99px;font-size:11px;font-weight:700;background:var(--surface-2);color:var(--mute);border:1px solid var(--line)}
-  .badge.ok{background:var(--good-soft);color:var(--good);border-color:transparent}
-  .badge.warn{background:var(--warn-soft);color:var(--warn);border-color:transparent}
-  .badge.bad{background:var(--bad-soft);color:var(--bad);border-color:transparent}
-  .badge.info{background:var(--info-soft);color:var(--info);border-color:transparent}
-  .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px 16px 4px}
-  .stat{padding:10px 12px;border-radius:13px;background:var(--surface-2);border:1px solid var(--line)}
-  .stat small{display:block;color:var(--mute);font-size:11px;font-weight:600}
-  .stat b{font-size:15px}
-  .bar{height:6px;border-radius:9px;background:var(--line);margin-top:7px;overflow:hidden}
-  .bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--brand),var(--brand-2))}
-  .bar.low i{background:var(--bad)}.bar.mid i{background:var(--warn)}
-  .why{margin:12px 16px 0;padding:10px 12px;border-radius:12px;background:var(--brand-soft);border-left:3px solid var(--brand);font-size:12.5px}
-  .why b{color:var(--brand)}
-  .sec{padding:12px 16px 4px;color:var(--mute);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
-  table{width:100%;border-collapse:collapse;font-size:12.5px}
-  th,td{text-align:right;padding:8px 6px;border-bottom:1px solid var(--line)}
-  th:first-child,td:first-child{text-align:left}
-  th{color:var(--mute);font-weight:600;font-size:11.5px}
-  tr:last-child td{border-bottom:0}
-  tr.win td{background:var(--brand-soft)}
-  .card table{margin:0 10px 0;width:calc(100% - 20px)}
-  .foot{padding:10px 16px 14px;color:var(--mute);font-size:11.5px}
-  .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;vertical-align:-1px}
-  .alert{display:flex;gap:8px;margin-top:12px;padding:10px 12px;border-radius:12px;background:var(--bad-soft);color:var(--bad);font-size:12.5px;font-weight:600}
+  .alert{margin-top:12px;padding:10px 12px;background:var(--bad-bg);color:var(--bad);border-left:3px solid var(--bad);font:500 12px/1.4 var(--mono)}
   .alert:empty{display:none}
-  .kv{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;padding:4px 16px 12px;font-size:12.5px}
-  .kv span:nth-child(odd){color:var(--mute)}.kv span:nth-child(even){text-align:right}
 
-  /* hospitals tab */
-  .hosp{display:grid;grid-template-columns:1fr 64px 64px;gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:12.5px}
-  .hosp.head{color:var(--mute);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding-bottom:6px}
-  .hosp .nm{display:flex;flex-direction:column;gap:5px;min-width:0}
-  .hosp .nm div:first-child{display:flex;align-items:center;gap:6px;font-weight:600;overflow:hidden;text-overflow:ellipsis}
-  .hosp input{padding:6px 7px;font-size:12.5px;border-radius:9px}
-  /* compare tab */
-  .cmp{display:grid;gap:10px;margin-top:14px}
-  .cmpRow{padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--surface-solid)}
-  .cmpRow.best{border-color:var(--brand);box-shadow:var(--ring)}
-  .cmpRow .top{display:flex;justify-content:space-between;align-items:baseline;font-weight:700}
-  .cmpRow .sub{display:flex;gap:14px;color:var(--mute);font-size:11.5px;margin-top:6px}
+  /* ---------- standby ---------- */
+  .standby{margin-top:20px;padding:16px;border:1px dashed var(--line);display:flex;gap:16px;align-items:center}
+  .radar{flex:none;width:74px;height:74px}
+  .radar circle{fill:none;stroke:var(--line);stroke-width:1}
+  .radar .sweep{transform-origin:37px 37px;animation:sweep 3.2s linear infinite}
+  @keyframes sweep{to{transform:rotate(360deg)}}
+  .standby ol{margin:0;padding:0;list-style:none;font:400 11.5px/1.7 var(--mono);color:var(--mute)}
+  .standby li::before{content:"> ";color:var(--accent)}
+  :root[data-theme=light] .standby li::before{color:var(--ink)}
+  .standby b{display:block;font:800 16px/1.2 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:4px}
 
-  /* map chrome */
-  .mapboxgl-popup-content{background:var(--surface-solid)!important;color:var(--text)!important;border:1px solid var(--line);border-radius:14px!important;box-shadow:var(--shadow)!important;padding:12px 14px!important;font:13px/1.5 system-ui}
-  .mapboxgl-popup-tip{display:none}
-  .mapboxgl-popup-close-button{color:var(--mute)}
-  .pulse{width:18px;height:18px;border-radius:50%;background:#ef4444;border:3px solid #fff;box-shadow:0 0 0 0 rgba(239,68,68,.5);animation:pulse 1.8s infinite}
-  @keyframes pulse{70%{box-shadow:0 0 0 14px rgba(239,68,68,0)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}
-  .legend{position:absolute;z-index:4;right:14px;bottom:30px;display:flex;gap:12px;padding:8px 12px;border-radius:12px;background:var(--surface);backdrop-filter:blur(12px);border:1px solid var(--line);box-shadow:var(--shadow);font-size:11.5px;color:var(--mute)}
-  .legend span{display:inline-flex;align-items:center;gap:6px}
-  .legend i{width:9px;height:9px;border-radius:50%}
-  @media(max-width:760px){
-    #side{left:0;right:0;bottom:0;top:auto;height:62%;width:100%;max-width:none;border-radius:22px 22px 0 0}
-    .legend{display:none}
+  /* ---------- dispatch ticket ---------- */
+  .ticket{margin-top:20px;background:var(--panel-2);border:1px solid var(--line);position:relative;animation:print .45s cubic-bezier(.2,.8,.2,1)}
+  @keyframes print{from{clip-path:inset(0 0 100% 0);transform:translateY(-8px)}to{clip-path:inset(0);transform:none}}
+  .tag{display:flex;justify-content:space-between;align-items:center;padding:7px 12px;background:var(--c,var(--ink));color:#0b1015;font:600 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+  .tag.s0{--c:var(--good)}.tag.s1{--c:var(--warn)}.tag.s2{--c:var(--bad)}.tag.m{--c:var(--route);color:#fff}
+  .tk-head{padding:14px 14px 4px}
+  .tk-head small{font:500 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .tk-head h3{margin:6px 0 0;font:800 25px/1.05 var(--display);letter-spacing:.02em;text-transform:uppercase}
+  .etaRow{display:flex;align-items:flex-end;gap:14px;padding:6px 14px 10px}
+  .eta{font:900 78px/.82 var(--display);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+  .eta-u{padding-bottom:6px;font:600 11px/1.3 var(--mono);color:var(--mute);letter-spacing:.1em;text-transform:uppercase}
+  .ecg{flex:1;height:34px;min-width:0;margin-bottom:4px}
+  .ecg path{fill:none;stroke:var(--accent);stroke-width:2;stroke-dasharray:140;stroke-dashoffset:140;animation:ecg 2.4s linear infinite}
+  :root[data-theme=light] .ecg path{stroke:var(--ink)}
+  @keyframes ecg{to{stroke-dashoffset:-140}}
+  .meta{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 12px}
+  .chip{padding:3px 7px;border:1px solid var(--line);font:500 10.5px/1.2 var(--mono);color:var(--mute);letter-spacing:.04em}
+  .chip.ok{color:var(--good);border-color:var(--good)}.chip.warn{color:var(--warn);border-color:var(--warn)}.chip.bad{color:var(--bad);border-color:var(--bad)}.chip.route{color:var(--route);border-color:var(--route)}
+  .perf{position:relative;height:0;border-top:2px dashed var(--line);margin:4px 0}
+  .perf::before,.perf::after{content:"";position:absolute;top:-10px;width:18px;height:18px;border-radius:50%;background:var(--panel)}
+  .perf::before{left:-10px}.perf::after{right:-10px}
+  .gauges{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 14px 4px}
+  .gauge small{display:block;font:500 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .gauge b{font:800 24px/1.1 var(--display);letter-spacing:.02em}
+  .gauge span{font:500 12px var(--mono);color:var(--mute)}
+  .cells{display:grid;grid-template-columns:repeat(20,1fr);gap:2px;margin-top:6px}
+  .cells i{height:7px;background:var(--line)}
+  .cells i.f{background:var(--g,var(--accent))}
+  :root[data-theme=light] .cells i.f{background:var(--g,var(--ink))}
+  .why{margin:12px 14px 4px;padding:10px 12px;background:var(--panel);border:1px solid var(--line);font-size:12.5px}
+  .why b{font:800 12px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .trace{padding:6px 14px 4px}
+  .trace h4{margin:10px 0 8px;font:600 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint);display:flex;justify-content:space-between}
+  .tr{display:grid;grid-template-columns:1fr;gap:4px;padding:8px 0;border-top:1px solid var(--line)}
+  .tr.win{background:linear-gradient(90deg,var(--route-bg),transparent)}
+  .tr-name{display:flex;justify-content:space-between;gap:8px;font-weight:600;font-size:12.5px}
+  .tr-name em{font:500 11px var(--mono);color:var(--mute);font-style:normal;white-space:nowrap}
+  .tr-bars{display:grid;grid-template-columns:1fr 1fr;gap:10px;font:500 10.5px/1 var(--mono);color:var(--faint)}
+  .tr-bars div{display:flex;flex-direction:column;gap:4px}
+  .tr-bars i{display:block;height:5px;background:var(--line)}
+  .tr-bars i b{display:block;height:100%}
+  .foot{padding:10px 14px 14px;font:400 11px/1.5 var(--mono);color:var(--faint)}
+  table{width:100%;border-collapse:collapse;font:500 12px var(--mono)}
+  th,td{text-align:right;padding:8px 4px;border-top:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left;font-family:var(--body);font-weight:500}
+  th{color:var(--faint);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;border-top:0}
+  .dot{display:inline-block;width:9px;height:9px;margin-right:8px;border-radius:1px}
+  .sec{padding:12px 14px 6px;font:600 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+
+  /* ---------- hospitals tab ---------- */
+  .hosp{display:grid;grid-template-columns:1fr 62px 62px;gap:8px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}
+  .hosp.head{padding:14px 0 6px;font:600 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .hosp .nm{min-width:0}
+  .hosp .nm div:first-child{display:flex;align-items:center;gap:8px;font-weight:600;font-size:12.5px}
+  .hosp input{padding:6px;font:500 12px var(--mono);text-align:right}
+  /* ---------- compare tab ---------- */
+  .race{display:grid;gap:10px;margin-top:16px}
+  .lane{padding:12px;border:1px solid var(--line);background:var(--panel-2)}
+  .lane.best{border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
+  .lane .top{display:flex;justify-content:space-between;align-items:baseline}
+  .lane .top b{font:800 17px/1 var(--display);letter-spacing:.05em;text-transform:uppercase}
+  .lane .top span{font:600 15px var(--mono)}
+  .track{height:8px;background:var(--line);margin:9px 0 7px}
+  .track i{display:block;height:100%;background:var(--faint)}
+  .lane.best .track i{background:var(--accent)}
+  :root[data-theme=light] .lane.best .track i{background:var(--ink)}
+  .lane .sub{display:flex;gap:16px;font:400 11px var(--mono);color:var(--mute)}
+
+  /* ---------- map chrome ---------- */
+  #readout{position:absolute;z-index:3;left:12px;bottom:12px;padding:6px 9px;background:var(--panel);border:1px solid var(--line);font:500 11px/1 var(--mono);color:var(--mute)}
+  #legend{position:absolute;z-index:3;right:12px;bottom:34px;display:flex;gap:12px;padding:7px 10px;background:var(--panel);border:1px solid var(--line);font:500 10.5px/1 var(--mono);color:var(--mute)}
+  #legend span{display:inline-flex;align-items:center;gap:6px}#legend i{width:9px;height:9px;border-radius:50%}
+  .mapboxgl-popup-content{background:var(--panel)!important;color:var(--ink)!important;border:1px solid var(--line);border-radius:3px!important;box-shadow:var(--shadow)!important;padding:12px 14px!important;font:500 12px/1.6 var(--mono)}
+  .mapboxgl-popup-content b{font:800 17px var(--display);letter-spacing:.04em;text-transform:uppercase}
+  .mapboxgl-popup-tip{display:none}.mapboxgl-popup-close-button{color:var(--mute)}
+  .mapboxgl-ctrl-group{border-radius:3px!important}
+  .pin{width:20px;height:20px;border-radius:50%;background:#ff3b3b;border:3px solid #fff;animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,59,59,.65)}80%,100%{box-shadow:0 0 0 20px rgba(255,59,59,0)}}
+  .unit{width:30px;height:30px;display:grid;place-items:center;background:#fff;border:3px solid var(--route);border-radius:7px;box-shadow:0 4px 14px rgba(0,0,0,.5)}
+  .unit svg{width:18px;height:18px}
+  @media(max-width:860px){
+    #strip .hide-s{display:none}
+    #main{grid-template-columns:1fr;grid-template-rows:42% 58%}
+    #side{order:2;border-right:0;border-top:1px solid var(--line)}
+    #legend{display:none}
   }
-  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.ecg path{stroke-dashoffset:0}}
 </style>
 </head>
 <body>
 <div id="app">
-  <div id="map"></div>
-  <div class="legend" aria-label="Map legend"><span><i style="background:#16a34a"></i>Beds available</span><span><i style="background:#f59e0b"></i>Tight</span><span><i style="background:#ef4444"></i>Almost full</span></div>
+  <header id="strip">
+    <div class="brand"><div class="batt" aria-hidden="true"><i></i><i></i><i></i><i></i></div><b>AmbuRoute</b></div>
+    <span class="led" id="tmLed"><span id="tm">…</span></span>
+    <span class="led hide-s" id="liveLed">Mapbox routing</span>
+    <span class="hide-s" id="beds">Beds reporting …</span>
+    <span class="strip-gap"></span>
+    <span class="hide-s kv2">Local time <b id="clock">--:--:--</b></span>
+    <button class="ibtn" id="theme" title="Switch day / night" aria-label="Switch day or night theme"></button>
+  </header>
+  <div id="main">
+    <aside id="side">
+      <nav class="tabs">
+        <button data-t="dispatch" class="on">Dispatch</button>
+        <button data-t="hospitals">Hospitals</button>
+        <button data-t="compare">Compare</button>
+      </nav>
 
-  <aside id="side">
-    <header>
-      <div class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
-      <div class="grow"><h1>AmbuRoute</h1><p>Hospital selection &amp; ambulance coordination</p></div>
-      <button class="icon-btn" id="theme" title="Switch light / dark" aria-label="Switch light or dark theme"></button>
-    </header>
-    <div class="pills"><span class="pill warn" id="tmPill"><i></i><span id="tm">…</span></span><span class="pill" id="liveIcon"><i></i>Live routing</span></div>
-    <nav class="tabs">
-      <button data-t="dispatch" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Dispatch</button>
-      <button data-t="hospitals"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M12 8v6M9 11h6"/></svg>Hospitals</button>
-      <button data-t="compare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Compare</button>
-    </nav>
+      <section class="pane on" id="p-dispatch">
+        <div class="lbl">Mode</div>
+        <select id="mode"><option value="single">One ambulance</option><option value="multi">Several (equilibrium)</option></select>
+        <div class="lbl">Method</div>
+        <select id="method"><option value="heuristic">Capacity heuristic</option><option value="drl">PPO policy</option></select>
+        <div class="lbl">Patient priority</div>
+        <select id="sev"><option value="0">Stable</option><option value="1">Urgent</option><option value="2">Critical</option></select>
+        <div class="lbl">Specialty needed</div>
+        <select id="spec"><option value="none">None</option><option value="cardiac">Cardiac</option><option value="stroke">Stroke</option><option value="trauma">Trauma</option></select>
+        <label class="sw"><input type="checkbox" id="icu"><span>Needs an ICU bed</span></label>
+        <label class="sw"><input type="checkbox" id="online"><span>Learn from reported trip times<small>Adjusts ETAs for hospitals where trips run long</small></span></label>
+        <div class="hint" id="modehint">Click the map to place the incident.</div>
+        <div class="btns">
+          <button class="btn" id="go">Recommend hospital</button>
+          <button class="btn alt" id="clear">Clear</button>
+        </div>
+        <div class="alert" id="err"></div>
+        <div id="result"></div>
+      </section>
 
-    <section class="pane on" id="p-dispatch">
-      <div class="field"><div class="lbl">Mode</div>
-        <select id="mode"><option value="single">One ambulance</option><option value="multi">Several (equilibrium)</option></select></div>
-      <div class="field"><div class="lbl">Method</div>
-        <select id="method"><option value="heuristic">Capacity heuristic</option><option value="drl">PPO policy</option></select></div>
-      <div class="field"><div class="lbl">Patient severity</div>
-        <select id="sev"><option value="0">Stable</option><option value="1">Urgent</option><option value="2">Critical</option></select></div>
-      <div class="field"><div class="lbl">Specialty needed</div>
-        <select id="spec"><option value="none">None</option><option value="cardiac">Cardiac</option><option value="stroke">Stroke</option><option value="trauma">Trauma</option></select></div>
-      <label class="switch"><input type="checkbox" id="icu"><span>Needs an ICU bed</span></label>
-      <label class="switch"><input type="checkbox" id="online"><span>Learn from reported trip times<small>Adjusts ETAs for hospitals where trips run long</small></span></label>
-      <div class="hint" id="modehint">Click the map to place the incident.</div>
-      <div class="btns">
-        <button class="btn" id="go">Recommend hospital</button>
-        <button class="btn alt" id="clear">Clear</button>
-      </div>
-      <div class="alert" id="err"></div>
-      <div id="result"></div>
-    </section>
+      <section class="pane" id="p-hospitals">
+        <div class="btns" style="margin-top:14px"><button class="btn alt" id="simbeds" style="flex:1">Simulate bed changes</button></div>
+        <div class="hint">Hospitals report beds through POST /hospitals/{id}/beds. A <span class="chip warn">STALE</span> mark means no recent report.</div>
+        <div class="lbl">API key</div>
+        <input type="password" id="apikey" autocomplete="off" placeholder="X-API-Key (only if the server requires one)">
+        <div id="hlist"></div>
+      </section>
 
-    <section class="pane" id="p-hospitals">
-      <div class="btns" style="margin-top:12px"><button class="btn alt" id="simbeds" style="flex:1">Simulate bed changes</button></div>
-      <div class="hint">Hospitals report beds through <code>POST /hospitals/{id}/beds</code>. Edit free general and ICU beds here. A <span class="badge warn">stale</span> badge means no recent report.</div>
-      <div class="field"><div class="lbl">API key</div>
-        <input type="password" id="apikey" autocomplete="off" placeholder="X-API-Key (only if the server requires one)"></div>
-      <div id="hlist"></div>
-    </section>
-
-    <section class="pane" id="p-compare">
-      <div class="field"><div class="lbl">Scenario</div>
-        <select id="scn"><option value="surge">Surge (2.5 calls/min)</option><option value="peak">Evening peak (1.2/min)</option><option value="offpeak">Off-peak (0.5/min)</option></select></div>
-      <div class="btns"><button class="btn" id="runcmp">Run simulated comparison</button></div>
-      <div class="hint">Replays identical simulated days for each policy. Beds and traffic here are simulated, not real hospital data.</div>
-      <div class="cmp" id="cmp"></div>
-    </section>
-  </aside>
+      <section class="pane" id="p-compare">
+        <div class="lbl">Scenario</div>
+        <select id="scn"><option value="surge">Surge (2.5 calls/min)</option><option value="peak">Evening peak (1.2/min)</option><option value="offpeak">Off-peak (0.5/min)</option></select>
+        <div class="btns"><button class="btn" id="runcmp">Run comparison</button></div>
+        <div class="hint">Identical simulated days for every policy. Beds and traffic here are simulated, not real hospital data.</div>
+        <div class="race" id="cmp"></div>
+      </section>
+    </aside>
+    <div id="mapwrap">
+      <div id="map"></div>
+      <div id="readout">12.9700N 77.5950E</div>
+      <div id="legend"><span><i style="background:#34d27b"></i>Beds free</span><span><i style="background:#ffb224"></i>Tight</span><span><i style="background:#ff5a5a"></i>Nearly full</span><span><i style="background:transparent;border:2px solid #8d9ea9"></i>Stale report</span></div>
+    </div>
+  </div>
 </div>
 
 <script>
 const $ = s => document.querySelector(s);
-const COLORS = ['#2563eb','#0ea5a4','#f59e0b','#8b5cf6','#ef4444','#14b8a6','#f97316','#ec4899'];
+const COLORS = ['#4d8dff','#d4ff2a','#ffb224','#c084fc','#ff5a5a','#2dd4bf','#fb923c','#f472b6'];
 const STYLES = {light:'mapbox://styles/mapbox/light-v11', dark:'mapbox://styles/mapbox/dark-v11'};
-const ICON_SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
-const ICON_MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>';
-let map, hospitals = [], incidents = [], incMarkers = [], routeStore = [];
+const SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+const MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>';
+const UNIT_SVG = '<svg viewBox="0 0 24 24"><path d="M10 4h4v6h6v4h-6v6h-4v-6H4v-4h6z" fill="#e5322d"/></svg>';
+const SEVNAME = ['STABLE','URGENT','CRITICAL'];
+let map, hospitals = [], incidents = [], incMarkers = [], routeStore = [], runners = [];
 const syncs = {};
 
 /* ---------- theme ---------- */
 function savedTheme(){ try{ return localStorage.getItem('ambu-theme'); }catch(e){ return null; } }
-let theme = savedTheme() || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-function applyTheme(){ document.documentElement.dataset.theme = theme; $('#theme').innerHTML = theme==='dark' ? ICON_SUN : ICON_MOON; }
+let theme = savedTheme() || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+function applyTheme(){ document.documentElement.dataset.theme = theme; $('#theme').innerHTML = theme==='dark' ? SUN : MOON; }
 applyTheme();
 $('#theme').onclick = () => {
   theme = theme==='dark' ? 'light' : 'dark';
   try{ localStorage.setItem('ambu-theme', theme); }catch(e){}
   applyTheme(); if(map) map.setStyle(STYLES[theme]);
 };
+setInterval(()=>{ $('#clock').textContent = new Date().toLocaleTimeString('en-GB'); }, 1000);
 
 /* ---------- helpers ---------- */
 async function api(path, opts){
@@ -251,17 +298,20 @@ async function api(path, opts){
 const post = (p,b) => api(p,{method:'POST',headers:{'Content-Type':'application/json',...($('#apikey') && $('#apikey').value ? {'X-API-Key':$('#apikey').value} : {})},body:JSON.stringify(b)});
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const minutes = s => (s/60).toFixed(1);
-const showErr = m => { $('#err').innerHTML = m ? '<span>⚠</span><span>'+esc(m)+'</span>' : ''; };
-function bar(free,total){
-  const r = total ? free/total : 0, cls = r < 0.03 ? 'low' : r < 0.07 ? 'mid' : '';
-  return '<div class="bar '+cls+'"><i style="width:'+Math.max(3,Math.min(100,r*1000)).toFixed(0)+'%"></i></div>';
+const showErr = m => { $('#err').textContent = m ? m : ''; };
+const ratio = h => h.available_beds / Math.max(h.total_beds,1);
+const ratioColor = h => ratio(h) < 0.03 ? '#ff5a5a' : ratio(h) < 0.07 ? '#ffb224' : '#34d27b';
+function cells(free,total){
+  const on = Math.min(20, Math.max(free>0?1:0, Math.round((free/Math.max(total,1))*200)));
+  const c = (free/Math.max(total,1)) < 0.03 ? 'var(--bad)' : (free/Math.max(total,1)) < 0.07 ? 'var(--warn)' : 'var(--good)';
+  return '<div class="cells" style="--g:'+c+'">'+Array.from({length:20},(_,i)=>'<i class="'+(i<on?'f':'')+'"></i>').join('')+'</div>';
 }
-function ratioColor(h){
-  const r = h.available_beds / Math.max(h.total_beds,1);
-  return r < 0.03 ? '#ef4444' : r < 0.07 ? '#f59e0b' : '#16a34a';
+function countUp(el, to, dur){
+  const t0 = performance.now();
+  (function step(t){ const k = Math.min(1,(t-t0)/dur), e = 1-Math.pow(1-k,3); el.textContent = (to*e).toFixed(1); if(k<1) requestAnimationFrame(step); })(t0);
 }
 
-/* segmented controls built from the (hidden) selects so every existing id keeps working */
+/* segmented controls built from the hidden selects, so every id keeps working */
 function seg(id, chips){
   const sel = $('#'+id); sel.classList.add('sr');
   const old = sel.parentNode.querySelector('.seg[data-for="'+id+'"]'); if(old) old.remove();
@@ -274,7 +324,6 @@ function seg(id, chips){
   });
   sel.after(wrap); sync(); syncs[id]=sync;
 }
-
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
   document.querySelectorAll('.pane').forEach(p=>p.classList.toggle('on',p.id==='p-'+b.dataset.t));
@@ -287,41 +336,53 @@ function hospitalGeoJSON(){
     geometry:{type:'Point',coordinates:[h.lon,h.lat]},
     properties:{id:h.id,name:h.name,beds:h.available_beds,tb:h.total_beds,icu:h.available_icu_beds,ticu:h.total_icu_beds,color:ratioColor(h),stale:h.stale?1:0}}))};
 }
+function updateStrip(){
+  const stale = hospitals.filter(h=>h.stale).length, free = hospitals.reduce((a,h)=>a+h.available_beds,0), icu = hospitals.reduce((a,h)=>a+h.available_icu_beds,0);
+  $('#beds').innerHTML = 'Free beds <b style="color:var(--ink)">'+free+'</b> · ICU <b style="color:var(--ink)">'+icu+'</b> · '+(hospitals.length-stale)+'/'+hospitals.length+' reporting';
+  $('#beds').style.color = stale ? 'var(--warn)' : 'var(--mute)';
+}
 async function loadHospitals(){
   hospitals = await api('/hospitals');
   if(map && map.getSource('hosp')) map.getSource('hosp').setData(hospitalGeoJSON());
-  renderHospitalList();
+  renderHospitalList(); updateStrip();
 }
 function addRouteLayers(r){
   if(map.getSource(r.id)) return;
   map.addSource(r.id,{type:'geojson',data:{type:'Feature',geometry:r.geometry}});
-  map.addLayer({id:r.id+'-case',type:'line',source:r.id,layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':theme==='dark'?'#0b1424':'#ffffff','line-width':9,'line-opacity':.95}});
+  map.addLayer({id:r.id+'-case',type:'line',source:r.id,layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':theme==='dark'?'#05080b':'#ffffff','line-width':10,'line-opacity':.95}});
   map.addLayer({id:r.id,type:'line',source:r.id,layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':r.color,'line-width':5}});
 }
 function setupLayers(){
+  const dark = theme==='dark';
   if(!map.getSource('hosp')) map.addSource('hosp',{type:'geojson',data:hospitalGeoJSON()});
-  if(!map.getLayer('hosp-halo')) map.addLayer({id:'hosp-halo',type:'circle',source:'hosp',paint:{'circle-radius':16,'circle-color':['get','color'],'circle-opacity':.22,'circle-blur':.6}});
-  if(!map.getLayer('hosp')) map.addLayer({id:'hosp',type:'circle',source:'hosp',paint:{'circle-radius':8,'circle-color':['get','color'],'circle-stroke-width':2.5,'circle-stroke-color':theme==='dark'?'#0b1424':'#ffffff'}});
+  if(!map.getLayer('hosp-halo')) map.addLayer({id:'hosp-halo',type:'circle',source:'hosp',paint:{'circle-radius':17,'circle-color':['get','color'],'circle-opacity':.2,'circle-blur':.7}});
+  if(!map.getLayer('hosp')) map.addLayer({id:'hosp',type:'circle',source:'hosp',paint:{
+    'circle-radius':8,'circle-color':['case',['==',['get','stale'],1],'rgba(0,0,0,0)',['get','color']],
+    'circle-stroke-width':3,'circle-stroke-color':['get','color']}});
+  if(!map.getLayer('hosp-core')) map.addLayer({id:'hosp-core',type:'circle',source:'hosp',paint:{'circle-radius':2.4,'circle-color':dark?'#e8eef1':'#0d141a'}});
+  if(!map.getLayer('hosp-label')) map.addLayer({id:'hosp-label',type:'symbol',source:'hosp',minzoom:11.4,layout:{'text-field':['get','name'],'text-size':11,'text-offset':[0,1.5],'text-anchor':'top','text-max-width':9},
+    paint:{'text-color':dark?'#c9d6de':'#26323b','text-halo-color':dark?'#05080b':'#ffffff','text-halo-width':1.6}});
   routeStore.forEach(addRouteLayers);
 }
 async function init(){
   const cfg = await api('/config');
-  $('#tm').textContent = cfg.traffic_model==='calibrated' ? 'Calibrated traffic model' : 'Synthetic traffic model';
-  $('#tmPill').classList.toggle('warn', cfg.traffic_model!=='calibrated');
+  $('#tm').textContent = cfg.traffic_model==='calibrated' ? 'Calibrated traffic' : 'Synthetic traffic';
+  $('#tmLed').classList.toggle('warn', cfg.traffic_model!=='calibrated');
   if(!cfg.ppo_available){ $('#method').options[1].textContent='PPO (Nash fallback)'; }
   ['mode','method','sev'].forEach(i=>seg(i)); seg('spec', true);
-  $('#liveIcon').classList.toggle('warn', !cfg.mapbox_token);
-  if(!cfg.mapbox_token){ showErr('MAPBOX_TOKEN missing in .env: the map cannot load.'); return; }
-  mapboxgl.accessToken = cfg.mapbox_token;
-  map = new mapboxgl.Map({container:'map', style:STYLES[theme], center:[77.595,12.97], zoom:11.2, attributionControl:true});
-  map.addControl(new mapboxgl.NavigationControl({showCompass:false}), 'top-right');
+  $('#liveLed').classList.toggle('bad', !cfg.mapbox_token);
   await loadHospitals();
+  if(!cfg.mapbox_token){ showErr('MAPBOX_TOKEN missing in .env: the map cannot load.'); renderStandby(); return; }
+  mapboxgl.accessToken = cfg.mapbox_token;
+  map = new mapboxgl.Map({container:'map', style:STYLES[theme], center:[77.595,12.97], zoom:11.2});
+  map.addControl(new mapboxgl.NavigationControl({showCompass:false}), 'top-right');
   map.on('style.load', setupLayers);
+  map.on('mousemove', e => { $('#readout').textContent = Math.abs(e.lngLat.lat).toFixed(4)+(e.lngLat.lat>=0?'N ':'S ')+Math.abs(e.lngLat.lng).toFixed(4)+(e.lngLat.lng>=0?'E':'W'); });
   map.on('load', ()=>{
     map.on('click','hosp',e=>{
       const p=e.features[0].properties;
       new mapboxgl.Popup({offset:14}).setLngLat(e.lngLat).setHTML(
-        '<b>'+esc(p.name)+'</b><br>Free beds: '+p.beds+' / '+p.tb+'<br>Free ICU: '+p.icu+' / '+p.ticu+(p.stale?'<br><span style="color:#d97706">Bed report is stale</span>':'')).addTo(map);
+        '<b>'+esc(p.name)+'</b><br>Beds '+p.beds+' / '+p.tb+'<br>ICU '+p.icu+' / '+p.ticu+(p.stale?'<br><span style="color:var(--warn)">STALE REPORT</span>':'')).addTo(map);
       e.originalEvent.stopPropagation();
     });
     map.on('mouseenter','hosp',()=>map.getCanvas().style.cursor='pointer');
@@ -332,34 +393,53 @@ async function init(){
     const multi = $('#mode').value==='multi';
     if(!multi){ clearMap(); }
     incidents.push({lat:e.lngLat.lat, lon:e.lngLat.lng});
-    const el=document.createElement('div'); el.className='pulse';
+    const el=document.createElement('div'); el.className='pin';
     incMarkers.push(new mapboxgl.Marker(el).setLngLat(e.lngLat).addTo(map));
     $('#modehint').textContent = multi ? incidents.length+' ambulance(s) placed. Click more, then press Assign.' : 'Incident placed. Press Recommend hospital.';
   });
-  renderEmpty();
+  renderStandby();
 }
 
+/* ---------- routes and the ambulance that drives them ---------- */
+function stopRunners(){ runners.forEach(r=>{ cancelAnimationFrame(r.raf); r.marker.remove(); }); runners=[]; }
+function startRunner(coords, ms){
+  const km = (a,b)=>Math.hypot((b[0]-a[0])*Math.cos(a[1]*Math.PI/180)*111.32,(b[1]-a[1])*110.54);
+  const cum=[0]; for(let i=1;i<coords.length;i++) cum.push(cum[i-1]+km(coords[i-1],coords[i]));
+  const total=cum[cum.length-1]||1;
+  const el=document.createElement('div'); el.className='unit'; el.innerHTML=UNIT_SVG;
+  const marker=new mapboxgl.Marker(el).setLngLat(coords[0]).addTo(map);
+  const r={marker,raf:0}; runners.push(r);
+  const t0=performance.now();
+  (function frame(t){
+    const k=(((t-t0)%ms)/ms)*total; let i=1; while(i<cum.length-1 && cum[i]<k) i++;
+    const f=(k-cum[i-1])/Math.max(cum[i]-cum[i-1],1e-9), a=coords[i-1], b=coords[i];
+    marker.setLngLat([a[0]+(b[0]-a[0])*Math.min(1,f), a[1]+(b[1]-a[1])*Math.min(1,f)]);
+    r.raf=requestAnimationFrame(frame);
+  })(t0);
+}
 function clearRoutes(){
+  stopRunners();
   routeStore.forEach(r=>{ [r.id,r.id+'-case'].forEach(l=>{ if(map.getLayer(l)) map.removeLayer(l); }); if(map.getSource(r.id)) map.removeSource(r.id); });
   routeStore=[];
 }
 function clearMap(){
   if(map) clearRoutes(); incMarkers.forEach(m=>m.remove()); incMarkers=[]; incidents=[];
-  showErr(''); renderEmpty();
+  showErr(''); renderStandby();
 }
-function drawRoute(geometry,color,id){ const r={id,geometry,color}; routeStore.push(r); addRouteLayers(r); }
+function drawRoute(geometry,color,id,ms){
+  const r={id,geometry,color}; routeStore.push(r); addRouteLayers(r);
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches) startRunner(geometry.coordinates, ms||7000);
+}
 function fitTo(coords){
   const b=new mapboxgl.LngLatBounds(); coords.forEach(c=>b.extend(c));
-  const wide = innerWidth > 760;
-  map.fitBounds(b,{padding:wide?{top:80,bottom:80,left:460,right:80}:{top:60,bottom:420,left:40,right:40},duration:700});
+  const wide = innerWidth > 860;
+  map.fitBounds(b,{padding:wide?{top:70,bottom:70,left:70,right:70}:{top:50,bottom:50,left:40,right:40},duration:800});
 }
-function renderEmpty(){
-  $('#result').innerHTML = '<div class="empty"><b>How it works</b><ul class="steps">'+
-    '<li><span>1</span>Click the map to drop an incident (several in equilibrium mode).</li>'+
-    '<li><span>2</span>Set severity and any specialty the patient needs.</li>'+
-    '<li><span>3</span>Get the hospital with the best mix of travel time and free capacity, with the reasoning.</li></ul></div>';
+function renderStandby(){
+  $('#result').innerHTML = '<div class="standby"><svg class="radar" viewBox="0 0 74 74" aria-hidden="true"><circle cx="37" cy="37" r="35"/><circle cx="37" cy="37" r="24"/><circle cx="37" cy="37" r="12"/>'+
+    '<g class="sweep"><path d="M37 37 L37 2 A35 35 0 0 1 62 12 Z" fill="var(--accent)" opacity=".28"/><line x1="37" y1="37" x2="37" y2="2" stroke="var(--accent)" stroke-width="1.5"/></g></svg>'+
+    '<div><b>Standby</b><ol><li>Click the map to drop an incident</li><li>Set priority and specialty</li><li>Read the recommendation and why</li></ol></div></div>';
 }
-
 $('#mode').onchange=()=>{ clearMap(); const m=$('#mode').value==='multi';
   $('#go').textContent = m ? 'Assign hospitals' : 'Recommend hospital';
   $('#method').disabled = m; if(syncs.method) syncs.method();
@@ -369,46 +449,49 @@ $('#clear').onclick=clearMap;
 /* ---------- dispatch ---------- */
 $('#go').onclick=async()=>{
   showErr(''); if(!incidents.length){ showErr('Place at least one incident on the map first.'); return; }
-  const btn=$('#go'), label=btn.textContent; btn.disabled=true; btn.innerHTML='<span class="spin"></span>Working…';
+  const btn=$('#go'), label=btn.textContent; btn.disabled=true; btn.innerHTML='<span class="spin"></span>Working';
   try{
     clearRoutes();
-    const icu=$('#icu').checked, now=new Date().getHours()*60+new Date().getMinutes();
+    const icu=$('#icu').checked, now=new Date().getHours()*60+new Date().getMinutes(), sv=+$('#sev').value;
     if($('#mode').value==='single'){
       const url = $('#method').value==='drl' ? '/route/drl' : '/route';
-      const r = await post(url,{ambulance:incidents[0],needs_icu:icu,minute_of_day:now,
-        severity:+$('#sev').value,specialty:$('#spec').value,use_online_correction:$('#online').checked});
-      const cap = r.hospital.capabilities||{}, h=r.hospital;
-      const capTxt = ['cardiac','stroke','trauma'].filter(k=>cap[k]).map(k=>'<span class="badge info">'+k+'</span>').join('')||'<span class="badge">no specialty centre</span>';
-      const alts = (r.meta.alternatives||[]).map(a=>'<tr class="'+(a.chosen?'win':'')+'"><td>'+(a.chosen?'<b>'+esc(a.hospital)+'</b> ✓':esc(a.hospital))+
-        (a.stale?' <span class="badge warn">stale</span>':'')+(a.capable?'':' <span class="badge bad">no specialty</span>')+'</td><td>'+a.eta_min+' min</td><td>'+a.free_beds+'</td><td>'+a.ambulances_on_the_way+'</td></tr>').join('');
-      drawRoute(r.route.geometry,'#2563eb','route-0'); fitTo(r.route.geometry.coordinates);
+      const r = await post(url,{ambulance:incidents[0],needs_icu:icu,minute_of_day:now,severity:sv,specialty:$('#spec').value,use_online_correction:$('#online').checked});
+      const cap = r.hospital.capabilities||{}, h=r.hospital, alts=r.meta.alternatives||[];
+      const capTxt = ['cardiac','stroke','trauma'].filter(k=>cap[k]).map(k=>'<span class="chip route">'+k.toUpperCase()+'</span>').join('')||'<span class="chip">NO SPECIALTY CENTRE</span>';
+      const maxEta = Math.max(...alts.map(a=>a.eta_min),1), maxFree = Math.max(...alts.map(a=>a.free_beds),1);
+      const trace = alts.map(a=>'<div class="tr'+(a.chosen?' win':'')+'"><div class="tr-name"><span>'+(a.chosen?'▶ ':'')+esc(a.hospital)+(a.stale?' <span class="chip warn">STALE</span>':'')+(a.capable?'':' <span class="chip bad">NO SPECIALTY</span>')+'</span><em>'+a.ambulances_on_the_way+' en route</em></div>'+
+        '<div class="tr-bars"><div>ETA '+a.eta_min+' min<i><b style="width:'+(a.eta_min/maxEta*100).toFixed(0)+'%;background:var(--route)"></b></i></div><div>Free beds '+a.free_beds+'<i><b style="width:'+Math.max(2,a.free_beds/maxFree*100).toFixed(0)+'%;background:var(--good)"></b></i></div></div></div>').join('');
+      drawRoute(r.route.geometry,'#4d8dff','route-0'); fitTo(r.route.geometry.coordinates);
       const live = r.route.source==='mapbox';
-      $('#result').innerHTML = '<div class="card"><div class="hero"><div class="tag">Recommended hospital</div><h3>'+esc(h.name)+'</h3>'+
-        '<div class="eta"><b>'+minutes(r.route.duration_s)+'</b><span>min drive</span></div>'+
-        '<div class="chips"><span class="badge '+(live?'ok':'warn')+'">'+esc(r.route.source)+' route</span><span class="badge">'+(r.route.distance_m/1000).toFixed(1)+' km</span>'+
-        '<span class="badge info">'+esc(r.meta.selection_method.replace(/_/g,' '))+'</span>'+(h.stale?'<span class="badge warn">bed report stale</span>':'')+'</div></div>'+
-        '<div class="stats"><div class="stat"><small>Free beds</small><b>'+h.available_beds+'</b> / '+h.total_beds+bar(h.available_beds,h.total_beds)+'</div>'+
-        '<div class="stat"><small>Free ICU beds</small><b>'+h.available_icu_beds+'</b> / '+h.total_icu_beds+bar(h.available_icu_beds,h.total_icu_beds)+'</div></div>'+
-        '<div class="chips" style="padding:8px 16px 0">'+capTxt+'<span class="badge warn" title="Capabilities from '+esc(cap.source||'assumed')+'">'+esc(cap.source||'assumed')+'</span></div>'+
-        '<div class="why"><b>Why this one:</b> '+esc(r.meta.reason||'')+'</div>'+
-        '<div class="sec">Compared</div><table><tr><th>Hospital</th><th>ETA</th><th>Free</th><th>On the way</th></tr>'+alts+'</table>'+
-        '<div class="foot">'+esc(r.meta.notice||'')+' Decision in '+r.meta.infer_ms.toFixed(1)+' ms, routing '+r.meta.route_ms.toFixed(0)+' ms.</div></div>';
+      $('#result').innerHTML = '<div class="ticket"><div class="tag s'+sv+'"><span>Priority · '+SEVNAME[sv]+'</span><span>'+(r.meta.selection_method||'').replace(/_/g,' ')+'</span></div>'+
+        '<div class="tk-head"><small>Proceed to</small><h3>'+esc(h.name)+'</h3></div>'+
+        '<div class="etaRow"><div class="eta" id="etaNum">0.0</div><div class="eta-u">min<br>drive</div>'+
+        '<svg class="ecg" viewBox="0 0 140 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18 H34 L40 6 L48 30 L55 18 H88 L94 10 L100 24 L106 18 H140"/></svg></div>'+
+        '<div class="meta"><span class="chip '+(live?'ok':'warn')+'">'+esc(r.route.source).toUpperCase()+' ROUTE</span><span class="chip">'+(r.route.distance_m/1000).toFixed(1)+' KM</span>'+(h.stale?'<span class="chip warn">BED REPORT STALE</span>':'')+capTxt+
+        '<span class="chip '+(cap.source==='public sources'?'':'warn')+'">CAPABILITY: '+esc((cap.source||'assumed').toUpperCase())+'</span></div>'+
+        '<div class="perf"></div>'+
+        '<div class="gauges"><div class="gauge"><small>Free beds</small><b>'+h.available_beds+'</b> <span>/ '+h.total_beds+'</span>'+cells(h.available_beds,h.total_beds)+'</div>'+
+        '<div class="gauge"><small>Free ICU</small><b>'+h.available_icu_beds+'</b> <span>/ '+h.total_icu_beds+'</span>'+cells(h.available_icu_beds,h.total_icu_beds)+'</div></div>'+
+        '<div class="why"><b>Why this one</b>'+esc(r.meta.reason||'')+'</div>'+
+        '<div class="perf"></div><div class="trace"><h4><span>Decision trace</span><span>nearest by ETA</span></h4>'+trace+'</div>'+
+        '<div class="foot">'+esc(r.meta.notice||'')+' Decided in '+r.meta.infer_ms.toFixed(1)+' ms; routing took '+r.meta.route_ms.toFixed(0)+' ms.</div></div>';
+      countUp($('#etaNum'), r.route.duration_s/60, 900);
     } else {
       const a = await post('/assign',{ambulances:incidents,needs_icu:incidents.map(()=>icu),minute_of_day:now,beta:20,
-        severity:incidents.map(()=>+$('#sev').value),specialty:incidents.map(()=>$('#spec').value),use_online_correction:$('#online').checked});
+        severity:incidents.map(()=>sv),specialty:incidents.map(()=>$('#spec').value),use_online_correction:$('#online').checked});
       const all=[]; let rows='';
       for(const [i,x] of a.assignments.entries()){
         const rt = await post('/route/path',{ambulance:incidents[i],hospital_id:x.hospital.id});
-        drawRoute(rt.geometry,COLORS[i%COLORS.length],'route-'+i); all.push(...rt.geometry.coordinates);
+        drawRoute(rt.geometry,COLORS[i%COLORS.length],'route-'+i, 6000+i*1100); all.push(...rt.geometry.coordinates);
         rows += '<tr><td><span class="dot" style="background:'+COLORS[i%COLORS.length]+'"></span>A'+(i+1)+' → '+esc(x.hospital.name)+'</td><td>'+minutes(rt.duration_s)+' min</td></tr>';
       }
       fitTo(all);
-      const loads = Object.entries(a.hospital_load).map(([h,n])=>'<span class="badge">'+esc(hospitals[h].name)+': '+n+'</span>').join('');
-      $('#result').innerHTML = '<div class="card"><div class="hero"><div class="tag">Equilibrium assignment</div><h3>'+incidents.length+' ambulances placed</h3>'+
-        '<div class="chips"><span class="badge '+(a.converged?'ok':'bad')+'">'+(a.converged?'Converged':'Did not converge')+' in '+a.iterations+' round(s)</span><span class="badge">'+a.solve_ms.toFixed(1)+' ms</span></div>'+
-        '<div class="hint">No ambulance can improve by switching hospital alone.</div></div>'+
-        '<div class="sec">Ambulance → hospital</div><table><tr><th>Assignment</th><th>Route ETA</th></tr>'+rows+'</table>'+
-        '<div class="sec">Load per hospital</div><div class="chips" style="padding:0 16px 14px">'+loads+'</div></div>';
+      const loads = Object.entries(a.hospital_load).map(([h,n])=>'<span class="chip">'+esc(hospitals[h].name)+' ×'+n+'</span>').join('');
+      $('#result').innerHTML = '<div class="ticket"><div class="tag m"><span>Equilibrium assignment</span><span>'+incidents.length+' units</span></div>'+
+        '<div class="tk-head"><small>Joint dispatch</small><h3>'+(a.converged?'Converged':'Did not converge')+' in '+a.iterations+' round'+(a.iterations>1?'s':'')+'</h3></div>'+
+        '<div class="meta" style="padding-top:10px"><span class="chip '+(a.converged?'ok':'bad')+'">'+(a.converged?'STABLE':'UNSTABLE')+'</span><span class="chip">'+a.solve_ms.toFixed(1)+' MS</span><span class="chip">NO UNIT GAINS BY SWITCHING ALONE</span></div>'+
+        '<div class="perf"></div><div class="sec">Unit → hospital</div><div style="padding:0 14px"><table><tr><th>Assignment</th><th>Route ETA</th></tr>'+rows+'</table></div>'+
+        '<div class="sec">Load per hospital</div><div class="meta">'+loads+'</div></div>';
     }
   }catch(e){ showErr(e.message); }
   btn.disabled=false; btn.textContent=label;
@@ -419,7 +502,7 @@ function renderHospitalList(){
   const box=$('#hlist'); if(!box) return;
   box.innerHTML = '<div class="hosp head"><span>Hospital</span><span>Beds</span><span>ICU</span></div>' +
     hospitals.map(h=>'<div class="hosp"><div class="nm"><div><span class="dot" style="background:'+ratioColor(h)+';margin:0"></span>'+esc(h.name)+
-      (h.stale?' <span class="badge warn" title="no recent bed report">stale</span>':'')+'</div>'+bar(h.available_beds,h.total_beds)+'</div>'+
+      (h.stale?' <span class="chip warn">STALE</span>':'')+'</div>'+cells(h.available_beds,h.total_beds)+'</div>'+
       '<input type="number" min="0" max="'+h.total_beds+'" value="'+h.available_beds+'" data-id="'+h.id+'" data-k="free_beds" aria-label="Free beds at '+esc(h.name)+'">'+
       '<input type="number" min="0" max="'+h.total_icu_beds+'" value="'+h.available_icu_beds+'" data-id="'+h.id+'" data-k="free_icu_beds" aria-label="Free ICU beds at '+esc(h.name)+'"></div>').join('');
   box.querySelectorAll('input').forEach(i=>i.onchange=async()=>{
@@ -431,19 +514,19 @@ $('#simbeds').onclick=async()=>{ try{ await post('/hospitals/simulate-updates?st
 
 /* ---------- compare ---------- */
 $('#runcmp').onclick=async()=>{
-  const b=$('#runcmp'); b.disabled=true; b.innerHTML='<span class="spin"></span>Running…';
+  const b=$('#runcmp'); b.disabled=true; b.innerHTML='<span class="spin"></span>Running';
   try{
     const r=await api('/compare?scenario='+$('#scn').value+'&seeds=8');
-    const names={nearest:'Nearest hospital',nearest_beds:'Nearest with beds',capacity_heuristic:'Capacity heuristic',nash:'Equilibrium (Nash)'};
+    const names={nearest:'Nearest hospital',nearest_beds:'Nearest with beds',capacity_heuristic:'Capacity heuristic',nash:'Equilibrium'};
     const best=Math.min(...r.results.map(x=>x.mean_time_to_bed_min)), worst=Math.max(...r.results.map(x=>x.mean_time_to_bed_min));
     $('#cmp').innerHTML = r.results.map(x=>{
-      const w = 30+70*(x.mean_time_to_bed_min/worst);
-      return '<div class="cmpRow'+(x.mean_time_to_bed_min===best?' best':'')+'"><div class="top"><span>'+(names[x.policy]||esc(x.policy))+(x.mean_time_to_bed_min===best?' <span class="badge ok">fastest</span>':'')+
-        '</span><span>'+x.mean_time_to_bed_min.toFixed(1)+' min</span></div><div class="bar"><i style="width:'+w.toFixed(0)+'%"></i></div>'+
-        '<div class="sub"><span>p95 '+x.p95_time_to_bed_min.toFixed(1)+' min</span><span>'+x.rejected_arrivals.toFixed(1)+' turned away / day</span></div></div>';
-    }).join('')+'<div class="hint">Mean time from call to a bed, over '+r.seeds+' simulated days. Lower is better.</div>';
+      const w = 30+70*(x.mean_time_to_bed_min/worst), isBest = x.mean_time_to_bed_min===best;
+      return '<div class="lane'+(isBest?' best':'')+'"><div class="top"><b>'+(names[x.policy]||esc(x.policy))+'</b><span>'+x.mean_time_to_bed_min.toFixed(1)+' min</span></div>'+
+        '<div class="track"><i style="width:'+w.toFixed(0)+'%"></i></div>'+
+        '<div class="sub"><span>p95 '+x.p95_time_to_bed_min.toFixed(1)+' min</span><span>'+x.rejected_arrivals.toFixed(1)+' turned away / day</span>'+(isBest?'<span class="chip ok">FASTEST</span>':'')+'</div></div>';
+    }).join('')+'<div class="hint">Mean time from call to a bed over '+r.seeds+' simulated days. Lower is better.</div>';
   }catch(e){ $('#cmp').innerHTML='<div class="alert">'+esc(e.message)+'</div>'; }
-  b.disabled=false; b.textContent='Run simulated comparison';
+  b.disabled=false; b.textContent='Run comparison';
 };
 init().catch(e=>showErr(e.message));
 </script>

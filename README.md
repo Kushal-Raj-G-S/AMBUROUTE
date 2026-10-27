@@ -16,7 +16,7 @@ Traffic-aware ambulance dispatch that counts the ambulances **already on the roa
 
 <img src="docs/images/console_multi.jpg" alt="AmbuRoute dispatcher console: three ambulances assigned at an equilibrium" width="880">
 
-<sub>Three ambulances assigned at an equilibrium, with live-traffic Mapbox routes. The console has light and dark themes.</sub>
+<sub>Three ambulances assigned at an equilibrium, with live-traffic Mapbox routes. The console has night and day themes.</sub>
 
 </div>
 
@@ -100,9 +100,9 @@ Travel times are fitted to **3,861 Mapbox typical-traffic samples** and scored o
 
 <table>
 <tr>
-<td align="center" width="33%"><img src="docs/images/console_single.jpg" alt="Single dispatch"><br><sub><b>Single dispatch</b><br>a critical stroke patient: recommended hospital, why it won, and the alternatives compared</sub></td>
-<td align="center" width="33%"><img src="docs/images/console_multi.jpg" alt="Equilibrium assignment"><br><sub><b>Several ambulances</b><br>three ambulances at an equilibrium, converged in one round</sub></td>
-<td align="center" width="33%"><img src="docs/images/console_compare.jpg" alt="Policy comparison"><br><sub><b>Compare</b><br>simulated days, every policy side by side (light and dark themes)</sub></td>
+<td align="center" width="33%"><img src="docs/images/console_single.jpg" alt="Single dispatch"><br><sub><b>Single dispatch</b><br>a dispatch ticket for a critical stroke patient: where to go, the drive time, why that hospital won, and the decision trace (night theme)</sub></td>
+<td align="center" width="33%"><img src="docs/images/console_multi.jpg" alt="Equilibrium assignment"><br><sub><b>Several ambulances</b><br>three ambulances at an equilibrium, converged in one round, each unit driving its route (day theme)</sub></td>
+<td align="center" width="33%"><img src="docs/images/console_compare.jpg" alt="Policy comparison"><br><sub><b>Compare</b><br>simulated days, every policy side by side</sub></td>
 </tr>
 </table>
 
