@@ -114,3 +114,14 @@ Re-tuned clinical policies on researched capabilities + real NYC severity mix (t
 
 ## 14. Block A (partial): capability sources opened 2026-10-27
 Verified at source: Jayadeva (primary angioplasty), NIMHANS (thrombolysis + 24h thrombectomy, DHN updated 15 May 2026), KC General (round-the-clock angioplasty, DHN updated 29 Nov 2024), St. Martha's (Angels: primary centre in stroke network). Verified self-reported: Manipal OAR (cath lab for emergency angioplasty), HOSMAT (24/7 trauma). Partly: Aster RV (biplane cath lab named, PCI not stated), Fortis (sponsored; no cath lab named). UNVERIFIED: Victoria trauma (DH 403; Wikipedia 404; myhospitalnow unreliable). Capability set unchanged, so no rerun; CSV has verification + checked_on columns. Still open in Block A: remaining unresearched rows (BMCRI, Columbia Asia, The Bangalore Hospital, Narayana, Bowring), hospital-table origin, sources.md circle rows, COMPSIF AI policy.
+
+## 15. COMPSIF rules (read from https://bmsit.ac.in/compsif/ on 2026-10-27; use this URL, not searches)
+- **Submission deadline 14 Nov 2026 AoE (firm)**; notification 1 Jan 2027; camera-ready 15 Jan 2027.
+- Research paper max **6 pages including figures, tables and references**; IEEE template, double column, PDF. (Industry and WIP papers max 4.)
+- **Double-blind review: remove names, affiliations, acknowledgements; self-citations in third person; papers posted on arXiv-like sites are desk-rejected.**
+- **ACTION: the paper's Availability sentence links github.com/Kushal-Raj-G-S/AMBUROUTE, which names the author. For the submission use no link (or an anonymised mirror) and add the real link only in the camera-ready.** Also check the repo title/README do not appear in a way that deanonymises (the repo is public).
+- Mandatory plagiarism screening per IEEE guidelines; **no generative-AI policy stated and no similarity percentage limit** on the page. Mam's 22 % AI figure is a Turnitin AI-writing indicator, not a stated venue limit. Still be open about AI-assisted drafting if asked.
+- Author list is final at submission; at least one author presents in person; IEEE copyright form for accepted papers.
+
+## 16. Block C (API hardening) done 2026-10-27
+api.py: optional X-API-Key on write endpoints (constant-time compare), CORS allow-list, per-address rate limit, MAX_AMBULANCES, request ids + JSON access logs, STATE_PATH persistence (atomic write; bed state + learned corrections), stale bed flag (STALE_MINUTES) per hospital, explanation (top-3 by ETA, free beds, ambulances on the way, capable, stale, plain-language reason) + "recommendation only" notice in /route responses, /ready, POST /decision (dispatcher override logged to SHADOW_LOG, no patient data). tests/test_hardening.py: 7 tests; 26 tests pass. Not yet done in Block C: Docker rebuild + smoke test, load test, lint/CI, pinned deps.
