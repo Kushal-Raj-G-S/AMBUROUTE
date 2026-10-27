@@ -192,3 +192,24 @@ Policy parameters: the paper's (heuristic weight 20, equilibrium beta 10, power 
 - **The benefit grows with pressure, but not in every scenario.** In the surge, the third of days with the least free capacity gains 7.3 % against 3.2 % for the third with the most. At peak the three groups gain 3.1 %, 4.9 % and 3.6 %, so there is no clean trend there.
 
 What this means for the paper: report the benefit as conditional on capacity pressure, give both the tight (assumed) and the measured-capacity results, and say the second uses US-derived profiles.
+
+### Provenance of the capacity profile (2023-2024 US data) and how recent it is
+
+- **Source:** "COVID-19 Reported Patient Impact and Hospital Capacity by Facility", US Department of Health and Human Services (healthdata.gov dataset `anag-cw7u`), weekly, facility level, U.S. federal government data.
+- **Why it is not newer:** the reporting requirement ended in May 2024. The latest week in the series is **21 April 2024** (checked by query on 2026-10-28). The CDC's newer automated bed-capacity programme (NHSN) is visible only to each hospital and to groups that grant access, and no public facility-level dataset from it was found.
+- **Weeks used:** 2023-01-22, 2023-04-23, 2023-07-23, 2023-10-22, 2024-01-21, 2024-04-21 (one per season). Rows with at least 25 inpatient beds and at least 4 ICU beds and valid usage figures were kept: **14,202 hospital-weeks** of about 29,000. Hospital names and locations were dropped.
+- **Fields kept:** week, inpatient beds, general-bed occupancy (beds used divided by beds), ICU beds as a share of inpatient beds, ICU occupancy.
+- **Overall:** general-bed occupancy 5th/25th/50th/75th/95th percentiles 41 / 64 / 79 / 90 / 99 %; ICU occupancy median about 75 %; ICU beds as a share of inpatient beds 6 / 10 / 14 / 18 / 29 %. **Hospitals with 500 or more beds** (1,562 hospital-weeks): general occupancy 60 / 77 / 85 / 92 / 99 %, ICU occupancy median 82 %.
+- **Stability across seasons:** the median general-bed occupancy of the six weeks stays between 77 % and 82 % (large hospitals 83-87 %), so no season changes the picture.
+
+| Week | Hospital-weeks | Median occupancy | Median ICU occupancy | Median occupancy, 500+ beds |
+|---|---:|---:|---:|---:|
+| 2023-01-22 | 2,450 | 80 % | 77 % | 86 % |
+| 2023-04-23 | 2,365 | 78 % | 73 % | 83 % |
+| 2023-07-23 | 2,326 | 77 % | 72 % | 83 % |
+| 2023-10-22 | 2,351 | 78 % | 74 % | 86 % |
+| 2024-01-21 | 2,429 | 82 % | 78 % | 87 % |
+| 2024-04-21 | 2,281 | 78 % | 73 % | 85 % |
+
+- **Limits:** the data is two to three years old, from the US, and weekly averages. It supports realistic variation and size effects; it is not a measurement of 2026 conditions or of Indian hospitals.
+- **Reproduce:** `python experiments/fetch_hhs_capacity.py` then `python experiments/run_real_capacity.py`.
