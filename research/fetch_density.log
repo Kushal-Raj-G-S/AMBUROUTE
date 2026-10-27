@@ -1,0 +1,2 @@
+retry 0 2 HTTPStatusError
+retry 0 3 HTTPStatusError

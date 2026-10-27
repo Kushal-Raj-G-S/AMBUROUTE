@@ -49,6 +49,7 @@ class SimConfig:
     drift_n: int = 0
     drift_factor: float = 1.0
     drift_start: int = 30
+    spatial_demand: bool = False  # calls follow OSM building density (data/bengaluru_building_density.csv) instead of uniform
     obs_frac: float = 0.35  # online learners see a trip's realised/planned time this far into the trip (GPS tracking, assumed)
 
 
@@ -146,6 +147,11 @@ class Sim:
             drng = np.random.default_rng(seed + 777)  # separate stream: the drift never changes the base episode
             hit = np.arange(self.H) if cfg.drift_n < 0 else drng.choice(self.H, cfg.drift_n, replace=False)
             self.drift[hit] = cfg.drift_factor
+        self._cells = None
+        if cfg.spatial_demand:
+            from pathlib import Path
+            d = pd.read_csv(Path(__file__).resolve().parent.parent / "data" / "bengaluru_building_density.csv")
+            self._cells = (d[["lat0", "lat1", "lon0", "lon1"]].to_numpy(), (d.buildings / d.buildings.sum()).to_numpy())
         self.obs: list = []  # (hospital, realised / planned travel time) of finished trips, drained by the policy
         self._obs_heap: list = []  # (time revealed, hospital, ratio)
         self.cap = np.ones((self.H, 4), dtype=bool)  # column 0 = no specialty needed
@@ -232,11 +238,15 @@ class Sim:
             self._process_arrivals()
             for _ in range(self.rng.poisson(self.sc.lam)):
                 self.rid += 1
+                if self._cells is None:
+                    lat0, lat1, lon0, lon1 = BBOX["min_lat"], BBOX["max_lat"], BBOX["min_lon"], BBOX["max_lon"]
+                else:
+                    lat0, lat1, lon0, lon1 = self._cells[0][self.rng.choice(len(self._cells[1]), p=self._cells[1])]
                 r = Request(
                     self.rid,
                     self.t - self.rng.random(),
-                    self.rng.uniform(BBOX["min_lat"], BBOX["max_lat"]),
-                    self.rng.uniform(BBOX["min_lon"], BBOX["max_lon"]),
+                    self.rng.uniform(lat0, lat1),
+                    self.rng.uniform(lon0, lon1),
                     bool(self.rng.random() < self.cfg.icu_prob),
                 )
                 if self.cfg.clinical:

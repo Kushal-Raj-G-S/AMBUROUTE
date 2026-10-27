@@ -71,3 +71,37 @@ No call-level EMS or hospital-bed data for Bengaluru is public (a CAG audit repo
 ## Limits
 
 The traffic-drift, survival and GPS-progress assumptions are ours; beds, ICU capacity, calls and hospital capabilities remain simulated. NYC is a different city and system. Several comparisons are not significant and are reported as such.
+
+## 6. Stress tests (`experiments/run_stress.py`)
+
+**Call-rate sweep** (evening traffic, 30 seeds, paper's tuned policies, mean minutes to bed):
+
+| Calls per minute | 0.4 | 0.8 | 1.2 | 1.8 | 2.5 | 3.5 |
+|---|---:|---:|---:|---:|---:|---:|
+| Nearest hospital | 22.54 | 23.66 | 25.24 | 26.52 | 30.93 | 37.66 |
+| Tuned heuristic | 21.61 | 22.04 | 22.54 | 22.80 | 25.06 | 30.86 |
+| Tuned Nash | 21.61 | 22.01 | 22.63 | 22.98 | 25.22 | 30.36 |
+
+The value of capacity awareness grows with load: 4 % at 0.4 calls per minute, 18 % at 3.5. The heuristic and Nash stay within about 1 % of each other except at the heaviest load, where Nash is 1.6 % lower (not tested for significance in this sweep).
+
+![Rate sweep](images/stress.png)
+
+**Everything wrong at once** (clinical mode, bed reports every 15 minutes, local traffic jams at four hospitals, policies not re-tuned; critical patients, minutes to definitive care, 30 seeds):
+
+| | Peak | Surge |
+|---|---:|---:|
+| Nearest capable | 38.40 | 38.23 |
+| Clinical heuristic | 31.67 | 31.55 |
+| Clinical Nash | 32.09 | 31.69 |
+| Clinical heuristic + online ETA | 31.13 | 30.40 |
+| Clinical Nash + online ETA | 31.19 | 31.23 |
+
+Even with stale bed data and jams, both clinical policies beat the strongest simple baseline by 16-18 % (all p < 0.01 after correction). The online correction adds a further 1.4-3.6 %, which is **not significant after correction** in any single comparison (smallest corrected p = 0.15): it is a small, consistent help, not a proven one.
+
+## 7. A day in the life (`experiments/run_day_profile.py`)
+
+Call volume follows the **shape** of the real NYC hourly profile (`data/real_nyc_ems_hourly.csv`); travel times follow the calibrated Bengaluru hourly traffic model. The mean rate (0.85 calls per minute) is an assumption. Each hour starts a 2-hour window, 30 seeds each.
+
+Across the 24 windows the tuned heuristic is **9.4 % faster than nearest-hospital dispatch on average** and 10.4 % faster in the worst window for nearest (start 17:00). With the heuristic, time to bed runs from about 13 min in the small hours to about 22 min at 17:00 (nearest hospital: about 14 to 25 min); the benefit of capacity awareness tracks the traffic and call profile rather than the clock alone.
+
+![Day profile](images/day_profile.png)

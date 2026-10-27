@@ -1,0 +1,11 @@
+scenario,policy,crit,spec,surv,rejections
+peak,clinical Nash,32.087,32.933,0.904,1.5
+peak,clinical Nash + online ETA,31.186,31.529,0.908,1.933
+peak,clinical heuristic,31.674,32.563,0.905,1.067
+peak,clinical heuristic + online ETA,31.134,31.568,0.907,1.9
+peak,nearest capable,38.401,37.859,0.898,20.7
+surge,clinical Nash,31.688,32.768,0.905,3.2
+surge,clinical Nash + online ETA,31.232,32.639,0.906,3.4
+surge,clinical heuristic,31.545,32.775,0.905,2.967
+surge,clinical heuristic + online ETA,30.401,31.138,0.907,2.267
+surge,nearest capable,38.226,38.283,0.896,27.633
