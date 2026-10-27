@@ -1,0 +1,11 @@
+            policy     w  crit_ttdc_mean  beta  power
+clinical_heuristic 320.0          42.391   NaN    NaN
+clinical_heuristic 160.0          42.625   NaN    NaN
+clinical_heuristic  80.0          44.101   NaN    NaN
+clinical_heuristic  40.0          45.378   NaN    NaN
+       policy   w  crit_ttdc_mean  beta  power
+clinical_nash NaN          40.964  80.0    1.0
+clinical_nash NaN          41.612  80.0    2.0
+clinical_nash NaN          42.426 160.0    1.0
+clinical_nash NaN          43.125  40.0    1.0
+{'clinical_heuristic': {'w': 320.0}, 'clinical_nash': {'beta': 80.0, 'power': 1.0}}

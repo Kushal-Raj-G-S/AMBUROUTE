@@ -152,3 +152,20 @@ Rerun of the clinical comparison with these capabilities and the real NYC severi
 - The clinical policies still beat the strongest simple baseline, nearest capable hospital, by **about 21-22 %** (corrected p between 0.0004 and 0.011), and about 78 % of specialty patients treated by the specialty-blind policies still need a transfer.
 - Against the specialty-blind equilibrium the clinical Nash is 14 % faster at peak (corrected p = 0.09) and 6 % in the surge (not significant), a weaker result than with assumed capabilities.
 - **Capable hospitals saturate**: rejections rise to 15-22 per episode for the clinical policies (4-8 per episode for specialty-blind ones), because patients concentrate on the few capable hospitals. This is the main practical finding: where specialty capacity is this scarce, the limit is capacity at those hospitals, not dispatch logic.
+
+**Re-tuned on the researched capabilities** (`experiments/tune_clinical_researched.py`, then `run_clinical_researched.py`; weights chosen on validation seeds only, test seeds used once). The table above used parameters tuned for the *assumed* capabilities; re-tuning gives clinical heuristic weight 320 and clinical Nash beta 80, power 1. **The heuristic's best weight is again at the top of its search grid (10-320), so the true optimum may be higher.**
+
+| Critical patients, minutes to definitive care | Peak | Surge | Rejections (peak / surge) |
+|---|---:|---:|---:|
+| Nearest capable | 52.3 | 56.8 | 41.6 / 51.3 |
+| Specialty-blind heuristic | 46.7 | 48.1 | 4.2 / 7.3 |
+| Specialty-blind Nash | 47.3 | 47.7 | 4.1 / 8.4 |
+| Clinical heuristic (not re-tuned) | 40.7 | 45.7 | 15.8 / 22.3 |
+| Clinical Nash (not re-tuned) | 40.9 | 44.9 | 15.0 / 21.5 |
+| **Clinical heuristic (re-tuned)** | **38.9** | **41.7** | 10.0 / 15.3 |
+| **Clinical Nash (re-tuned)** | 39.8 | 44.3 | 12.0 / 19.8 |
+
+- Re-tuned clinical policies beat nearest capable by **24-27 %** (corrected p <= 0.004) and the specialty-blind heuristic by **17 % at peak and 13 % in the surge** (corrected p = 0.02 and 0.045).
+- Clinical Nash against the specialty-blind Nash: 16 % at peak (corrected p = 0.075) and 7 % in the surge (not significant).
+- Re-tuning improved the heuristic by 4 % (peak) and 9 % (surge) and cut its rejections by about a third, but neither difference is significant after correction.
+- Nash and the heuristic are again statistically indistinguishable (Nash 2 % and 6 % slower, p > 0.1). With this few capable hospitals, **the simple heuristic is the safer choice**.
