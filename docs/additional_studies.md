@@ -105,3 +105,18 @@ Call volume follows the **shape** of the real NYC hourly profile (`data/real_nyc
 Across the 24 windows the tuned heuristic is **9.4 % faster than nearest-hospital dispatch on average** and 10.4 % faster in the worst window for nearest (start 17:00). With the heuristic, time to bed runs from about 13 min in the small hours to about 22 min at 17:00 (nearest hospital: about 14 to 25 min); the benefit of capacity awareness tracks the traffic and call profile rather than the clock alone.
 
 ![Day profile](images/day_profile.png)
+
+## 8. Realistic call locations (`experiments/fetch_density_mapbox.py`, `run_spatial_demand.py`)
+
+The paper's simulator draws call locations uniformly over the map, which is unrealistic. Here calls follow the **number of building footprints per map tile** (Mapbox vector tiles at zoom 15, 462 tiles binned into a 10 x 10 grid; counts range from 520 to 7,842 per cell). Buildings are a coarse proxy for population, not a measurement of where calls occur, and only the aggregated counts are stored. Policies are the paper's tuned ones, **not re-tuned**; PPO was trained on uniform calls, so this also tests it out of distribution. 50 test seeds.
+
+| Mean minutes to bed | Peak: uniform | Peak: density | Surge: uniform | Surge: density |
+|---|---:|---:|---:|---:|
+| Nearest | 25.78 | 22.31 | 27.75 | 23.52 |
+| Heuristic | 22.73 | 20.03 | 22.97 | 20.40 |
+| Nash | 22.64 | 19.97 | 22.91 | 20.54 |
+| PPO (trained on uniform calls) | 22.94 | 20.09 | 23.50 | 20.73 |
+
+- All times fall because calls now concentrate near the centre, where the hospitals are.
+- Capacity awareness still helps significantly, **but less than with uniform calls: -10 % at peak (was -12 %) and -13 % in the surge (was -17 %)**. The uniform assumption overstated the benefit by roughly 2-4 percentage points.
+- Nash and the heuristic remain indistinguishable (differences under 1 %, not significant). PPO matches the heuristic at peak (+0.3 %) and is 1.6 % slower in the surge (corrected p = 0.09), so it carries over to a different demand pattern without retraining.

@@ -1,0 +1,9 @@
+scenario,a,b,rel_pct,p_raw,p_bonf
+peak,heuristic,nearest,-10.1903,0.0,0.0
+peak,nash,nearest,-10.4929,0.0,0.0
+peak,nash,heuristic,-0.3369,0.7304,1.0
+peak,ppo (trained on uniform calls),heuristic,0.2634,0.2335,1.0
+surge,heuristic,nearest,-13.2698,0.0,0.0
+surge,nash,nearest,-12.6426,0.0,0.0
+surge,nash,heuristic,0.7231,0.226,1.0
+surge,ppo (trained on uniform calls),heuristic,1.6284,0.0115,0.0922

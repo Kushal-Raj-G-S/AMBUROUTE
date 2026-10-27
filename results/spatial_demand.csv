@@ -1,0 +1,25 @@
+demand,scenario,policy,ttb,rejections,jain
+building density,offpeak,heuristic,17.396,0.2,0.428
+building density,offpeak,nash,17.441,0.28,0.446
+building density,offpeak,nearest,18.098,4.12,0.341
+building density,offpeak,ppo (trained on uniform calls),17.461,0.26,0.41
+building density,peak,heuristic,20.033,3.06,0.501
+building density,peak,nash,19.966,2.06,0.544
+building density,peak,nearest,22.306,26.22,0.367
+building density,peak,ppo (trained on uniform calls),20.086,4.4,0.491
+building density,surge,heuristic,20.395,4.3,0.508
+building density,surge,nash,20.542,5.18,0.56
+building density,surge,nearest,23.515,35.7,0.365
+building density,surge,ppo (trained on uniform calls),20.727,6.94,0.501
+uniform,offpeak,heuristic,19.656,0.32,0.397
+uniform,offpeak,nash,19.67,0.3,0.417
+uniform,offpeak,nearest,20.792,4.36,0.32
+uniform,offpeak,ppo (trained on uniform calls),19.651,0.3,0.377
+uniform,peak,heuristic,22.73,3.5,0.478
+uniform,peak,nash,22.641,2.8,0.507
+uniform,peak,nearest,25.783,30.12,0.331
+uniform,peak,ppo (trained on uniform calls),22.938,5.5,0.461
+uniform,surge,heuristic,22.971,6.18,0.469
+uniform,surge,nash,22.913,5.56,0.519
+uniform,surge,nearest,27.747,46.76,0.325
+uniform,surge,ppo (trained on uniform calls),23.499,11.06,0.458
