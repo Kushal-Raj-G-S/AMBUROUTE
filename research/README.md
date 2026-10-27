@@ -1,3 +1,5 @@
+**Start with [HANDOFF.md](HANDOFF.md)** (where everything is, how to run it, results, open items), then [PROJECT_LOG.md](PROJECT_LOG.md) (the full chronological record).
+
 # research/: proof and memory for the AmbuRoute project
 
 Everything needed to understand, defend and rebuild the work, in one place. **Start with `PROJECT_LOG.md`.**
