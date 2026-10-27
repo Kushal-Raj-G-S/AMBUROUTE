@@ -14,9 +14,9 @@ Traffic-aware ambulance dispatch that counts the ambulances **already on the roa
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Status](https://img.shields.io/badge/status-research%20prototype-orange)
 
-<img src="docs/images/console_multi.jpg" alt="AmbuRoute dispatcher console: four ambulances assigned at a Nash equilibrium" width="880">
+<img src="docs/images/console_multi.jpg" alt="AmbuRoute dispatcher console: three ambulances assigned at an equilibrium" width="880">
 
-<sub>Four ambulances assigned at an equilibrium, with live-traffic Mapbox routes.</sub>
+<sub>Three ambulances assigned at an equilibrium, with live-traffic Mapbox routes. The console has light and dark themes.</sub>
 
 </div>
 
@@ -99,9 +99,9 @@ Travel times are fitted to **3,861 Mapbox typical-traffic samples** and scored o
 
 <table>
 <tr>
-<td align="center" width="33%"><img src="docs/images/console_single.jpg" alt="Single dispatch"><br><sub><b>Single dispatch</b><br>recommended hospital, ETA and live-traffic route</sub></td>
-<td align="center" width="33%"><img src="docs/images/console_multi.jpg" alt="Equilibrium assignment"><br><sub><b>Several ambulances</b><br>equilibrium assignment, converged in one round</sub></td>
-<td align="center" width="33%"><img src="docs/images/console_compare.jpg" alt="Policy comparison"><br><sub><b>Compare</b><br>simulated days, every policy side by side</sub></td>
+<td align="center" width="33%"><img src="docs/images/console_single.jpg" alt="Single dispatch"><br><sub><b>Single dispatch</b><br>a critical stroke patient: recommended hospital, why it won, and the alternatives compared</sub></td>
+<td align="center" width="33%"><img src="docs/images/console_multi.jpg" alt="Equilibrium assignment"><br><sub><b>Several ambulances</b><br>three ambulances at an equilibrium, converged in one round</sub></td>
+<td align="center" width="33%"><img src="docs/images/console_compare.jpg" alt="Policy comparison"><br><sub><b>Compare</b><br>simulated days, every policy side by side (light and dark themes)</sub></td>
 </tr>
 </table>
 
@@ -109,7 +109,6 @@ Travel times are fitted to **3,861 Mapbox typical-traffic samples** and scored o
 - The **Hospitals** tab lets a hospital update its own bed counts (`POST /hospitals/{id}/beds`).
 - Choose **Severity** and **Specialty needed** to route critical cardiac, stroke or trauma patients only to hospitals with that capability (capabilities are assumed, and the console says so). Tick **Learn from reported trip times** to apply the per-hospital corrections learned from `POST /feedback`.
 
-<div align="center"><img src="docs/images/console_clinical.jpg" alt="Console: critical cardiac patient routed to a cardiac-capable hospital" width="560"><br><sub>A critical cardiac patient is sent to a hospital with a cardiac centre, with a live-traffic route.</sub></div>
 
 ## 🚀 Quick start
 

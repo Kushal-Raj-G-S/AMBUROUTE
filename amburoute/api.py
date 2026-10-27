@@ -105,10 +105,21 @@ _total = np.stack([_hosp["beds"].to_numpy(), _hosp["icu_beds"].to_numpy()])
 _inflight = np.zeros_like(_free)
 _ppo = None
 
-# Specialty capabilities per hospital. ASSUMED (see docs/clinical_extension.md), not real data.
+# Specialty capabilities per hospital: from public sources when data/hospital_capabilities_researched.csv exists
+# (a service is counted only if a source states it; see its `verification` column), otherwise ASSUMED from hospital size.
 SPECIALTIES = {"none": 0, "cardiac": 1, "stroke": 2, "trauma": 3}
-_cap = np.stack([np.ones(len(_hosp), dtype=bool)] + [with_capabilities(_hosp)[c].to_numpy(bool)
-                                                     for c in ("cap_cardiac", "cap_stroke", "cap_trauma")], axis=1)
+_cap_file = ROOT / "data" / "hospital_capabilities_researched.csv"
+if _cap_file.exists():
+    import pandas as _pd
+
+    _c = _pd.read_csv(_cap_file).set_index("id")
+    _cols = [_c.loc[_hosp["id"], k].to_numpy().astype(bool) for k in ("cardiac", "stroke", "trauma")]
+    CAP_SOURCE = "public sources"
+else:
+    _c = with_capabilities(_hosp)
+    _cols = [_c[k].to_numpy(bool) for k in ("cap_cardiac", "cap_stroke", "cap_trauma")]
+    CAP_SOURCE = "assumed"
+_cap = np.stack([np.ones(len(_hosp), dtype=bool)] + _cols, axis=1)
 # Online correction learned from observed trip times (POST /feedback); relative per-hospital factors.
 _online = OnlineETA(CapacityHeuristic(), 0.3, len(_hosp))
 _online_session = object()
@@ -215,7 +226,7 @@ def _hospital_json(i: int) -> dict:
                 updated_at=datetime.fromtimestamp(float(_updated[i]), timezone.utc).isoformat(),
                 stale=bool((time.time() - _updated[i]) / 60 > STALE_MINUTES),
                 capabilities=dict(cardiac=bool(_cap[i, 1]), stroke=bool(_cap[i, 2]), trauma=bool(_cap[i, 3]),
-                                  source="assumed"))
+                                  source=CAP_SOURCE))
 
 
 def _explain(req: RouteRequest, h: int) -> dict:
