@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "AmbuRoute: traffic- and capacity-aware ambulance hospital selection"
+type: software
+version: 0.3.0
+license: MIT
+repository-code: "https://github.com/Kushal-Raj-G-S/AMBUROUTE"
+abstract: >-
+  A simulator, equilibrium and learned dispatch policies, and a service with a dispatcher console for choosing
+  hospitals for ambulances using calibrated travel times, published bed counts and ambulances already on the road.
+authors:
+  - name: "AmbuRoute contributors"
+keywords:
+  - ambulance dispatch
+  - hospital selection
+  - congestion game
+  - reinforcement learning

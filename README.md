@@ -71,6 +71,7 @@ Three extension studies and a pilot plan, all in [`docs/`](docs/):
 | [`docs/extension_results.md`](docs/extension_results.md) | Stale bed data up to "frozen", and a 110-hospital city-scale stress test |
 | [`docs/clinical_extension.md`](docs/clinical_extension.md) | **Severity and specialty** (cardiac, stroke, trauma): critical patients reach definitive care **32-34 % faster** than with specialty-blind policies and **16-19 % faster** than "nearest capable hospital" (all clinical inputs assumed) |
 | [`docs/additional_studies.md`](docs/additional_studies.md) | **Module ablation** (in-flight load is worth 5-10 %), **multi-objective** trade-offs, **online adaptation** to local jams (recovers ~60 % of the oracle gain), a **graph network** that learns the congestion cost (matches, does not beat, the heuristic) and **checks against real NYC EMS data** |
+| [`docs/deployment.md`](docs/deployment.md), [`docs/safety.md`](docs/safety.md), [`docs/model_card.md`](docs/model_card.md), [`docs/performance.md`](docs/performance.md) | How to run and operate the service (Docker, configuration, backups), intended use and failure behaviour, what each policy is and how it was evaluated, and measured latency and throughput |
 | [`docs/pilot_design.md`](docs/pilot_design.md) | Shadow-mode pilot, metrics, sample-size estimate (3-15 matched days to beat "nearest hospital"), safety and privacy |
 
 > Takeaway for a product: ship the simple, explainable capacity heuristic first; its value concentrates where hospital capacity is tight and where bed reports are fresh.
