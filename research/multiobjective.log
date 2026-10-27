@@ -1,0 +1,21 @@
+validation sweep done peak
+validation sweep done surge
+                w  s lam       ttdc      surv door_wait      jain
+fastest         0  2  40   23.44188  0.912081  0.454438   0.46276
+best survival   0  2  40   23.44188  0.912081  0.454438   0.46276
+fairest        80  1  15  23.895178  0.910073  0.325203  0.539545
+balanced       80  1   0  23.811959  0.910318  0.292179  0.539204
+scenario                               policy   ttdc  surv  door_wait  jain  crit_ttdc  rejections
+    peak                      nearest capable 25.410 0.908      3.171 0.416     33.851      20.500
+    peak clinical heuristic (paper extension) 23.274 0.915      0.079 0.523     27.474       0.633
+    peak             multi-objective: fastest 23.121 0.914      0.352 0.472     27.849       2.400
+    peak       multi-objective: best survival 23.121 0.914      0.352 0.472     27.849       2.400
+    peak             multi-objective: fairest 23.302 0.915      0.066 0.528     27.343       0.467
+    peak            multi-objective: balanced 23.274 0.915      0.079 0.523     27.474       0.633
+   surge                      nearest capable 26.361 0.903      4.199 0.434     34.811      27.333
+   surge clinical heuristic (paper extension) 23.718 0.913      0.260 0.543     27.882       1.667
+   surge             multi-objective: fastest 23.668 0.913      0.817 0.488     29.033       5.233
+   surge       multi-objective: best survival 23.668 0.913      0.817 0.488     29.033       5.233
+   surge             multi-objective: fairest 23.708 0.913      0.204 0.540     27.678       1.367
+   surge            multi-objective: balanced 23.718 0.913      0.260 0.543     27.882       1.667
+saved

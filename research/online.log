@@ -1,0 +1,51 @@
+ alpha    ttb
+  0.05 24.689
+  0.10 24.372
+  0.20 24.270
+  0.30 24.209
+  0.50 24.305
+  0.80 24.457 -> alpha 0.3
+done no drift peak
+done no drift surge
+done local jams (4 hospitals x2) peak
+done local jams (4 hospitals x2) surge
+done citywide slowdown x1.5 peak
+done citywide slowdown x1.5 surge
+                      drift scenario      base          variant  ttb_mean  rejections  delta_min  delta_pct  p_raw  p_bonf
+     citywide slowdown x1.5     peak heuristic      fixed model    30.884        3.90      0.000      0.000    NaN     NaN
+     citywide slowdown x1.5     peak heuristic online (learned)    31.390        2.52      0.505      1.637  0.000   0.002
+     citywide slowdown x1.5     peak heuristic           oracle    30.965        4.42      0.081      0.261  0.113   1.000
+     citywide slowdown x1.5     peak      nash      fixed model    30.846        3.26      0.000      0.000    NaN     NaN
+     citywide slowdown x1.5     peak      nash online (learned)    31.421        2.94      0.575      1.865  0.000   0.000
+     citywide slowdown x1.5     peak      nash           oracle    30.877        4.26      0.031      0.101  0.902   1.000
+     citywide slowdown x1.5    surge heuristic      fixed model    29.023        6.48      0.000      0.000    NaN     NaN
+     citywide slowdown x1.5    surge heuristic online (learned)    29.395        4.96      0.372      1.280  0.001   0.019
+     citywide slowdown x1.5    surge heuristic           oracle    29.142        7.66      0.118      0.408  0.001   0.012
+     citywide slowdown x1.5    surge      nash      fixed model    28.780        5.18      0.000      0.000    NaN     NaN
+     citywide slowdown x1.5    surge      nash online (learned)    29.383        4.04      0.603      2.097  0.000   0.000
+     citywide slowdown x1.5    surge      nash           oracle    29.064        7.76      0.284      0.988  0.003   0.068
+local jams (4 hospitals x2)     peak heuristic      fixed model    26.211        3.82      0.000      0.000    NaN     NaN
+local jams (4 hospitals x2)     peak heuristic online (learned)    24.576        3.12     -1.635     -6.239  0.000   0.000
+local jams (4 hospitals x2)     peak heuristic           oracle    23.421        3.62     -2.790    -10.646  0.000   0.000
+local jams (4 hospitals x2)     peak      nash      fixed model    25.902        2.88      0.000      0.000    NaN     NaN
+local jams (4 hospitals x2)     peak      nash online (learned)    24.561        2.52     -1.341     -5.178  0.000   0.000
+local jams (4 hospitals x2)     peak      nash           oracle    23.368        3.36     -2.534     -9.784  0.000   0.000
+local jams (4 hospitals x2)    surge heuristic      fixed model    25.439        6.44      0.000      0.000    NaN     NaN
+local jams (4 hospitals x2)    surge heuristic online (learned)    24.785        5.40     -0.654     -2.570  0.000   0.000
+local jams (4 hospitals x2)    surge heuristic           oracle    23.463        6.20     -1.976     -7.768  0.000   0.000
+local jams (4 hospitals x2)    surge      nash      fixed model    25.323        5.50      0.000      0.000    NaN     NaN
+local jams (4 hospitals x2)    surge      nash online (learned)    24.677        4.22     -0.646     -2.550  0.000   0.000
+local jams (4 hospitals x2)    surge      nash           oracle    23.398        5.48     -1.925     -7.601  0.000   0.000
+                   no drift     peak heuristic      fixed model    22.730        3.50      0.000      0.000    NaN     NaN
+                   no drift     peak heuristic online (learned)    22.861        3.10      0.131      0.575  0.018   0.352
+                   no drift     peak heuristic           oracle    22.730        3.50      0.000      0.000    NaN     NaN
+                   no drift     peak      nash      fixed model    22.641        2.80      0.000      0.000    NaN     NaN
+                   no drift     peak      nash online (learned)    22.867        2.36      0.226      0.998  0.002   0.042
+                   no drift     peak      nash           oracle    22.641        2.80      0.000      0.000    NaN     NaN
+                   no drift    surge heuristic      fixed model    22.971        6.18      0.000      0.000    NaN     NaN
+                   no drift    surge heuristic online (learned)    23.099        5.34      0.128      0.559  0.018   0.352
+                   no drift    surge heuristic           oracle    22.971        6.18      0.000      0.000    NaN     NaN
+                   no drift    surge      nash      fixed model    22.913        5.56      0.000      0.000    NaN     NaN
+                   no drift    surge      nash online (learned)    23.002        4.20      0.089      0.390  0.020   0.392
+                   no drift    surge      nash           oracle    22.913        5.56      0.000      0.000    NaN     NaN
+saved

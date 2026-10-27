@@ -1,0 +1,51 @@
+training samples 77407, mean extra delay 0.70 min, share > 1 min 0.027
+E:\BMSIT\Research paper\COMPSIF_AMBULANCE-Archana mam\repo_stage\experiments\run_gnn.py:92: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\python_variable_methods.cpp:821.)
+  tot += float(loss) * len(idx)
+  graph=True epoch 10 loss 4.810
+  graph=True epoch 20 loss 4.693
+  graph=True epoch 30 loss 4.610
+  graph=True epoch 40 loss 4.562
+  graph=False epoch 10 loss 4.892
+  graph=False epoch 20 loss 4.848
+  graph=False epoch 30 loss 4.811
+  graph=False epoch 40 loss 4.776
+       model  scale    ttb
+         gnn    0.5 23.382
+         gnn    1.0 22.683
+         gnn    1.5 22.548
+         gnn    2.0 22.523
+gnn_no_edges    0.5 23.731
+gnn_no_edges    1.0 22.841
+gnn_no_edges    1.5 22.680
+gnn_no_edges    2.0 22.527
+done offpeak
+done peak
+done surge
+                             ttb_mean  rejections   jain  decision_ms
+scenario policy                                                      
+offpeak  gnn (learned cost)    19.676        0.56  0.390        0.245
+         gnn without edges     19.696        0.58  0.396        0.249
+         heuristic (tuned)     19.656        0.32  0.397        0.014
+         nash (tuned)          19.670        0.30  0.417        0.038
+         nearest               20.792        4.36  0.320        0.003
+peak     gnn (learned cost)    22.677        3.80  0.466        0.240
+         gnn without edges     22.734        3.88  0.473        0.260
+         heuristic (tuned)     22.730        3.50  0.478        0.013
+         nash (tuned)          22.641        2.80  0.507        0.036
+         nearest               25.783       30.12  0.331        0.002
+surge    gnn (learned cost)    23.100        6.56  0.451        0.219
+         gnn without edges     23.037        7.20  0.474        0.220
+         heuristic (tuned)     22.971        6.18  0.469        0.012
+         nash (tuned)          22.913        5.56  0.519        0.029
+         nearest               27.747       46.76  0.325        0.001
+scenario                  a                 b  mean_a  mean_b   delta  rel_pct  p_raw  p_bonf
+ offpeak gnn (learned cost) heuristic (tuned) 19.6763 19.6558  0.0205   0.1042 0.2012  1.0000
+ offpeak gnn (learned cost)      nash (tuned) 19.6763 19.6701  0.0063   0.0318 0.6075  1.0000
+ offpeak gnn (learned cost) gnn without edges 19.6763 19.6963 -0.0200  -0.1017 0.4420  1.0000
+    peak gnn (learned cost) heuristic (tuned) 22.6771 22.7302 -0.0531  -0.2336 0.8109  1.0000
+    peak gnn (learned cost)      nash (tuned) 22.6771 22.6408  0.0363   0.1603 0.5656  1.0000
+    peak gnn (learned cost) gnn without edges 22.6771 22.7337 -0.0566  -0.2488 0.1858  1.0000
+   surge gnn (learned cost) heuristic (tuned) 23.0996 22.9708  0.1288   0.5609 0.2531  1.0000
+   surge gnn (learned cost)      nash (tuned) 23.0996 22.9130  0.1867   0.8146 0.0724  0.6514
+   surge gnn (learned cost) gnn without edges 23.0996 23.0372  0.0625   0.2713 0.4665  1.0000
