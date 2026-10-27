@@ -1,0 +1,31 @@
+{'model': 'B_s0', 'tag': 'B', 'offpeak': 19.65435169484866, 'peak': 23.070963377815268, 'surge': 23.484526776838532, 'mean_all': np.float64(22.06994728316749)}
+{'model': 'B_s1', 'tag': 'B', 'offpeak': 19.67438558773671, 'peak': 22.708754355400288, 'surge': 23.07130155841022, 'mean_all': np.float64(21.818147167182406)}
+{'model': 'B_s2', 'tag': 'B', 'offpeak': 19.541698473533234, 'peak': 22.741307808531857, 'surge': 23.194099130039646, 'mean_all': np.float64(21.82570180403491)}
+{'model': 'C_s0', 'tag': 'C', 'offpeak': 20.23834283349349, 'peak': 24.315593068161572, 'surge': 24.754968885703924, 'mean_all': np.float64(23.102968262452993)}
+{'model': 'C_s1', 'tag': 'C', 'offpeak': 20.615654467721768, 'peak': 24.02623986636306, 'surge': 24.891702088790485, 'mean_all': np.float64(23.177865474291767)}
+{'model': 'C_s2', 'tag': 'C', 'offpeak': 20.600213778459576, 'peak': 25.519367546202037, 'surge': 26.042346662522625, 'mean_all': np.float64(24.05397599572808)}
+chosen on validation: {'B': 'B_s1', 'C': 'C_s0'}
+done peak
+done surge
+scenario             model      role  ttb_mean  rejections
+    peak              B_s0     other    23.357        7.60
+    peak              B_s1    chosen    22.938        5.50
+    peak              B_s2     other    22.954        6.14
+    peak              C_s0    chosen    24.361       18.44
+    peak              C_s1     other    24.724       22.46
+    peak              C_s2     other    25.771       31.68
+    peak heuristic (tuned) reference    22.730        3.50
+   surge              B_s0     other    23.994       14.04
+   surge              B_s1    chosen    23.499       11.06
+   surge              B_s2     other    23.790       13.12
+   surge              C_s0    chosen    25.757       29.72
+   surge              C_s1     other    25.685       31.22
+   surge              C_s2     other    26.990       42.84
+   surge heuristic (tuned) reference    22.971        6.18
+scenario    a                 b  mean_a  mean_b  rel_pct  p_raw  p_bonf
+    peak C_s0              B_s1 24.3614 22.9379   6.2059 0.0000  0.0000
+    peak C_s0 heuristic (tuned) 24.3614 22.7302   7.1764 0.0000  0.0000
+    peak B_s1 heuristic (tuned) 22.9379 22.7302   0.9138 0.0218  0.1308
+   surge C_s0              B_s1 25.7570 23.4995   9.6065 0.0000  0.0000
+   surge C_s0 heuristic (tuned) 25.7570 22.9708  12.1292 0.0000  0.0000
+   surge B_s1 heuristic (tuned) 23.4995 22.9708   2.3015 0.0000  0.0000

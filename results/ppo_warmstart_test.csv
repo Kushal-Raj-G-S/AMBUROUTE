@@ -1,0 +1,15 @@
+scenario,model,role,ttb_mean,rejections
+peak,B_s0,other,23.357,7.6
+peak,B_s1,chosen,22.938,5.5
+peak,B_s2,other,22.954,6.14
+peak,C_s0,chosen,24.361,18.44
+peak,C_s1,other,24.724,22.46
+peak,C_s2,other,25.771,31.68
+peak,heuristic (tuned),reference,22.73,3.5
+surge,B_s0,other,23.994,14.04
+surge,B_s1,chosen,23.499,11.06
+surge,B_s2,other,23.79,13.12
+surge,C_s0,chosen,25.757,29.72
+surge,C_s1,other,25.685,31.22
+surge,C_s2,other,26.99,42.84
+surge,heuristic (tuned),reference,22.971,6.18

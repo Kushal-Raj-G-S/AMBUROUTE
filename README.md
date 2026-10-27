@@ -70,6 +70,7 @@ Three extension studies and a pilot plan, all in [`docs/`](docs/):
 | [`docs/market_research.md`](docs/market_research.md) | Sourced evidence that the problem is real in Bengaluru, how bed data is reported today, competitors, regulatory notes |
 | [`docs/extension_results.md`](docs/extension_results.md) | Stale bed data up to "frozen", and a 110-hospital city-scale stress test |
 | [`docs/clinical_extension.md`](docs/clinical_extension.md) | **Severity and specialty** (cardiac, stroke, trauma): critical patients reach definitive care **32-34 % faster** than with specialty-blind policies and **16-19 % faster** than "nearest capable hospital" (all clinical inputs assumed) |
+| [`docs/additional_studies.md`](docs/additional_studies.md) | **Module ablation** (in-flight load is worth 5-10 %), **multi-objective** trade-offs, **online adaptation** to local jams (recovers ~60 % of the oracle gain), a **graph network** that learns the congestion cost (matches, does not beat, the heuristic) and **checks against real NYC EMS data** |
 | [`docs/pilot_design.md`](docs/pilot_design.md) | Shadow-mode pilot, metrics, sample-size estimate (3-15 matched days to beat "nearest hospital"), safety and privacy |
 
 > Takeaway for a product: ship the simple, explainable capacity heuristic first; its value concentrates where hospital capacity is tight and where bed reports are fresh.
@@ -146,7 +147,7 @@ curl -X POST http://127.0.0.1:8000/route -H "Content-Type: application/json" \
 ## 🔬 Reproduce the results
 
 ```bash
-python -m pytest tests -q                              # 7 tests
+python -m pytest tests -q                              # 17 tests
 python experiments/collect_mapbox_traffic.py 0 1       # real traffic samples (needs your MAPBOX_TOKEN, ~40 min)
 python experiments/calibrate_traffic.py                # fit + validate the travel-time model
 python experiments/tune_baselines.py                   # tune heuristic and Nash on validation seeds
@@ -158,6 +159,11 @@ python experiments/run_ablations.py                    # stale beds, outage, spe
 python experiments/run_staleness_tests.py              # paired tests for the staleness study
 python experiments/run_ppo_vs_prototype.py             # PPO against the old prototype rule
 python experiments/make_paper_assets.py                # tables and figures for the paper
+python experiments/run_module_ablation.py              # what each module contributes
+python experiments/run_multiobjective.py               # time / survival / waiting / fairness
+python experiments/run_online.py                       # online adaptation to local traffic jams
+python experiments/run_gnn.py                          # graph network that learns the congestion cost
+python experiments/real_data_nyc_ems.py                # check demand and severity assumptions on public NYC EMS data
 ```
 
 Seeds are split into disjoint sets: training (>= 100000), validation (500-529), test (1000-1049).

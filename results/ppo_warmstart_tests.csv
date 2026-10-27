@@ -1,0 +1,7 @@
+scenario,a,b,mean_a,mean_b,rel_pct,p_raw,p_bonf
+peak,C_s0,B_s1,24.3614,22.9379,6.2059,0.0,0.0
+peak,C_s0,heuristic (tuned),24.3614,22.7302,7.1764,0.0,0.0
+peak,B_s1,heuristic (tuned),22.9379,22.7302,0.9138,0.0218,0.1308
+surge,C_s0,B_s1,25.757,23.4995,9.6065,0.0,0.0
+surge,C_s0,heuristic (tuned),25.757,22.9708,12.1292,0.0,0.0
+surge,B_s1,heuristic (tuned),23.4995,22.9708,2.3015,0.0,0.0
