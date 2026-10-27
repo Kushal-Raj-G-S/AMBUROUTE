@@ -1,0 +1,16 @@
+scenario,a,b,rel_pct,p_raw,p_bonf
+offpeak,capacity_heuristic,nearest,-2.6729,0.0026,0.0385
+offpeak,nash,nearest,-2.7032,0.0005,0.0068
+offpeak,nash,capacity_heuristic,-0.0311,0.0241,0.361
+offpeak,heuristic_retuned,capacity_heuristic,0.0,1.0,1.0
+offpeak,ppo,capacity_heuristic,0.7171,0.0001,0.0022
+peak,capacity_heuristic,nearest,-9.5025,0.0,0.0
+peak,nash,nearest,-9.5824,0.0,0.0
+peak,nash,capacity_heuristic,-0.0882,0.8333,1.0
+peak,heuristic_retuned,capacity_heuristic,0.0,1.0,1.0
+peak,ppo,capacity_heuristic,0.1952,0.0207,0.31
+surge,capacity_heuristic,nearest,-11.515,0.0,0.0
+surge,nash,nearest,-11.224,0.0,0.0
+surge,nash,capacity_heuristic,0.3288,0.0876,1.0
+surge,heuristic_retuned,capacity_heuristic,0.0,1.0,1.0
+surge,ppo,capacity_heuristic,0.7351,0.0002,0.0032

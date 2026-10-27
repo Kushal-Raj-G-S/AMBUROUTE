@@ -119,3 +119,22 @@ def test_capacity_sampler_matches_size_and_works_for_any_city():
     assert len(occ) == 120 and ((0 <= occ) & (occ <= 1)).all() and ((0 < share) & (share <= 0.6)).all()
     # larger hospitals are fuller on average in the measured data
     assert occ[2::3].mean() > occ[0::3].mean()
+
+
+def test_capacity_profiles_select_by_name():
+    import numpy as np
+
+    from amburoute.capacity import PROFILES, sample_capacity
+    from amburoute.sim import Sim
+
+    for name in PROFILES:
+        occ, share, iocc = sample_capacity(np.array([100, 500, 1500]), np.random.default_rng(1), name)
+        assert len(occ) == 3 and (occ <= 1).all() and (share > 0).all()
+    a = Sim(H, SCENARIOS["peak"], 3, SimConfig(real_capacity="england-2026"), T)
+    b = Sim(H, SCENARIOS["peak"], 3, SimConfig(real_capacity="2022"), T)
+    assert a.target[0].mean() > b.target[0].mean()  # English trusts run fuller than US hospitals
+    try:
+        Sim(H, SCENARIOS["peak"], 3, SimConfig(real_capacity="nowhere"), T)
+        raise AssertionError("expected an error for an unknown profile")
+    except ValueError:
+        pass

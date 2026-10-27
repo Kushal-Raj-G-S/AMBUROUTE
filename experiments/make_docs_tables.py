@@ -82,5 +82,18 @@ if f.exists():
 f = R / "gmaps_validation.csv"
 if f.exists():
     parts += ["## Fitted travel-time model against independent Google Maps readings (13 routes)", "", md(pd.read_csv(f)), ""]
+rows = []
+for label, suf in (("US 2022", "_2022"), ("US 2023-24", ""), ("England 2026", "_england-2026")):
+    f = R / f"real_capacity_summary{suf}.csv"
+    if f.exists():
+        d = pd.read_csv(f)
+        t, rj = d.pivot_table(index="scenario", columns="policy", values="ttb"), d.pivot_table(index="scenario", columns="policy", values="rej")
+        gain = (1 - t.capacity_heuristic / t.nearest) * 100
+        cut = (1 - rj.capacity_heuristic / rj.nearest) * 100
+        rows.append({"capacity profile": label, "free beds at start %": round(100 * d.free0.mean(), 1), "gain off-peak %": round(gain["offpeak"], 1),
+                     "gain peak %": round(gain["peak"], 1), "gain surge %": round(gain["surge"], 1), "fewer turn-aways peak %": round(cut["peak"], 0),
+                     "fewer turn-aways surge %": round(cut["surge"], 0)})
+if rows:
+    parts += ["## Heuristic against nearest hospital under three measured capacity profiles", "", md(pd.DataFrame(rows), 1), ""]
 (ROOT / "docs" / "results_tables.md").write_text("\n".join(parts), encoding="utf-8")
 print("wrote docs/results_tables.md", sum(1 for p in parts if p.startswith("## ")), "tables")

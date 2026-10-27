@@ -252,3 +252,33 @@ Only **0.45 %** of readings are 1.5 times the typical time or more, and **0.04 %
 **Conclusion: with realistic jam sizes the online learner brings no reliable benefit.** At 1.25x even a perfect oracle gains only 1-2 %, so there is little to learn. It helps (2.4 % at peak) only when four hospitals are 1.5 times slower to reach, a case that is about 0.45 % of readings, and it slightly hurts when the whole city slows evenly. The earlier "-6.2 % under 2x jams" is a stress-test result, not a typical one. The fixed, calibrated travel-time model is the right default; online correction is worth keeping for rare large jams only.
 
 **What the real traffic data does not give us:** actual ambulance trips (their speed-up over cars is still an assumption), day-specific hospital-approach congestion, or rain and event days labelled for replay. Older Uber Movement ward-to-ward travel times (2016-2020, Bengaluru wards, discontinued) are a possible further source; I did not confirm that the files can still be downloaded.
+
+## 13. Three measured capacity profiles from three periods: the benefit depends on how full hospitals are
+
+The study of section 11 was repeated with capacity profiles from two more periods, so the conclusions are not tied to one dataset or year (`experiments/run_real_capacity.py <profile>`, 50 test seeds per scenario, same simulator, hospitals, traffic and policy parameters):
+
+| Profile | Records | Free general beds at start | Median occupancy (500+ beds) |
+|---|---:|---:|---:|
+| **US 2022** (federal facility data, six weeks across 2022) | 14,955 hospital-weeks | 19.4 % | 84 % |
+| **US 2023-24** (six weeks, 2023-01 to 2024-04) | 14,202 hospital-weeks | 20.9 % | 85 % |
+| **England 2026** (NHS England beds situation reports, April to September 2026, six-month mean per acute trust) | 124 trusts | **6.4 %** | **94 %** |
+| *The paper's assumed capacities (for reference)* | | 6.5 % | 88-99 % for every hospital |
+
+Heuristic against nearest hospital (mean minutes to a bed) and ambulances turned away:
+
+| Profile | Off-peak | Peak | Surge | Turn-aways avoided (peak / surge) |
+|---|---:|---:|---:|---:|
+| US 2022 | -1.1 % (n.s.) | -4.5 % | -4.0 % | 97 % / 97 % |
+| US 2023-24 | -2.7 % | -3.9 % | -5.6 % | 96 % / 95 % |
+| **England 2026** | -2.7 % | **-9.5 %** | **-11.5 %** | 94 % / 92 % |
+| *Assumed capacities (paper)* | -5.5 % | -11.8 % | -17.2 % | 87-93 % |
+
+(All differences marked with a size are significant after correction except the one marked n.s.; test tables in `results/real_capacity_tests*.csv`.)
+
+- **The benefit follows capacity pressure, and the pattern repeats across periods and countries.** Where hospitals are looser (US, about 20 % of beds free) the saving is 4-6 %; where they are as full as 2026 NHS England trusts (about 6 % free) it is 10-12 %, close to the paper's assumed-capacity result. **The paper's 88-99 % assumption was not unrealistic for a public system today, but it describes a full system, not hospitals in general.**
+- **Fewer turned-away ambulances is the stable benefit** in every profile (92-97 % fewer), because the heuristic avoids hospitals that are full at that moment however much slack exists elsewhere.
+- **Re-tuning on validation seeds returned the paper's parameters in every profile** (heuristic weight 20, equilibrium beta 10, power 2).
+- **Equilibrium and heuristic are within 0.35 % of each other everywhere**; PPO (not retrained) is slightly behind.
+- **The two US profiles agree closely** (median occupancy 79 % in both, 84-85 % for large hospitals), consistent with the seasonal stability in section 11.
+
+Provenance of the England profile: the NHS England "Critical care and General & Acute Beds, Urgent and Emergency Care Daily Situation Reports 2026-27" page lists monthly files for April to September 2026 (September provisional). The files hold monthly figures per acute trust (general and acute beds available and occupied, adult critical care beds available and occupied; read from six CSV files inside a browser session because the site blocks scripts). Trusts with at least 100 general and acute beds and 4 adult critical care beds were kept (124 of 134), and each trust's six-month mean was stored without its name (`data/real_capacity_profile_england_2026.csv`). Month-to-month median occupancy stayed between 93.2 % and 94.2 %. The licence is not stated on the page (NHS England statistics are usually published under the Open Government Licence; not confirmed here). Caveats: a trust is an organisation that may run several sites; the figures are monthly averages, so day-to-day swings are lost; the ICU share is adult critical care only (about 3 % of beds, against 13-14 % in the US data); and these are English public hospitals, not Indian ones.

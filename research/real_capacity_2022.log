@@ -1,0 +1,48 @@
+re-tuned: {'heuristic': {'w': 20.0}, 'nash': {'beta': 10.0, 'power': 2.0}} | paper's: {'w': 20.0, 'beta': 10.0, 'power': 2.0}
+done offpeak
+done peak
+done surge
+                                ttb   rej  free0
+scenario policy                                 
+offpeak  capacity_heuristic  19.138  0.04  0.194
+         heuristic_retuned   19.138  0.04  0.194
+         nash                19.177  0.08  0.194
+         nash_retuned        19.177  0.08  0.194
+         nearest             19.350  1.00  0.194
+         ppo                 19.205  0.08  0.194
+peak     capacity_heuristic  21.327  0.24  0.194
+         heuristic_retuned   21.327  0.24  0.194
+         nash                21.311  0.28  0.194
+         nash_retuned        21.311  0.28  0.194
+         nearest             22.323  7.44  0.194
+         ppo                 21.384  0.24  0.194
+surge    capacity_heuristic  21.647  0.20  0.194
+         heuristic_retuned   21.647  0.20  0.194
+         nash                21.638  0.26  0.194
+         nash_retuned        21.638  0.26  0.194
+         nearest             22.557  7.94  0.194
+         ppo                 21.716  0.38  0.194
+scenario                  a                  b  rel_pct  p_raw  p_bonf
+ offpeak capacity_heuristic            nearest  -1.0935 0.9521  1.0000
+ offpeak               nash            nearest  -0.8907 0.3570  1.0000
+ offpeak               nash capacity_heuristic   0.2050 0.0002  0.0025
+ offpeak  heuristic_retuned capacity_heuristic   0.0000 1.0000  1.0000
+ offpeak                ppo capacity_heuristic   0.3514 0.0669  1.0000
+    peak capacity_heuristic            nearest  -4.4641 0.0000  0.0001
+    peak               nash            nearest  -4.5367 0.0000  0.0000
+    peak               nash capacity_heuristic  -0.0759 0.0000  0.0002
+    peak  heuristic_retuned capacity_heuristic   0.0000 1.0000  1.0000
+    peak                ppo capacity_heuristic   0.2688 0.0538  0.8074
+   surge capacity_heuristic            nearest  -4.0318 0.0003  0.0041
+   surge               nash            nearest  -4.0735 0.0001  0.0009
+   surge               nash capacity_heuristic  -0.0435 0.1636  1.0000
+   surge  heuristic_retuned capacity_heuristic   0.0000 1.0000  1.0000
+   surge                ppo capacity_heuristic   0.3180 0.0188  0.2825
+scenario pressure  free_capacity  nearest  heuristic  gain_pct  rejections_nearest  rejections_heuristic
+    peak    tight          0.160   22.590     21.566     4.535              10.235                 0.294
+    peak   medium          0.197   21.947     21.145     3.655               7.125                 0.312
+    peak    loose          0.226   22.411     21.260     5.139               4.941                 0.118
+   surge    tight          0.160   23.145     21.852     5.586              11.059                 0.294
+   surge   medium          0.197   22.367     21.693     3.014               8.688                 0.125
+   surge    loose          0.226   22.147     21.399     3.375               4.118                 0.176
+exit 0
