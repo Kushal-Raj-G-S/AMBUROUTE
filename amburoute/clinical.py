@@ -70,6 +70,36 @@ class ClinicalHeuristic:
         return out
 
 
+class MultiObjectiveHeuristic:
+    """Clinical heuristic with explicit weights for four goals:
+    travel time (always on), survival (severity scaling `s` of the time term), waiting at the door
+    (`w`, congestion pressure from ambulances already on the road) and fairness (`lam`, a penalty on
+    hospitals that are already crowded, which spreads load across the city)."""
+
+    def __init__(self, w: float = 20.0, s: float = 1.0, lam: float = 0.0):
+        self.w, self.s, self.lam = w, s, lam
+        self.sw = 1.0 + s * (SEV_WEIGHTS - 1.0)
+        self.name = f"mo(w={w:g},s={s:g},lam={lam:g})"
+
+    def assign(self, view, rng):
+        inflight = view.inflight.astype(float).copy()
+        out = [0] * len(view.eta)
+        for i in np.argsort(-view.severity, kind="stable"):
+            p = int(view.needs_icu[i])
+            eff = view.free[p] - inflight[p]
+            ok = view.capable[i]
+            crowd = 1.0 - np.clip(view.free[p] / np.maximum(view.total[p], 1), 0.0, 1.0)
+            score = (self.sw[view.severity[i]] * view.eta[i] + self.w / (1.0 + np.maximum(eff, 0))
+                     + self.lam * crowd)
+            score = score + np.where(eff <= 0, BIG, 0.0) + np.where(ok, 0.0, BIG)
+            h = int(np.argmin(score))
+            if eff[h] <= 0 or not ok[h]:
+                h = int(np.argmin(np.where(ok, view.eta[i], BIG)))
+            out[i] = h
+            inflight[p, h] += 1
+        return out
+
+
 class ClinicalNash(NashPolicy):
     """Equilibrium assignment restricted to capable hospitals, with severity-weighted travel time.
 

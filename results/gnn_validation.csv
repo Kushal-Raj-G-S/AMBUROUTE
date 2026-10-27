@@ -1,0 +1,13 @@
+model,scale,ttb
+gnn,1.0,22.6826
+gnn,1.5,22.5483
+gnn,2.0,22.5235
+gnn,3.0,22.5266
+gnn,4.0,22.4734
+gnn,6.0,22.4484
+gnn_no_edges,1.0,22.8411
+gnn_no_edges,1.5,22.6803
+gnn_no_edges,2.0,22.5272
+gnn_no_edges,3.0,22.4618
+gnn_no_edges,4.0,22.4828
+gnn_no_edges,6.0,22.4905

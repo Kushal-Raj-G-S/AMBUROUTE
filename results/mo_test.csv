@@ -1,0 +1,13 @@
+scenario,policy,ttdc,surv,door_wait,jain,crit_ttdc,rejections
+peak,nearest capable,25.41,0.9078,3.1705,0.4156,33.8508,20.5
+peak,clinical heuristic (paper extension),23.2741,0.9147,0.079,0.5233,27.4739,0.6333
+peak,multi-objective: fastest,23.1208,0.9136,0.3523,0.4723,27.8495,2.4
+peak,multi-objective: best survival,23.1208,0.9136,0.3523,0.4723,27.8495,2.4
+peak,multi-objective: fairest,23.3017,0.9149,0.0664,0.5275,27.3429,0.4667
+peak,multi-objective: balanced,23.2741,0.9147,0.079,0.5233,27.4739,0.6333
+surge,nearest capable,26.3607,0.9033,4.1989,0.4343,34.8109,27.3333
+surge,clinical heuristic (paper extension),23.7182,0.9133,0.2599,0.5431,27.8822,1.6667
+surge,multi-objective: fastest,23.6684,0.9127,0.8165,0.4878,29.0331,5.2333
+surge,multi-objective: best survival,23.6684,0.9127,0.8165,0.4878,29.0331,5.2333
+surge,multi-objective: fairest,23.7082,0.9134,0.2045,0.5404,27.6783,1.3667
+surge,multi-objective: balanced,23.7182,0.9133,0.2599,0.5431,27.8822,1.6667

@@ -56,11 +56,14 @@ class CapacityHeuristic:
 
     name = "capacity_heuristic"
 
-    def __init__(self, weight: float = 30.0):
+    def __init__(self, weight: float = 30.0, use_inflight: bool = True):
         self.w = weight
+        self.use_inflight = use_inflight  # False = ablation: ignore ambulances already on the road
 
     def assign(self, view, rng):
         inflight = view.inflight.astype(float).copy()
+        if not self.use_inflight:
+            inflight[:] = 0
         out = []
         for i in range(len(view.eta)):
             p = int(view.needs_icu[i])

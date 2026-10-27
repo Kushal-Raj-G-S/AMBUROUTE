@@ -1,0 +1,32 @@
+{
+  "n_transports_sampled": 200000,
+  "transport_leg_min": {
+    "p5": 3.98,
+    "p25": 7.87,
+    "p50": 11.48,
+    "p75": 16.0,
+    "p95": 24.78
+  },
+  "transport_leg_lognormal_sigma": 0.61,
+  "call_to_hospital_arrival_min": {
+    "p5": 22.8,
+    "p25": 33.53,
+    "p50": 42.73,
+    "p75": 54.13,
+    "p95": 78.73
+  },
+  "arrival_to_incident_close_min": {
+    "p5": 22.9,
+    "p25": 34.18,
+    "p50": 39.38,
+    "p75": 44.5,
+    "p95": 55.82
+  },
+  "dispatch_response_s": {
+    "p5": 6.0,
+    "p25": 11.0,
+    "p50": 21.0,
+    "p75": 45.0,
+    "p95": 243.0
+  }
+}

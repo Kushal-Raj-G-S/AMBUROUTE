@@ -1,0 +1,501 @@
+scenario,variant,seed,ttb_mean,rejections
+peak,full (calibration + in-flight + game),1000,24.430965450844063,4
+peak,full (calibration + in-flight + game),1001,21.906776193466886,1
+peak,full (calibration + in-flight + game),1002,24.237710547383987,7
+peak,full (calibration + in-flight + game),1003,23.475739203306293,4
+peak,full (calibration + in-flight + game),1004,22.608721792451735,5
+peak,full (calibration + in-flight + game),1005,23.239540494944222,1
+peak,full (calibration + in-flight + game),1006,22.924585444060835,2
+peak,full (calibration + in-flight + game),1007,23.435509738027694,10
+peak,full (calibration + in-flight + game),1008,23.100376109873537,2
+peak,full (calibration + in-flight + game),1009,22.190881295597357,1
+peak,full (calibration + in-flight + game),1010,22.879460190553523,9
+peak,full (calibration + in-flight + game),1011,22.326055362493744,1
+peak,full (calibration + in-flight + game),1012,23.3811746947557,4
+peak,full (calibration + in-flight + game),1013,23.665224818151717,3
+peak,full (calibration + in-flight + game),1014,23.215609450731797,3
+peak,full (calibration + in-flight + game),1015,24.230577927672982,7
+peak,full (calibration + in-flight + game),1016,23.139538314174033,13
+peak,full (calibration + in-flight + game),1017,21.974356527614912,5
+peak,full (calibration + in-flight + game),1018,21.167155703379947,1
+peak,full (calibration + in-flight + game),1019,22.82852473506537,2
+peak,full (calibration + in-flight + game),1020,23.514981008098072,2
+peak,full (calibration + in-flight + game),1021,21.170987841345955,0
+peak,full (calibration + in-flight + game),1022,22.46124654654348,4
+peak,full (calibration + in-flight + game),1023,22.572143111603946,5
+peak,full (calibration + in-flight + game),1024,21.950085507764065,0
+peak,full (calibration + in-flight + game),1025,23.531442914918127,4
+peak,full (calibration + in-flight + game),1026,21.328236423450832,2
+peak,full (calibration + in-flight + game),1027,23.53066523804386,5
+peak,full (calibration + in-flight + game),1028,21.58097629920476,1
+peak,full (calibration + in-flight + game),1029,23.24201476849292,2
+peak,full (calibration + in-flight + game),1030,22.637136635034864,0
+peak,full (calibration + in-flight + game),1031,21.831732377782057,2
+peak,full (calibration + in-flight + game),1032,22.273507667767312,1
+peak,full (calibration + in-flight + game),1033,24.23273198881927,3
+peak,full (calibration + in-flight + game),1034,23.296375436734635,2
+peak,full (calibration + in-flight + game),1035,21.5450052297001,1
+peak,full (calibration + in-flight + game),1036,21.739358976079277,3
+peak,full (calibration + in-flight + game),1037,23.320089286710427,1
+peak,full (calibration + in-flight + game),1038,21.778742426140173,2
+peak,full (calibration + in-flight + game),1039,21.790785393584535,2
+peak,full (calibration + in-flight + game),1040,22.59746344161767,0
+peak,full (calibration + in-flight + game),1041,23.18861887712257,1
+peak,full (calibration + in-flight + game),1042,21.683252598168668,1
+peak,full (calibration + in-flight + game),1043,21.780685043508477,2
+peak,full (calibration + in-flight + game),1044,21.97227939467146,2
+peak,full (calibration + in-flight + game),1045,21.292018694695937,1
+peak,full (calibration + in-flight + game),1046,23.143373775502223,2
+peak,full (calibration + in-flight + game),1047,22.802966783157864,1
+peak,full (calibration + in-flight + game),1048,22.66111327432422,1
+peak,full (calibration + in-flight + game),1049,21.23353566575882,2
+peak,no congestion game (heuristic instead),1000,24.077416810570956,5
+peak,no congestion game (heuristic instead),1001,22.058657852021305,2
+peak,no congestion game (heuristic instead),1002,22.539271709256745,1
+peak,no congestion game (heuristic instead),1003,23.938167344575504,10
+peak,no congestion game (heuristic instead),1004,22.4994215875705,4
+peak,no congestion game (heuristic instead),1005,23.280879549526226,2
+peak,no congestion game (heuristic instead),1006,22.291133693256757,1
+peak,no congestion game (heuristic instead),1007,23.783320670764734,12
+peak,no congestion game (heuristic instead),1008,22.873814214725073,2
+peak,no congestion game (heuristic instead),1009,22.19127600725847,1
+peak,no congestion game (heuristic instead),1010,23.171204367123767,7
+peak,no congestion game (heuristic instead),1011,22.437244553504403,2
+peak,no congestion game (heuristic instead),1012,22.16502885121793,5
+peak,no congestion game (heuristic instead),1013,23.45828539940218,2
+peak,no congestion game (heuristic instead),1014,22.667189934033992,5
+peak,no congestion game (heuristic instead),1015,23.675546054015385,1
+peak,no congestion game (heuristic instead),1016,22.87361662680354,7
+peak,no congestion game (heuristic instead),1017,22.940650461114863,7
+peak,no congestion game (heuristic instead),1018,21.70198725219783,2
+peak,no congestion game (heuristic instead),1019,22.638188227491,4
+peak,no congestion game (heuristic instead),1020,23.1225818420216,1
+peak,no congestion game (heuristic instead),1021,21.366993913967296,4
+peak,no congestion game (heuristic instead),1022,22.83772264758014,4
+peak,no congestion game (heuristic instead),1023,22.179687482597203,3
+peak,no congestion game (heuristic instead),1024,22.05363215106552,1
+peak,no congestion game (heuristic instead),1025,23.10676790086275,3
+peak,no congestion game (heuristic instead),1026,21.490445002416063,6
+peak,no congestion game (heuristic instead),1027,24.108506538791843,8
+peak,no congestion game (heuristic instead),1028,21.887180178867343,2
+peak,no congestion game (heuristic instead),1029,23.629950016050888,4
+peak,no congestion game (heuristic instead),1030,22.760009011667467,1
+peak,no congestion game (heuristic instead),1031,25.182394578767372,9
+peak,no congestion game (heuristic instead),1032,22.18131997562861,1
+peak,no congestion game (heuristic instead),1033,24.24983951220143,5
+peak,no congestion game (heuristic instead),1034,23.149144497786438,6
+peak,no congestion game (heuristic instead),1035,21.708761201591532,2
+peak,no congestion game (heuristic instead),1036,22.146771720531838,3
+peak,no congestion game (heuristic instead),1037,23.221278446391707,1
+peak,no congestion game (heuristic instead),1038,22.076951010121665,4
+peak,no congestion game (heuristic instead),1039,21.893045009108207,2
+peak,no congestion game (heuristic instead),1040,22.691940388770213,2
+peak,no congestion game (heuristic instead),1041,24.19728713423523,3
+peak,no congestion game (heuristic instead),1042,21.662000853395824,1
+peak,no congestion game (heuristic instead),1043,22.69310100208854,3
+peak,no congestion game (heuristic instead),1044,21.614998269083912,2
+peak,no congestion game (heuristic instead),1045,21.985061047476133,4
+peak,no congestion game (heuristic instead),1046,22.975516563464055,4
+peak,no congestion game (heuristic instead),1047,22.947180472041925,1
+peak,no congestion game (heuristic instead),1048,22.303453459601073,1
+peak,no congestion game (heuristic instead),1049,21.8258394381372,2
+peak,no in-flight load,1000,24.952201928731505,6
+peak,no in-flight load,1001,22.161165927597445,3
+peak,no in-flight load,1002,25.60406505665797,13
+peak,no in-flight load,1003,23.163586974549364,5
+peak,no in-flight load,1004,24.70194503969731,17
+peak,no in-flight load,1005,23.0564641464834,7
+peak,no in-flight load,1006,24.798160937788026,8
+peak,no in-flight load,1007,25.10849498024699,21
+peak,no in-flight load,1008,23.711426907970385,7
+peak,no in-flight load,1009,21.397052562561672,10
+peak,no in-flight load,1010,23.293573302565196,6
+peak,no in-flight load,1011,24.363642445611077,15
+peak,no in-flight load,1012,23.655324396772617,9
+peak,no in-flight load,1013,24.178517629266455,15
+peak,no in-flight load,1014,22.898240202860386,8
+peak,no in-flight load,1015,25.681156168966485,20
+peak,no in-flight load,1016,25.629653066752404,30
+peak,no in-flight load,1017,22.43820341719196,8
+peak,no in-flight load,1018,24.765264296624032,8
+peak,no in-flight load,1019,24.36513771626785,16
+peak,no in-flight load,1020,24.198394911617967,16
+peak,no in-flight load,1021,22.48298669722501,13
+peak,no in-flight load,1022,23.916666851000667,9
+peak,no in-flight load,1023,24.17405960726632,19
+peak,no in-flight load,1024,24.39523801489915,14
+peak,no in-flight load,1025,23.641720750706924,6
+peak,no in-flight load,1026,22.530824569591676,6
+peak,no in-flight load,1027,23.021512641237326,8
+peak,no in-flight load,1028,23.095928452845747,14
+peak,no in-flight load,1029,23.492797683825934,6
+peak,no in-flight load,1030,22.545228406406203,2
+peak,no in-flight load,1031,25.01580614890885,17
+peak,no in-flight load,1032,23.675409870754113,5
+peak,no in-flight load,1033,26.358116784372417,25
+peak,no in-flight load,1034,24.820310191376382,19
+peak,no in-flight load,1035,23.688415429798138,12
+peak,no in-flight load,1036,22.39668943782261,9
+peak,no in-flight load,1037,23.95956673407184,6
+peak,no in-flight load,1038,22.093325201514205,4
+peak,no in-flight load,1039,21.957757034811152,3
+peak,no in-flight load,1040,23.19432501400276,5
+peak,no in-flight load,1041,25.404370933729908,32
+peak,no in-flight load,1042,22.795995004076023,17
+peak,no in-flight load,1043,23.200417435901283,7
+peak,no in-flight load,1044,22.598114660343292,6
+peak,no in-flight load,1045,24.464514419010857,15
+peak,no in-flight load,1046,22.720294946324955,5
+peak,no in-flight load,1047,22.959763836714945,10
+peak,no in-flight load,1048,25.396510959473247,18
+peak,no in-flight load,1049,20.445457575470698,4
+peak,no traffic calibration,1000,24.302050509137533,4
+peak,no traffic calibration,1001,21.946093235769556,2
+peak,no traffic calibration,1002,24.10019814400606,7
+peak,no traffic calibration,1003,24.033597555742144,11
+peak,no traffic calibration,1004,22.496672263962694,4
+peak,no traffic calibration,1005,23.2971806412403,2
+peak,no traffic calibration,1006,22.43717213267742,2
+peak,no traffic calibration,1007,23.960564119738812,14
+peak,no traffic calibration,1008,23.883442528491088,9
+peak,no traffic calibration,1009,22.084713583912848,2
+peak,no traffic calibration,1010,23.652632850949534,6
+peak,no traffic calibration,1011,23.114717487830028,4
+peak,no traffic calibration,1012,23.282453331773368,4
+peak,no traffic calibration,1013,23.543038486102994,4
+peak,no traffic calibration,1014,23.114536380125276,0
+peak,no traffic calibration,1015,24.742211673978762,5
+peak,no traffic calibration,1016,23.94056011315945,8
+peak,no traffic calibration,1017,22.05375965897905,5
+peak,no traffic calibration,1018,21.697181160501227,2
+peak,no traffic calibration,1019,22.68823547531196,5
+peak,no traffic calibration,1020,23.449331886445325,2
+peak,no traffic calibration,1021,21.36398694640978,4
+peak,no traffic calibration,1022,25.349327699195673,5
+peak,no traffic calibration,1023,22.150613748631226,3
+peak,no traffic calibration,1024,21.961909291519284,0
+peak,no traffic calibration,1025,24.317185418205113,6
+peak,no traffic calibration,1026,21.51184865301636,4
+peak,no traffic calibration,1027,21.697749732228477,6
+peak,no traffic calibration,1028,21.94021342710416,3
+peak,no traffic calibration,1029,23.91563396740283,1
+peak,no traffic calibration,1030,22.7356625979315,1
+peak,no traffic calibration,1031,21.625066327000432,2
+peak,no traffic calibration,1032,23.107793455820527,3
+peak,no traffic calibration,1033,24.545681798366026,4
+peak,no traffic calibration,1034,24.241685764517435,9
+peak,no traffic calibration,1035,21.428146307161146,1
+peak,no traffic calibration,1036,22.077101562254416,3
+peak,no traffic calibration,1037,23.29329762016712,1
+peak,no traffic calibration,1038,22.020045675813282,4
+peak,no traffic calibration,1039,21.1658981818531,1
+peak,no traffic calibration,1040,22.509480543588545,0
+peak,no traffic calibration,1041,24.226482162026112,4
+peak,no traffic calibration,1042,21.584761540421248,1
+peak,no traffic calibration,1043,21.839317014418796,3
+peak,no traffic calibration,1044,22.151645711039937,4
+peak,no traffic calibration,1045,21.87027698512046,5
+peak,no traffic calibration,1046,23.199842719967503,3
+peak,no traffic calibration,1047,22.45025740407581,2
+peak,no traffic calibration,1048,22.36340449863358,1
+peak,no traffic calibration,1049,21.280575132609226,2
+peak,none of the three (nearest hospital),1000,30.432938793374436,41
+peak,none of the three (nearest hospital),1001,25.43947557134366,44
+peak,none of the three (nearest hospital),1002,31.283459422310298,57
+peak,none of the three (nearest hospital),1003,26.35309336856926,40
+peak,none of the three (nearest hospital),1004,26.675336062515715,35
+peak,none of the three (nearest hospital),1005,25.513572697313258,39
+peak,none of the three (nearest hospital),1006,23.077444574496646,13
+peak,none of the three (nearest hospital),1007,25.06907584367791,33
+peak,none of the three (nearest hospital),1008,23.47839396669526,20
+peak,none of the three (nearest hospital),1009,20.933475711579906,20
+peak,none of the three (nearest hospital),1010,27.58154380799072,28
+peak,none of the three (nearest hospital),1011,24.727140882665648,28
+peak,none of the three (nearest hospital),1012,25.79680236042462,42
+peak,none of the three (nearest hospital),1013,27.57744925015457,41
+peak,none of the three (nearest hospital),1014,25.553029697336772,30
+peak,none of the three (nearest hospital),1015,28.839823422236837,40
+peak,none of the three (nearest hospital),1016,26.14993932021814,54
+peak,none of the three (nearest hospital),1017,23.884375633085636,14
+peak,none of the three (nearest hospital),1018,27.21602944581608,31
+peak,none of the three (nearest hospital),1019,24.802634106468915,22
+peak,none of the three (nearest hospital),1020,25.21876890839725,28
+peak,none of the three (nearest hospital),1021,25.95565621940172,38
+peak,none of the three (nearest hospital),1022,27.181674207279915,28
+peak,none of the three (nearest hospital),1023,24.488712719165296,30
+peak,none of the three (nearest hospital),1024,25.13086564839697,26
+peak,none of the three (nearest hospital),1025,27.308654875932426,24
+peak,none of the three (nearest hospital),1026,24.291764685254,26
+peak,none of the three (nearest hospital),1027,28.100917820204494,39
+peak,none of the three (nearest hospital),1028,22.509598717139855,12
+peak,none of the three (nearest hospital),1029,28.28400992119107,47
+peak,none of the three (nearest hospital),1030,23.228194766156996,10
+peak,none of the three (nearest hospital),1031,23.559434729578197,25
+peak,none of the three (nearest hospital),1032,22.520515576412013,14
+peak,none of the three (nearest hospital),1033,27.665991187678447,49
+peak,none of the three (nearest hospital),1034,25.974979357540544,37
+peak,none of the three (nearest hospital),1035,24.346666445758125,26
+peak,none of the three (nearest hospital),1036,26.896645150133487,30
+peak,none of the three (nearest hospital),1037,29.205929173815587,31
+peak,none of the three (nearest hospital),1038,21.35789660276995,28
+peak,none of the three (nearest hospital),1039,23.96135070668596,25
+peak,none of the three (nearest hospital),1040,26.365564846496667,16
+peak,none of the three (nearest hospital),1041,28.467404593059367,29
+peak,none of the three (nearest hospital),1042,24.81864835521781,17
+peak,none of the three (nearest hospital),1043,24.597376328688,13
+peak,none of the three (nearest hospital),1044,26.18979146935922,24
+peak,none of the three (nearest hospital),1045,27.77800794794565,42
+peak,none of the three (nearest hospital),1046,26.51034482917173,36
+peak,none of the three (nearest hospital),1047,24.31631801533368,26
+peak,none of the three (nearest hospital),1048,25.31222224932288,14
+peak,none of the three (nearest hospital),1049,27.24322967702129,44
+surge,full (calibration + in-flight + game),1000,21.2820083398858,1
+surge,full (calibration + in-flight + game),1001,20.645353196352364,4
+surge,full (calibration + in-flight + game),1002,23.207639127515336,3
+surge,full (calibration + in-flight + game),1003,24.50727217052423,3
+surge,full (calibration + in-flight + game),1004,22.22825918966416,2
+surge,full (calibration + in-flight + game),1005,25.017515287014593,20
+surge,full (calibration + in-flight + game),1006,22.355478195614946,7
+surge,full (calibration + in-flight + game),1007,21.043791542357592,2
+surge,full (calibration + in-flight + game),1008,23.534926923689792,6
+surge,full (calibration + in-flight + game),1009,22.89149337197115,8
+surge,full (calibration + in-flight + game),1010,22.63108261189307,1
+surge,full (calibration + in-flight + game),1011,22.815502155200736,6
+surge,full (calibration + in-flight + game),1012,23.439823972829743,6
+surge,full (calibration + in-flight + game),1013,24.295622336073453,10
+surge,full (calibration + in-flight + game),1014,21.090429617462622,1
+surge,full (calibration + in-flight + game),1015,22.89695378793789,5
+surge,full (calibration + in-flight + game),1016,23.55689348619123,4
+surge,full (calibration + in-flight + game),1017,22.6074040695143,0
+surge,full (calibration + in-flight + game),1018,22.155415073796377,3
+surge,full (calibration + in-flight + game),1019,21.284777797998775,5
+surge,full (calibration + in-flight + game),1020,23.764839634306746,13
+surge,full (calibration + in-flight + game),1021,22.979287410593837,1
+surge,full (calibration + in-flight + game),1022,21.248388379166276,5
+surge,full (calibration + in-flight + game),1023,22.267714989874204,0
+surge,full (calibration + in-flight + game),1024,21.16881083496189,0
+surge,full (calibration + in-flight + game),1025,22.667025969892943,3
+surge,full (calibration + in-flight + game),1026,22.153131515317703,5
+surge,full (calibration + in-flight + game),1027,22.095870303903812,0
+surge,full (calibration + in-flight + game),1028,22.548501170222963,0
+surge,full (calibration + in-flight + game),1029,28.597627805521746,39
+surge,full (calibration + in-flight + game),1030,23.65756018655199,6
+surge,full (calibration + in-flight + game),1031,27.00994401126986,33
+surge,full (calibration + in-flight + game),1032,23.2321733527324,5
+surge,full (calibration + in-flight + game),1033,22.616795943386197,2
+surge,full (calibration + in-flight + game),1034,23.034853341284606,3
+surge,full (calibration + in-flight + game),1035,23.04861621629259,8
+surge,full (calibration + in-flight + game),1036,23.184610539543954,3
+surge,full (calibration + in-flight + game),1037,25.754641179597563,13
+surge,full (calibration + in-flight + game),1038,21.12440628491439,3
+surge,full (calibration + in-flight + game),1039,23.705365351759593,0
+surge,full (calibration + in-flight + game),1040,21.286630604302033,3
+surge,full (calibration + in-flight + game),1041,24.761721760883834,7
+surge,full (calibration + in-flight + game),1042,23.988307685162468,2
+surge,full (calibration + in-flight + game),1043,21.65145775676974,4
+surge,full (calibration + in-flight + game),1044,21.15595486230053,0
+surge,full (calibration + in-flight + game),1045,23.33405719519305,8
+surge,full (calibration + in-flight + game),1046,21.466909307434925,1
+surge,full (calibration + in-flight + game),1047,22.8273283924095,8
+surge,full (calibration + in-flight + game),1048,22.5507988885126,2
+surge,full (calibration + in-flight + game),1049,23.278652748825152,4
+surge,no congestion game (heuristic instead),1000,21.29866711994622,1
+surge,no congestion game (heuristic instead),1001,20.889474557234653,5
+surge,no congestion game (heuristic instead),1002,23.380775814897653,6
+surge,no congestion game (heuristic instead),1003,24.10524753976578,7
+surge,no congestion game (heuristic instead),1004,21.93740034297398,1
+surge,no congestion game (heuristic instead),1005,25.143989411625714,22
+surge,no congestion game (heuristic instead),1006,22.214592921139896,10
+surge,no congestion game (heuristic instead),1007,20.98884145570421,3
+surge,no congestion game (heuristic instead),1008,23.80110918995473,8
+surge,no congestion game (heuristic instead),1009,22.792245387614116,6
+surge,no congestion game (heuristic instead),1010,22.584269314980823,1
+surge,no congestion game (heuristic instead),1011,22.9628209451741,7
+surge,no congestion game (heuristic instead),1012,22.894156690505383,8
+surge,no congestion game (heuristic instead),1013,24.0785069530104,12
+surge,no congestion game (heuristic instead),1014,21.880859627013756,7
+surge,no congestion game (heuristic instead),1015,22.911610532056496,4
+surge,no congestion game (heuristic instead),1016,23.641715024065522,5
+surge,no congestion game (heuristic instead),1017,22.588992957124113,0
+surge,no congestion game (heuristic instead),1018,22.05987492769436,3
+surge,no congestion game (heuristic instead),1019,25.136612520204867,16
+surge,no congestion game (heuristic instead),1020,23.79250440865083,15
+surge,no congestion game (heuristic instead),1021,23.07348305974333,1
+surge,no congestion game (heuristic instead),1022,22.046982197193472,11
+surge,no congestion game (heuristic instead),1023,21.53729590062219,1
+surge,no congestion game (heuristic instead),1024,21.35370881131807,1
+surge,no congestion game (heuristic instead),1025,23.050399029400385,10
+surge,no congestion game (heuristic instead),1026,22.164721815753527,6
+surge,no congestion game (heuristic instead),1027,21.938159244716118,0
+surge,no congestion game (heuristic instead),1028,22.432002481074797,0
+surge,no congestion game (heuristic instead),1029,24.65884853091414,9
+surge,no congestion game (heuristic instead),1030,23.971540102564383,10
+surge,no congestion game (heuristic instead),1031,26.074237885276514,27
+surge,no congestion game (heuristic instead),1032,22.92790991526321,3
+surge,no congestion game (heuristic instead),1033,23.10671054968819,2
+surge,no congestion game (heuristic instead),1034,23.15998375419894,5
+surge,no congestion game (heuristic instead),1035,23.10724233759591,4
+surge,no congestion game (heuristic instead),1036,23.066351017129687,2
+surge,no congestion game (heuristic instead),1037,25.70843054216248,12
+surge,no congestion game (heuristic instead),1038,20.69282903664402,0
+surge,no congestion game (heuristic instead),1039,23.791261362837492,1
+surge,no congestion game (heuristic instead),1040,21.435875644654157,5
+surge,no congestion game (heuristic instead),1041,25.003917104124174,13
+surge,no congestion game (heuristic instead),1042,26.345689433088438,11
+surge,no congestion game (heuristic instead),1043,21.684115056536452,2
+surge,no congestion game (heuristic instead),1044,21.163314893910762,0
+surge,no congestion game (heuristic instead),1045,23.614306965916533,10
+surge,no congestion game (heuristic instead),1046,21.45283695206251,0
+surge,no congestion game (heuristic instead),1047,22.631531179666148,6
+surge,no congestion game (heuristic instead),1048,22.6568994147564,2
+surge,no congestion game (heuristic instead),1049,23.605227784871293,8
+surge,no in-flight load,1000,26.623078015986795,25
+surge,no in-flight load,1001,22.279044613802878,16
+surge,no in-flight load,1002,24.75854431966971,20
+surge,no in-flight load,1003,29.919600910338936,32
+surge,no in-flight load,1004,21.924177119501145,2
+surge,no in-flight load,1005,28.159199314191337,54
+surge,no in-flight load,1006,24.440527167702502,31
+surge,no in-flight load,1007,22.494211588695702,12
+surge,no in-flight load,1008,23.765413074604062,29
+surge,no in-flight load,1009,25.651425671329218,29
+surge,no in-flight load,1010,24.255573640076957,6
+surge,no in-flight load,1011,24.663158756260735,19
+surge,no in-flight load,1012,25.48707605777659,30
+surge,no in-flight load,1013,29.737828668309604,37
+surge,no in-flight load,1014,23.726476644999387,25
+surge,no in-flight load,1015,28.605551540629822,52
+surge,no in-flight load,1016,25.586682882206265,39
+surge,no in-flight load,1017,22.675150186212683,1
+surge,no in-flight load,1018,22.932440372496988,5
+surge,no in-flight load,1019,23.576192577640715,17
+surge,no in-flight load,1020,26.47338001417469,36
+surge,no in-flight load,1021,26.50022198317052,21
+surge,no in-flight load,1022,22.67394091926008,14
+surge,no in-flight load,1023,22.827256298774312,11
+surge,no in-flight load,1024,21.56066325154057,6
+surge,no in-flight load,1025,23.595500845234767,19
+surge,no in-flight load,1026,23.743691578929283,20
+surge,no in-flight load,1027,24.79114102627334,19
+surge,no in-flight load,1028,23.290437405979887,4
+surge,no in-flight load,1029,26.72521825692176,27
+surge,no in-flight load,1030,27.71875832544988,47
+surge,no in-flight load,1031,30.949970184776426,64
+surge,no in-flight load,1032,26.83069540891378,42
+surge,no in-flight load,1033,22.652581426570293,18
+surge,no in-flight load,1034,25.98608661458654,30
+surge,no in-flight load,1035,24.543035923032253,29
+surge,no in-flight load,1036,28.158239375686573,22
+surge,no in-flight load,1037,33.057056986401165,67
+surge,no in-flight load,1038,21.10413684286142,2
+surge,no in-flight load,1039,25.475676037075633,14
+surge,no in-flight load,1040,21.917521784610308,9
+surge,no in-flight load,1041,29.27672841446269,33
+surge,no in-flight load,1042,30.023033819493264,59
+surge,no in-flight load,1043,22.835062194097738,12
+surge,no in-flight load,1044,22.864033556826215,5
+surge,no in-flight load,1045,26.857157913700366,27
+surge,no in-flight load,1046,23.356260015792703,24
+surge,no in-flight load,1047,22.238246590912336,16
+surge,no in-flight load,1048,25.169670119472325,12
+surge,no in-flight load,1049,24.081990263062117,20
+surge,no traffic calibration,1000,21.31832325938582,1
+surge,no traffic calibration,1001,22.271261802550633,14
+surge,no traffic calibration,1002,23.14927989759342,4
+surge,no traffic calibration,1003,24.866154589383214,6
+surge,no traffic calibration,1004,22.066290190610587,2
+surge,no traffic calibration,1005,24.666934169617075,17
+surge,no traffic calibration,1006,22.543294760914343,8
+surge,no traffic calibration,1007,21.001734690004813,3
+surge,no traffic calibration,1008,24.484636216992133,13
+surge,no traffic calibration,1009,23.41024309991818,13
+surge,no traffic calibration,1010,22.695928832175696,2
+surge,no traffic calibration,1011,23.159272238259735,6
+surge,no traffic calibration,1012,23.847642023633778,9
+surge,no traffic calibration,1013,24.733468680346732,18
+surge,no traffic calibration,1014,21.85046683662094,8
+surge,no traffic calibration,1015,24.10914917803013,15
+surge,no traffic calibration,1016,23.807561778088022,7
+surge,no traffic calibration,1017,22.656277501163174,0
+surge,no traffic calibration,1018,22.05075691641261,3
+surge,no traffic calibration,1019,21.218253598878242,3
+surge,no traffic calibration,1020,23.626189423908386,15
+surge,no traffic calibration,1021,23.509403365822987,4
+surge,no traffic calibration,1022,21.248388379166276,5
+surge,no traffic calibration,1023,21.786090854306792,2
+surge,no traffic calibration,1024,21.311615225796096,2
+surge,no traffic calibration,1025,22.79765861822718,7
+surge,no traffic calibration,1026,22.10009289044808,5
+surge,no traffic calibration,1027,24.139630275337904,18
+surge,no traffic calibration,1028,22.626088316456837,1
+surge,no traffic calibration,1029,27.40216424567194,25
+surge,no traffic calibration,1030,23.981176719973348,10
+surge,no traffic calibration,1031,28.52362017500086,48
+surge,no traffic calibration,1032,22.836471016362413,5
+surge,no traffic calibration,1033,22.727365559548648,3
+surge,no traffic calibration,1034,23.171639833339814,4
+surge,no traffic calibration,1035,23.159103544306653,11
+surge,no traffic calibration,1036,24.458618741637846,7
+surge,no traffic calibration,1037,25.982007976655968,14
+surge,no traffic calibration,1038,21.27233429123307,5
+surge,no traffic calibration,1039,24.02078961623312,2
+surge,no traffic calibration,1040,21.379058839184584,5
+surge,no traffic calibration,1041,24.35240705514205,9
+surge,no traffic calibration,1042,26.70063604774782,21
+surge,no traffic calibration,1043,21.684806389767086,6
+surge,no traffic calibration,1044,21.415950026158498,1
+surge,no traffic calibration,1045,23.36032766725222,9
+surge,no traffic calibration,1046,21.525448593001975,2
+surge,no traffic calibration,1047,22.634753874361603,5
+surge,no traffic calibration,1048,22.779786687645405,3
+surge,no traffic calibration,1049,23.57084518802299,7
+surge,none of the three (nearest hospital),1000,25.28444118210413,34
+surge,none of the three (nearest hospital),1001,24.805690698467156,33
+surge,none of the three (nearest hospital),1002,27.445473580305666,46
+surge,none of the three (nearest hospital),1003,32.241286286134134,61
+surge,none of the three (nearest hospital),1004,24.680384859776105,37
+surge,none of the three (nearest hospital),1005,27.585848486868084,57
+surge,none of the three (nearest hospital),1006,24.841645602117335,35
+surge,none of the three (nearest hospital),1007,23.484415729764457,26
+surge,none of the three (nearest hospital),1008,25.98784157809172,35
+surge,none of the three (nearest hospital),1009,28.009421571547886,59
+surge,none of the three (nearest hospital),1010,26.217223956816724,35
+surge,none of the three (nearest hospital),1011,23.448076121545498,21
+surge,none of the three (nearest hospital),1012,26.776810730029176,62
+surge,none of the three (nearest hospital),1013,34.6496275657991,63
+surge,none of the three (nearest hospital),1014,24.659756214822597,39
+surge,none of the three (nearest hospital),1015,30.069698427414902,66
+surge,none of the three (nearest hospital),1016,30.005722561515103,59
+surge,none of the three (nearest hospital),1017,24.51970897131176,20
+surge,none of the three (nearest hospital),1018,26.502358128214297,38
+surge,none of the three (nearest hospital),1019,29.494652196847568,56
+surge,none of the three (nearest hospital),1020,36.46455141574022,88
+surge,none of the three (nearest hospital),1021,28.503061998938797,45
+surge,none of the three (nearest hospital),1022,23.138727280272903,18
+surge,none of the three (nearest hospital),1023,25.726599711940796,41
+surge,none of the three (nearest hospital),1024,24.22857050078312,26
+surge,none of the three (nearest hospital),1025,30.415216654610358,45
+surge,none of the three (nearest hospital),1026,24.62062769671822,31
+surge,none of the three (nearest hospital),1027,27.642291566788757,44
+surge,none of the three (nearest hospital),1028,28.967484045252885,23
+surge,none of the three (nearest hospital),1029,34.805530584864606,97
+surge,none of the three (nearest hospital),1030,29.51628881521865,56
+surge,none of the three (nearest hospital),1031,31.23648498885567,72
+surge,none of the three (nearest hospital),1032,25.77306461087341,37
+surge,none of the three (nearest hospital),1033,27.516317999813342,58
+surge,none of the three (nearest hospital),1034,36.13276060505651,91
+surge,none of the three (nearest hospital),1035,28.952610858228343,82
+surge,none of the three (nearest hospital),1036,28.40430603201523,26
+surge,none of the three (nearest hospital),1037,25.594607783784475,26
+surge,none of the three (nearest hospital),1038,26.41387864243096,34
+surge,none of the three (nearest hospital),1039,29.133005878446376,42
+surge,none of the three (nearest hospital),1040,26.049474854844984,34
+surge,none of the three (nearest hospital),1041,37.30926927867688,100
+surge,none of the three (nearest hospital),1042,36.75661354707508,113
+surge,none of the three (nearest hospital),1043,22.40689257265836,16
+surge,none of the three (nearest hospital),1044,21.545166994800805,9
+surge,none of the three (nearest hospital),1045,27.60571016338726,50
+surge,none of the three (nearest hospital),1046,25.771911853017237,48
+surge,none of the three (nearest hospital),1047,23.831540468021895,43
+surge,none of the three (nearest hospital),1048,23.562798661251794,19
+surge,none of the three (nearest hospital),1049,28.60109136344046,42

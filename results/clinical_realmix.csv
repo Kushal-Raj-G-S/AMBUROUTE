@@ -1,0 +1,13 @@
+scenario,policy,crit,spec,surv,rejections,n_spec
+peak,capacity_heuristic,41.758,45.577,0.862,3.667,38.1
+peak,clinical_heuristic,28.944,29.988,0.886,2.433,39.033
+peak,clinical_nash,29.92,30.382,0.886,3.3,38.933
+peak,nash,41.832,46.036,0.858,3.367,39.267
+peak,nearest,47.368,49.231,0.843,36.167,40.833
+peak,nearest_capable,39.007,38.143,0.871,31.567,40.133
+surge,capacity_heuristic,44.128,47.254,0.852,11.5,42.7
+surge,clinical_heuristic,31.47,32.711,0.886,6.133,40.567
+surge,clinical_nash,31.936,32.649,0.886,6.467,40.467
+surge,nash,42.956,46.021,0.852,7.933,43.667
+surge,nearest,51.923,54.058,0.839,50.6,41.333
+surge,nearest_capable,40.244,39.239,0.873,37.0,41.567

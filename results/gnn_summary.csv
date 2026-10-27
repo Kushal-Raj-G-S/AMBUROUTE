@@ -1,0 +1,16 @@
+scenario,policy,ttb_mean,rejections,jain,decision_ms
+offpeak,gnn (learned cost),19.676,0.56,0.39,0.245
+offpeak,gnn without edges,19.696,0.58,0.396,0.249
+offpeak,heuristic (tuned),19.656,0.32,0.397,0.014
+offpeak,nash (tuned),19.67,0.3,0.417,0.038
+offpeak,nearest,20.792,4.36,0.32,0.003
+peak,gnn (learned cost),22.677,3.8,0.466,0.24
+peak,gnn without edges,22.734,3.88,0.473,0.26
+peak,heuristic (tuned),22.73,3.5,0.478,0.013
+peak,nash (tuned),22.641,2.8,0.507,0.036
+peak,nearest,25.783,30.12,0.331,0.002
+surge,gnn (learned cost),23.1,6.56,0.451,0.219
+surge,gnn without edges,23.037,7.2,0.474,0.22
+surge,heuristic (tuned),22.971,6.18,0.469,0.012
+surge,nash (tuned),22.913,5.56,0.519,0.029
+surge,nearest,27.747,46.76,0.325,0.001

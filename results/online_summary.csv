@@ -1,0 +1,37 @@
+drift,scenario,base,variant,ttb_mean,rejections,delta_min,delta_pct,p_raw,p_bonf
+citywide slowdown x1.5,peak,heuristic,fixed model,30.8845,3.9,0.0,0.0,,
+citywide slowdown x1.5,peak,heuristic,online (learned),31.39,2.52,0.5055,1.6367,0.0001,0.0024
+citywide slowdown x1.5,peak,heuristic,oracle,30.9652,4.42,0.0808,0.2615,0.1126,1.0
+citywide slowdown x1.5,peak,nash,fixed model,30.846,3.26,0.0,0.0,,
+citywide slowdown x1.5,peak,nash,online (learned),31.4213,2.94,0.5752,1.8649,0.0,0.0001
+citywide slowdown x1.5,peak,nash,oracle,30.8771,4.26,0.0311,0.1008,0.902,1.0
+citywide slowdown x1.5,surge,heuristic,fixed model,29.0231,6.48,0.0,0.0,,
+citywide slowdown x1.5,surge,heuristic,online (learned),29.3947,4.96,0.3715,1.2801,0.001,0.019
+citywide slowdown x1.5,surge,heuristic,oracle,29.1416,7.66,0.1185,0.4083,0.0006,0.0117
+citywide slowdown x1.5,surge,nash,fixed model,28.7795,5.18,0.0,0.0,,
+citywide slowdown x1.5,surge,nash,online (learned),29.383,4.04,0.6034,2.0967,0.0,0.0
+citywide slowdown x1.5,surge,nash,oracle,29.0638,7.76,0.2843,0.9878,0.0034,0.0679
+local jams (4 hospitals x2),peak,heuristic,fixed model,26.211,3.82,0.0,0.0,,
+local jams (4 hospitals x2),peak,heuristic,online (learned),24.5756,3.12,-1.6354,-6.2393,0.0,0.0
+local jams (4 hospitals x2),peak,heuristic,oracle,23.4205,3.62,-2.7905,-10.6462,0.0,0.0
+local jams (4 hospitals x2),peak,nash,fixed model,25.9024,2.88,0.0,0.0,,
+local jams (4 hospitals x2),peak,nash,online (learned),24.5611,2.52,-1.3413,-5.1784,0.0,0.0
+local jams (4 hospitals x2),peak,nash,oracle,23.3681,3.36,-2.5343,-9.7841,0.0,0.0
+local jams (4 hospitals x2),surge,heuristic,fixed model,25.4391,6.44,0.0,0.0,,
+local jams (4 hospitals x2),surge,heuristic,online (learned),24.7854,5.4,-0.6537,-2.5696,0.0,0.0004
+local jams (4 hospitals x2),surge,heuristic,oracle,23.4629,6.2,-1.9762,-7.7684,0.0,0.0
+local jams (4 hospitals x2),surge,nash,fixed model,25.323,5.5,0.0,0.0,,
+local jams (4 hospitals x2),surge,nash,online (learned),24.6774,4.22,-0.6457,-2.5498,0.0,0.0003
+local jams (4 hospitals x2),surge,nash,oracle,23.3982,5.48,-1.9248,-7.6011,0.0,0.0
+no drift,peak,heuristic,fixed model,22.7302,3.5,0.0,0.0,,
+no drift,peak,heuristic,online (learned),22.8608,3.1,0.1306,0.5745,0.0176,0.3515
+no drift,peak,heuristic,oracle,22.7302,3.5,0.0,0.0,,
+no drift,peak,nash,fixed model,22.6408,2.8,0.0,0.0,,
+no drift,peak,nash,online (learned),22.8667,2.36,0.2259,0.9975,0.0021,0.0424
+no drift,peak,nash,oracle,22.6408,2.8,0.0,0.0,,
+no drift,surge,heuristic,fixed model,22.9708,6.18,0.0,0.0,,
+no drift,surge,heuristic,online (learned),23.0991,5.34,0.1283,0.5585,0.0176,0.3515
+no drift,surge,heuristic,oracle,22.9708,6.18,0.0,0.0,,
+no drift,surge,nash,fixed model,22.913,5.56,0.0,0.0,,
+no drift,surge,nash,online (learned),23.0023,4.2,0.0893,0.3897,0.0196,0.3918
+no drift,surge,nash,oracle,22.913,5.56,0.0,0.0,,

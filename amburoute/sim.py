@@ -41,6 +41,15 @@ class SimConfig:
     spec_mix: tuple = (0.4, 0.3, 0.3)  # cardiac, stroke, trauma
     icu_by_severity: tuple = (0.05, 0.30, 0.80)  # P(needs ICU | severity), about 24 % overall
     transfer_delay_min: float = 15.0  # overhead of an inter-hospital transfer
+    # Survival proxy S = exp(-hazard * minutes_to_definitive_care / 60) by severity. ASSUMED shape and rates,
+    # used only to compare policies (see docs/multiobjective.md).
+    hazard_per_hour: tuple = (0.05, 0.25, 0.90)
+    # Drift study (off by default): from `drift_start` minutes on, trips to `drift_n` randomly chosen hospitals
+    # take `drift_factor` times longer than the planner's model says (local jams); drift_n = -1 slows every trip.
+    drift_n: int = 0
+    drift_factor: float = 1.0
+    drift_start: int = 30
+    obs_frac: float = 0.35  # online learners see a trip's realised/planned time this far into the trip (GPS tracking, assumed)
 
 
 @dataclass(frozen=True)
@@ -74,6 +83,7 @@ class Request:
     severity: int = 0  # 0 stable, 1 urgent, 2 critical (clinical mode)
     spec: int = 0  # 0 none, 1 cardiac, 2 stroke, 3 trauma (clinical mode)
     transferred: bool = False
+    t_first_arrival: float = float("nan")  # first time an ambulance reached a hospital door
 
     @property
     def pool(self) -> int:
@@ -102,12 +112,14 @@ class Sim:
         seed: int,
         cfg: SimConfig = SimConfig(),
         traffic: TrafficModel | None = None,
+        planner_traffic: TrafficModel | None = None,
     ):
         self.h = hospitals
         self.H = len(hospitals)
         self.sc = scenario
         self.cfg = cfg
         self.traffic = traffic or TrafficModel()
+        self.planner_traffic = planner_traffic or self.traffic  # model the planner uses for ETAs
         self.rng = np.random.default_rng(seed)
         self.hlat = hospitals["lat"].to_numpy()
         self.hlon = hospitals["lon"].to_numpy()
@@ -129,6 +141,13 @@ class Sim:
         self.arrivals = np.zeros(self.H, dtype=int)  # first-choice dispatches
         self.max_inflight_ratio = np.zeros(self.H)
         self._los = np.array(cfg.los_min)[:, None]
+        self.drift = np.ones(self.H)  # per-hospital slowdown of trips that depart after drift_start
+        if cfg.drift_n:
+            drng = np.random.default_rng(seed + 777)  # separate stream: the drift never changes the base episode
+            hit = np.arange(self.H) if cfg.drift_n < 0 else drng.choice(self.H, cfg.drift_n, replace=False)
+            self.drift[hit] = cfg.drift_factor
+        self.obs: list = []  # (hospital, realised / planned travel time) of finished trips, drained by the policy
+        self._obs_heap: list = []  # (time revealed, hospital, ratio)
         self.cap = np.ones((self.H, 4), dtype=bool)  # column 0 = no specialty needed
         if cfg.clinical:
             cols = [hospitals[c].to_numpy(bool) for c in ("cap_cardiac", "cap_stroke", "cap_trauma")]
@@ -159,6 +178,8 @@ class Sim:
     def _arrive(self, req: Request, h: int, t_arr: float):
         p = req.pool
         self.inflight[p, h] -= 1
+        if np.isnan(req.t_first_arrival):
+            req.t_first_arrival = t_arr
         if self.occ[p, h] < self.total[p, h]:
             self.occ[p, h] += 1
             req.t_done = t_arr
@@ -188,9 +209,12 @@ class Sim:
         self._send(req, h2, t_arr + self.cfg.handover_min, self.hh_km[h, h2])
 
     def _send(self, req: Request, h: int, t_depart: float, dist_km: float):
-        travel = float(
-            self.traffic.actual_min(dist_km, self.sc.start_min + t_depart, self.rng)
-        )
+        mod = self.sc.start_min + t_depart
+        travel = float(self.traffic.actual_min(dist_km, mod, self.rng))
+        if self.cfg.drift_n and t_depart >= self.cfg.drift_start:
+            travel *= self.drift[h]
+        ratio = travel / max(float(self.planner_traffic.eta_min(dist_km, mod)), 1e-6)
+        heapq.heappush(self._obs_heap, (t_depart + self.cfg.obs_frac * travel, h, ratio))
         req.tried.add(h)
         self.inflight[req.pool, h] += 1
         heapq.heappush(self.events, (t_depart + travel, req.rid, h))
@@ -200,6 +224,9 @@ class Sim:
         while self.t < self.sc.duration:
             self.t += 1
             self._background()
+            while self._obs_heap and self._obs_heap[0][0] <= self.t:
+                _, oh, orat = heapq.heappop(self._obs_heap)
+                self.obs.append((oh, orat))
             if self.t % self.cfg.report_interval == 0:
                 self.published = self.total - self.occ
             self._process_arrivals()
@@ -240,7 +267,7 @@ class Sim:
             severity = np.array([r.severity for r in reqs])
         return View(
             minute_of_day=mod,
-            eta=self.traffic.eta_min(self._dist(reqs), plan_mod),
+            eta=self.planner_traffic.eta_min(self._dist(reqs), plan_mod),
             needs_icu=np.array([r.needs_icu for r in reqs]),
             free=self.published.copy(),
             inflight=self.inflight.copy(),
@@ -276,7 +303,13 @@ class Sim:
             spec = np.array([r.spec for r in done]) > 0
             moved = np.array([r.transferred for r in done])
             crit = sev == 2
+            surv = np.exp(-np.array(self.cfg.hazard_per_hour)[sev] * ttb / 60.0)
+            door = np.array([r.t_done - r.t_first_arrival for r in done])
             extra = dict(
+                surv_mean=float(surv.mean()),
+                surv_crit=float(surv[crit].mean()) if crit.any() else float("nan"),
+                door_wait_mean=float(np.nanmean(door)),
+                door_wait_p95=float(np.nanpercentile(door, 95)),
                 crit_ttdc_mean=float(ttb[crit].mean()) if crit.any() else float("nan"),
                 crit_ttdc_p95=float(np.percentile(ttb[crit], 95)) if crit.any() else float("nan"),
                 spec_ttdc_mean=float(ttb[spec].mean()) if spec.any() else float("nan"),
@@ -300,12 +333,16 @@ class Sim:
         )
 
 
-def run_episode(hospitals, scenario: Scenario, seed: int, policy, cfg=SimConfig(), traffic=None) -> dict:
+def run_episode(hospitals, scenario: Scenario, seed: int, policy, cfg=SimConfig(), traffic=None,
+                planner_traffic=None) -> dict:
     """Run one full episode with a batch policy exposing `assign(view, rng)`."""
-    sim = Sim(hospitals, scenario, seed, cfg, traffic)
+    sim = Sim(hospitals, scenario, seed, cfg, traffic, planner_traffic)
     prng = np.random.default_rng(seed + 10_000)
     lat_ms: list[float] = []
     while (batch := sim.next_batch()) is not None:
+        if hasattr(policy, "observe"):  # online learners see what finished trips actually took
+            policy.observe(sim.obs, sim)
+            sim.obs.clear()
         view = sim.make_view(batch)
         t0 = time.perf_counter()
         assignment = policy.assign(view, prng)

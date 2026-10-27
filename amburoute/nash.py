@@ -16,6 +16,8 @@ terminate at a pure Nash equilibrium. `nash_assign` returns whether it did.
 """
 from __future__ import annotations
 
+from dataclasses import replace
+
 import numpy as np
 
 from .sim import View
@@ -92,9 +94,10 @@ def nash_assign(
 class NashPolicy:
     name = "nash"
 
-    def __init__(self, beta: float = 30.0, power: float = 1.0):
+    def __init__(self, beta: float = 30.0, power: float = 1.0, use_inflight: bool = True):
         self.beta = beta
         self.power = power
+        self.use_inflight = use_inflight  # False = ablation: ignore ambulances already on the road
         self.clinical = False  # ClinicalNash (amburoute/clinical.py) sets this
         self.last_iters = 0
         self.last_converged = True
@@ -102,6 +105,8 @@ class NashPolicy:
         self.converged_log: list[bool] = []
 
     def assign(self, view, rng):
+        if not self.use_inflight:
+            view = replace(view, inflight=np.zeros_like(view.inflight))
         asg, iters, ok = nash_assign(view, self.beta, rng, power=self.power)
         self.last_iters, self.last_converged = iters, ok
         self.iters_log.append(iters)

@@ -1,0 +1,1801 @@
+drift,scenario,base,variant,seed,ttb_mean,rejections
+no drift,peak,heuristic,fixed model,1000,24.077416810570956,5
+no drift,peak,heuristic,fixed model,1001,22.058657852021305,2
+no drift,peak,heuristic,fixed model,1002,22.539271709256745,1
+no drift,peak,heuristic,fixed model,1003,23.938167344575504,10
+no drift,peak,heuristic,fixed model,1004,22.4994215875705,4
+no drift,peak,heuristic,fixed model,1005,23.280879549526226,2
+no drift,peak,heuristic,fixed model,1006,22.291133693256757,1
+no drift,peak,heuristic,fixed model,1007,23.783320670764734,12
+no drift,peak,heuristic,fixed model,1008,22.873814214725073,2
+no drift,peak,heuristic,fixed model,1009,22.19127600725847,1
+no drift,peak,heuristic,fixed model,1010,23.171204367123767,7
+no drift,peak,heuristic,fixed model,1011,22.437244553504403,2
+no drift,peak,heuristic,fixed model,1012,22.16502885121793,5
+no drift,peak,heuristic,fixed model,1013,23.45828539940218,2
+no drift,peak,heuristic,fixed model,1014,22.667189934033992,5
+no drift,peak,heuristic,fixed model,1015,23.675546054015385,1
+no drift,peak,heuristic,fixed model,1016,22.87361662680354,7
+no drift,peak,heuristic,fixed model,1017,22.940650461114863,7
+no drift,peak,heuristic,fixed model,1018,21.70198725219783,2
+no drift,peak,heuristic,fixed model,1019,22.638188227491,4
+no drift,peak,heuristic,fixed model,1020,23.1225818420216,1
+no drift,peak,heuristic,fixed model,1021,21.366993913967296,4
+no drift,peak,heuristic,fixed model,1022,22.83772264758014,4
+no drift,peak,heuristic,fixed model,1023,22.179687482597203,3
+no drift,peak,heuristic,fixed model,1024,22.05363215106552,1
+no drift,peak,heuristic,fixed model,1025,23.10676790086275,3
+no drift,peak,heuristic,fixed model,1026,21.490445002416063,6
+no drift,peak,heuristic,fixed model,1027,24.108506538791843,8
+no drift,peak,heuristic,fixed model,1028,21.887180178867343,2
+no drift,peak,heuristic,fixed model,1029,23.629950016050888,4
+no drift,peak,heuristic,fixed model,1030,22.760009011667467,1
+no drift,peak,heuristic,fixed model,1031,25.182394578767372,9
+no drift,peak,heuristic,fixed model,1032,22.18131997562861,1
+no drift,peak,heuristic,fixed model,1033,24.24983951220143,5
+no drift,peak,heuristic,fixed model,1034,23.149144497786438,6
+no drift,peak,heuristic,fixed model,1035,21.708761201591532,2
+no drift,peak,heuristic,fixed model,1036,22.146771720531838,3
+no drift,peak,heuristic,fixed model,1037,23.221278446391707,1
+no drift,peak,heuristic,fixed model,1038,22.076951010121665,4
+no drift,peak,heuristic,fixed model,1039,21.893045009108207,2
+no drift,peak,heuristic,fixed model,1040,22.691940388770213,2
+no drift,peak,heuristic,fixed model,1041,24.19728713423523,3
+no drift,peak,heuristic,fixed model,1042,21.662000853395824,1
+no drift,peak,heuristic,fixed model,1043,22.69310100208854,3
+no drift,peak,heuristic,fixed model,1044,21.614998269083912,2
+no drift,peak,heuristic,fixed model,1045,21.985061047476133,4
+no drift,peak,heuristic,fixed model,1046,22.975516563464055,4
+no drift,peak,heuristic,fixed model,1047,22.947180472041925,1
+no drift,peak,heuristic,fixed model,1048,22.303453459601073,1
+no drift,peak,heuristic,fixed model,1049,21.8258394381372,2
+no drift,peak,heuristic,online (learned),1000,24.380854888739147,5
+no drift,peak,heuristic,online (learned),1001,22.403174153987106,3
+no drift,peak,heuristic,online (learned),1002,22.812250007263405,1
+no drift,peak,heuristic,online (learned),1003,25.066541985416332,14
+no drift,peak,heuristic,online (learned),1004,22.48497277079641,2
+no drift,peak,heuristic,online (learned),1005,23.72045145789874,3
+no drift,peak,heuristic,online (learned),1006,22.29698535605491,0
+no drift,peak,heuristic,online (learned),1007,25.107926560147067,17
+no drift,peak,heuristic,online (learned),1008,23.79410110086208,10
+no drift,peak,heuristic,online (learned),1009,22.298761438463952,2
+no drift,peak,heuristic,online (learned),1010,21.423859105921423,2
+no drift,peak,heuristic,online (learned),1011,22.454393293992485,2
+no drift,peak,heuristic,online (learned),1012,24.22595152691856,10
+no drift,peak,heuristic,online (learned),1013,23.94630992117612,1
+no drift,peak,heuristic,online (learned),1014,22.830561903267252,5
+no drift,peak,heuristic,online (learned),1015,23.90633391898516,1
+no drift,peak,heuristic,online (learned),1016,23.13575180881494,3
+no drift,peak,heuristic,online (learned),1017,22.464710848124888,4
+no drift,peak,heuristic,online (learned),1018,21.53463311128783,2
+no drift,peak,heuristic,online (learned),1019,23.108471500312742,5
+no drift,peak,heuristic,online (learned),1020,22.056439828935062,2
+no drift,peak,heuristic,online (learned),1021,21.63566383463568,0
+no drift,peak,heuristic,online (learned),1022,22.87876799123543,2
+no drift,peak,heuristic,online (learned),1023,23.45378548534999,9
+no drift,peak,heuristic,online (learned),1024,22.80862847616545,3
+no drift,peak,heuristic,online (learned),1025,23.525275470712003,4
+no drift,peak,heuristic,online (learned),1026,22.04835361107906,6
+no drift,peak,heuristic,online (learned),1027,22.3320840821867,0
+no drift,peak,heuristic,online (learned),1028,22.54264660584437,3
+no drift,peak,heuristic,online (learned),1029,23.11283174003836,1
+no drift,peak,heuristic,online (learned),1030,23.336012125413923,0
+no drift,peak,heuristic,online (learned),1031,22.237377788464794,2
+no drift,peak,heuristic,online (learned),1032,22.085073703976217,0
+no drift,peak,heuristic,online (learned),1033,24.53844483223677,2
+no drift,peak,heuristic,online (learned),1034,24.066029425370093,5
+no drift,peak,heuristic,online (learned),1035,22.291138443118925,2
+no drift,peak,heuristic,online (learned),1036,21.897161102520137,2
+no drift,peak,heuristic,online (learned),1037,23.622727794145245,2
+no drift,peak,heuristic,online (learned),1038,22.16187192043876,3
+no drift,peak,heuristic,online (learned),1039,21.670121346376423,1
+no drift,peak,heuristic,online (learned),1040,22.922181807092787,1
+no drift,peak,heuristic,online (learned),1041,23.3635167188268,5
+no drift,peak,heuristic,online (learned),1042,21.850474710903857,1
+no drift,peak,heuristic,online (learned),1043,22.856265532666267,2
+no drift,peak,heuristic,online (learned),1044,22.147934551096263,3
+no drift,peak,heuristic,online (learned),1045,21.488127829443606,1
+no drift,peak,heuristic,online (learned),1046,23.776169901107604,0
+no drift,peak,heuristic,online (learned),1047,22.92811818250817,1
+no drift,peak,heuristic,online (learned),1048,22.38376816096343,0
+no drift,peak,heuristic,online (learned),1049,21.62699078907651,0
+no drift,peak,heuristic,oracle,1000,24.077416810570956,5
+no drift,peak,heuristic,oracle,1001,22.058657852021305,2
+no drift,peak,heuristic,oracle,1002,22.539271709256745,1
+no drift,peak,heuristic,oracle,1003,23.938167344575504,10
+no drift,peak,heuristic,oracle,1004,22.4994215875705,4
+no drift,peak,heuristic,oracle,1005,23.280879549526226,2
+no drift,peak,heuristic,oracle,1006,22.291133693256757,1
+no drift,peak,heuristic,oracle,1007,23.783320670764734,12
+no drift,peak,heuristic,oracle,1008,22.873814214725073,2
+no drift,peak,heuristic,oracle,1009,22.19127600725847,1
+no drift,peak,heuristic,oracle,1010,23.171204367123767,7
+no drift,peak,heuristic,oracle,1011,22.437244553504403,2
+no drift,peak,heuristic,oracle,1012,22.16502885121793,5
+no drift,peak,heuristic,oracle,1013,23.45828539940218,2
+no drift,peak,heuristic,oracle,1014,22.667189934033992,5
+no drift,peak,heuristic,oracle,1015,23.675546054015385,1
+no drift,peak,heuristic,oracle,1016,22.87361662680354,7
+no drift,peak,heuristic,oracle,1017,22.940650461114863,7
+no drift,peak,heuristic,oracle,1018,21.70198725219783,2
+no drift,peak,heuristic,oracle,1019,22.638188227491,4
+no drift,peak,heuristic,oracle,1020,23.1225818420216,1
+no drift,peak,heuristic,oracle,1021,21.366993913967296,4
+no drift,peak,heuristic,oracle,1022,22.83772264758014,4
+no drift,peak,heuristic,oracle,1023,22.179687482597203,3
+no drift,peak,heuristic,oracle,1024,22.05363215106552,1
+no drift,peak,heuristic,oracle,1025,23.10676790086275,3
+no drift,peak,heuristic,oracle,1026,21.490445002416063,6
+no drift,peak,heuristic,oracle,1027,24.108506538791843,8
+no drift,peak,heuristic,oracle,1028,21.887180178867343,2
+no drift,peak,heuristic,oracle,1029,23.629950016050888,4
+no drift,peak,heuristic,oracle,1030,22.760009011667467,1
+no drift,peak,heuristic,oracle,1031,25.182394578767372,9
+no drift,peak,heuristic,oracle,1032,22.18131997562861,1
+no drift,peak,heuristic,oracle,1033,24.24983951220143,5
+no drift,peak,heuristic,oracle,1034,23.149144497786438,6
+no drift,peak,heuristic,oracle,1035,21.708761201591532,2
+no drift,peak,heuristic,oracle,1036,22.146771720531838,3
+no drift,peak,heuristic,oracle,1037,23.221278446391707,1
+no drift,peak,heuristic,oracle,1038,22.076951010121665,4
+no drift,peak,heuristic,oracle,1039,21.893045009108207,2
+no drift,peak,heuristic,oracle,1040,22.691940388770213,2
+no drift,peak,heuristic,oracle,1041,24.19728713423523,3
+no drift,peak,heuristic,oracle,1042,21.662000853395824,1
+no drift,peak,heuristic,oracle,1043,22.69310100208854,3
+no drift,peak,heuristic,oracle,1044,21.614998269083912,2
+no drift,peak,heuristic,oracle,1045,21.985061047476133,4
+no drift,peak,heuristic,oracle,1046,22.975516563464055,4
+no drift,peak,heuristic,oracle,1047,22.947180472041925,1
+no drift,peak,heuristic,oracle,1048,22.303453459601073,1
+no drift,peak,heuristic,oracle,1049,21.8258394381372,2
+no drift,peak,nash,fixed model,1000,24.430965450844063,4
+no drift,peak,nash,fixed model,1001,21.906776193466886,1
+no drift,peak,nash,fixed model,1002,24.237710547383987,7
+no drift,peak,nash,fixed model,1003,23.475739203306293,4
+no drift,peak,nash,fixed model,1004,22.608721792451735,5
+no drift,peak,nash,fixed model,1005,23.239540494944222,1
+no drift,peak,nash,fixed model,1006,22.924585444060835,2
+no drift,peak,nash,fixed model,1007,23.435509738027694,10
+no drift,peak,nash,fixed model,1008,23.100376109873537,2
+no drift,peak,nash,fixed model,1009,22.190881295597357,1
+no drift,peak,nash,fixed model,1010,22.879460190553523,9
+no drift,peak,nash,fixed model,1011,22.326055362493744,1
+no drift,peak,nash,fixed model,1012,23.3811746947557,4
+no drift,peak,nash,fixed model,1013,23.665224818151717,3
+no drift,peak,nash,fixed model,1014,23.215609450731797,3
+no drift,peak,nash,fixed model,1015,24.230577927672982,7
+no drift,peak,nash,fixed model,1016,23.139538314174033,13
+no drift,peak,nash,fixed model,1017,21.974356527614912,5
+no drift,peak,nash,fixed model,1018,21.167155703379947,1
+no drift,peak,nash,fixed model,1019,22.82852473506537,2
+no drift,peak,nash,fixed model,1020,23.514981008098072,2
+no drift,peak,nash,fixed model,1021,21.170987841345955,0
+no drift,peak,nash,fixed model,1022,22.46124654654348,4
+no drift,peak,nash,fixed model,1023,22.572143111603946,5
+no drift,peak,nash,fixed model,1024,21.950085507764065,0
+no drift,peak,nash,fixed model,1025,23.531442914918127,4
+no drift,peak,nash,fixed model,1026,21.328236423450832,2
+no drift,peak,nash,fixed model,1027,23.53066523804386,5
+no drift,peak,nash,fixed model,1028,21.58097629920476,1
+no drift,peak,nash,fixed model,1029,23.24201476849292,2
+no drift,peak,nash,fixed model,1030,22.637136635034864,0
+no drift,peak,nash,fixed model,1031,21.831732377782057,2
+no drift,peak,nash,fixed model,1032,22.273507667767312,1
+no drift,peak,nash,fixed model,1033,24.23273198881927,3
+no drift,peak,nash,fixed model,1034,23.296375436734635,2
+no drift,peak,nash,fixed model,1035,21.5450052297001,1
+no drift,peak,nash,fixed model,1036,21.739358976079277,3
+no drift,peak,nash,fixed model,1037,23.320089286710427,1
+no drift,peak,nash,fixed model,1038,21.778742426140173,2
+no drift,peak,nash,fixed model,1039,21.790785393584535,2
+no drift,peak,nash,fixed model,1040,22.59746344161767,0
+no drift,peak,nash,fixed model,1041,23.18861887712257,1
+no drift,peak,nash,fixed model,1042,21.683252598168668,1
+no drift,peak,nash,fixed model,1043,21.780685043508477,2
+no drift,peak,nash,fixed model,1044,21.97227939467146,2
+no drift,peak,nash,fixed model,1045,21.292018694695937,1
+no drift,peak,nash,fixed model,1046,23.143373775502223,2
+no drift,peak,nash,fixed model,1047,22.802966783157864,1
+no drift,peak,nash,fixed model,1048,22.66111327432422,1
+no drift,peak,nash,fixed model,1049,21.23353566575882,2
+no drift,peak,nash,online (learned),1000,24.555789080682274,4
+no drift,peak,nash,online (learned),1001,22.185737539628278,0
+no drift,peak,nash,online (learned),1002,24.02179853520799,7
+no drift,peak,nash,online (learned),1003,23.27340301505435,4
+no drift,peak,nash,online (learned),1004,22.50048973654214,2
+no drift,peak,nash,online (learned),1005,23.61348756197998,4
+no drift,peak,nash,online (learned),1006,22.31669313085784,0
+no drift,peak,nash,online (learned),1007,25.206610391285924,16
+no drift,peak,nash,online (learned),1008,23.60209602495327,4
+no drift,peak,nash,online (learned),1009,22.354551157275054,2
+no drift,peak,nash,online (learned),1010,21.646731504491335,2
+no drift,peak,nash,online (learned),1011,22.517949155999702,1
+no drift,peak,nash,online (learned),1012,23.59147985011118,6
+no drift,peak,nash,online (learned),1013,24.149895683938713,1
+no drift,peak,nash,online (learned),1014,22.931559469016943,1
+no drift,peak,nash,online (learned),1015,23.742538836496646,1
+no drift,peak,nash,online (learned),1016,22.88308203643667,4
+no drift,peak,nash,online (learned),1017,23.76465955233511,7
+no drift,peak,nash,online (learned),1018,21.347240078836613,1
+no drift,peak,nash,online (learned),1019,23.483098413307978,2
+no drift,peak,nash,online (learned),1020,22.171761056442357,2
+no drift,peak,nash,online (learned),1021,21.76608216594516,0
+no drift,peak,nash,online (learned),1022,23.154970105866855,3
+no drift,peak,nash,online (learned),1023,22.2984328184399,2
+no drift,peak,nash,online (learned),1024,22.161188617804275,1
+no drift,peak,nash,online (learned),1025,23.531345071595517,3
+no drift,peak,nash,online (learned),1026,21.87632819232971,5
+no drift,peak,nash,online (learned),1027,23.935631584271157,4
+no drift,peak,nash,online (learned),1028,22.667111315848246,3
+no drift,peak,nash,online (learned),1029,24.016408104400142,1
+no drift,peak,nash,online (learned),1030,23.774446276978484,0
+no drift,peak,nash,online (learned),1031,22.42558916568637,1
+no drift,peak,nash,online (learned),1032,22.11137919201528,0
+no drift,peak,nash,online (learned),1033,24.22924092911232,4
+no drift,peak,nash,online (learned),1034,23.66338697726763,0
+no drift,peak,nash,online (learned),1035,21.849025677935263,1
+no drift,peak,nash,online (learned),1036,22.05188295607284,2
+no drift,peak,nash,online (learned),1037,22.24471926166523,2
+no drift,peak,nash,online (learned),1038,22.20998112704755,3
+no drift,peak,nash,online (learned),1039,21.57231265547594,3
+no drift,peak,nash,online (learned),1040,23.02162433297692,0
+no drift,peak,nash,online (learned),1041,23.4739754453111,1
+no drift,peak,nash,online (learned),1042,21.78548483857719,1
+no drift,peak,nash,online (learned),1043,22.782596892872707,2
+no drift,peak,nash,online (learned),1044,22.352779348604063,2
+no drift,peak,nash,online (learned),1045,21.558755188467863,0
+no drift,peak,nash,online (learned),1046,23.769517709204578,0
+no drift,peak,nash,online (learned),1047,23.094938542747894,1
+no drift,peak,nash,online (learned),1048,22.841143738407226,1
+no drift,peak,nash,online (learned),1049,21.25363569837036,1
+no drift,peak,nash,oracle,1000,24.430965450844063,4
+no drift,peak,nash,oracle,1001,21.906776193466886,1
+no drift,peak,nash,oracle,1002,24.237710547383987,7
+no drift,peak,nash,oracle,1003,23.475739203306293,4
+no drift,peak,nash,oracle,1004,22.608721792451735,5
+no drift,peak,nash,oracle,1005,23.239540494944222,1
+no drift,peak,nash,oracle,1006,22.924585444060835,2
+no drift,peak,nash,oracle,1007,23.435509738027694,10
+no drift,peak,nash,oracle,1008,23.100376109873537,2
+no drift,peak,nash,oracle,1009,22.190881295597357,1
+no drift,peak,nash,oracle,1010,22.879460190553523,9
+no drift,peak,nash,oracle,1011,22.326055362493744,1
+no drift,peak,nash,oracle,1012,23.3811746947557,4
+no drift,peak,nash,oracle,1013,23.665224818151717,3
+no drift,peak,nash,oracle,1014,23.215609450731797,3
+no drift,peak,nash,oracle,1015,24.230577927672982,7
+no drift,peak,nash,oracle,1016,23.139538314174033,13
+no drift,peak,nash,oracle,1017,21.974356527614912,5
+no drift,peak,nash,oracle,1018,21.167155703379947,1
+no drift,peak,nash,oracle,1019,22.82852473506537,2
+no drift,peak,nash,oracle,1020,23.514981008098072,2
+no drift,peak,nash,oracle,1021,21.170987841345955,0
+no drift,peak,nash,oracle,1022,22.46124654654348,4
+no drift,peak,nash,oracle,1023,22.572143111603946,5
+no drift,peak,nash,oracle,1024,21.950085507764065,0
+no drift,peak,nash,oracle,1025,23.531442914918127,4
+no drift,peak,nash,oracle,1026,21.328236423450832,2
+no drift,peak,nash,oracle,1027,23.53066523804386,5
+no drift,peak,nash,oracle,1028,21.58097629920476,1
+no drift,peak,nash,oracle,1029,23.24201476849292,2
+no drift,peak,nash,oracle,1030,22.637136635034864,0
+no drift,peak,nash,oracle,1031,21.831732377782057,2
+no drift,peak,nash,oracle,1032,22.273507667767312,1
+no drift,peak,nash,oracle,1033,24.23273198881927,3
+no drift,peak,nash,oracle,1034,23.296375436734635,2
+no drift,peak,nash,oracle,1035,21.5450052297001,1
+no drift,peak,nash,oracle,1036,21.739358976079277,3
+no drift,peak,nash,oracle,1037,23.320089286710427,1
+no drift,peak,nash,oracle,1038,21.778742426140173,2
+no drift,peak,nash,oracle,1039,21.790785393584535,2
+no drift,peak,nash,oracle,1040,22.59746344161767,0
+no drift,peak,nash,oracle,1041,23.18861887712257,1
+no drift,peak,nash,oracle,1042,21.683252598168668,1
+no drift,peak,nash,oracle,1043,21.780685043508477,2
+no drift,peak,nash,oracle,1044,21.97227939467146,2
+no drift,peak,nash,oracle,1045,21.292018694695937,1
+no drift,peak,nash,oracle,1046,23.143373775502223,2
+no drift,peak,nash,oracle,1047,22.802966783157864,1
+no drift,peak,nash,oracle,1048,22.66111327432422,1
+no drift,peak,nash,oracle,1049,21.23353566575882,2
+no drift,surge,heuristic,fixed model,1000,21.29866711994622,1
+no drift,surge,heuristic,fixed model,1001,20.889474557234653,5
+no drift,surge,heuristic,fixed model,1002,23.380775814897653,6
+no drift,surge,heuristic,fixed model,1003,24.10524753976578,7
+no drift,surge,heuristic,fixed model,1004,21.93740034297398,1
+no drift,surge,heuristic,fixed model,1005,25.143989411625714,22
+no drift,surge,heuristic,fixed model,1006,22.214592921139896,10
+no drift,surge,heuristic,fixed model,1007,20.98884145570421,3
+no drift,surge,heuristic,fixed model,1008,23.80110918995473,8
+no drift,surge,heuristic,fixed model,1009,22.792245387614116,6
+no drift,surge,heuristic,fixed model,1010,22.584269314980823,1
+no drift,surge,heuristic,fixed model,1011,22.9628209451741,7
+no drift,surge,heuristic,fixed model,1012,22.894156690505383,8
+no drift,surge,heuristic,fixed model,1013,24.0785069530104,12
+no drift,surge,heuristic,fixed model,1014,21.880859627013756,7
+no drift,surge,heuristic,fixed model,1015,22.911610532056496,4
+no drift,surge,heuristic,fixed model,1016,23.641715024065522,5
+no drift,surge,heuristic,fixed model,1017,22.588992957124113,0
+no drift,surge,heuristic,fixed model,1018,22.05987492769436,3
+no drift,surge,heuristic,fixed model,1019,25.136612520204867,16
+no drift,surge,heuristic,fixed model,1020,23.79250440865083,15
+no drift,surge,heuristic,fixed model,1021,23.07348305974333,1
+no drift,surge,heuristic,fixed model,1022,22.046982197193472,11
+no drift,surge,heuristic,fixed model,1023,21.53729590062219,1
+no drift,surge,heuristic,fixed model,1024,21.35370881131807,1
+no drift,surge,heuristic,fixed model,1025,23.050399029400385,10
+no drift,surge,heuristic,fixed model,1026,22.164721815753527,6
+no drift,surge,heuristic,fixed model,1027,21.938159244716118,0
+no drift,surge,heuristic,fixed model,1028,22.432002481074797,0
+no drift,surge,heuristic,fixed model,1029,24.65884853091414,9
+no drift,surge,heuristic,fixed model,1030,23.971540102564383,10
+no drift,surge,heuristic,fixed model,1031,26.074237885276514,27
+no drift,surge,heuristic,fixed model,1032,22.92790991526321,3
+no drift,surge,heuristic,fixed model,1033,23.10671054968819,2
+no drift,surge,heuristic,fixed model,1034,23.15998375419894,5
+no drift,surge,heuristic,fixed model,1035,23.10724233759591,4
+no drift,surge,heuristic,fixed model,1036,23.066351017129687,2
+no drift,surge,heuristic,fixed model,1037,25.70843054216248,12
+no drift,surge,heuristic,fixed model,1038,20.69282903664402,0
+no drift,surge,heuristic,fixed model,1039,23.791261362837492,1
+no drift,surge,heuristic,fixed model,1040,21.435875644654157,5
+no drift,surge,heuristic,fixed model,1041,25.003917104124174,13
+no drift,surge,heuristic,fixed model,1042,26.345689433088438,11
+no drift,surge,heuristic,fixed model,1043,21.684115056536452,2
+no drift,surge,heuristic,fixed model,1044,21.163314893910762,0
+no drift,surge,heuristic,fixed model,1045,23.614306965916533,10
+no drift,surge,heuristic,fixed model,1046,21.45283695206251,0
+no drift,surge,heuristic,fixed model,1047,22.631531179666148,6
+no drift,surge,heuristic,fixed model,1048,22.6568994147564,2
+no drift,surge,heuristic,fixed model,1049,23.605227784871293,8
+no drift,surge,heuristic,online (learned),1000,21.338413668197752,1
+no drift,surge,heuristic,online (learned),1001,22.001641101307463,6
+no drift,surge,heuristic,online (learned),1002,23.491047702036656,4
+no drift,surge,heuristic,online (learned),1003,24.26716903592249,2
+no drift,surge,heuristic,online (learned),1004,22.19008112919355,1
+no drift,surge,heuristic,online (learned),1005,23.53417499926715,7
+no drift,surge,heuristic,online (learned),1006,22.034397204916452,6
+no drift,surge,heuristic,online (learned),1007,21.2771330823348,2
+no drift,surge,heuristic,online (learned),1008,22.9773053492304,5
+no drift,surge,heuristic,online (learned),1009,22.718309222250106,4
+no drift,surge,heuristic,online (learned),1010,22.843205751461017,1
+no drift,surge,heuristic,online (learned),1011,23.053505640342728,6
+no drift,surge,heuristic,online (learned),1012,23.723472366710425,8
+no drift,surge,heuristic,online (learned),1013,23.805184839242578,10
+no drift,surge,heuristic,online (learned),1014,21.260677986563884,2
+no drift,surge,heuristic,online (learned),1015,23.37177770958239,12
+no drift,surge,heuristic,online (learned),1016,24.071426871173184,2
+no drift,surge,heuristic,online (learned),1017,22.92722294837809,0
+no drift,surge,heuristic,online (learned),1018,22.3803166202888,2
+no drift,surge,heuristic,online (learned),1019,22.896992728192647,7
+no drift,surge,heuristic,online (learned),1020,23.522699242586214,7
+no drift,surge,heuristic,online (learned),1021,23.327922791804596,2
+no drift,surge,heuristic,online (learned),1022,24.71274283147632,20
+no drift,surge,heuristic,online (learned),1023,21.64151074722123,1
+no drift,surge,heuristic,online (learned),1024,21.603530737358966,2
+no drift,surge,heuristic,online (learned),1025,24.013565614346383,14
+no drift,surge,heuristic,online (learned),1026,22.362359281362288,6
+no drift,surge,heuristic,online (learned),1027,22.14835320320831,0
+no drift,surge,heuristic,online (learned),1028,22.6857415975129,0
+no drift,surge,heuristic,online (learned),1029,26.77012662897297,21
+no drift,surge,heuristic,online (learned),1030,23.974691401283142,4
+no drift,surge,heuristic,online (learned),1031,26.20700496419299,26
+no drift,surge,heuristic,online (learned),1032,23.26068212687309,3
+no drift,surge,heuristic,online (learned),1033,22.365250733221583,2
+no drift,surge,heuristic,online (learned),1034,23.022958948081307,3
+no drift,surge,heuristic,online (learned),1035,23.76061517783527,12
+no drift,surge,heuristic,online (learned),1036,23.435828082421246,2
+no drift,surge,heuristic,online (learned),1037,26.624164321993977,13
+no drift,surge,heuristic,online (learned),1038,21.123807729042294,0
+no drift,surge,heuristic,online (learned),1039,24.131050794265242,1
+no drift,surge,heuristic,online (learned),1040,21.520513164068994,4
+no drift,surge,heuristic,online (learned),1041,25.2497268075229,14
+no drift,surge,heuristic,online (learned),1042,24.33822309337839,1
+no drift,surge,heuristic,online (learned),1043,22.001201877260794,2
+no drift,surge,heuristic,online (learned),1044,21.539933395881995,1
+no drift,surge,heuristic,online (learned),1045,23.03741712637505,7
+no drift,surge,heuristic,online (learned),1046,21.624141697667994,0
+no drift,surge,heuristic,online (learned),1047,22.609334421683496,4
+no drift,surge,heuristic,online (learned),1048,22.463572568443183,1
+no drift,surge,heuristic,online (learned),1049,23.712657930093375,6
+no drift,surge,heuristic,oracle,1000,21.29866711994622,1
+no drift,surge,heuristic,oracle,1001,20.889474557234653,5
+no drift,surge,heuristic,oracle,1002,23.380775814897653,6
+no drift,surge,heuristic,oracle,1003,24.10524753976578,7
+no drift,surge,heuristic,oracle,1004,21.93740034297398,1
+no drift,surge,heuristic,oracle,1005,25.143989411625714,22
+no drift,surge,heuristic,oracle,1006,22.214592921139896,10
+no drift,surge,heuristic,oracle,1007,20.98884145570421,3
+no drift,surge,heuristic,oracle,1008,23.80110918995473,8
+no drift,surge,heuristic,oracle,1009,22.792245387614116,6
+no drift,surge,heuristic,oracle,1010,22.584269314980823,1
+no drift,surge,heuristic,oracle,1011,22.9628209451741,7
+no drift,surge,heuristic,oracle,1012,22.894156690505383,8
+no drift,surge,heuristic,oracle,1013,24.0785069530104,12
+no drift,surge,heuristic,oracle,1014,21.880859627013756,7
+no drift,surge,heuristic,oracle,1015,22.911610532056496,4
+no drift,surge,heuristic,oracle,1016,23.641715024065522,5
+no drift,surge,heuristic,oracle,1017,22.588992957124113,0
+no drift,surge,heuristic,oracle,1018,22.05987492769436,3
+no drift,surge,heuristic,oracle,1019,25.136612520204867,16
+no drift,surge,heuristic,oracle,1020,23.79250440865083,15
+no drift,surge,heuristic,oracle,1021,23.07348305974333,1
+no drift,surge,heuristic,oracle,1022,22.046982197193472,11
+no drift,surge,heuristic,oracle,1023,21.53729590062219,1
+no drift,surge,heuristic,oracle,1024,21.35370881131807,1
+no drift,surge,heuristic,oracle,1025,23.050399029400385,10
+no drift,surge,heuristic,oracle,1026,22.164721815753527,6
+no drift,surge,heuristic,oracle,1027,21.938159244716118,0
+no drift,surge,heuristic,oracle,1028,22.432002481074797,0
+no drift,surge,heuristic,oracle,1029,24.65884853091414,9
+no drift,surge,heuristic,oracle,1030,23.971540102564383,10
+no drift,surge,heuristic,oracle,1031,26.074237885276514,27
+no drift,surge,heuristic,oracle,1032,22.92790991526321,3
+no drift,surge,heuristic,oracle,1033,23.10671054968819,2
+no drift,surge,heuristic,oracle,1034,23.15998375419894,5
+no drift,surge,heuristic,oracle,1035,23.10724233759591,4
+no drift,surge,heuristic,oracle,1036,23.066351017129687,2
+no drift,surge,heuristic,oracle,1037,25.70843054216248,12
+no drift,surge,heuristic,oracle,1038,20.69282903664402,0
+no drift,surge,heuristic,oracle,1039,23.791261362837492,1
+no drift,surge,heuristic,oracle,1040,21.435875644654157,5
+no drift,surge,heuristic,oracle,1041,25.003917104124174,13
+no drift,surge,heuristic,oracle,1042,26.345689433088438,11
+no drift,surge,heuristic,oracle,1043,21.684115056536452,2
+no drift,surge,heuristic,oracle,1044,21.163314893910762,0
+no drift,surge,heuristic,oracle,1045,23.614306965916533,10
+no drift,surge,heuristic,oracle,1046,21.45283695206251,0
+no drift,surge,heuristic,oracle,1047,22.631531179666148,6
+no drift,surge,heuristic,oracle,1048,22.6568994147564,2
+no drift,surge,heuristic,oracle,1049,23.605227784871293,8
+no drift,surge,nash,fixed model,1000,21.2820083398858,1
+no drift,surge,nash,fixed model,1001,20.645353196352364,4
+no drift,surge,nash,fixed model,1002,23.207639127515336,3
+no drift,surge,nash,fixed model,1003,24.50727217052423,3
+no drift,surge,nash,fixed model,1004,22.22825918966416,2
+no drift,surge,nash,fixed model,1005,25.017515287014593,20
+no drift,surge,nash,fixed model,1006,22.355478195614946,7
+no drift,surge,nash,fixed model,1007,21.043791542357592,2
+no drift,surge,nash,fixed model,1008,23.534926923689792,6
+no drift,surge,nash,fixed model,1009,22.89149337197115,8
+no drift,surge,nash,fixed model,1010,22.63108261189307,1
+no drift,surge,nash,fixed model,1011,22.815502155200736,6
+no drift,surge,nash,fixed model,1012,23.439823972829743,6
+no drift,surge,nash,fixed model,1013,24.295622336073453,10
+no drift,surge,nash,fixed model,1014,21.090429617462622,1
+no drift,surge,nash,fixed model,1015,22.89695378793789,5
+no drift,surge,nash,fixed model,1016,23.55689348619123,4
+no drift,surge,nash,fixed model,1017,22.6074040695143,0
+no drift,surge,nash,fixed model,1018,22.155415073796377,3
+no drift,surge,nash,fixed model,1019,21.284777797998775,5
+no drift,surge,nash,fixed model,1020,23.764839634306746,13
+no drift,surge,nash,fixed model,1021,22.979287410593837,1
+no drift,surge,nash,fixed model,1022,21.248388379166276,5
+no drift,surge,nash,fixed model,1023,22.267714989874204,0
+no drift,surge,nash,fixed model,1024,21.16881083496189,0
+no drift,surge,nash,fixed model,1025,22.667025969892943,3
+no drift,surge,nash,fixed model,1026,22.153131515317703,5
+no drift,surge,nash,fixed model,1027,22.095870303903812,0
+no drift,surge,nash,fixed model,1028,22.548501170222963,0
+no drift,surge,nash,fixed model,1029,28.597627805521746,39
+no drift,surge,nash,fixed model,1030,23.65756018655199,6
+no drift,surge,nash,fixed model,1031,27.00994401126986,33
+no drift,surge,nash,fixed model,1032,23.2321733527324,5
+no drift,surge,nash,fixed model,1033,22.616795943386197,2
+no drift,surge,nash,fixed model,1034,23.034853341284606,3
+no drift,surge,nash,fixed model,1035,23.04861621629259,8
+no drift,surge,nash,fixed model,1036,23.184610539543954,3
+no drift,surge,nash,fixed model,1037,25.754641179597563,13
+no drift,surge,nash,fixed model,1038,21.12440628491439,3
+no drift,surge,nash,fixed model,1039,23.705365351759593,0
+no drift,surge,nash,fixed model,1040,21.286630604302033,3
+no drift,surge,nash,fixed model,1041,24.761721760883834,7
+no drift,surge,nash,fixed model,1042,23.988307685162468,2
+no drift,surge,nash,fixed model,1043,21.65145775676974,4
+no drift,surge,nash,fixed model,1044,21.15595486230053,0
+no drift,surge,nash,fixed model,1045,23.33405719519305,8
+no drift,surge,nash,fixed model,1046,21.466909307434925,1
+no drift,surge,nash,fixed model,1047,22.8273283924095,8
+no drift,surge,nash,fixed model,1048,22.5507988885126,2
+no drift,surge,nash,fixed model,1049,23.278652748825152,4
+no drift,surge,nash,online (learned),1000,21.501290668249283,1
+no drift,surge,nash,online (learned),1001,21.91555844774379,3
+no drift,surge,nash,online (learned),1002,23.362076087767907,3
+no drift,surge,nash,online (learned),1003,24.272636754568236,4
+no drift,surge,nash,online (learned),1004,22.09658833641497,0
+no drift,surge,nash,online (learned),1005,23.52659070438671,5
+no drift,surge,nash,online (learned),1006,21.959777627579015,3
+no drift,surge,nash,online (learned),1007,21.503023137715495,6
+no drift,surge,nash,online (learned),1008,23.16237736246051,7
+no drift,surge,nash,online (learned),1009,22.272644329858753,4
+no drift,surge,nash,online (learned),1010,23.583748133222667,3
+no drift,surge,nash,online (learned),1011,23.133264710665564,5
+no drift,surge,nash,online (learned),1012,23.464141481947582,3
+no drift,surge,nash,online (learned),1013,23.352955412887017,7
+no drift,surge,nash,online (learned),1014,21.26716294402875,1
+no drift,surge,nash,online (learned),1015,23.328442187478043,7
+no drift,surge,nash,online (learned),1016,23.55066359107979,3
+no drift,surge,nash,online (learned),1017,23.054802782988993,0
+no drift,surge,nash,online (learned),1018,22.433607640015598,2
+no drift,surge,nash,online (learned),1019,22.926236207065852,5
+no drift,surge,nash,online (learned),1020,23.35581129817957,5
+no drift,surge,nash,online (learned),1021,23.451488285428763,1
+no drift,surge,nash,online (learned),1022,21.54431265648488,2
+no drift,surge,nash,online (learned),1023,22.70111732780712,2
+no drift,surge,nash,online (learned),1024,21.48537691149106,0
+no drift,surge,nash,online (learned),1025,23.54252935222019,10
+no drift,surge,nash,online (learned),1026,21.937433745619902,2
+no drift,surge,nash,online (learned),1027,22.38390063250595,0
+no drift,surge,nash,online (learned),1028,22.62999200315181,0
+no drift,surge,nash,online (learned),1029,24.84036720651339,11
+no drift,surge,nash,online (learned),1030,23.922717382752584,2
+no drift,surge,nash,online (learned),1031,25.676368506414757,18
+no drift,surge,nash,online (learned),1032,23.159547278902988,3
+no drift,surge,nash,online (learned),1033,22.546728899005938,6
+no drift,surge,nash,online (learned),1034,23.034267695977295,2
+no drift,surge,nash,online (learned),1035,24.081472239474074,14
+no drift,surge,nash,online (learned),1036,23.870432339837745,5
+no drift,surge,nash,online (learned),1037,26.461666255176564,14
+no drift,surge,nash,online (learned),1038,21.092001201203196,0
+no drift,surge,nash,online (learned),1039,24.101938573258018,0
+no drift,surge,nash,online (learned),1040,21.39078805910403,3
+no drift,surge,nash,online (learned),1041,25.32472316232331,12
+no drift,surge,nash,online (learned),1042,24.75722653069222,3
+no drift,surge,nash,online (learned),1043,21.81894587320326,4
+no drift,surge,nash,online (learned),1044,21.30189090495901,0
+no drift,surge,nash,online (learned),1045,23.211244708532558,5
+no drift,surge,nash,online (learned),1046,21.595182303785414,0
+no drift,surge,nash,online (learned),1047,22.72538756018463,6
+no drift,surge,nash,online (learned),1048,22.696342692379623,2
+no drift,surge,nash,online (learned),1049,23.805358121639042,6
+no drift,surge,nash,oracle,1000,21.2820083398858,1
+no drift,surge,nash,oracle,1001,20.645353196352364,4
+no drift,surge,nash,oracle,1002,23.207639127515336,3
+no drift,surge,nash,oracle,1003,24.50727217052423,3
+no drift,surge,nash,oracle,1004,22.22825918966416,2
+no drift,surge,nash,oracle,1005,25.017515287014593,20
+no drift,surge,nash,oracle,1006,22.355478195614946,7
+no drift,surge,nash,oracle,1007,21.043791542357592,2
+no drift,surge,nash,oracle,1008,23.534926923689792,6
+no drift,surge,nash,oracle,1009,22.89149337197115,8
+no drift,surge,nash,oracle,1010,22.63108261189307,1
+no drift,surge,nash,oracle,1011,22.815502155200736,6
+no drift,surge,nash,oracle,1012,23.439823972829743,6
+no drift,surge,nash,oracle,1013,24.295622336073453,10
+no drift,surge,nash,oracle,1014,21.090429617462622,1
+no drift,surge,nash,oracle,1015,22.89695378793789,5
+no drift,surge,nash,oracle,1016,23.55689348619123,4
+no drift,surge,nash,oracle,1017,22.6074040695143,0
+no drift,surge,nash,oracle,1018,22.155415073796377,3
+no drift,surge,nash,oracle,1019,21.284777797998775,5
+no drift,surge,nash,oracle,1020,23.764839634306746,13
+no drift,surge,nash,oracle,1021,22.979287410593837,1
+no drift,surge,nash,oracle,1022,21.248388379166276,5
+no drift,surge,nash,oracle,1023,22.267714989874204,0
+no drift,surge,nash,oracle,1024,21.16881083496189,0
+no drift,surge,nash,oracle,1025,22.667025969892943,3
+no drift,surge,nash,oracle,1026,22.153131515317703,5
+no drift,surge,nash,oracle,1027,22.095870303903812,0
+no drift,surge,nash,oracle,1028,22.548501170222963,0
+no drift,surge,nash,oracle,1029,28.597627805521746,39
+no drift,surge,nash,oracle,1030,23.65756018655199,6
+no drift,surge,nash,oracle,1031,27.00994401126986,33
+no drift,surge,nash,oracle,1032,23.2321733527324,5
+no drift,surge,nash,oracle,1033,22.616795943386197,2
+no drift,surge,nash,oracle,1034,23.034853341284606,3
+no drift,surge,nash,oracle,1035,23.04861621629259,8
+no drift,surge,nash,oracle,1036,23.184610539543954,3
+no drift,surge,nash,oracle,1037,25.754641179597563,13
+no drift,surge,nash,oracle,1038,21.12440628491439,3
+no drift,surge,nash,oracle,1039,23.705365351759593,0
+no drift,surge,nash,oracle,1040,21.286630604302033,3
+no drift,surge,nash,oracle,1041,24.761721760883834,7
+no drift,surge,nash,oracle,1042,23.988307685162468,2
+no drift,surge,nash,oracle,1043,21.65145775676974,4
+no drift,surge,nash,oracle,1044,21.15595486230053,0
+no drift,surge,nash,oracle,1045,23.33405719519305,8
+no drift,surge,nash,oracle,1046,21.466909307434925,1
+no drift,surge,nash,oracle,1047,22.8273283924095,8
+no drift,surge,nash,oracle,1048,22.5507988885126,2
+no drift,surge,nash,oracle,1049,23.278652748825152,4
+local jams (4 hospitals x2),peak,heuristic,fixed model,1000,27.863773906354208,5
+local jams (4 hospitals x2),peak,heuristic,fixed model,1001,25.179733957685887,2
+local jams (4 hospitals x2),peak,heuristic,fixed model,1002,26.00798882277103,1
+local jams (4 hospitals x2),peak,heuristic,fixed model,1003,30.854051330019665,10
+local jams (4 hospitals x2),peak,heuristic,fixed model,1004,24.158553209761713,4
+local jams (4 hospitals x2),peak,heuristic,fixed model,1005,26.61636117317066,3
+local jams (4 hospitals x2),peak,heuristic,fixed model,1006,25.574529870641527,1
+local jams (4 hospitals x2),peak,heuristic,fixed model,1007,28.27569453864009,16
+local jams (4 hospitals x2),peak,heuristic,fixed model,1008,26.520600732286756,3
+local jams (4 hospitals x2),peak,heuristic,fixed model,1009,22.530144158728707,3
+local jams (4 hospitals x2),peak,heuristic,fixed model,1010,24.57115157073485,5
+local jams (4 hospitals x2),peak,heuristic,fixed model,1011,27.94758675070199,2
+local jams (4 hospitals x2),peak,heuristic,fixed model,1012,26.480476993783505,5
+local jams (4 hospitals x2),peak,heuristic,fixed model,1013,24.13298386142694,2
+local jams (4 hospitals x2),peak,heuristic,fixed model,1014,25.665903639839055,5
+local jams (4 hospitals x2),peak,heuristic,fixed model,1015,27.411498618483357,1
+local jams (4 hospitals x2),peak,heuristic,fixed model,1016,27.646162011856543,11
+local jams (4 hospitals x2),peak,heuristic,fixed model,1017,24.08259967833477,7
+local jams (4 hospitals x2),peak,heuristic,fixed model,1018,24.11419225812892,2
+local jams (4 hospitals x2),peak,heuristic,fixed model,1019,26.331878669054586,4
+local jams (4 hospitals x2),peak,heuristic,fixed model,1020,27.51721570202634,1
+local jams (4 hospitals x2),peak,heuristic,fixed model,1021,24.84160797240928,4
+local jams (4 hospitals x2),peak,heuristic,fixed model,1022,27.39540524902346,4
+local jams (4 hospitals x2),peak,heuristic,fixed model,1023,27.962769283185022,2
+local jams (4 hospitals x2),peak,heuristic,fixed model,1024,24.844264713755834,3
+local jams (4 hospitals x2),peak,heuristic,fixed model,1025,30.45021315378806,5
+local jams (4 hospitals x2),peak,heuristic,fixed model,1026,24.105002719055452,4
+local jams (4 hospitals x2),peak,heuristic,fixed model,1027,28.514110799916256,7
+local jams (4 hospitals x2),peak,heuristic,fixed model,1028,26.217555525473706,2
+local jams (4 hospitals x2),peak,heuristic,fixed model,1029,25.932187654800646,6
+local jams (4 hospitals x2),peak,heuristic,fixed model,1030,25.547238004104592,1
+local jams (4 hospitals x2),peak,heuristic,fixed model,1031,29.652165648164015,9
+local jams (4 hospitals x2),peak,heuristic,fixed model,1032,22.90088729349216,1
+local jams (4 hospitals x2),peak,heuristic,fixed model,1033,25.48359778889401,5
+local jams (4 hospitals x2),peak,heuristic,fixed model,1034,27.05944967322039,7
+local jams (4 hospitals x2),peak,heuristic,fixed model,1035,25.92128663517043,3
+local jams (4 hospitals x2),peak,heuristic,fixed model,1036,24.06733148274158,3
+local jams (4 hospitals x2),peak,heuristic,fixed model,1037,25.85117715460811,1
+local jams (4 hospitals x2),peak,heuristic,fixed model,1038,26.032003340176967,3
+local jams (4 hospitals x2),peak,heuristic,fixed model,1039,26.20420544163802,1
+local jams (4 hospitals x2),peak,heuristic,fixed model,1040,25.401842424417463,1
+local jams (4 hospitals x2),peak,heuristic,fixed model,1041,26.60563855766716,3
+local jams (4 hospitals x2),peak,heuristic,fixed model,1042,28.315029246180426,1
+local jams (4 hospitals x2),peak,heuristic,fixed model,1043,27.054791287459715,4
+local jams (4 hospitals x2),peak,heuristic,fixed model,1044,24.433559857809694,3
+local jams (4 hospitals x2),peak,heuristic,fixed model,1045,23.345086783732743,4
+local jams (4 hospitals x2),peak,heuristic,fixed model,1046,26.61204378994316,6
+local jams (4 hospitals x2),peak,heuristic,fixed model,1047,28.53383144478752,1
+local jams (4 hospitals x2),peak,heuristic,fixed model,1048,26.498544863142076,1
+local jams (4 hospitals x2),peak,heuristic,fixed model,1049,25.28408737307477,3
+local jams (4 hospitals x2),peak,heuristic,online (learned),1000,27.235349927631336,5
+local jams (4 hospitals x2),peak,heuristic,online (learned),1001,23.326728519377355,3
+local jams (4 hospitals x2),peak,heuristic,online (learned),1002,24.85736977745146,3
+local jams (4 hospitals x2),peak,heuristic,online (learned),1003,28.287210034703556,3
+local jams (4 hospitals x2),peak,heuristic,online (learned),1004,23.34408022135062,2
+local jams (4 hospitals x2),peak,heuristic,online (learned),1005,25.038138898923307,2
+local jams (4 hospitals x2),peak,heuristic,online (learned),1006,23.86609671693136,0
+local jams (4 hospitals x2),peak,heuristic,online (learned),1007,27.10457524863181,12
+local jams (4 hospitals x2),peak,heuristic,online (learned),1008,27.45382618714356,15
+local jams (4 hospitals x2),peak,heuristic,online (learned),1009,22.125518067928606,3
+local jams (4 hospitals x2),peak,heuristic,online (learned),1010,22.745918098960594,3
+local jams (4 hospitals x2),peak,heuristic,online (learned),1011,26.68014222410441,4
+local jams (4 hospitals x2),peak,heuristic,online (learned),1012,26.545215422489235,6
+local jams (4 hospitals x2),peak,heuristic,online (learned),1013,24.437119959091163,2
+local jams (4 hospitals x2),peak,heuristic,online (learned),1014,24.132670210707605,2
+local jams (4 hospitals x2),peak,heuristic,online (learned),1015,25.52137153658848,2
+local jams (4 hospitals x2),peak,heuristic,online (learned),1016,24.5467509860547,2
+local jams (4 hospitals x2),peak,heuristic,online (learned),1017,23.56364665867344,5
+local jams (4 hospitals x2),peak,heuristic,online (learned),1018,22.913856024464128,1
+local jams (4 hospitals x2),peak,heuristic,online (learned),1019,25.11961925238768,6
+local jams (4 hospitals x2),peak,heuristic,online (learned),1020,23.888973796898373,2
+local jams (4 hospitals x2),peak,heuristic,online (learned),1021,22.66437290318705,0
+local jams (4 hospitals x2),peak,heuristic,online (learned),1022,24.157835880642494,2
+local jams (4 hospitals x2),peak,heuristic,online (learned),1023,26.930862765934585,6
+local jams (4 hospitals x2),peak,heuristic,online (learned),1024,23.842624570073443,3
+local jams (4 hospitals x2),peak,heuristic,online (learned),1025,24.987219012905303,4
+local jams (4 hospitals x2),peak,heuristic,online (learned),1026,22.795518841033797,4
+local jams (4 hospitals x2),peak,heuristic,online (learned),1027,24.563728171228945,0
+local jams (4 hospitals x2),peak,heuristic,online (learned),1028,24.090510026065804,2
+local jams (4 hospitals x2),peak,heuristic,online (learned),1029,23.7295246817669,1
+local jams (4 hospitals x2),peak,heuristic,online (learned),1030,25.357175251857218,0
+local jams (4 hospitals x2),peak,heuristic,online (learned),1031,23.0005502514317,4
+local jams (4 hospitals x2),peak,heuristic,online (learned),1032,22.514480979530642,0
+local jams (4 hospitals x2),peak,heuristic,online (learned),1033,25.2216571832097,4
+local jams (4 hospitals x2),peak,heuristic,online (learned),1034,25.71255655120346,5
+local jams (4 hospitals x2),peak,heuristic,online (learned),1035,24.35229270540007,2
+local jams (4 hospitals x2),peak,heuristic,online (learned),1036,22.39614269072447,2
+local jams (4 hospitals x2),peak,heuristic,online (learned),1037,24.782494931432804,1
+local jams (4 hospitals x2),peak,heuristic,online (learned),1038,25.162555732454678,4
+local jams (4 hospitals x2),peak,heuristic,online (learned),1039,24.460956428577322,2
+local jams (4 hospitals x2),peak,heuristic,online (learned),1040,23.657480893134167,0
+local jams (4 hospitals x2),peak,heuristic,online (learned),1041,26.836880444390808,12
+local jams (4 hospitals x2),peak,heuristic,online (learned),1042,24.51946058111383,1
+local jams (4 hospitals x2),peak,heuristic,online (learned),1043,24.64657433403741,0
+local jams (4 hospitals x2),peak,heuristic,online (learned),1044,23.9488096067974,2
+local jams (4 hospitals x2),peak,heuristic,online (learned),1045,22.814826175798164,1
+local jams (4 hospitals x2),peak,heuristic,online (learned),1046,23.904038290484007,0
+local jams (4 hospitals x2),peak,heuristic,online (learned),1047,26.672869201265197,9
+local jams (4 hospitals x2),peak,heuristic,online (learned),1048,25.033343873840042,2
+local jams (4 hospitals x2),peak,heuristic,online (learned),1049,23.288988249011194,0
+local jams (4 hospitals x2),peak,heuristic,oracle,1000,25.15556349075012,5
+local jams (4 hospitals x2),peak,heuristic,oracle,1001,22.29589067521686,3
+local jams (4 hospitals x2),peak,heuristic,oracle,1002,23.562493401765106,2
+local jams (4 hospitals x2),peak,heuristic,oracle,1003,26.34718623265058,9
+local jams (4 hospitals x2),peak,heuristic,oracle,1004,22.68598105602189,3
+local jams (4 hospitals x2),peak,heuristic,oracle,1005,24.05433403777562,2
+local jams (4 hospitals x2),peak,heuristic,oracle,1006,22.94346340050865,0
+local jams (4 hospitals x2),peak,heuristic,oracle,1007,25.054897616026736,6
+local jams (4 hospitals x2),peak,heuristic,oracle,1008,22.787703220042,1
+local jams (4 hospitals x2),peak,heuristic,oracle,1009,21.18196198300078,3
+local jams (4 hospitals x2),peak,heuristic,oracle,1010,23.641951121878737,6
+local jams (4 hospitals x2),peak,heuristic,oracle,1011,22.357292174880246,1
+local jams (4 hospitals x2),peak,heuristic,oracle,1012,23.231416382457038,5
+local jams (4 hospitals x2),peak,heuristic,oracle,1013,23.58616398840974,2
+local jams (4 hospitals x2),peak,heuristic,oracle,1014,23.828473252550953,10
+local jams (4 hospitals x2),peak,heuristic,oracle,1015,24.420368742138333,1
+local jams (4 hospitals x2),peak,heuristic,oracle,1016,23.75800534909562,4
+local jams (4 hospitals x2),peak,heuristic,oracle,1017,23.18446116429695,8
+local jams (4 hospitals x2),peak,heuristic,oracle,1018,22.0567015063668,2
+local jams (4 hospitals x2),peak,heuristic,oracle,1019,23.591999139765615,9
+local jams (4 hospitals x2),peak,heuristic,oracle,1020,23.501564982529683,4
+local jams (4 hospitals x2),peak,heuristic,oracle,1021,21.57049285124636,4
+local jams (4 hospitals x2),peak,heuristic,oracle,1022,23.43384354919121,2
+local jams (4 hospitals x2),peak,heuristic,oracle,1023,23.24005426245304,3
+local jams (4 hospitals x2),peak,heuristic,oracle,1024,22.58460613835845,0
+local jams (4 hospitals x2),peak,heuristic,oracle,1025,24.777373142505006,8
+local jams (4 hospitals x2),peak,heuristic,oracle,1026,22.433193720377343,3
+local jams (4 hospitals x2),peak,heuristic,oracle,1027,24.961701213983524,4
+local jams (4 hospitals x2),peak,heuristic,oracle,1028,23.129304270989984,3
+local jams (4 hospitals x2),peak,heuristic,oracle,1029,24.256047584155187,6
+local jams (4 hospitals x2),peak,heuristic,oracle,1030,23.318166082687583,0
+local jams (4 hospitals x2),peak,heuristic,oracle,1031,26.185622697022406,10
+local jams (4 hospitals x2),peak,heuristic,oracle,1032,22.23746653939093,1
+local jams (4 hospitals x2),peak,heuristic,oracle,1033,24.492488930089582,6
+local jams (4 hospitals x2),peak,heuristic,oracle,1034,24.361293260599663,5
+local jams (4 hospitals x2),peak,heuristic,oracle,1035,23.314108736568915,3
+local jams (4 hospitals x2),peak,heuristic,oracle,1036,22.341464177457294,3
+local jams (4 hospitals x2),peak,heuristic,oracle,1037,23.570882528394957,1
+local jams (4 hospitals x2),peak,heuristic,oracle,1038,22.404791488862564,2
+local jams (4 hospitals x2),peak,heuristic,oracle,1039,22.5109255434275,3
+local jams (4 hospitals x2),peak,heuristic,oracle,1040,23.28075236464867,0
+local jams (4 hospitals x2),peak,heuristic,oracle,1041,24.549827044696563,7
+local jams (4 hospitals x2),peak,heuristic,oracle,1042,22.24949367834562,1
+local jams (4 hospitals x2),peak,heuristic,oracle,1043,23.227024325992677,1
+local jams (4 hospitals x2),peak,heuristic,oracle,1044,22.246714987960505,1
+local jams (4 hospitals x2),peak,heuristic,oracle,1045,22.221127956377966,3
+local jams (4 hospitals x2),peak,heuristic,oracle,1046,23.433452622213842,1
+local jams (4 hospitals x2),peak,heuristic,oracle,1047,24.408634127669888,6
+local jams (4 hospitals x2),peak,heuristic,oracle,1048,24.06546722863473,5
+local jams (4 hospitals x2),peak,heuristic,oracle,1049,22.9914092475488,3
+local jams (4 hospitals x2),peak,nash,fixed model,1000,28.52276790538598,4
+local jams (4 hospitals x2),peak,nash,fixed model,1001,24.28661305572355,1
+local jams (4 hospitals x2),peak,nash,fixed model,1002,27.73536969510468,7
+local jams (4 hospitals x2),peak,nash,fixed model,1003,29.433035822477297,5
+local jams (4 hospitals x2),peak,nash,fixed model,1004,23.9008424849454,2
+local jams (4 hospitals x2),peak,nash,fixed model,1005,26.528103308570113,1
+local jams (4 hospitals x2),peak,nash,fixed model,1006,25.902653053736636,1
+local jams (4 hospitals x2),peak,nash,fixed model,1007,29.262081730930404,16
+local jams (4 hospitals x2),peak,nash,fixed model,1008,26.607502932862293,5
+local jams (4 hospitals x2),peak,nash,fixed model,1009,22.382350252882674,3
+local jams (4 hospitals x2),peak,nash,fixed model,1010,26.46864579298521,13
+local jams (4 hospitals x2),peak,nash,fixed model,1011,25.911519527422197,2
+local jams (4 hospitals x2),peak,nash,fixed model,1012,28.162447301287244,3
+local jams (4 hospitals x2),peak,nash,fixed model,1013,24.33992328017648,3
+local jams (4 hospitals x2),peak,nash,fixed model,1014,26.543491437420556,3
+local jams (4 hospitals x2),peak,nash,fixed model,1015,27.328086399947814,7
+local jams (4 hospitals x2),peak,nash,fixed model,1016,27.1040367679473,5
+local jams (4 hospitals x2),peak,nash,fixed model,1017,22.749852037772506,5
+local jams (4 hospitals x2),peak,nash,fixed model,1018,23.351187557114425,1
+local jams (4 hospitals x2),peak,nash,fixed model,1019,26.352877858467235,1
+local jams (4 hospitals x2),peak,nash,fixed model,1020,27.58800209623661,2
+local jams (4 hospitals x2),peak,nash,fixed model,1021,24.45926553385685,0
+local jams (4 hospitals x2),peak,nash,fixed model,1022,26.09461486136865,2
+local jams (4 hospitals x2),peak,nash,fixed model,1023,29.06238913519749,1
+local jams (4 hospitals x2),peak,nash,fixed model,1024,25.70445883060138,1
+local jams (4 hospitals x2),peak,nash,fixed model,1025,29.136926620456578,6
+local jams (4 hospitals x2),peak,nash,fixed model,1026,23.851155030413132,2
+local jams (4 hospitals x2),peak,nash,fixed model,1027,26.697210232044508,1
+local jams (4 hospitals x2),peak,nash,fixed model,1028,25.063033469216126,1
+local jams (4 hospitals x2),peak,nash,fixed model,1029,24.924140611447125,2
+local jams (4 hospitals x2),peak,nash,fixed model,1030,25.169055114907152,0
+local jams (4 hospitals x2),peak,nash,fixed model,1031,25.132727132373912,2
+local jams (4 hospitals x2),peak,nash,fixed model,1032,22.78787108171653,1
+local jams (4 hospitals x2),peak,nash,fixed model,1033,26.012754732017314,5
+local jams (4 hospitals x2),peak,nash,fixed model,1034,27.85811353530266,3
+local jams (4 hospitals x2),peak,nash,fixed model,1035,26.146036381616437,2
+local jams (4 hospitals x2),peak,nash,fixed model,1036,23.885165631082558,3
+local jams (4 hospitals x2),peak,nash,fixed model,1037,26.129085352502717,1
+local jams (4 hospitals x2),peak,nash,fixed model,1038,24.749220905117774,3
+local jams (4 hospitals x2),peak,nash,fixed model,1039,26.321751487051074,1
+local jams (4 hospitals x2),peak,nash,fixed model,1040,25.454770371263976,0
+local jams (4 hospitals x2),peak,nash,fixed model,1041,25.007919929511097,1
+local jams (4 hospitals x2),peak,nash,fixed model,1042,26.76098150473718,1
+local jams (4 hospitals x2),peak,nash,fixed model,1043,25.996586047064586,2
+local jams (4 hospitals x2),peak,nash,fixed model,1044,25.229393682366908,4
+local jams (4 hospitals x2),peak,nash,fixed model,1045,23.053464239539593,1
+local jams (4 hospitals x2),peak,nash,fixed model,1046,26.036860308351507,4
+local jams (4 hospitals x2),peak,nash,fixed model,1047,27.054612051014377,1
+local jams (4 hospitals x2),peak,nash,fixed model,1048,26.240689404479124,0
+local jams (4 hospitals x2),peak,nash,fixed model,1049,24.640811287068207,3
+local jams (4 hospitals x2),peak,nash,online (learned),1000,27.134499478575663,4
+local jams (4 hospitals x2),peak,nash,online (learned),1001,23.11948273122476,0
+local jams (4 hospitals x2),peak,nash,online (learned),1002,25.62627276611689,5
+local jams (4 hospitals x2),peak,nash,online (learned),1003,26.617381839307793,3
+local jams (4 hospitals x2),peak,nash,online (learned),1004,24.08727215878206,4
+local jams (4 hospitals x2),peak,nash,online (learned),1005,25.08875859004873,2
+local jams (4 hospitals x2),peak,nash,online (learned),1006,24.32601589056192,0
+local jams (4 hospitals x2),peak,nash,online (learned),1007,26.837733542542146,7
+local jams (4 hospitals x2),peak,nash,online (learned),1008,25.53631468519074,14
+local jams (4 hospitals x2),peak,nash,online (learned),1009,21.855889556147165,3
+local jams (4 hospitals x2),peak,nash,online (learned),1010,22.509516325040977,2
+local jams (4 hospitals x2),peak,nash,online (learned),1011,26.24283421317881,3
+local jams (4 hospitals x2),peak,nash,online (learned),1012,26.4536507904115,8
+local jams (4 hospitals x2),peak,nash,online (learned),1013,24.542116226458358,3
+local jams (4 hospitals x2),peak,nash,online (learned),1014,24.150617242257027,2
+local jams (4 hospitals x2),peak,nash,online (learned),1015,25.296464352726456,1
+local jams (4 hospitals x2),peak,nash,online (learned),1016,24.238685965725793,0
+local jams (4 hospitals x2),peak,nash,online (learned),1017,24.515208865485008,8
+local jams (4 hospitals x2),peak,nash,online (learned),1018,22.16803878179048,1
+local jams (4 hospitals x2),peak,nash,online (learned),1019,25.293858813195843,2
+local jams (4 hospitals x2),peak,nash,online (learned),1020,25.139776925618413,1
+local jams (4 hospitals x2),peak,nash,online (learned),1021,22.817574664393106,0
+local jams (4 hospitals x2),peak,nash,online (learned),1022,24.239012069810848,1
+local jams (4 hospitals x2),peak,nash,online (learned),1023,26.693728302728395,2
+local jams (4 hospitals x2),peak,nash,online (learned),1024,24.439350742679764,2
+local jams (4 hospitals x2),peak,nash,online (learned),1025,26.238838190387526,7
+local jams (4 hospitals x2),peak,nash,online (learned),1026,23.7337191961819,3
+local jams (4 hospitals x2),peak,nash,online (learned),1027,24.083536180041317,1
+local jams (4 hospitals x2),peak,nash,online (learned),1028,23.893849915988028,2
+local jams (4 hospitals x2),peak,nash,online (learned),1029,24.837588751007278,3
+local jams (4 hospitals x2),peak,nash,online (learned),1030,25.479104665722566,0
+local jams (4 hospitals x2),peak,nash,online (learned),1031,23.980121957325622,1
+local jams (4 hospitals x2),peak,nash,online (learned),1032,22.283397482420114,0
+local jams (4 hospitals x2),peak,nash,online (learned),1033,25.307594170052194,4
+local jams (4 hospitals x2),peak,nash,online (learned),1034,25.65269829723703,0
+local jams (4 hospitals x2),peak,nash,online (learned),1035,24.476146584170458,3
+local jams (4 hospitals x2),peak,nash,online (learned),1036,22.70852121482038,2
+local jams (4 hospitals x2),peak,nash,online (learned),1037,23.440809411886967,2
+local jams (4 hospitals x2),peak,nash,online (learned),1038,24.213923513667208,3
+local jams (4 hospitals x2),peak,nash,online (learned),1039,24.266966665746573,1
+local jams (4 hospitals x2),peak,nash,online (learned),1040,23.489290811355698,0
+local jams (4 hospitals x2),peak,nash,online (learned),1041,26.07157095161251,1
+local jams (4 hospitals x2),peak,nash,online (learned),1042,23.742005518065174,1
+local jams (4 hospitals x2),peak,nash,online (learned),1043,24.757965966404758,0
+local jams (4 hospitals x2),peak,nash,online (learned),1044,24.031869955019403,1
+local jams (4 hospitals x2),peak,nash,online (learned),1045,24.039371221736594,0
+local jams (4 hospitals x2),peak,nash,online (learned),1046,24.21944259194125,1
+local jams (4 hospitals x2),peak,nash,online (learned),1047,26.97793072746924,10
+local jams (4 hospitals x2),peak,nash,online (learned),1048,24.4417498614935,1
+local jams (4 hospitals x2),peak,nash,online (learned),1049,22.71835519696219,1
+local jams (4 hospitals x2),peak,nash,oracle,1000,25.200654704631432,5
+local jams (4 hospitals x2),peak,nash,oracle,1001,22.11536982378342,2
+local jams (4 hospitals x2),peak,nash,oracle,1002,25.20640294759922,7
+local jams (4 hospitals x2),peak,nash,oracle,1003,25.203694553448923,8
+local jams (4 hospitals x2),peak,nash,oracle,1004,22.852935487783064,4
+local jams (4 hospitals x2),peak,nash,oracle,1005,24.17880661499304,2
+local jams (4 hospitals x2),peak,nash,oracle,1006,22.9750719299529,0
+local jams (4 hospitals x2),peak,nash,oracle,1007,25.430977733343475,12
+local jams (4 hospitals x2),peak,nash,oracle,1008,23.91690776069486,4
+local jams (4 hospitals x2),peak,nash,oracle,1009,21.114463644351396,3
+local jams (4 hospitals x2),peak,nash,oracle,1010,23.471796331841837,6
+local jams (4 hospitals x2),peak,nash,oracle,1011,23.797421237584135,3
+local jams (4 hospitals x2),peak,nash,oracle,1012,25.297652192085796,8
+local jams (4 hospitals x2),peak,nash,oracle,1013,23.793103407159283,3
+local jams (4 hospitals x2),peak,nash,oracle,1014,24.02070453227857,5
+local jams (4 hospitals x2),peak,nash,oracle,1015,24.950712270234742,8
+local jams (4 hospitals x2),peak,nash,oracle,1016,23.877522288207714,4
+local jams (4 hospitals x2),peak,nash,oracle,1017,22.01381603258757,5
+local jams (4 hospitals x2),peak,nash,oracle,1018,21.477825020974542,1
+local jams (4 hospitals x2),peak,nash,oracle,1019,23.32804219317215,6
+local jams (4 hospitals x2),peak,nash,oracle,1020,24.63022809757379,5
+local jams (4 hospitals x2),peak,nash,oracle,1021,21.61066516949104,0
+local jams (4 hospitals x2),peak,nash,oracle,1022,22.84557313668094,2
+local jams (4 hospitals x2),peak,nash,oracle,1023,24.91903229762789,1
+local jams (4 hospitals x2),peak,nash,oracle,1024,22.624532059719566,0
+local jams (4 hospitals x2),peak,nash,oracle,1025,24.53396171947004,6
+local jams (4 hospitals x2),peak,nash,oracle,1026,21.879428636472134,3
+local jams (4 hospitals x2),peak,nash,oracle,1027,23.036618655893307,1
+local jams (4 hospitals x2),peak,nash,oracle,1028,22.40666982483446,2
+local jams (4 hospitals x2),peak,nash,oracle,1029,23.290308634974718,2
+local jams (4 hospitals x2),peak,nash,oracle,1030,23.22098878181461,0
+local jams (4 hospitals x2),peak,nash,oracle,1031,22.554303284651155,2
+local jams (4 hospitals x2),peak,nash,oracle,1032,22.355706621951587,1
+local jams (4 hospitals x2),peak,nash,oracle,1033,24.59800361662962,7
+local jams (4 hospitals x2),peak,nash,oracle,1034,24.248488724986476,5
+local jams (4 hospitals x2),peak,nash,oracle,1035,23.704836292874045,6
+local jams (4 hospitals x2),peak,nash,oracle,1036,22.00664857218482,3
+local jams (4 hospitals x2),peak,nash,oracle,1037,23.62760260200674,1
+local jams (4 hospitals x2),peak,nash,oracle,1038,22.937150403435496,3
+local jams (4 hospitals x2),peak,nash,oracle,1039,22.28583194316461,0
+local jams (4 hospitals x2),peak,nash,oracle,1040,23.252178618552968,0
+local jams (4 hospitals x2),peak,nash,oracle,1041,23.193179280527954,1
+local jams (4 hospitals x2),peak,nash,oracle,1042,22.43235869666218,0
+local jams (4 hospitals x2),peak,nash,oracle,1043,23.370093722984162,2
+local jams (4 hospitals x2),peak,nash,oracle,1044,22.44612751680967,0
+local jams (4 hospitals x2),peak,nash,oracle,1045,21.632928586492486,1
+local jams (4 hospitals x2),peak,nash,oracle,1046,23.566120193752173,1
+local jams (4 hospitals x2),peak,nash,oracle,1047,24.719928362950032,12
+local jams (4 hospitals x2),peak,nash,oracle,1048,24.23985332694316,3
+local jams (4 hospitals x2),peak,nash,oracle,1049,22.01323995266639,2
+local jams (4 hospitals x2),surge,heuristic,fixed model,1000,23.30865037846251,1
+local jams (4 hospitals x2),surge,heuristic,fixed model,1001,22.368729194167283,5
+local jams (4 hospitals x2),surge,heuristic,fixed model,1002,25.842952122340062,6
+local jams (4 hospitals x2),surge,heuristic,fixed model,1003,29.38195563853096,7
+local jams (4 hospitals x2),surge,heuristic,fixed model,1004,23.095310243921062,1
+local jams (4 hospitals x2),surge,heuristic,fixed model,1005,27.08811043449669,22
+local jams (4 hospitals x2),surge,heuristic,fixed model,1006,23.67722212500146,8
+local jams (4 hospitals x2),surge,heuristic,fixed model,1007,26.030322208744103,3
+local jams (4 hospitals x2),surge,heuristic,fixed model,1008,25.56963598607764,7
+local jams (4 hospitals x2),surge,heuristic,fixed model,1009,24.46690108246625,6
+local jams (4 hospitals x2),surge,heuristic,fixed model,1010,23.1977780619305,1
+local jams (4 hospitals x2),surge,heuristic,fixed model,1011,27.08765769102036,7
+local jams (4 hospitals x2),surge,heuristic,fixed model,1012,25.80620611488027,11
+local jams (4 hospitals x2),surge,heuristic,fixed model,1013,25.920195230187552,14
+local jams (4 hospitals x2),surge,heuristic,fixed model,1014,23.681983071316697,7
+local jams (4 hospitals x2),surge,heuristic,fixed model,1015,24.591505809230647,5
+local jams (4 hospitals x2),surge,heuristic,fixed model,1016,26.838554737886152,5
+local jams (4 hospitals x2),surge,heuristic,fixed model,1017,22.96548493974012,0
+local jams (4 hospitals x2),surge,heuristic,fixed model,1018,23.483243933284456,3
+local jams (4 hospitals x2),surge,heuristic,fixed model,1019,27.96372154327628,16
+local jams (4 hospitals x2),surge,heuristic,fixed model,1020,25.907601549558564,15
+local jams (4 hospitals x2),surge,heuristic,fixed model,1021,26.46427273439982,1
+local jams (4 hospitals x2),surge,heuristic,fixed model,1022,26.765052033040487,18
+local jams (4 hospitals x2),surge,heuristic,fixed model,1023,26.05288376001674,1
+local jams (4 hospitals x2),surge,heuristic,fixed model,1024,23.249048734101624,1
+local jams (4 hospitals x2),surge,heuristic,fixed model,1025,26.516737668604495,10
+local jams (4 hospitals x2),surge,heuristic,fixed model,1026,24.594682460038975,6
+local jams (4 hospitals x2),surge,heuristic,fixed model,1027,25.201828783539572,0
+local jams (4 hospitals x2),surge,heuristic,fixed model,1028,24.53352306238218,0
+local jams (4 hospitals x2),surge,heuristic,fixed model,1029,26.840683475141834,9
+local jams (4 hospitals x2),surge,heuristic,fixed model,1030,25.52368818796145,10
+local jams (4 hospitals x2),surge,heuristic,fixed model,1031,28.59167377883024,25
+local jams (4 hospitals x2),surge,heuristic,fixed model,1032,24.645043186131,3
+local jams (4 hospitals x2),surge,heuristic,fixed model,1033,24.06042448662194,2
+local jams (4 hospitals x2),surge,heuristic,fixed model,1034,25.161669504869426,5
+local jams (4 hospitals x2),surge,heuristic,fixed model,1035,25.03081624995562,4
+local jams (4 hospitals x2),surge,heuristic,fixed model,1036,25.21482800277655,2
+local jams (4 hospitals x2),surge,heuristic,fixed model,1037,28.678038674770686,15
+local jams (4 hospitals x2),surge,heuristic,fixed model,1038,24.29876994051374,0
+local jams (4 hospitals x2),surge,heuristic,fixed model,1039,26.369677493243596,1
+local jams (4 hospitals x2),surge,heuristic,fixed model,1040,23.196569734822358,5
+local jams (4 hospitals x2),surge,heuristic,fixed model,1041,28.8714100763062,13
+local jams (4 hospitals x2),surge,heuristic,fixed model,1042,30.018112321744205,11
+local jams (4 hospitals x2),surge,heuristic,fixed model,1043,24.807021717257427,4
+local jams (4 hospitals x2),surge,heuristic,fixed model,1044,22.964153979860164,0
+local jams (4 hospitals x2),surge,heuristic,fixed model,1045,24.760282927705617,10
+local jams (4 hospitals x2),surge,heuristic,fixed model,1046,23.488678177791744,0
+local jams (4 hospitals x2),surge,heuristic,fixed model,1047,25.857628216607466,6
+local jams (4 hospitals x2),surge,heuristic,fixed model,1048,24.892241036364553,2
+local jams (4 hospitals x2),surge,heuristic,fixed model,1049,27.0308844348985,8
+local jams (4 hospitals x2),surge,heuristic,online (learned),1000,22.848262143668,1
+local jams (4 hospitals x2),surge,heuristic,online (learned),1001,22.461568200424882,6
+local jams (4 hospitals x2),surge,heuristic,online (learned),1002,25.36014379054084,4
+local jams (4 hospitals x2),surge,heuristic,online (learned),1003,28.04645114855761,3
+local jams (4 hospitals x2),surge,heuristic,online (learned),1004,22.84907781225085,1
+local jams (4 hospitals x2),surge,heuristic,online (learned),1005,24.663888417802006,11
+local jams (4 hospitals x2),surge,heuristic,online (learned),1006,22.284987723968538,3
+local jams (4 hospitals x2),surge,heuristic,online (learned),1007,25.576378615945732,3
+local jams (4 hospitals x2),surge,heuristic,online (learned),1008,23.8465600115313,5
+local jams (4 hospitals x2),surge,heuristic,online (learned),1009,23.618724505542936,4
+local jams (4 hospitals x2),surge,heuristic,online (learned),1010,23.382385591853996,1
+local jams (4 hospitals x2),surge,heuristic,online (learned),1011,26.985114908333834,6
+local jams (4 hospitals x2),surge,heuristic,online (learned),1012,25.812457739421138,10
+local jams (4 hospitals x2),surge,heuristic,online (learned),1013,25.095969746137406,11
+local jams (4 hospitals x2),surge,heuristic,online (learned),1014,22.197914607026334,2
+local jams (4 hospitals x2),surge,heuristic,online (learned),1015,24.90400948765649,12
+local jams (4 hospitals x2),surge,heuristic,online (learned),1016,26.894436850715586,2
+local jams (4 hospitals x2),surge,heuristic,online (learned),1017,23.52867457497113,0
+local jams (4 hospitals x2),surge,heuristic,online (learned),1018,23.832157614879442,2
+local jams (4 hospitals x2),surge,heuristic,online (learned),1019,26.061197893502566,7
+local jams (4 hospitals x2),surge,heuristic,online (learned),1020,26.512751099411716,7
+local jams (4 hospitals x2),surge,heuristic,online (learned),1021,24.90853335987295,2
+local jams (4 hospitals x2),surge,heuristic,online (learned),1022,27.071428988160683,22
+local jams (4 hospitals x2),surge,heuristic,online (learned),1023,24.599023674208308,1
+local jams (4 hospitals x2),surge,heuristic,online (learned),1024,23.05670570992593,1
+local jams (4 hospitals x2),surge,heuristic,online (learned),1025,24.639110867748276,14
+local jams (4 hospitals x2),surge,heuristic,online (learned),1026,23.852609522689956,5
+local jams (4 hospitals x2),surge,heuristic,online (learned),1027,24.682997416362404,1
+local jams (4 hospitals x2),surge,heuristic,online (learned),1028,24.326199852465205,0
+local jams (4 hospitals x2),surge,heuristic,online (learned),1029,28.776663499185283,22
+local jams (4 hospitals x2),surge,heuristic,online (learned),1030,24.432139428813468,5
+local jams (4 hospitals x2),surge,heuristic,online (learned),1031,26.891067351115442,20
+local jams (4 hospitals x2),surge,heuristic,online (learned),1032,24.571146265299763,3
+local jams (4 hospitals x2),surge,heuristic,online (learned),1033,22.662345849703726,2
+local jams (4 hospitals x2),surge,heuristic,online (learned),1034,24.798528021426826,2
+local jams (4 hospitals x2),surge,heuristic,online (learned),1035,25.389310788765172,10
+local jams (4 hospitals x2),surge,heuristic,online (learned),1036,25.580775007962583,2
+local jams (4 hospitals x2),surge,heuristic,online (learned),1037,29.14907547537194,14
+local jams (4 hospitals x2),surge,heuristic,online (learned),1038,22.141833982665705,0
+local jams (4 hospitals x2),surge,heuristic,online (learned),1039,25.30306513506321,1
+local jams (4 hospitals x2),surge,heuristic,online (learned),1040,22.894410717410988,4
+local jams (4 hospitals x2),surge,heuristic,online (learned),1041,27.530227528524968,15
+local jams (4 hospitals x2),surge,heuristic,online (learned),1042,27.558008833201544,1
+local jams (4 hospitals x2),surge,heuristic,online (learned),1043,22.811372548344004,2
+local jams (4 hospitals x2),surge,heuristic,online (learned),1044,22.83666779278257,0
+local jams (4 hospitals x2),surge,heuristic,online (learned),1045,24.4968141934712,7
+local jams (4 hospitals x2),surge,heuristic,online (learned),1046,22.442432080460105,0
+local jams (4 hospitals x2),surge,heuristic,online (learned),1047,24.38282286305795,5
+local jams (4 hospitals x2),surge,heuristic,online (learned),1048,23.855085959769987,1
+local jams (4 hospitals x2),surge,heuristic,online (learned),1049,26.866617718333178,7
+local jams (4 hospitals x2),surge,heuristic,oracle,1000,22.16095369227372,1
+local jams (4 hospitals x2),surge,heuristic,oracle,1001,21.092046985791846,5
+local jams (4 hospitals x2),surge,heuristic,oracle,1002,23.86265441080387,6
+local jams (4 hospitals x2),surge,heuristic,oracle,1003,25.58147014029228,11
+local jams (4 hospitals x2),surge,heuristic,oracle,1004,22.075495823229954,1
+local jams (4 hospitals x2),surge,heuristic,oracle,1005,25.694624428689085,23
+local jams (4 hospitals x2),surge,heuristic,oracle,1006,22.0094026173929,3
+local jams (4 hospitals x2),surge,heuristic,oracle,1007,23.11288004711638,6
+local jams (4 hospitals x2),surge,heuristic,oracle,1008,23.098370176657333,4
+local jams (4 hospitals x2),surge,heuristic,oracle,1009,23.15486156299744,6
+local jams (4 hospitals x2),surge,heuristic,oracle,1010,22.712135246478937,1
+local jams (4 hospitals x2),surge,heuristic,oracle,1011,25.031206983310657,8
+local jams (4 hospitals x2),surge,heuristic,oracle,1012,22.580099827451214,6
+local jams (4 hospitals x2),surge,heuristic,oracle,1013,24.084296091056686,8
+local jams (4 hospitals x2),surge,heuristic,oracle,1014,22.46991149318253,7
+local jams (4 hospitals x2),surge,heuristic,oracle,1015,23.18669877517987,4
+local jams (4 hospitals x2),surge,heuristic,oracle,1016,24.212569424172205,5
+local jams (4 hospitals x2),surge,heuristic,oracle,1017,22.605425323800134,0
+local jams (4 hospitals x2),surge,heuristic,oracle,1018,22.646078847573175,2
+local jams (4 hospitals x2),surge,heuristic,oracle,1019,26.54178522646705,23
+local jams (4 hospitals x2),surge,heuristic,oracle,1020,24.410348400649227,18
+local jams (4 hospitals x2),surge,heuristic,oracle,1021,23.37426797821053,1
+local jams (4 hospitals x2),surge,heuristic,oracle,1022,22.14262471292719,5
+local jams (4 hospitals x2),surge,heuristic,oracle,1023,22.645365838624617,1
+local jams (4 hospitals x2),surge,heuristic,oracle,1024,21.888744105258436,1
+local jams (4 hospitals x2),surge,heuristic,oracle,1025,22.458349941646034,4
+local jams (4 hospitals x2),surge,heuristic,oracle,1026,22.522738983150663,3
+local jams (4 hospitals x2),surge,heuristic,oracle,1027,22.776712349563624,0
+local jams (4 hospitals x2),surge,heuristic,oracle,1028,22.858224474590763,0
+local jams (4 hospitals x2),surge,heuristic,oracle,1029,26.87533075507345,16
+local jams (4 hospitals x2),surge,heuristic,oracle,1030,24.26605682034719,10
+local jams (4 hospitals x2),surge,heuristic,oracle,1031,26.4683165556665,20
+local jams (4 hospitals x2),surge,heuristic,oracle,1032,23.38700128789465,3
+local jams (4 hospitals x2),surge,heuristic,oracle,1033,23.18653542487045,2
+local jams (4 hospitals x2),surge,heuristic,oracle,1034,23.554546434209,5
+local jams (4 hospitals x2),surge,heuristic,oracle,1035,23.330762356318896,4
+local jams (4 hospitals x2),surge,heuristic,oracle,1036,23.360090269102756,2
+local jams (4 hospitals x2),surge,heuristic,oracle,1037,26.0249020331218,15
+local jams (4 hospitals x2),surge,heuristic,oracle,1038,21.399524880504966,2
+local jams (4 hospitals x2),surge,heuristic,oracle,1039,24.099130189296055,2
+local jams (4 hospitals x2),surge,heuristic,oracle,1040,21.992799778289154,5
+local jams (4 hospitals x2),surge,heuristic,oracle,1041,25.307703988477037,16
+local jams (4 hospitals x2),surge,heuristic,oracle,1042,26.5626194257569,12
+local jams (4 hospitals x2),surge,heuristic,oracle,1043,22.246509236466316,2
+local jams (4 hospitals x2),surge,heuristic,oracle,1044,21.78070806682308,0
+local jams (4 hospitals x2),surge,heuristic,oracle,1045,24.03589727370313,10
+local jams (4 hospitals x2),surge,heuristic,oracle,1046,21.50708402256819,0
+local jams (4 hospitals x2),surge,heuristic,oracle,1047,23.015881095770958,10
+local jams (4 hospitals x2),surge,heuristic,oracle,1048,23.15499527283002,2
+local jams (4 hospitals x2),surge,heuristic,oracle,1049,24.596367248629722,9
+local jams (4 hospitals x2),surge,nash,fixed model,1000,23.291991598402088,1
+local jams (4 hospitals x2),surge,nash,fixed model,1001,22.197673889741523,4
+local jams (4 hospitals x2),surge,nash,fixed model,1002,25.20746925309,3
+local jams (4 hospitals x2),surge,nash,fixed model,1003,29.538090559564832,3
+local jams (4 hospitals x2),surge,nash,fixed model,1004,23.65763314188242,2
+local jams (4 hospitals x2),surge,nash,fixed model,1005,26.958449080913116,20
+local jams (4 hospitals x2),surge,nash,fixed model,1006,24.42305063487656,7
+local jams (4 hospitals x2),surge,nash,fixed model,1007,25.762834208065517,1
+local jams (4 hospitals x2),surge,nash,fixed model,1008,25.599881890237498,5
+local jams (4 hospitals x2),surge,nash,fixed model,1009,24.885241027199218,9
+local jams (4 hospitals x2),surge,nash,fixed model,1010,23.825481369925505,1
+local jams (4 hospitals x2),surge,nash,fixed model,1011,26.951148481034245,6
+local jams (4 hospitals x2),surge,nash,fixed model,1012,26.387622589865373,8
+local jams (4 hospitals x2),surge,nash,fixed model,1013,25.802169935035977,11
+local jams (4 hospitals x2),surge,nash,fixed model,1014,23.474507595203466,1
+local jams (4 hospitals x2),surge,nash,fixed model,1015,24.5314011864159,5
+local jams (4 hospitals x2),surge,nash,fixed model,1016,26.68362533751106,4
+local jams (4 hospitals x2),surge,nash,fixed model,1017,23.15051643812429,0
+local jams (4 hospitals x2),surge,nash,fixed model,1018,23.98110309159169,3
+local jams (4 hospitals x2),surge,nash,fixed model,1019,23.8024282908367,5
+local jams (4 hospitals x2),surge,nash,fixed model,1020,26.12866920627042,13
+local jams (4 hospitals x2),surge,nash,fixed model,1021,25.929913650964313,1
+local jams (4 hospitals x2),surge,nash,fixed model,1022,25.26696296938852,10
+local jams (4 hospitals x2),surge,nash,fixed model,1023,26.998716739390275,0
+local jams (4 hospitals x2),surge,nash,fixed model,1024,23.195890599593785,0
+local jams (4 hospitals x2),surge,nash,fixed model,1025,25.568424971901027,3
+local jams (4 hospitals x2),surge,nash,fixed model,1026,24.66231828149658,5
+local jams (4 hospitals x2),surge,nash,fixed model,1027,25.041664554574766,0
+local jams (4 hospitals x2),surge,nash,fixed model,1028,24.320385716298745,0
+local jams (4 hospitals x2),surge,nash,fixed model,1029,31.050913667194035,38
+local jams (4 hospitals x2),surge,nash,fixed model,1030,25.7421175039784,6
+local jams (4 hospitals x2),surge,nash,fixed model,1031,28.918733297594773,28
+local jams (4 hospitals x2),surge,nash,fixed model,1032,24.742812925342616,5
+local jams (4 hospitals x2),surge,nash,fixed model,1033,24.27419005440291,2
+local jams (4 hospitals x2),surge,nash,fixed model,1034,25.03474504133233,3
+local jams (4 hospitals x2),surge,nash,fixed model,1035,25.525406405410777,5
+local jams (4 hospitals x2),surge,nash,fixed model,1036,25.226246051909648,3
+local jams (4 hospitals x2),surge,nash,fixed model,1037,27.860121968849107,13
+local jams (4 hospitals x2),surge,nash,fixed model,1038,24.61987628367319,3
+local jams (4 hospitals x2),surge,nash,fixed model,1039,26.50433130865835,0
+local jams (4 hospitals x2),surge,nash,fixed model,1040,23.183874722937254,3
+local jams (4 hospitals x2),surge,nash,fixed model,1041,27.504824531309602,7
+local jams (4 hospitals x2),surge,nash,fixed model,1042,27.47965469266856,2
+local jams (4 hospitals x2),surge,nash,fixed model,1043,24.326570818986358,5
+local jams (4 hospitals x2),surge,nash,fixed model,1044,22.870565322310398,0
+local jams (4 hospitals x2),surge,nash,fixed model,1045,24.62538880268037,8
+local jams (4 hospitals x2),surge,nash,fixed model,1046,22.94044185827735,0
+local jams (4 hospitals x2),surge,nash,fixed model,1047,25.042365762912926,7
+local jams (4 hospitals x2),surge,nash,fixed model,1048,25.07677757607704,2
+local jams (4 hospitals x2),surge,nash,fixed model,1049,26.376898617159668,4
+local jams (4 hospitals x2),surge,nash,online (learned),1000,23.200287807010362,1
+local jams (4 hospitals x2),surge,nash,online (learned),1001,22.23430088836862,3
+local jams (4 hospitals x2),surge,nash,online (learned),1002,25.277062715172764,3
+local jams (4 hospitals x2),surge,nash,online (learned),1003,26.295269708379788,3
+local jams (4 hospitals x2),surge,nash,online (learned),1004,23.70249658817501,0
+local jams (4 hospitals x2),surge,nash,online (learned),1005,24.543357151901887,8
+local jams (4 hospitals x2),surge,nash,online (learned),1006,23.235601143186624,3
+local jams (4 hospitals x2),surge,nash,online (learned),1007,25.5197124431408,4
+local jams (4 hospitals x2),surge,nash,online (learned),1008,24.62014280162761,8
+local jams (4 hospitals x2),surge,nash,online (learned),1009,23.75332620751196,5
+local jams (4 hospitals x2),surge,nash,online (learned),1010,24.263670790330124,3
+local jams (4 hospitals x2),surge,nash,online (learned),1011,26.678738572259693,5
+local jams (4 hospitals x2),surge,nash,online (learned),1012,25.292950338487028,1
+local jams (4 hospitals x2),surge,nash,online (learned),1013,24.671410275053784,10
+local jams (4 hospitals x2),surge,nash,online (learned),1014,22.966215386195415,1
+local jams (4 hospitals x2),surge,nash,online (learned),1015,24.409051665280515,6
+local jams (4 hospitals x2),surge,nash,online (learned),1016,26.643910755920857,3
+local jams (4 hospitals x2),surge,nash,online (learned),1017,24.824076308233096,0
+local jams (4 hospitals x2),surge,nash,online (learned),1018,23.520462978674388,2
+local jams (4 hospitals x2),surge,nash,online (learned),1019,25.40217679175133,6
+local jams (4 hospitals x2),surge,nash,online (learned),1020,25.552032462143977,5
+local jams (4 hospitals x2),surge,nash,online (learned),1021,24.93314313979311,1
+local jams (4 hospitals x2),surge,nash,online (learned),1022,24.80274604191512,12
+local jams (4 hospitals x2),surge,nash,online (learned),1023,25.47339221381248,0
+local jams (4 hospitals x2),surge,nash,online (learned),1024,22.884882058912932,0
+local jams (4 hospitals x2),surge,nash,online (learned),1025,24.427758854658148,10
+local jams (4 hospitals x2),surge,nash,online (learned),1026,22.787973805785043,2
+local jams (4 hospitals x2),surge,nash,online (learned),1027,24.057070427012917,0
+local jams (4 hospitals x2),surge,nash,online (learned),1028,24.12930142744984,0
+local jams (4 hospitals x2),surge,nash,online (learned),1029,26.582779360041652,11
+local jams (4 hospitals x2),surge,nash,online (learned),1030,24.4895467190414,2
+local jams (4 hospitals x2),surge,nash,online (learned),1031,26.70702699683863,15
+local jams (4 hospitals x2),surge,nash,online (learned),1032,24.05551579715913,3
+local jams (4 hospitals x2),surge,nash,online (learned),1033,23.419219980263406,6
+local jams (4 hospitals x2),surge,nash,online (learned),1034,24.391405681227145,1
+local jams (4 hospitals x2),surge,nash,online (learned),1035,24.760632641676587,9
+local jams (4 hospitals x2),surge,nash,online (learned),1036,24.88712203326325,3
+local jams (4 hospitals x2),surge,nash,online (learned),1037,30.12089565728341,13
+local jams (4 hospitals x2),surge,nash,online (learned),1038,22.442256249549292,0
+local jams (4 hospitals x2),surge,nash,online (learned),1039,25.215386241235574,0
+local jams (4 hospitals x2),surge,nash,online (learned),1040,22.719774622260918,3
+local jams (4 hospitals x2),surge,nash,online (learned),1041,27.86660562845529,13
+local jams (4 hospitals x2),surge,nash,online (learned),1042,27.571860091829375,3
+local jams (4 hospitals x2),surge,nash,online (learned),1043,22.866855405486124,5
+local jams (4 hospitals x2),surge,nash,online (learned),1044,23.57493246454259,0
+local jams (4 hospitals x2),surge,nash,online (learned),1045,24.32295135744638,5
+local jams (4 hospitals x2),surge,nash,online (learned),1046,22.731179156083638,0
+local jams (4 hospitals x2),surge,nash,online (learned),1047,24.7370793975201,6
+local jams (4 hospitals x2),surge,nash,online (learned),1048,23.926502077709774,2
+local jams (4 hospitals x2),surge,nash,online (learned),1049,26.375746705581765,6
+local jams (4 hospitals x2),surge,nash,oracle,1000,22.144294912213304,1
+local jams (4 hospitals x2),surge,nash,oracle,1001,20.9963416176379,5
+local jams (4 hospitals x2),surge,nash,oracle,1002,23.663212882327283,3
+local jams (4 hospitals x2),surge,nash,oracle,1003,24.608362330598318,4
+local jams (4 hospitals x2),surge,nash,oracle,1004,22.566439579951687,3
+local jams (4 hospitals x2),surge,nash,oracle,1005,25.755293674517485,21
+local jams (4 hospitals x2),surge,nash,oracle,1006,21.943598115045365,2
+local jams (4 hospitals x2),surge,nash,oracle,1007,23.40964337736531,10
+local jams (4 hospitals x2),surge,nash,oracle,1008,23.050642258843975,3
+local jams (4 hospitals x2),surge,nash,oracle,1009,23.080368772458527,6
+local jams (4 hospitals x2),surge,nash,oracle,1010,22.78636930605047,1
+local jams (4 hospitals x2),surge,nash,oracle,1011,25.316645745597967,10
+local jams (4 hospitals x2),surge,nash,oracle,1012,23.29596669138857,2
+local jams (4 hospitals x2),surge,nash,oracle,1013,24.54062988876475,10
+local jams (4 hospitals x2),surge,nash,oracle,1014,21.508156667194964,1
+local jams (4 hospitals x2),surge,nash,oracle,1015,23.16941283974426,4
+local jams (4 hospitals x2),surge,nash,oracle,1016,24.35053800075575,4
+local jams (4 hospitals x2),surge,nash,oracle,1017,22.62383643619032,0
+local jams (4 hospitals x2),surge,nash,oracle,1018,22.77528435805848,2
+local jams (4 hospitals x2),surge,nash,oracle,1019,22.23199093399387,8
+local jams (4 hospitals x2),surge,nash,oracle,1020,24.33759113370479,17
+local jams (4 hospitals x2),surge,nash,oracle,1021,23.389939467401447,1
+local jams (4 hospitals x2),surge,nash,oracle,1022,21.688122122886153,4
+local jams (4 hospitals x2),surge,nash,oracle,1023,23.67944481182624,1
+local jams (4 hospitals x2),surge,nash,oracle,1024,21.795285200934345,1
+local jams (4 hospitals x2),surge,nash,oracle,1025,23.90141339503766,4
+local jams (4 hospitals x2),surge,nash,oracle,1026,22.58506309818128,3
+local jams (4 hospitals x2),surge,nash,oracle,1027,22.857479545514888,0
+local jams (4 hospitals x2),surge,nash,oracle,1028,22.99396581879927,0
+local jams (4 hospitals x2),surge,nash,oracle,1029,28.8272978519196,34
+local jams (4 hospitals x2),surge,nash,oracle,1030,24.16818516146339,9
+local jams (4 hospitals x2),surge,nash,oracle,1031,25.90987354426728,15
+local jams (4 hospitals x2),surge,nash,oracle,1032,23.32334391365465,3
+local jams (4 hospitals x2),surge,nash,oracle,1033,23.057139335174888,4
+local jams (4 hospitals x2),surge,nash,oracle,1034,23.739037786530346,5
+local jams (4 hospitals x2),surge,nash,oracle,1035,23.588172991471804,6
+local jams (4 hospitals x2),surge,nash,oracle,1036,23.713486619544746,4
+local jams (4 hospitals x2),surge,nash,oracle,1037,25.310802848355756,11
+local jams (4 hospitals x2),surge,nash,oracle,1038,22.037108997306532,5
+local jams (4 hospitals x2),surge,nash,oracle,1039,24.214903293079548,0
+local jams (4 hospitals x2),surge,nash,oracle,1040,21.806774751408252,3
+local jams (4 hospitals x2),surge,nash,oracle,1041,25.04678144050664,9
+local jams (4 hospitals x2),surge,nash,oracle,1042,24.42765259166386,4
+local jams (4 hospitals x2),surge,nash,oracle,1043,22.095002687959017,4
+local jams (4 hospitals x2),surge,nash,oracle,1044,21.798190390959977,0
+local jams (4 hospitals x2),surge,nash,oracle,1045,23.583422444627804,8
+local jams (4 hospitals x2),surge,nash,oracle,1046,21.496654270436434,0
+local jams (4 hospitals x2),surge,nash,oracle,1047,23.075608002999143,9
+local jams (4 hospitals x2),surge,nash,oracle,1048,23.083459440987333,2
+local jams (4 hospitals x2),surge,nash,oracle,1049,24.562089711698416,8
+citywide slowdown x1.5,peak,heuristic,fixed model,1000,32.811660478411156,1
+citywide slowdown x1.5,peak,heuristic,fixed model,1001,30.680888063349467,3
+citywide slowdown x1.5,peak,heuristic,fixed model,1002,30.923863840526227,1
+citywide slowdown x1.5,peak,heuristic,fixed model,1003,37.18922675609664,20
+citywide slowdown x1.5,peak,heuristic,fixed model,1004,33.135811950085476,10
+citywide slowdown x1.5,peak,heuristic,fixed model,1005,31.64114638183141,5
+citywide slowdown x1.5,peak,heuristic,fixed model,1006,29.335798329219568,1
+citywide slowdown x1.5,peak,heuristic,fixed model,1007,32.55946166216815,16
+citywide slowdown x1.5,peak,heuristic,fixed model,1008,30.314860744860788,8
+citywide slowdown x1.5,peak,heuristic,fixed model,1009,30.383903854500385,2
+citywide slowdown x1.5,peak,heuristic,fixed model,1010,31.911169722952728,5
+citywide slowdown x1.5,peak,heuristic,fixed model,1011,29.722101703948148,3
+citywide slowdown x1.5,peak,heuristic,fixed model,1012,30.99329860034939,4
+citywide slowdown x1.5,peak,heuristic,fixed model,1013,31.81864449725156,2
+citywide slowdown x1.5,peak,heuristic,fixed model,1014,30.06295860143608,2
+citywide slowdown x1.5,peak,heuristic,fixed model,1015,33.443794221985954,3
+citywide slowdown x1.5,peak,heuristic,fixed model,1016,30.38486160087457,6
+citywide slowdown x1.5,peak,heuristic,fixed model,1017,30.355920236005154,5
+citywide slowdown x1.5,peak,heuristic,fixed model,1018,28.40364851458044,2
+citywide slowdown x1.5,peak,heuristic,fixed model,1019,31.396134622091775,3
+citywide slowdown x1.5,peak,heuristic,fixed model,1020,29.282127677574458,0
+citywide slowdown x1.5,peak,heuristic,fixed model,1021,28.769446838624706,3
+citywide slowdown x1.5,peak,heuristic,fixed model,1022,31.077156145875566,2
+citywide slowdown x1.5,peak,heuristic,fixed model,1023,29.188304632207767,5
+citywide slowdown x1.5,peak,heuristic,fixed model,1024,30.67022643514215,5
+citywide slowdown x1.5,peak,heuristic,fixed model,1025,31.290335718114413,3
+citywide slowdown x1.5,peak,heuristic,fixed model,1026,28.79495841289354,2
+citywide slowdown x1.5,peak,heuristic,fixed model,1027,30.749195023882756,2
+citywide slowdown x1.5,peak,heuristic,fixed model,1028,29.25403925782049,2
+citywide slowdown x1.5,peak,heuristic,fixed model,1029,32.997127370304945,3
+citywide slowdown x1.5,peak,heuristic,fixed model,1030,30.59709835333455,0
+citywide slowdown x1.5,peak,heuristic,fixed model,1031,32.225589038018526,8
+citywide slowdown x1.5,peak,heuristic,fixed model,1032,30.270602823384433,2
+citywide slowdown x1.5,peak,heuristic,fixed model,1033,34.03305953519371,6
+citywide slowdown x1.5,peak,heuristic,fixed model,1034,32.84178209315446,7
+citywide slowdown x1.5,peak,heuristic,fixed model,1035,30.79110415728005,3
+citywide slowdown x1.5,peak,heuristic,fixed model,1036,30.291596655532885,5
+citywide slowdown x1.5,peak,heuristic,fixed model,1037,30.950467652598068,2
+citywide slowdown x1.5,peak,heuristic,fixed model,1038,29.634480676959377,5
+citywide slowdown x1.5,peak,heuristic,fixed model,1039,29.027014682909723,2
+citywide slowdown x1.5,peak,heuristic,fixed model,1040,30.68242329422675,1
+citywide slowdown x1.5,peak,heuristic,fixed model,1041,32.83919113729747,9
+citywide slowdown x1.5,peak,heuristic,fixed model,1042,29.6573810311203,1
+citywide slowdown x1.5,peak,heuristic,fixed model,1043,30.02916750041515,0
+citywide slowdown x1.5,peak,heuristic,fixed model,1044,29.541216299896746,3
+citywide slowdown x1.5,peak,heuristic,fixed model,1045,29.039466608545368,4
+citywide slowdown x1.5,peak,heuristic,fixed model,1046,33.03833366636031,7
+citywide slowdown x1.5,peak,heuristic,fixed model,1047,30.588034417239133,0
+citywide slowdown x1.5,peak,heuristic,fixed model,1048,30.090039175821964,0
+citywide slowdown x1.5,peak,heuristic,fixed model,1049,28.513171032136785,1
+citywide slowdown x1.5,peak,heuristic,online (learned),1000,33.778736642067535,1
+citywide slowdown x1.5,peak,heuristic,online (learned),1001,31.306340495468984,4
+citywide slowdown x1.5,peak,heuristic,online (learned),1002,31.97715619980397,1
+citywide slowdown x1.5,peak,heuristic,online (learned),1003,34.34231666958925,9
+citywide slowdown x1.5,peak,heuristic,online (learned),1004,33.85726451597757,8
+citywide slowdown x1.5,peak,heuristic,online (learned),1005,32.4212505706499,4
+citywide slowdown x1.5,peak,heuristic,online (learned),1006,30.091017455027536,0
+citywide slowdown x1.5,peak,heuristic,online (learned),1007,28.677369372451846,1
+citywide slowdown x1.5,peak,heuristic,online (learned),1008,31.371050646445767,6
+citywide slowdown x1.5,peak,heuristic,online (learned),1009,30.45071092026194,1
+citywide slowdown x1.5,peak,heuristic,online (learned),1010,30.014132929885356,3
+citywide slowdown x1.5,peak,heuristic,online (learned),1011,31.573038237128262,2
+citywide slowdown x1.5,peak,heuristic,online (learned),1012,32.2771151026999,4
+citywide slowdown x1.5,peak,heuristic,online (learned),1013,32.803778350674754,3
+citywide slowdown x1.5,peak,heuristic,online (learned),1014,30.169997991534665,2
+citywide slowdown x1.5,peak,heuristic,online (learned),1015,34.50692694465776,2
+citywide slowdown x1.5,peak,heuristic,online (learned),1016,31.62145999706922,8
+citywide slowdown x1.5,peak,heuristic,online (learned),1017,30.10184418516057,1
+citywide slowdown x1.5,peak,heuristic,online (learned),1018,28.533908080939863,2
+citywide slowdown x1.5,peak,heuristic,online (learned),1019,32.12999464739883,1
+citywide slowdown x1.5,peak,heuristic,online (learned),1020,32.26638578474408,2
+citywide slowdown x1.5,peak,heuristic,online (learned),1021,29.762977843007903,0
+citywide slowdown x1.5,peak,heuristic,online (learned),1022,32.020242493393965,1
+citywide slowdown x1.5,peak,heuristic,online (learned),1023,32.09366874437569,4
+citywide slowdown x1.5,peak,heuristic,online (learned),1024,30.46646856760399,2
+citywide slowdown x1.5,peak,heuristic,online (learned),1025,32.47327205883903,4
+citywide slowdown x1.5,peak,heuristic,online (learned),1026,29.969936875670395,4
+citywide slowdown x1.5,peak,heuristic,online (learned),1027,30.996921847463316,1
+citywide slowdown x1.5,peak,heuristic,online (learned),1028,29.423203714618428,1
+citywide slowdown x1.5,peak,heuristic,online (learned),1029,31.544439436112135,2
+citywide slowdown x1.5,peak,heuristic,online (learned),1030,31.728504100767555,0
+citywide slowdown x1.5,peak,heuristic,online (learned),1031,29.47801961065906,3
+citywide slowdown x1.5,peak,heuristic,online (learned),1032,31.59270636306124,2
+citywide slowdown x1.5,peak,heuristic,online (learned),1033,34.5074813573848,9
+citywide slowdown x1.5,peak,heuristic,online (learned),1034,32.97376538923174,3
+citywide slowdown x1.5,peak,heuristic,online (learned),1035,31.41846435457088,4
+citywide slowdown x1.5,peak,heuristic,online (learned),1036,30.22296976959898,3
+citywide slowdown x1.5,peak,heuristic,online (learned),1037,31.84835479358423,2
+citywide slowdown x1.5,peak,heuristic,online (learned),1038,29.714150057428494,2
+citywide slowdown x1.5,peak,heuristic,online (learned),1039,29.77776410277366,2
+citywide slowdown x1.5,peak,heuristic,online (learned),1040,31.520203235179384,0
+citywide slowdown x1.5,peak,heuristic,online (learned),1041,33.40466502387195,2
+citywide slowdown x1.5,peak,heuristic,online (learned),1042,30.09408580236827,1
+citywide slowdown x1.5,peak,heuristic,online (learned),1043,31.405575768441594,2
+citywide slowdown x1.5,peak,heuristic,online (learned),1044,31.325094311063957,2
+citywide slowdown x1.5,peak,heuristic,online (learned),1045,29.329111063294278,1
+citywide slowdown x1.5,peak,heuristic,online (learned),1046,32.96223760308592,1
+citywide slowdown x1.5,peak,heuristic,online (learned),1047,31.46589619855734,1
+citywide slowdown x1.5,peak,heuristic,online (learned),1048,31.16868129358864,0
+citywide slowdown x1.5,peak,heuristic,online (learned),1049,30.53756746463838,2
+citywide slowdown x1.5,peak,heuristic,oracle,1000,32.89868759409044,1
+citywide slowdown x1.5,peak,heuristic,oracle,1001,30.540797536167616,4
+citywide slowdown x1.5,peak,heuristic,oracle,1002,30.93656584342617,2
+citywide slowdown x1.5,peak,heuristic,oracle,1003,35.264099008608945,19
+citywide slowdown x1.5,peak,heuristic,oracle,1004,33.49063098562949,12
+citywide slowdown x1.5,peak,heuristic,oracle,1005,31.7871486929053,6
+citywide slowdown x1.5,peak,heuristic,oracle,1006,29.75683900256089,2
+citywide slowdown x1.5,peak,heuristic,oracle,1007,32.7620959748304,18
+citywide slowdown x1.5,peak,heuristic,oracle,1008,30.43633519042838,10
+citywide slowdown x1.5,peak,heuristic,oracle,1009,30.353042641791447,2
+citywide slowdown x1.5,peak,heuristic,oracle,1010,32.28094739860611,8
+citywide slowdown x1.5,peak,heuristic,oracle,1011,30.08018424019924,3
+citywide slowdown x1.5,peak,heuristic,oracle,1012,30.76891898894935,6
+citywide slowdown x1.5,peak,heuristic,oracle,1013,32.9236932038467,2
+citywide slowdown x1.5,peak,heuristic,oracle,1014,30.09531797646296,2
+citywide slowdown x1.5,peak,heuristic,oracle,1015,33.46723708121205,4
+citywide slowdown x1.5,peak,heuristic,oracle,1016,31.217406003534304,11
+citywide slowdown x1.5,peak,heuristic,oracle,1017,30.426049345002227,6
+citywide slowdown x1.5,peak,heuristic,oracle,1018,28.377272698420764,2
+citywide slowdown x1.5,peak,heuristic,oracle,1019,31.53828465564638,4
+citywide slowdown x1.5,peak,heuristic,oracle,1020,31.666510773441942,2
+citywide slowdown x1.5,peak,heuristic,oracle,1021,28.667597479460294,3
+citywide slowdown x1.5,peak,heuristic,oracle,1022,31.00748624903619,2
+citywide slowdown x1.5,peak,heuristic,oracle,1023,29.36167175619769,5
+citywide slowdown x1.5,peak,heuristic,oracle,1024,30.66495728255572,5
+citywide slowdown x1.5,peak,heuristic,oracle,1025,31.274240856496736,3
+citywide slowdown x1.5,peak,heuristic,oracle,1026,28.73745687563624,5
+citywide slowdown x1.5,peak,heuristic,oracle,1027,30.71058129570483,2
+citywide slowdown x1.5,peak,heuristic,oracle,1028,29.322701496928666,2
+citywide slowdown x1.5,peak,heuristic,oracle,1029,32.9459636785464,4
+citywide slowdown x1.5,peak,heuristic,oracle,1030,30.58848643833194,0
+citywide slowdown x1.5,peak,heuristic,oracle,1031,32.132243502454195,8
+citywide slowdown x1.5,peak,heuristic,oracle,1032,30.093586324203283,2
+citywide slowdown x1.5,peak,heuristic,oracle,1033,34.08995547957474,6
+citywide slowdown x1.5,peak,heuristic,oracle,1034,32.320449962553404,4
+citywide slowdown x1.5,peak,heuristic,oracle,1035,30.87982766421259,4
+citywide slowdown x1.5,peak,heuristic,oracle,1036,30.40366071004109,7
+citywide slowdown x1.5,peak,heuristic,oracle,1037,31.116412141945236,2
+citywide slowdown x1.5,peak,heuristic,oracle,1038,30.080646616569332,6
+citywide slowdown x1.5,peak,heuristic,oracle,1039,29.00551074688718,2
+citywide slowdown x1.5,peak,heuristic,oracle,1040,30.68242329422675,1
+citywide slowdown x1.5,peak,heuristic,oracle,1041,32.45211712442296,3
+citywide slowdown x1.5,peak,heuristic,oracle,1042,29.50706181398633,1
+citywide slowdown x1.5,peak,heuristic,oracle,1043,30.3077631615212,2
+citywide slowdown x1.5,peak,heuristic,oracle,1044,29.579610116651953,3
+citywide slowdown x1.5,peak,heuristic,oracle,1045,29.00860768716092,4
+citywide slowdown x1.5,peak,heuristic,oracle,1046,33.01855605559345,7
+citywide slowdown x1.5,peak,heuristic,oracle,1047,30.584076289325797,1
+citywide slowdown x1.5,peak,heuristic,oracle,1048,30.09845425946556,0
+citywide slowdown x1.5,peak,heuristic,oracle,1049,28.551197497465107,1
+citywide slowdown x1.5,peak,nash,fixed model,1000,34.26036740531428,5
+citywide slowdown x1.5,peak,nash,fixed model,1001,30.342936894721863,1
+citywide slowdown x1.5,peak,nash,fixed model,1002,29.731597622952528,4
+citywide slowdown x1.5,peak,nash,fixed model,1003,31.61127015283097,5
+citywide slowdown x1.5,peak,nash,fixed model,1004,33.241817639351886,10
+citywide slowdown x1.5,peak,nash,fixed model,1005,31.60682959505731,3
+citywide slowdown x1.5,peak,nash,fixed model,1006,29.61698093593696,1
+citywide slowdown x1.5,peak,nash,fixed model,1007,32.31794803925061,16
+citywide slowdown x1.5,peak,nash,fixed model,1008,31.18258165945601,5
+citywide slowdown x1.5,peak,nash,fixed model,1009,30.307541528839387,2
+citywide slowdown x1.5,peak,nash,fixed model,1010,31.712921576847176,3
+citywide slowdown x1.5,peak,nash,fixed model,1011,30.988707428498557,2
+citywide slowdown x1.5,peak,nash,fixed model,1012,31.37179991611849,4
+citywide slowdown x1.5,peak,nash,fixed model,1013,32.08213922791692,3
+citywide slowdown x1.5,peak,nash,fixed model,1014,30.73368003039981,2
+citywide slowdown x1.5,peak,nash,fixed model,1015,32.61862057761921,2
+citywide slowdown x1.5,peak,nash,fixed model,1016,31.177881288389507,6
+citywide slowdown x1.5,peak,nash,fixed model,1017,31.49050749899292,12
+citywide slowdown x1.5,peak,nash,fixed model,1018,27.720217808719916,1
+citywide slowdown x1.5,peak,nash,fixed model,1019,31.582914137938918,3
+citywide slowdown x1.5,peak,nash,fixed model,1020,31.862880151729236,3
+citywide slowdown x1.5,peak,nash,fixed model,1021,28.027253063250583,0
+citywide slowdown x1.5,peak,nash,fixed model,1022,30.67646632469077,4
+citywide slowdown x1.5,peak,nash,fixed model,1023,31.07589514566707,2
+citywide slowdown x1.5,peak,nash,fixed model,1024,29.836697897782003,0
+citywide slowdown x1.5,peak,nash,fixed model,1025,31.41325102954522,3
+citywide slowdown x1.5,peak,nash,fixed model,1026,28.800150994925765,2
+citywide slowdown x1.5,peak,nash,fixed model,1027,30.420054937853866,2
+citywide slowdown x1.5,peak,nash,fixed model,1028,28.736399640840006,0
+citywide slowdown x1.5,peak,nash,fixed model,1029,31.00088644867533,3
+citywide slowdown x1.5,peak,nash,fixed model,1030,30.55214419534892,0
+citywide slowdown x1.5,peak,nash,fixed model,1031,31.79271228262028,9
+citywide slowdown x1.5,peak,nash,fixed model,1032,31.73609697994381,3
+citywide slowdown x1.5,peak,nash,fixed model,1033,34.468864454735545,7
+citywide slowdown x1.5,peak,nash,fixed model,1034,32.08661544676616,6
+citywide slowdown x1.5,peak,nash,fixed model,1035,30.740348702159633,3
+citywide slowdown x1.5,peak,nash,fixed model,1036,30.183455752374464,4
+citywide slowdown x1.5,peak,nash,fixed model,1037,31.028589286622918,1
+citywide slowdown x1.5,peak,nash,fixed model,1038,29.231804333051407,4
+citywide slowdown x1.5,peak,nash,fixed model,1039,28.888790427366214,2
+citywide slowdown x1.5,peak,nash,fixed model,1040,31.408177490675943,2
+citywide slowdown x1.5,peak,nash,fixed model,1041,31.164666654094606,2
+citywide slowdown x1.5,peak,nash,fixed model,1042,29.618639914400546,1
+citywide slowdown x1.5,peak,nash,fixed model,1043,29.557183701488565,2
+citywide slowdown x1.5,peak,nash,fixed model,1044,30.652106101458855,2
+citywide slowdown x1.5,peak,nash,fixed model,1045,28.88506868092827,2
+citywide slowdown x1.5,peak,nash,fixed model,1046,32.22984216956852,2
+citywide slowdown x1.5,peak,nash,fixed model,1047,30.660487173820258,0
+citywide slowdown x1.5,peak,nash,fixed model,1048,30.22084513161233,0
+citywide slowdown x1.5,peak,nash,fixed model,1049,29.645340619516354,2
+citywide slowdown x1.5,peak,nash,online (learned),1000,34.49793786720698,5
+citywide slowdown x1.5,peak,nash,online (learned),1001,31.066706840032236,0
+citywide slowdown x1.5,peak,nash,online (learned),1002,32.31950399001107,2
+citywide slowdown x1.5,peak,nash,online (learned),1003,33.96641844860606,9
+citywide slowdown x1.5,peak,nash,online (learned),1004,33.315892532268215,5
+citywide slowdown x1.5,peak,nash,online (learned),1005,32.20747267536798,3
+citywide slowdown x1.5,peak,nash,online (learned),1006,30.442646713021006,0
+citywide slowdown x1.5,peak,nash,online (learned),1007,32.03231528540921,11
+citywide slowdown x1.5,peak,nash,online (learned),1008,30.84283226600305,7
+citywide slowdown x1.5,peak,nash,online (learned),1009,29.090255564952916,3
+citywide slowdown x1.5,peak,nash,online (learned),1010,29.860695193876943,3
+citywide slowdown x1.5,peak,nash,online (learned),1011,30.821117164265125,3
+citywide slowdown x1.5,peak,nash,online (learned),1012,32.531807560968076,3
+citywide slowdown x1.5,peak,nash,online (learned),1013,32.2366917920313,1
+citywide slowdown x1.5,peak,nash,online (learned),1014,31.31337533139835,1
+citywide slowdown x1.5,peak,nash,online (learned),1015,33.34287463645566,2
+citywide slowdown x1.5,peak,nash,online (learned),1016,32.335029943629316,5
+citywide slowdown x1.5,peak,nash,online (learned),1017,30.432905603001984,6
+citywide slowdown x1.5,peak,nash,online (learned),1018,28.543568771371536,2
+citywide slowdown x1.5,peak,nash,online (learned),1019,32.27753617230322,2
+citywide slowdown x1.5,peak,nash,online (learned),1020,32.29186396991917,2
+citywide slowdown x1.5,peak,nash,online (learned),1021,29.436678387814283,0
+citywide slowdown x1.5,peak,nash,online (learned),1022,31.42114814827357,5
+citywide slowdown x1.5,peak,nash,online (learned),1023,31.08050105712384,11
+citywide slowdown x1.5,peak,nash,online (learned),1024,30.10230790123073,0
+citywide slowdown x1.5,peak,nash,online (learned),1025,32.53280153562463,4
+citywide slowdown x1.5,peak,nash,online (learned),1026,29.819420885023113,2
+citywide slowdown x1.5,peak,nash,online (learned),1027,30.893218875146363,2
+citywide slowdown x1.5,peak,nash,online (learned),1028,29.389073150566244,2
+citywide slowdown x1.5,peak,nash,online (learned),1029,33.322344030570015,2
+citywide slowdown x1.5,peak,nash,online (learned),1030,31.94481752100217,0
+citywide slowdown x1.5,peak,nash,online (learned),1031,30.841527913373895,0
+citywide slowdown x1.5,peak,nash,online (learned),1032,32.15643047726604,3
+citywide slowdown x1.5,peak,nash,online (learned),1033,34.59950631579263,12
+citywide slowdown x1.5,peak,nash,online (learned),1034,32.68405194876237,2
+citywide slowdown x1.5,peak,nash,online (learned),1035,31.116680491378094,3
+citywide slowdown x1.5,peak,nash,online (learned),1036,30.78613915505032,3
+citywide slowdown x1.5,peak,nash,online (learned),1037,32.94872899985758,4
+citywide slowdown x1.5,peak,nash,online (learned),1038,29.379578169256245,1
+citywide slowdown x1.5,peak,nash,online (learned),1039,28.94714060673407,1
+citywide slowdown x1.5,peak,nash,online (learned),1040,31.76864197786206,0
+citywide slowdown x1.5,peak,nash,online (learned),1041,32.73282965767548,2
+citywide slowdown x1.5,peak,nash,online (learned),1042,30.00581974036302,0
+citywide slowdown x1.5,peak,nash,online (learned),1043,30.528954942707763,2
+citywide slowdown x1.5,peak,nash,online (learned),1044,30.691698402671673,2
+citywide slowdown x1.5,peak,nash,online (learned),1045,29.545373793900684,3
+citywide slowdown x1.5,peak,nash,online (learned),1046,33.215734927062314,2
+citywide slowdown x1.5,peak,nash,online (learned),1047,31.849575742733265,2
+citywide slowdown x1.5,peak,nash,online (learned),1048,31.008880910669877,1
+citywide slowdown x1.5,peak,nash,online (learned),1049,30.544063241588557,1
+citywide slowdown x1.5,peak,nash,oracle,1000,34.42526787130719,6
+citywide slowdown x1.5,peak,nash,oracle,1001,30.298709861545678,2
+citywide slowdown x1.5,peak,nash,oracle,1002,29.731597622952528,4
+citywide slowdown x1.5,peak,nash,oracle,1003,31.81180856060711,4
+citywide slowdown x1.5,peak,nash,oracle,1004,33.33989568180092,10
+citywide slowdown x1.5,peak,nash,oracle,1005,31.583871574358394,5
+citywide slowdown x1.5,peak,nash,oracle,1006,29.35994101656632,1
+citywide slowdown x1.5,peak,nash,oracle,1007,32.47435442385145,18
+citywide slowdown x1.5,peak,nash,oracle,1008,29.91143168126447,7
+citywide slowdown x1.5,peak,nash,oracle,1009,30.366827369623095,2
+citywide slowdown x1.5,peak,nash,oracle,1010,32.15344482223012,8
+citywide slowdown x1.5,peak,nash,oracle,1011,29.70539505618714,3
+citywide slowdown x1.5,peak,nash,oracle,1012,31.08419793657854,7
+citywide slowdown x1.5,peak,nash,oracle,1013,32.658471418084105,6
+citywide slowdown x1.5,peak,nash,oracle,1014,29.844289526978244,2
+citywide slowdown x1.5,peak,nash,oracle,1015,33.69163438021158,4
+citywide slowdown x1.5,peak,nash,oracle,1016,30.95059731927538,7
+citywide slowdown x1.5,peak,nash,oracle,1017,30.09763807754084,7
+citywide slowdown x1.5,peak,nash,oracle,1018,28.341915334570732,2
+citywide slowdown x1.5,peak,nash,oracle,1019,31.44308316627209,3
+citywide slowdown x1.5,peak,nash,oracle,1020,31.226434180473316,3
+citywide slowdown x1.5,peak,nash,oracle,1021,29.101031272017796,2
+citywide slowdown x1.5,peak,nash,oracle,1022,30.607421042703947,4
+citywide slowdown x1.5,peak,nash,oracle,1023,29.94839895117925,3
+citywide slowdown x1.5,peak,nash,oracle,1024,29.795159153806072,0
+citywide slowdown x1.5,peak,nash,oracle,1025,31.33800431556941,3
+citywide slowdown x1.5,peak,nash,oracle,1026,29.085668319382364,4
+citywide slowdown x1.5,peak,nash,oracle,1027,31.133782269769252,10
+citywide slowdown x1.5,peak,nash,oracle,1028,29.54278216214335,2
+citywide slowdown x1.5,peak,nash,oracle,1029,30.998989962079715,4
+citywide slowdown x1.5,peak,nash,oracle,1030,30.55214419534892,0
+citywide slowdown x1.5,peak,nash,oracle,1031,32.665479297965504,14
+citywide slowdown x1.5,peak,nash,oracle,1032,31.592488970218334,3
+citywide slowdown x1.5,peak,nash,oracle,1033,34.46394456473204,8
+citywide slowdown x1.5,peak,nash,oracle,1034,32.28060433334394,4
+citywide slowdown x1.5,peak,nash,oracle,1035,30.88623229006428,4
+citywide slowdown x1.5,peak,nash,oracle,1036,30.34570590799257,6
+citywide slowdown x1.5,peak,nash,oracle,1037,30.91020295169403,1
+citywide slowdown x1.5,peak,nash,oracle,1038,29.55318557131713,5
+citywide slowdown x1.5,peak,nash,oracle,1039,28.79740629305126,2
+citywide slowdown x1.5,peak,nash,oracle,1040,31.09753742384374,2
+citywide slowdown x1.5,peak,nash,oracle,1041,31.293513231344047,3
+citywide slowdown x1.5,peak,nash,oracle,1042,29.52285246632781,1
+citywide slowdown x1.5,peak,nash,oracle,1043,29.456863039111916,3
+citywide slowdown x1.5,peak,nash,oracle,1044,33.24793706806767,7
+citywide slowdown x1.5,peak,nash,oracle,1045,28.79146790778468,2
+citywide slowdown x1.5,peak,nash,oracle,1046,32.13156538500215,2
+citywide slowdown x1.5,peak,nash,oracle,1047,30.499741058451818,1
+citywide slowdown x1.5,peak,nash,oracle,1048,30.08126975802413,0
+citywide slowdown x1.5,peak,nash,oracle,1049,29.632758144575593,2
+citywide slowdown x1.5,surge,heuristic,fixed model,1000,27.098245878124057,1
+citywide slowdown x1.5,surge,heuristic,fixed model,1001,28.917051926796457,12
+citywide slowdown x1.5,surge,heuristic,fixed model,1002,28.668929812118197,5
+citywide slowdown x1.5,surge,heuristic,fixed model,1003,31.347061547735862,8
+citywide slowdown x1.5,surge,heuristic,fixed model,1004,26.940617210952894,1
+citywide slowdown x1.5,surge,heuristic,fixed model,1005,32.1093951094039,24
+citywide slowdown x1.5,surge,heuristic,fixed model,1006,27.90632984098073,8
+citywide slowdown x1.5,surge,heuristic,fixed model,1007,26.644538989245603,3
+citywide slowdown x1.5,surge,heuristic,fixed model,1008,28.885537839258912,7
+citywide slowdown x1.5,surge,heuristic,fixed model,1009,28.769216205755455,8
+citywide slowdown x1.5,surge,heuristic,fixed model,1010,28.229990821707776,1
+citywide slowdown x1.5,surge,heuristic,fixed model,1011,29.242534342401445,8
+citywide slowdown x1.5,surge,heuristic,fixed model,1012,31.05894691510294,13
+citywide slowdown x1.5,surge,heuristic,fixed model,1013,29.72647921243651,12
+citywide slowdown x1.5,surge,heuristic,fixed model,1014,28.321922526821673,6
+citywide slowdown x1.5,surge,heuristic,fixed model,1015,28.924280355629136,2
+citywide slowdown x1.5,surge,heuristic,fixed model,1016,29.629299643987235,8
+citywide slowdown x1.5,surge,heuristic,fixed model,1017,28.68402198452614,0
+citywide slowdown x1.5,surge,heuristic,fixed model,1018,27.614696345014575,3
+citywide slowdown x1.5,surge,heuristic,fixed model,1019,30.78895650178116,15
+citywide slowdown x1.5,surge,heuristic,fixed model,1020,30.785902431326292,16
+citywide slowdown x1.5,surge,heuristic,fixed model,1021,28.914859089045756,1
+citywide slowdown x1.5,surge,heuristic,fixed model,1022,27.61848358873802,9
+citywide slowdown x1.5,surge,heuristic,fixed model,1023,29.061259133290488,4
+citywide slowdown x1.5,surge,heuristic,fixed model,1024,27.369104096597244,1
+citywide slowdown x1.5,surge,heuristic,fixed model,1025,29.076489935557905,10
+citywide slowdown x1.5,surge,heuristic,fixed model,1026,27.928630498358103,6
+citywide slowdown x1.5,surge,heuristic,fixed model,1027,27.323654522425354,0
+citywide slowdown x1.5,surge,heuristic,fixed model,1028,28.034103051074517,0
+citywide slowdown x1.5,surge,heuristic,fixed model,1029,31.455622132745294,11
+citywide slowdown x1.5,surge,heuristic,fixed model,1030,29.551756327890256,10
+citywide slowdown x1.5,surge,heuristic,fixed model,1031,32.49054601818442,22
+citywide slowdown x1.5,surge,heuristic,fixed model,1032,28.559844414683962,3
+citywide slowdown x1.5,surge,heuristic,fixed model,1033,28.923505271539103,2
+citywide slowdown x1.5,surge,heuristic,fixed model,1034,29.0537840133002,4
+citywide slowdown x1.5,surge,heuristic,fixed model,1035,28.314930552198987,4
+citywide slowdown x1.5,surge,heuristic,fixed model,1036,29.359351653722783,2
+citywide slowdown x1.5,surge,heuristic,fixed model,1037,33.20666696886753,16
+citywide slowdown x1.5,surge,heuristic,fixed model,1038,26.05938771625779,0
+citywide slowdown x1.5,surge,heuristic,fixed model,1039,30.051612723902352,1
+citywide slowdown x1.5,surge,heuristic,fixed model,1040,26.500949899309084,5
+citywide slowdown x1.5,surge,heuristic,fixed model,1041,31.780236983406976,14
+citywide slowdown x1.5,surge,heuristic,fixed model,1042,33.05781043847605,11
+citywide slowdown x1.5,surge,heuristic,fixed model,1043,27.41714180117516,2
+citywide slowdown x1.5,surge,heuristic,fixed model,1044,26.495098411399937,0
+citywide slowdown x1.5,surge,heuristic,fixed model,1045,29.252778412430395,6
+citywide slowdown x1.5,surge,heuristic,fixed model,1046,26.182124828686366,2
+citywide slowdown x1.5,surge,heuristic,fixed model,1047,29.04774360487047,5
+citywide slowdown x1.5,surge,heuristic,fixed model,1048,28.74828836881324,2
+citywide slowdown x1.5,surge,heuristic,fixed model,1049,30.027736234094757,10
+citywide slowdown x1.5,surge,heuristic,online (learned),1000,27.760379771733362,1
+citywide slowdown x1.5,surge,heuristic,online (learned),1001,28.423027851941747,3
+citywide slowdown x1.5,surge,heuristic,online (learned),1002,29.131779234564554,4
+citywide slowdown x1.5,surge,heuristic,online (learned),1003,31.597402462994935,4
+citywide slowdown x1.5,surge,heuristic,online (learned),1004,27.47879387711141,1
+citywide slowdown x1.5,surge,heuristic,online (learned),1005,31.1539616331791,17
+citywide slowdown x1.5,surge,heuristic,online (learned),1006,27.851990133739978,4
+citywide slowdown x1.5,surge,heuristic,online (learned),1007,27.765751406965606,5
+citywide slowdown x1.5,surge,heuristic,online (learned),1008,28.363142841652053,3
+citywide slowdown x1.5,surge,heuristic,online (learned),1009,28.97502883122464,8
+citywide slowdown x1.5,surge,heuristic,online (learned),1010,29.021924795701526,1
+citywide slowdown x1.5,surge,heuristic,online (learned),1011,29.868994893132026,6
+citywide slowdown x1.5,surge,heuristic,online (learned),1012,31.672285842418106,14
+citywide slowdown x1.5,surge,heuristic,online (learned),1013,28.991876081426554,5
+citywide slowdown x1.5,surge,heuristic,online (learned),1014,28.129077799049487,4
+citywide slowdown x1.5,surge,heuristic,online (learned),1015,29.783905649773136,3
+citywide slowdown x1.5,surge,heuristic,online (learned),1016,29.845932807880097,2
+citywide slowdown x1.5,surge,heuristic,online (learned),1017,29.689594769289542,0
+citywide slowdown x1.5,surge,heuristic,online (learned),1018,28.65787873643203,2
+citywide slowdown x1.5,surge,heuristic,online (learned),1019,28.68349542752828,7
+citywide slowdown x1.5,surge,heuristic,online (learned),1020,30.50708549880503,7
+citywide slowdown x1.5,surge,heuristic,online (learned),1021,29.53733834166795,2
+citywide slowdown x1.5,surge,heuristic,online (learned),1022,30.140391489490966,16
+citywide slowdown x1.5,surge,heuristic,online (learned),1023,29.275240875240897,4
+citywide slowdown x1.5,surge,heuristic,online (learned),1024,27.53658551312721,1
+citywide slowdown x1.5,surge,heuristic,online (learned),1025,29.717498022090872,8
+citywide slowdown x1.5,surge,heuristic,online (learned),1026,28.230608674316162,5
+citywide slowdown x1.5,surge,heuristic,online (learned),1027,27.970753822976928,1
+citywide slowdown x1.5,surge,heuristic,online (learned),1028,29.125486540852958,0
+citywide slowdown x1.5,surge,heuristic,online (learned),1029,33.3226434076604,19
+citywide slowdown x1.5,surge,heuristic,online (learned),1030,29.485808991036066,4
+citywide slowdown x1.5,surge,heuristic,online (learned),1031,31.72225916972486,15
+citywide slowdown x1.5,surge,heuristic,online (learned),1032,28.449116131654566,2
+citywide slowdown x1.5,surge,heuristic,online (learned),1033,27.703285178715564,2
+citywide slowdown x1.5,surge,heuristic,online (learned),1034,29.708469172377857,2
+citywide slowdown x1.5,surge,heuristic,online (learned),1035,30.33689959394305,8
+citywide slowdown x1.5,surge,heuristic,online (learned),1036,31.444791537193744,3
+citywide slowdown x1.5,surge,heuristic,online (learned),1037,34.81396133280016,16
+citywide slowdown x1.5,surge,heuristic,online (learned),1038,26.714480433557714,0
+citywide slowdown x1.5,surge,heuristic,online (learned),1039,30.96197313223018,1
+citywide slowdown x1.5,surge,heuristic,online (learned),1040,26.76285959920514,4
+citywide slowdown x1.5,surge,heuristic,online (learned),1041,31.73888934128173,13
+citywide slowdown x1.5,surge,heuristic,online (learned),1042,29.926290196724835,1
+citywide slowdown x1.5,surge,heuristic,online (learned),1043,28.160571767936336,2
+citywide slowdown x1.5,surge,heuristic,online (learned),1044,27.500523903676093,0
+citywide slowdown x1.5,surge,heuristic,online (learned),1045,30.040496884918085,5
+citywide slowdown x1.5,surge,heuristic,online (learned),1046,26.606013101519434,0
+citywide slowdown x1.5,surge,heuristic,online (learned),1047,29.346600241976482,3
+citywide slowdown x1.5,surge,heuristic,online (learned),1048,29.185873243653326,2
+citywide slowdown x1.5,surge,heuristic,online (learned),1049,30.915056086670848,8
+citywide slowdown x1.5,surge,heuristic,oracle,1000,27.041690238440985,1
+citywide slowdown x1.5,surge,heuristic,oracle,1001,29.00392813358097,13
+citywide slowdown x1.5,surge,heuristic,oracle,1002,28.702723139361186,6
+citywide slowdown x1.5,surge,heuristic,oracle,1003,31.49229874620598,8
+citywide slowdown x1.5,surge,heuristic,oracle,1004,26.927378679598572,1
+citywide slowdown x1.5,surge,heuristic,oracle,1005,32.169517122007534,25
+citywide slowdown x1.5,surge,heuristic,oracle,1006,27.95818197644172,10
+citywide slowdown x1.5,surge,heuristic,oracle,1007,26.692687721168213,4
+citywide slowdown x1.5,surge,heuristic,oracle,1008,28.956623988879535,9
+citywide slowdown x1.5,surge,heuristic,oracle,1009,28.728275017251764,8
+citywide slowdown x1.5,surge,heuristic,oracle,1010,28.329657221102757,2
+citywide slowdown x1.5,surge,heuristic,oracle,1011,29.321260893022664,8
+citywide slowdown x1.5,surge,heuristic,oracle,1012,31.313863401972014,16
+citywide slowdown x1.5,surge,heuristic,oracle,1013,31.202566558078313,21
+citywide slowdown x1.5,surge,heuristic,oracle,1014,28.29167386783054,6
+citywide slowdown x1.5,surge,heuristic,oracle,1015,29.044478806307477,3
+citywide slowdown x1.5,surge,heuristic,oracle,1016,29.584544390532763,8
+citywide slowdown x1.5,surge,heuristic,oracle,1017,28.649572830773703,0
+citywide slowdown x1.5,surge,heuristic,oracle,1018,27.614696345014575,3
+citywide slowdown x1.5,surge,heuristic,oracle,1019,31.4268364439367,18
+citywide slowdown x1.5,surge,heuristic,oracle,1020,30.783916151006636,16
+citywide slowdown x1.5,surge,heuristic,oracle,1021,28.98761514526489,2
+citywide slowdown x1.5,surge,heuristic,oracle,1022,27.76745846557546,12
+citywide slowdown x1.5,surge,heuristic,oracle,1023,29.361124892357118,7
+citywide slowdown x1.5,surge,heuristic,oracle,1024,27.34967131505472,1
+citywide slowdown x1.5,surge,heuristic,oracle,1025,29.25304785664561,11
+citywide slowdown x1.5,surge,heuristic,oracle,1026,27.815661664182848,5
+citywide slowdown x1.5,surge,heuristic,oracle,1027,27.48900326992277,0
+citywide slowdown x1.5,surge,heuristic,oracle,1028,27.997585842151,0
+citywide slowdown x1.5,surge,heuristic,oracle,1029,31.444282916992005,11
+citywide slowdown x1.5,surge,heuristic,oracle,1030,29.551756327890256,10
+citywide slowdown x1.5,surge,heuristic,oracle,1031,33.306214425679165,26
+citywide slowdown x1.5,surge,heuristic,oracle,1032,28.72942338406359,5
+citywide slowdown x1.5,surge,heuristic,oracle,1033,28.988452486436078,2
+citywide slowdown x1.5,surge,heuristic,oracle,1034,28.858529834205676,4
+citywide slowdown x1.5,surge,heuristic,oracle,1035,28.637447488864808,7
+citywide slowdown x1.5,surge,heuristic,oracle,1036,29.34918019615793,2
+citywide slowdown x1.5,surge,heuristic,oracle,1037,33.528441663319086,21
+citywide slowdown x1.5,surge,heuristic,oracle,1038,26.039415562818654,0
+citywide slowdown x1.5,surge,heuristic,oracle,1039,30.01336553311693,1
+citywide slowdown x1.5,surge,heuristic,oracle,1040,26.603774778320187,6
+citywide slowdown x1.5,surge,heuristic,oracle,1041,31.999614607968937,17
+citywide slowdown x1.5,surge,heuristic,oracle,1042,33.59406815480373,18
+citywide slowdown x1.5,surge,heuristic,oracle,1043,27.346039783855158,2
+citywide slowdown x1.5,surge,heuristic,oracle,1044,26.589607295973234,0
+citywide slowdown x1.5,surge,heuristic,oracle,1045,29.208716961442278,6
+citywide slowdown x1.5,surge,heuristic,oracle,1046,26.182124828686366,2
+citywide slowdown x1.5,surge,heuristic,oracle,1047,29.156292135693086,7
+citywide slowdown x1.5,surge,heuristic,oracle,1048,28.70895614244165,2
+citywide slowdown x1.5,surge,heuristic,oracle,1049,29.988924032120167,10
+citywide slowdown x1.5,surge,nash,fixed model,1000,27.067509816702575,1
+citywide slowdown x1.5,surge,nash,fixed model,1001,28.43477231239405,8
+citywide slowdown x1.5,surge,nash,fixed model,1002,29.39067751573749,4
+citywide slowdown x1.5,surge,nash,fixed model,1003,30.602611558243613,5
+citywide slowdown x1.5,surge,nash,fixed model,1004,27.479211883055797,0
+citywide slowdown x1.5,surge,nash,fixed model,1005,31.480196885515756,21
+citywide slowdown x1.5,surge,nash,fixed model,1006,27.667950375608978,7
+citywide slowdown x1.5,surge,nash,fixed model,1007,26.660482627533256,1
+citywide slowdown x1.5,surge,nash,fixed model,1008,28.58895873160133,4
+citywide slowdown x1.5,surge,nash,fixed model,1009,28.740485092110355,8
+citywide slowdown x1.5,surge,nash,fixed model,1010,28.31571924700149,1
+citywide slowdown x1.5,surge,nash,fixed model,1011,29.002586824620174,6
+citywide slowdown x1.5,surge,nash,fixed model,1012,31.117847919248955,13
+citywide slowdown x1.5,surge,nash,fixed model,1013,29.946676486502717,10
+citywide slowdown x1.5,surge,nash,fixed model,1014,27.468796512986092,2
+citywide slowdown x1.5,surge,nash,fixed model,1015,29.233466718694572,5
+citywide slowdown x1.5,surge,nash,fixed model,1016,29.437074372527434,6
+citywide slowdown x1.5,surge,nash,fixed model,1017,28.701278090237633,0
+citywide slowdown x1.5,surge,nash,fixed model,1018,27.755600589406097,3
+citywide slowdown x1.5,surge,nash,fixed model,1019,26.68834160841501,4
+citywide slowdown x1.5,surge,nash,fixed model,1020,30.390289434872052,13
+citywide slowdown x1.5,surge,nash,fixed model,1021,28.902194236612676,1
+citywide slowdown x1.5,surge,nash,fixed model,1022,27.160126586448136,5
+citywide slowdown x1.5,surge,nash,fixed model,1023,28.69212129628128,0
+citywide slowdown x1.5,surge,nash,fixed model,1024,27.09315634223232,0
+citywide slowdown x1.5,surge,nash,fixed model,1025,28.638223682654484,3
+citywide slowdown x1.5,surge,nash,fixed model,1026,27.91561337775558,5
+citywide slowdown x1.5,surge,nash,fixed model,1027,27.533598621350656,0
+citywide slowdown x1.5,surge,nash,fixed model,1028,28.1217194198613,0
+citywide slowdown x1.5,surge,nash,fixed model,1029,30.53099040736839,17
+citywide slowdown x1.5,surge,nash,fixed model,1030,29.16183039661595,6
+citywide slowdown x1.5,surge,nash,fixed model,1031,33.04227631085074,27
+citywide slowdown x1.5,surge,nash,fixed model,1032,29.060165392281363,5
+citywide slowdown x1.5,surge,nash,fixed model,1033,27.942125223881423,2
+citywide slowdown x1.5,surge,nash,fixed model,1034,29.058503179855812,3
+citywide slowdown x1.5,surge,nash,fixed model,1035,28.254321385123387,6
+citywide slowdown x1.5,surge,nash,fixed model,1036,29.614375553617585,3
+citywide slowdown x1.5,surge,nash,fixed model,1037,33.23958682310345,17
+citywide slowdown x1.5,surge,nash,fixed model,1038,26.593637249270333,1
+citywide slowdown x1.5,surge,nash,fixed model,1039,29.93628440491973,0
+citywide slowdown x1.5,surge,nash,fixed model,1040,26.300447951530238,3
+citywide slowdown x1.5,surge,nash,fixed model,1041,31.656771009403297,7
+citywide slowdown x1.5,surge,nash,fixed model,1042,29.236835177728715,2
+citywide slowdown x1.5,surge,nash,fixed model,1043,27.482628443991356,4
+citywide slowdown x1.5,surge,nash,fixed model,1044,26.440424177511424,0
+citywide slowdown x1.5,surge,nash,fixed model,1045,29.609378760439455,6
+citywide slowdown x1.5,surge,nash,fixed model,1046,26.17175548499543,0
+citywide slowdown x1.5,surge,nash,fixed model,1047,29.122888330859627,6
+citywide slowdown x1.5,surge,nash,fixed model,1048,28.5440297211852,2
+citywide slowdown x1.5,surge,nash,fixed model,1049,29.749983694833904,6
+citywide slowdown x1.5,surge,nash,online (learned),1000,27.73307963163167,2
+citywide slowdown x1.5,surge,nash,online (learned),1001,28.478736859669905,2
+citywide slowdown x1.5,surge,nash,online (learned),1002,29.86742834437153,3
+citywide slowdown x1.5,surge,nash,online (learned),1003,31.63461575162836,4
+citywide slowdown x1.5,surge,nash,online (learned),1004,27.70469232450036,0
+citywide slowdown x1.5,surge,nash,online (learned),1005,31.80324701399202,15
+citywide slowdown x1.5,surge,nash,online (learned),1006,27.96644416792245,5
+citywide slowdown x1.5,surge,nash,online (learned),1007,27.31712409115533,2
+citywide slowdown x1.5,surge,nash,online (learned),1008,28.751627333912694,2
+citywide slowdown x1.5,surge,nash,online (learned),1009,28.406020941749762,2
+citywide slowdown x1.5,surge,nash,online (learned),1010,28.862888492522956,1
+citywide slowdown x1.5,surge,nash,online (learned),1011,29.853846898646268,5
+citywide slowdown x1.5,surge,nash,online (learned),1012,29.328805566903526,2
+citywide slowdown x1.5,surge,nash,online (learned),1013,29.818554562467472,5
+citywide slowdown x1.5,surge,nash,online (learned),1014,28.002147479437177,3
+citywide slowdown x1.5,surge,nash,online (learned),1015,30.855582219399558,10
+citywide slowdown x1.5,surge,nash,online (learned),1016,29.574815648397774,3
+citywide slowdown x1.5,surge,nash,online (learned),1017,29.52185101247437,0
+citywide slowdown x1.5,surge,nash,online (learned),1018,28.88119095946307,2
+citywide slowdown x1.5,surge,nash,online (learned),1019,29.0396614949549,3
+citywide slowdown x1.5,surge,nash,online (learned),1020,30.078330833520972,6
+citywide slowdown x1.5,surge,nash,online (learned),1021,29.717461505154468,1
+citywide slowdown x1.5,surge,nash,online (learned),1022,28.37193253385103,10
+citywide slowdown x1.5,surge,nash,online (learned),1023,28.838988675271988,0
+citywide slowdown x1.5,surge,nash,online (learned),1024,27.921992183248573,1
+citywide slowdown x1.5,surge,nash,online (learned),1025,29.54327001939114,7
+citywide slowdown x1.5,surge,nash,online (learned),1026,27.419019851739694,1
+citywide slowdown x1.5,surge,nash,online (learned),1027,28.00014534054288,1
+citywide slowdown x1.5,surge,nash,online (learned),1028,28.526071057533755,0
+citywide slowdown x1.5,surge,nash,online (learned),1029,33.907488116254385,21
+citywide slowdown x1.5,surge,nash,online (learned),1030,29.72184344506215,2
+citywide slowdown x1.5,surge,nash,online (learned),1031,31.568021705667697,11
+citywide slowdown x1.5,surge,nash,online (learned),1032,28.56031429308184,1
+citywide slowdown x1.5,surge,nash,online (learned),1033,28.291330820699255,6
+citywide slowdown x1.5,surge,nash,online (learned),1034,29.35765727872069,1
+citywide slowdown x1.5,surge,nash,online (learned),1035,30.134606183560628,8
+citywide slowdown x1.5,surge,nash,online (learned),1036,31.367611934325595,3
+citywide slowdown x1.5,surge,nash,online (learned),1037,33.993743134188435,13
+citywide slowdown x1.5,surge,nash,online (learned),1038,26.893267765555315,1
+citywide slowdown x1.5,surge,nash,online (learned),1039,31.064729802110957,0
+citywide slowdown x1.5,surge,nash,online (learned),1040,26.76052848585556,3
+citywide slowdown x1.5,surge,nash,online (learned),1041,32.502464215091436,12
+citywide slowdown x1.5,surge,nash,online (learned),1042,31.177460189222703,3
+citywide slowdown x1.5,surge,nash,online (learned),1043,28.309920809430796,4
+citywide slowdown x1.5,surge,nash,online (learned),1044,27.53265000197792,0
+citywide slowdown x1.5,surge,nash,online (learned),1045,29.7958377577577,4
+citywide slowdown x1.5,surge,nash,online (learned),1046,26.267310460846215,0
+citywide slowdown x1.5,surge,nash,online (learned),1047,29.852833440125913,3
+citywide slowdown x1.5,surge,nash,online (learned),1048,29.188606160119864,2
+citywide slowdown x1.5,surge,nash,online (learned),1049,31.079885084238516,6
+citywide slowdown x1.5,surge,nash,oracle,1000,27.14981405228284,1
+citywide slowdown x1.5,surge,nash,oracle,1001,28.89664726403523,12
+citywide slowdown x1.5,surge,nash,oracle,1002,29.088739658585844,4
+citywide slowdown x1.5,surge,nash,oracle,1003,31.232509648647643,8
+citywide slowdown x1.5,surge,nash,oracle,1004,28.256640992145037,8
+citywide slowdown x1.5,surge,nash,oracle,1005,31.52506846961502,22
+citywide slowdown x1.5,surge,nash,oracle,1006,28.049340598790092,10
+citywide slowdown x1.5,surge,nash,oracle,1007,26.53031822388602,1
+citywide slowdown x1.5,surge,nash,oracle,1008,28.983822163718457,8
+citywide slowdown x1.5,surge,nash,oracle,1009,28.744689805901203,8
+citywide slowdown x1.5,surge,nash,oracle,1010,28.30875536162821,2
+citywide slowdown x1.5,surge,nash,oracle,1011,29.497621230910386,9
+citywide slowdown x1.5,surge,nash,oracle,1012,31.535939349028045,15
+citywide slowdown x1.5,surge,nash,oracle,1013,31.588741727111056,18
+citywide slowdown x1.5,surge,nash,oracle,1014,27.686230043267027,4
+citywide slowdown x1.5,surge,nash,oracle,1015,30.08305976708189,13
+citywide slowdown x1.5,surge,nash,oracle,1016,29.424854497089605,6
+citywide slowdown x1.5,surge,nash,oracle,1017,28.706010421652643,0
+citywide slowdown x1.5,surge,nash,oracle,1018,27.619508294537567,3
+citywide slowdown x1.5,surge,nash,oracle,1019,27.04957534982467,5
+citywide slowdown x1.5,surge,nash,oracle,1020,30.562849634324063,16
+citywide slowdown x1.5,surge,nash,oracle,1021,28.74962815121423,1
+citywide slowdown x1.5,surge,nash,oracle,1022,27.160126586448136,5
+citywide slowdown x1.5,surge,nash,oracle,1023,29.383793666806785,4
+citywide slowdown x1.5,surge,nash,oracle,1024,27.26808590895921,2
+citywide slowdown x1.5,surge,nash,oracle,1025,28.583211253891612,3
+citywide slowdown x1.5,surge,nash,oracle,1026,27.85736351718275,5
+citywide slowdown x1.5,surge,nash,oracle,1027,27.16275374659709,3
+citywide slowdown x1.5,surge,nash,oracle,1028,27.98791906438679,0
+citywide slowdown x1.5,surge,nash,oracle,1029,33.14572102670693,27
+citywide slowdown x1.5,surge,nash,oracle,1030,29.56426998203667,10
+citywide slowdown x1.5,surge,nash,oracle,1031,35.093152699845916,48
+citywide slowdown x1.5,surge,nash,oracle,1032,28.956911773479828,5
+citywide slowdown x1.5,surge,nash,oracle,1033,27.79160722611628,1
+citywide slowdown x1.5,surge,nash,oracle,1034,28.865430862291397,4
+citywide slowdown x1.5,surge,nash,oracle,1035,28.204693000843875,6
+citywide slowdown x1.5,surge,nash,oracle,1036,29.56172881868416,3
+citywide slowdown x1.5,surge,nash,oracle,1037,34.38229204895585,27
+citywide slowdown x1.5,surge,nash,oracle,1038,26.523037877946688,3
+citywide slowdown x1.5,surge,nash,oracle,1039,29.891774226818754,1
+citywide slowdown x1.5,surge,nash,oracle,1040,26.24184126145265,3
+citywide slowdown x1.5,surge,nash,oracle,1041,31.710143502114054,7
+citywide slowdown x1.5,surge,nash,oracle,1042,29.256379244122055,2
+citywide slowdown x1.5,surge,nash,oracle,1043,27.410323886327006,5
+citywide slowdown x1.5,surge,nash,oracle,1044,26.780484232372565,1
+citywide slowdown x1.5,surge,nash,oracle,1045,30.0891835110026,9
+citywide slowdown x1.5,surge,nash,oracle,1046,26.15940961357712,3
+citywide slowdown x1.5,surge,nash,oracle,1047,29.907308995842403,15
+citywide slowdown x1.5,surge,nash,oracle,1048,28.944143470511282,3
+citywide slowdown x1.5,surge,nash,oracle,1049,30.037664333923157,9
