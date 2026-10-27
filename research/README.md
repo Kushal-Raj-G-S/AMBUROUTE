@@ -1,4 +1,4 @@
-**Start with [HANDOFF.md](HANDOFF.md)** (where everything is, how to run it, results, open items), then [PROJECT_LOG.md](PROJECT_LOG.md) (the full chronological record).
+**Start with [HANDOFF.md](HANDOFF.md)** (where everything is, how to run it, results, open items), then [PROJECT_LOG.md](PROJECT_LOG.md) (the full chronological record) and [JOURNEY.md](JOURNEY.md) (original draft versus today).
 
 # research/: proof and memory for the AmbuRoute project
 

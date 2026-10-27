@@ -55,6 +55,7 @@ Regenerate the documented tables: `python experiments/make_docs_tables.py`. Expe
 3. `docs/additional_studies.md` (every extension study with tables and caveats, sections 1-13) and `docs/results_tables.md` (generated)
 4. `docs/safety.md`, `docs/model_card.md`, `docs/deployment.md`, `docs/performance.md`, `docs/pilot_design.md`, `docs/market_research.md`
 5. `research/sources.md` and `research/screenshots/` (evidence for market claims)
+6. `research/JOURNEY.md` (the original draft versus the first rebuilt paper versus today, and what we went through)
 
 ## 6. Key results (all reproducible; details and caveats in the docs)
 - **Paper headline** (simulated, tight capacity, 50 held-out seeds): minutes from call to bed, evening peak 25.78 (nearest), 22.73 (heuristic), 22.64 (equilibrium), 22.94 (PPO); surge 27.75, 22.97, 22.91, 23.50. Turned-away ambulances fall 87-93 %.

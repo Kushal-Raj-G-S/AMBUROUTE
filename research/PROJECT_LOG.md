@@ -161,3 +161,6 @@ England 2026 profile: NHS England beds sitrep page 2026-27 (monthly CSVs Apr-Sep
 
 ## 27. Handoff document and backup (2026-10-28)
 Owner asked that everything be recorded in documents in case the conversation or the (borrowed) subscription is lost. Wrote research/HANDOFF.md (map of folders, rules, run commands, accounts, results, data inventory, limits, open items, lessons) and linked it from research/README.md. Made a git bundle (full history) and a zip of research and paper in the project's _backup/ folder. Keep HANDOFF.md and PROJECT_LOG.md current after every change.
+
+## 28. Journey document (2026-10-28)
+Owner asked for a comparison of the inherited original draft, the first paper we rebuilt, and the project today. Written as research/JOURNEY.md (side-by-side table, what changed in the conclusions, what we went through, achievements, what is missing) and linked from HANDOFF.md and research/README.md.
